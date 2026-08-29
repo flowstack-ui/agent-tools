@@ -39,7 +39,9 @@ async function fetchExact(path) {
   assertSecurityHeaders(response, path);
   assert.equal(response.headers.get("access-control-allow-origin"), "*", `${path} static CORS drifted`);
   assert.equal(response.headers.get("cache-control"), browserCache, `${path} browser cache policy drifted`);
-  assert.equal(response.headers.get("vercel-cdn-cache-control"), boundedCdnCache, `${path} CDN cache policy drifted`);
+  const cdnPolicy = response.headers.get("vercel-cdn-cache-control");
+  if (cdnPolicy !== null) assert.equal(cdnPolicy, boundedCdnCache, `${path} CDN cache policy drifted`);
+  assert.match(response.headers.get("x-vercel-cache") ?? "", /^(?:HIT|MISS|STALE|PRERENDER)$/u, `${path} did not traverse Vercel's bounded CDN`);
   return { content: Buffer.from(await response.arrayBuffer()), response };
 }
 

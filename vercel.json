@@ -7,8 +7,7 @@
   "functions": {
     "api/mcp.mjs": {
       "includeFiles": "{sources/**,packages/mcp/generated/**,packages/mcp/src/**}",
-      "maxDuration": 10,
-      "memory": 1024
+      "maxDuration": 10
     }
   },
   "rewrites": [
