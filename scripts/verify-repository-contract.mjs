@@ -10,6 +10,7 @@ const mcpPackage = await readJson(join(root, "packages/mcp/package.json"));
 const lock = await readJson(join(root, "sources/lock.json"));
 const delivery = await readJson(join(root, "config/delivery.json"));
 const publishWorkflow = await readFile(join(root, ".github/workflows/publish.yml"), "utf8");
+const hostedDriftWorkflow = await readFile(join(root, ".github/workflows/hosted-drift.yml"), "utf8");
 
 assert.equal(rootPackage.name, config.packages[0].name);
 assert.equal(mcpPackage.name, config.packages[1].name);
@@ -32,6 +33,15 @@ assert.match(publishWorkflow, /^\s*environment: npm$/mu);
 assert.match(publishWorkflow, /^\s*package-manager-cache: false$/mu);
 assert.doesNotMatch(publishWorkflow, /^\s*cache: npm$/mu, "release builds must not restore package-manager caches");
 assert.doesNotMatch(publishWorkflow, /NODE_AUTH_TOKEN/u, "trusted publication must not use a long-lived npm token");
+
+assert.match(hostedDriftWorkflow, /^\s*schedule:$/mu);
+assert.match(hostedDriftWorkflow, /^\s*workflow_dispatch:$/mu);
+assert.match(hostedDriftWorkflow, /^\s*contents: read$/mu);
+assert.match(hostedDriftWorkflow, /^\s*cancel-in-progress: true$/mu);
+assert.match(hostedDriftWorkflow, /^\s*timeout-minutes: 10$/mu);
+assert.match(hostedDriftWorkflow, /^\s*node-version: 24$/mu);
+assert.match(hostedDriftWorkflow, /^\s*package-manager-cache: false$/mu);
+assert.match(hostedDriftWorkflow, /npm run host:verify -- --origin https:\/\/agents\.brick-ui\.com/u);
 
 assert.deepEqual(lock.packages.map(({ name }) => name).sort(), [...config.sourcePackages].sort());
 assert.deepEqual(delivery.packages.map(({ name }) => name).sort(), [...config.sourcePackages].sort());
