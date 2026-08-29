@@ -30,3 +30,8 @@ boundary, archive ingestion, all four skill contracts, plugin metadata, MCP
 protocol behavior, and both exact npm archives in isolated consumers. Hosted
 verification is separate because it compares a deployed production surface
 with the already-verified local corpus.
+
+The canonical host is checked daily and on demand by the `Hosted drift`
+workflow. It runs the same corpus byte/digest and MCP protocol verifier against
+`https://agents.brick-ui.com`, cancels superseded runs, restores no package
+manager cache, and fails within ten minutes.
