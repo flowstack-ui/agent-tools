@@ -24,9 +24,14 @@ try {
   assert.ok(listing.includes("package/bin/flowstack-mcp.mjs"));
   assert.ok(listing.includes("package/generated/tool-registry.json"));
   assert.ok(listing.includes("package/generated/capabilities.json"));
+  assert.ok(listing.includes("package/skills/flowstack-ui-builder/SKILL.md"));
+  assert.ok(listing.includes("package/skills/flowstack-ui-compose/SKILL.md"));
+  assert.ok(listing.includes("package/skills/flowstack-ui-maintainer/SKILL.md"));
+  assert.ok(listing.includes("package/skills/flowstack-ui-review/SKILL.md"));
   for (const path of listing) {
     assert.ok(path.startsWith("package/"));
-    assert.equal(/(?:^|\/)(?:test|scripts|node_modules|sources|private|research)(?:\/|$)/iu.test(path), false, `unsafe development/private path packed: ${path}`);
+    const skillScript = /^package\/skills\/flowstack-ui-[a-z-]+\/scripts\/resolve-agent-knowledge\.mjs$/u.test(path);
+    assert.equal(!skillScript && /(?:^|\/)(?:test|scripts|node_modules|sources|private|research)(?:\/|$)/iu.test(path), false, `unsafe development/private path packed: ${path}`);
   }
   const packageJson = JSON.parse(run("tar", ["-xOf", archive, "package/package.json"]));
   assert.equal(packageJson.name, SERVER_PACKAGE);

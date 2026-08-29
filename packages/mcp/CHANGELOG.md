@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.3
+
+- Advertise and serve the bounded static skills extension used by OpenAI Scan
+  Tools, including complete resource manifests and verified SHA-256 digests.
+- Package the four canonical FLOWSTACK skills with the MCP archive.
+- Publish structured output schemas for every read-only tool result envelope.
+
 ## 0.1.2
 
 ### Fixed

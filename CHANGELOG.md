@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3
+
+- Expose the four canonical FLOWSTACK workflow skills through the bounded
+  `io.modelcontextprotocol/skills` extension for MCP-backed plugin submission.
+- Keep the MCP-packaged skill snapshot byte-identical to the canonical public
+  skill tree and publish exact SHA-256 resource manifests.
+- Add structured output schemas to all eleven read-only FLOWSTACK MCP tools.
+
 ## 0.1.2
 
 ### Fixed

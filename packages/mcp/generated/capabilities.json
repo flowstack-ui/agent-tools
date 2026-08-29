@@ -1,7 +1,7 @@
 {
   "schema": "flowstack.mcp-capabilities.v1",
   "package": "@flowstack-ui/mcp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "transport": {
     "kind": "stdio",
     "modern": "2026-07-28",
@@ -16,6 +16,9 @@
     "versionPolicy": "exact-only",
     "network": false
   },
+  "extensions": [
+    "io.modelcontextprotocol/skills"
+  ],
   "toolNames": [
     "list_flowstack_packages",
     "list_components",

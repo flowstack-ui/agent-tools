@@ -63,10 +63,11 @@ dependencies from that project. The hosted `/mcp` endpoint uses the same tool
 definitions and server core but a locked-only repository policy; it cannot
 inspect runtime-installed dependencies or substitute a private source.
 
-Four canonical skill directories can be installed independently from GitHub
-or loaded together through the opt-in skills-only FLOWSTACK plugin. MCP remains
-separately configured so installing a skill never silently starts a process or
-changes a project.
+Four canonical skill directories can be installed independently from GitHub,
+loaded together through the packaged FLOWSTACK plugin, or imported as a static,
+digest-verified submission snapshot from the hosted MCP server. MCP remains
+explicitly configured so installing a standalone skill never silently starts a
+process or changes a project.
 
 ## Public boundary
 
