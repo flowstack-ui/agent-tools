@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2
+
+### Fixed
+
+- Serve both modern and legacy stateless Streamable HTTP clients from the
+  public MCP endpoint so current ChatGPT and Codex plugin runtimes can execute
+  the hosted exact-version fallback.
+
 ## 0.1.1
 
 ### Changed

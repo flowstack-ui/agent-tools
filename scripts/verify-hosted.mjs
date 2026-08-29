@@ -91,7 +91,8 @@ assert.equal((await mcpRequest("POST", { accept: mcpAccept, "content-type": "tex
 assert.equal((await mcpRequest("POST", { accept: "application/json", "content-type": "application/json" }, "{}")).status, 406);
 assert.equal((await mcpRequest("POST", { accept: mcpAccept, "content-type": "application/json" }, "x".repeat(256 * 1024 + 1))).status, 413);
 const legacy = await mcpRequest("POST", { accept: mcpAccept, "content-type": "application/json" }, JSON.stringify({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-11-25", capabilities: {}, clientInfo: { name: "host-verifier", version: "1" } } }));
-assert.equal(legacy.status, 400, "hosted MCP must reject the legacy protocol");
+assert.equal(legacy.status, 200, "hosted MCP must support stateless legacy clients");
+assert.match(await legacy.text(), /"protocolVersion":"2025-11-25"/u, "hosted MCP legacy negotiation drifted");
 
 const checkedResponses = [];
 const transport = new StreamableHTTPClientTransport(new URL("/mcp", origin), { fetch: async (input, init) => {
