@@ -20,6 +20,12 @@ commit contained in protected `main`.
    `https://agents.brick-ui.com` and retain the deployment commit plus index
    digest as release evidence.
 
+The `Publish` workflow is idempotent. A protected-tag push is the normal
+release path. If infrastructure interrupts a partial release, dispatch the
+same workflow from `main` with the existing protected tag; it checks out that
+immutable tag, verifies any existing archive by integrity, and publishes only
+missing exact archives.
+
 Trusted publishers must be configured separately on npm for both packages,
 restricted to this repository and the release workflow. Do not use a local npm
 token, a mutable dependency range, an unverified archive, or a tag that is not
