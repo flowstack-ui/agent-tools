@@ -1,0 +1,5 @@
+{
+  "name": "@flowstack-ui/theme",
+  "version": "0.1.1",
+  "description": "Serializable theme authoring and static compilation for Flowstack UI."
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "drawer",
+  "name": "Drawer",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide modal side-sheet behavior, focus management, dismissal, portal composition, and edge-placement metadata.",
+  "useWhen": [
+    "A modal task or navigation panel enters from an edge and background content must be unavailable while open."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The panel is centered, non-modal, or permanently part of page layout.",
+      "useInstead": "Dialog or an inline panel"
+    }
+  ],
+  "composition": [
+    "Compose Trigger and Portal containing Overlay and Content; place Title, Description, and Close inside Content and supply the labeling parts the content requires."
+  ],
+  "rules": [
+    {
+      "id": "drawer-modal-contract",
+      "level": "must",
+      "statement": "Use Drawer-owned focus trap, focus restoration, scroll lock, Escape, backdrop, and portal behavior instead of rebuilding them."
+    },
+    {
+      "id": "drawer-labeling",
+      "level": "must",
+      "statement": "Give Content an accessible name with Title or an explicit labeling relationship."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Drawer only for its edge appearance while leaving background controls interactive.",
+      "correction": "Use Drawer for modal behavior or use a normal inline region when interaction should remain available."
+    }
+  ],
+  "validation": [
+    "Test trigger focus, initial focus, Tab containment, Escape and backdrop dismissal, Close, scroll lock, and focus return.",
+    "Confirm nested portals remain within the modal contract."
+  ],
+  "related": [
+    "dialog",
+    "sidebar",
+    "navigation-menu"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "checkbox-group",
+  "name": "CheckboxGroup",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Manage a named set of independent checkbox choices with multi-value state, group validation, form submission, structured item relationships, and deterministic select-all behavior.",
+  "useWhen": [
+    "A user may select any number of related form choices and the choices share naming, state, validation, or submission behavior."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "There is one yes-or-no choice, exactly one option must be chosen, or the controls represent pressed commands instead of form choices.",
+      "useInstead": "Checkbox, RadioGroup, or ToggleGroup"
+    }
+  ],
+  "composition": [
+    "Give Root an accessible group name and compose uniquely valued Item parts. Plain Item children may name concise options; use ItemLabel and ItemDescription for structured relationships. Add Parent only with an explicit complete allValues set, and use a native fieldset and legend when a visible legend is required."
+  ],
+  "rules": [
+    {
+      "id": "checkbox-group-name",
+      "level": "must",
+      "statement": "Give Root a concise accessible name with native ARIA or an inherited Fieldset Legend; do not use unsupported aria-required on role=group."
+    },
+    {
+      "id": "checkbox-group-values",
+      "level": "must",
+      "statement": "Give every Item a stable unique value and keep controlled value arrays synchronized through onValueChange; use name and form when the checked values must submit."
+    },
+    {
+      "id": "checkbox-group-parent",
+      "level": "must",
+      "statement": "Render Parent only when Root allValues explicitly names the complete currently selectable set; omit disabled values while disabled and preserve selected values outside that declared set."
+    },
+    {
+      "id": "checkbox-group-labeling",
+      "level": "must",
+      "statement": "Use plain children as an Item name or pair one ItemLabel and optional ItemDescription; preserve native aria-label, aria-labelledby, and aria-describedby precedence."
+    },
+    {
+      "id": "checkbox-group-state",
+      "level": "must",
+      "statement": "Preserve disabled, read-only, invalid, and required behavior, including one-or-more group validity, first-enabled validation focus, form reset, and hidden per-item submission inputs."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Treating required as every checkbox being required, computing Parent from only mounted or selected values, or using CheckboxGroup for exclusive or pressed-button choices.",
+      "correction": "Required means at least one selected; declare Parent's full selectable set with allValues and choose RadioGroup or ToggleGroup for different interaction models."
+    }
+  ],
+  "validation": [
+    "Verify controlled and uncontrolled arrays, unique values, independent Enter and Space toggling, disabled and read-only items, group and item naming, structured descriptions, orientation metadata, and asChild/render prop and ref merging.",
+    "Verify named form submission, group-level required validity with and without a name, inline and native validation, first-enabled focus, Fieldset integration, reset, Parent unchecked/mixed/checked transitions, disabled-value exclusion, and preservation of outside values."
+  ],
+  "related": [
+    "checkbox",
+    "radio-group",
+    "toggle-group",
+    "fieldset",
+    "form"
+  ]
+}

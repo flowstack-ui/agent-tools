@@ -1,0 +1,75 @@
+# Public document: compatibility
+
+Source: @flowstack-ui/colors@0.1.1
+
+# Compatibility and upgrades
+
+Colors has three separate compatibility boundaries. Keeping them separate
+prevents a package upgrade from silently changing an accepted product theme.
+
+## Package API
+
+The npm package follows semantic versioning. Version `0.1.0` requires Node.js
+22 or newer and exposes ESM JavaScript and TypeScript declarations from the
+root package entry point.
+
+Before `1.0.0`, a minor version may contain a breaking API or candidate-shape
+change when the changelog and migration guidance identify it. Patch releases
+must remain compatible with the documented 0.1 API unless they close a safety
+or correctness defect that cannot be fixed compatibly.
+
+## Serialized schemas
+
+These identifiers version serialized meaning independently of npm:
+
+- `flowstack.colors-request.v1`;
+- `flowstack.colors-candidate.v1`;
+- `flowstack.color-record.v1`; and
+- `flowstack.color-provenance.v1`.
+
+Additive optional evidence may remain within version 1. Removing required
+fields, changing existing field meaning, or making a formerly valid document
+invalid requires a new schema identifier or an explicit migration.
+
+Theme consumes the candidate JSON shape, not Colors package code. A reviewed
+0.1 candidate therefore remains editable and compilable without rerunning its
+generator merely because Colors is upgraded.
+
+## Algorithm and exact values
+
+Candidate provenance records the Colors producer version, exact color-engine
+version, operation contract, and `flowstack-palette-v1` algorithm. Version
+0.1.0 pins the qualified engine to `4.0.2`; consumer installation cannot
+silently substitute another engine while claiming that provenance.
+
+Identical normalized input, package version, engine version, and algorithm
+parameters produce byte-identical output. A future intentional generation
+model receives a new algorithm identifier. A correctness fix may change exact
+candidate values only with a package version change, changelog entry, golden
+fixture update, Theme contract requalification, and rendered evidence when the
+change affects UI output.
+
+Do not automatically regenerate an accepted project theme during dependency
+installation. Review the candidate diff, record a new human decision, scaffold
+an ordinary Theme again, and repeat the relevant contract and product gates.
+
+Version `0.1.1` adds `textHover` and `textPressed` to generated interface
+appearances and adjusts the default generated text values. Existing reviewed
+candidate files remain valid inputs because serialized consumers must accept
+additive role evidence. Regenerating the same request intentionally produces
+different exact interface text values under producer version `0.1.1`, so
+review that candidate diff and repeat Theme qualification before adopting it.
+
+## Moving from qualification builds
+
+`0.1.0` is the first public release. Private `0.0.0` qualification checkouts
+should replace Git or workspace references with the exact registry version:
+
+```bash
+npm install --save-dev @flowstack-ui/colors@0.1.0
+```
+
+The finalized candidate uses `review`, plural `referenceBackgrounds`, and the
+neutral `textInverse` role. Regenerate experimental pre-0.1 candidate files,
+review them explicitly, and qualify their resulting Theme rather than editing
+old experimental envelopes in place.

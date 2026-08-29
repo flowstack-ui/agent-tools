@@ -1,0 +1,33 @@
+{
+  "schema": "flowstack.mcp-capabilities.v1",
+  "package": "@flowstack-ui/mcp",
+  "version": "0.1.0",
+  "transport": {
+    "kind": "stdio",
+    "modern": "2026-07-28",
+    "legacy": "serve"
+  },
+  "resolution": {
+    "policies": [
+      "auto",
+      "installed",
+      "locked"
+    ],
+    "versionPolicy": "exact-only",
+    "network": false
+  },
+  "toolNames": [
+    "list_flowstack_packages",
+    "list_components",
+    "resolve_interface_job",
+    "get_package_guide",
+    "get_component_guidance",
+    "get_component_props",
+    "get_component_examples",
+    "get_theme_contract",
+    "search_docs",
+    "validate_composition",
+    "create_gap_report"
+  ],
+  "toolCount": 11
+}

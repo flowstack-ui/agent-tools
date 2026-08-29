@@ -1,0 +1,96 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "tooltip",
+  "name": "Tooltip",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a finished brief supplemental text description for an already named trigger while Atom owns the description relationship, hover, focus-visible, touch hold, dismissal, portal, and positioning behavior.",
+  "useWhen": [
+    "A control, especially an unfamiliar IconButton, abbreviation, or compact trigger, needs a short non-interactive hint in addition to its complete accessible name."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The information is required or lengthy, is a richer passive preview, or contains links, buttons, inputs, settings, or other interaction.",
+      "useInstead": "Visible text, HoverCard, or Popover"
+    }
+  ],
+  "composition": [
+    "Compose Tooltip.Root with Tooltip.Trigger asChild around one already named focusable control, plus Tooltip.Portal and Tooltip.Content; add Tooltip.Arrow only when the styled hint needs a pointer. Use Tooltip.Provider when a coherent region shares timing policy.",
+    "Use plain Content for one short hint or Root variant=rich with presentational Tooltip.Title and Tooltip.Description for a concise title and supporting text. Both recipes remain non-interactive descriptions. Reproduce any local Appearance scope on portalled Content."
+  ],
+  "rules": [
+    {
+      "id": "tooltip-trigger-name",
+      "level": "must",
+      "statement": "Give Trigger a complete accessible name independently; Tooltip supplies only a supplemental aria-describedby description while open and never replaces the control name."
+    },
+    {
+      "id": "tooltip-noninteractive",
+      "level": "must",
+      "statement": "Keep plain and rich Content free of links, buttons, inputs, and every other focusable control; use Popover for interaction."
+    },
+    {
+      "id": "tooltip-brief-content",
+      "level": "should",
+      "statement": "Keep plain Content to one short hint and rich Content to a concise Title and Description; render essential instructions, errors, warnings, recovery, and full truncated text visibly."
+    },
+    {
+      "id": "tooltip-owned-input",
+      "level": "must",
+      "statement": "Preserve Atom's hover, focus-visible, Escape, shared delay, and stationary 700 ms touch long-press behavior, including movement, scroll, second-touch, cancellation, disabled, unmount, compatibility-event, and finite dismissal handling."
+    },
+    {
+      "id": "tooltip-composition",
+      "level": "must",
+      "statement": "When Trigger uses asChild or render, preserve its native semantics, action, complete name, Atom handlers and refs, and generated description relationship."
+    },
+    {
+      "id": "tooltip-provider",
+      "level": "should",
+      "statement": "Use one Provider around a coherent region when tooltips should share open, close, and skip-delay timing; nest providers only for an intentional timing boundary."
+    },
+    {
+      "id": "tooltip-shape-arrow",
+      "level": "must",
+      "statement": "Use rounded by default and pill only for deliberately compact labels; keep optional Arrow decorative and aligned to the collision-resolved side without independently recoloring its surface seam."
+    },
+    {
+      "id": "tooltip-theme-scope",
+      "level": "must",
+      "statement": "When Portal leaves a local Appearance scope, reproduce that scope on Content or target a portal container inside it."
+    },
+    {
+      "id": "tooltip-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus tooltip.css and every composed trigger component stylesheet."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Tooltip as an IconButton's only name, placing interactive or essential help in rich Content, or hand-positioning a text bubble.",
+      "correction": "Name Trigger directly, keep Content supplemental and non-interactive, show required information visibly, and use complete Tooltip anatomy."
+    },
+    {
+      "mistake": "Adding another touch-hold timer, assuming portalled Content inherits Appearance, or using Tooltip for a resource preview.",
+      "correction": "Rely on Atom input handling, make the portal scope explicit, and choose HoverCard for a redundant passive preview."
+    }
+  ],
+  "validation": [
+    "Verify Trigger's independent name, role=tooltip Content, aria-describedby only while open, controlled and disabled state, Provider and local delays, pointer hover, focus-visible opening, Trigger-to-Content hover bridge, focus leave, top-layer Escape, and stable focus.",
+    "Verify stationary touch hold, early release, movement tolerance, scrolling, outside touch, second touch, touchcancel, compatibility events, disabled changes, unmount cleanup, and plain and rich finite dismissal without blocking ordinary activation or scrolling.",
+    "Verify plain and rich brevity with no interactive descendants, rounded and pill shapes, optional Arrow on every resolved side, collision placement, narrow wrapping, zoom, LTR and RTL, reduced motion, forced colors, portalled appearance, and complete CSS."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "tooltip",
+      "versionPolicy": "installed-exact"
+    },
+    "icon-button",
+    "hover-card",
+    "popover",
+    "appearance"
+  ]
+}

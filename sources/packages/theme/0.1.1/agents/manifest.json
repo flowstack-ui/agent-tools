@@ -1,0 +1,51 @@
+{
+  "schema": "flowstack.agent-manifest.v1",
+  "package": "@flowstack-ui/theme",
+  "packageVersion": "0.1.1",
+  "guides": [
+    {
+      "id": "theme-system",
+      "name": "FLOWSTACK Theme system",
+      "json": "./theme-system.json",
+      "markdown": "./theme-system.md"
+    }
+  ],
+  "operations": [
+    {
+      "id": "brick-contract-compatibility",
+      "name": "Brick contract compatibility",
+      "guide": "./theme-system.json"
+    },
+    {
+      "id": "colors-interchange",
+      "name": "Colors interchange",
+      "guide": "./theme-system.json"
+    },
+    {
+      "id": "theme-artifacts",
+      "name": "Theme artifacts",
+      "guide": "./theme-system.json"
+    },
+    {
+      "id": "theme-cli",
+      "name": "Theme CLI",
+      "guide": "./theme-system.json"
+    },
+    {
+      "id": "theme-compilation",
+      "name": "Theme compilation",
+      "guide": "./theme-system.json"
+    },
+    {
+      "id": "theme-definition",
+      "name": "Theme definition",
+      "guide": "./theme-system.json"
+    },
+    {
+      "id": "theme-validation",
+      "name": "Theme validation",
+      "guide": "./theme-system.json"
+    }
+  ],
+  "coverage": "./coverage.json"
+}

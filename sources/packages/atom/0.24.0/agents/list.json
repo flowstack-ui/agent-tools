@@ -1,0 +1,74 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "list",
+  "name": "List",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Render server-safe native ordered or unordered list structure without adding selection, activation, focus, or navigation behavior.",
+  "useWhen": [
+    "Content is naturally a set of peer items or a sequence whose order may carry meaning."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Items are persistent route destinations.",
+      "useInstead": "NavList"
+    },
+    {
+      "condition": "Items form a keyboard-operated choice or action collection.",
+      "useInstead": "Listbox, Menu, RadioGroup, or another matching interactive primitive"
+    },
+    {
+      "condition": "Content only needs visual spacing and has no list relationship.",
+      "useInstead": "the styled layer's layout primitive"
+    }
+  ],
+  "composition": [
+    "Compose List.Root with List.Item children and set ordered only when item sequence changes meaning.",
+    "Preserve ul or ol and li semantics when using render or asChild.",
+    "Treat Item disabled state as descriptive metadata; separately disable or remove every interactive descendant when required."
+  ],
+  "rules": [
+    {
+      "id": "list-native-semantics",
+      "level": "must",
+      "statement": "Preserve a native list root and list-item descendants unless an equivalent composed host retains the same semantics."
+    },
+    {
+      "id": "list-order-meaning",
+      "level": "must",
+      "statement": "Use ordered=true only when sequence changes meaning; visual numbering alone is not enough."
+    },
+    {
+      "id": "list-no-interaction",
+      "level": "must",
+      "statement": "Do not add selection, activation, roving focus, or route-current behavior to List; choose the primitive that owns that interaction."
+    },
+    {
+      "id": "list-server-safe",
+      "level": "should",
+      "statement": "Keep static List composition server-safe unless authored descendants introduce a genuine client behavior requirement."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using List as a generic row layout or adding click and keyboard behavior to its items.",
+      "correction": "Use native list semantics only for real item relationships and select NavList, Listbox, Menu, or another behavior owner for interaction."
+    },
+    {
+      "mistake": "Assuming Item disabled metadata disables nested controls.",
+      "correction": "Apply the correct disabled contract to each interactive descendant because List only exposes descriptive item metadata."
+    }
+  ],
+  "validation": [
+    "Inspect the rendered ul or ol and li anatomy and confirm ordered meaning, start, reversed, and item values where used.",
+    "Check list announcement in assistive technology, nested-list ownership, long content, zoom, and custom-render semantics.",
+    "Confirm List adds no keyboard model and every interactive descendant owns its own accessible name and disabled state."
+  ],
+  "related": [
+    "nav-list",
+    "listbox",
+    "menu",
+    "feed"
+  ]
+}

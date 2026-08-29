@@ -1,0 +1,5 @@
+{
+  "name": "@flowstack-ui/colors",
+  "version": "0.1.1",
+  "description": "Deterministic color and palette candidate tooling for Flowstack UI."
+}

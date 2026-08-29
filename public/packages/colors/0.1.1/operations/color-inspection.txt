@@ -1,0 +1,23 @@
+# Color inspection
+
+Source: @flowstack-ui/colors@0.1.1
+Kind: operation
+ID: color-inspection
+Guide: [colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## Covered public surfaces
+
+- `.#ColorComponents`
+- `.#ColorDiagnostic`
+- `.#ColorDiagnosticCode`
+- `.#ColorInput`
+- `.#ColorRecord`
+- `.#ColorValidationResult`
+- `.#DtcgColorComponent`
+- `.#DtcgColorToken`
+- `.#DtcgColorValue`
+- `.#StructuredColor`
+- `.#SupportedColorSpace`
+- `.#normalizeColor`
+- `.#parseColor`
+- `.#validateColor`

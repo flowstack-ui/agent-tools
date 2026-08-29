@@ -1,0 +1,60 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "container",
+  "name": "Container",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Own consistent centered content width, logical page gutters, and size variants for sections and application shells.",
+  "useWhen": [
+    "Page or section content needs a shared maximum inline size and responsive logical gutters."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The region needs a visual boundary or only a local one-axis relationship.",
+      "useInstead": "Surface/Card or Stack"
+    }
+  ],
+  "composition": [
+    "Place section content inside Container, then use Stack or Grid for internal relationships; let full-bleed backgrounds live outside it."
+  ],
+  "rules": [
+    {
+      "id": "container-width-owner",
+      "level": "must",
+      "statement": "Use Container rather than repeating application max-width, auto-margin, and gutter CSS across sections."
+    },
+    {
+      "id": "container-shared-geometry",
+      "level": "must",
+      "statement": "Give adjacent shell regions that must share alignment lines, such as an App Bar, hero content, and attached proof rail, the same Container measure and gutter recipe."
+    },
+    {
+      "id": "container-not-surface",
+      "level": "must",
+      "statement": "Do not use Container as a visual card or background owner."
+    },
+    {
+      "id": "container-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus container.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Applying a separate max-width class to every page section, giving visually connected shell regions different measures or gutters, or nesting Containers without a width reason.",
+      "correction": "Use one deliberate Container boundary per aligned content region and repeat the same named measure and gutter where separate regions must share a grid line."
+    }
+  ],
+  "validation": [
+    "Check gutters, max width, and shared alignment lines at all adopted breakpoints, zoom levels, and RTL.",
+    "Confirm full-bleed and contained regions align intentionally and CSS is loaded."
+  ],
+  "related": [
+    "stack",
+    "grid",
+    "surface",
+    "card",
+    "app-bar"
+  ]
+}

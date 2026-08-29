@@ -1,0 +1,48 @@
+{
+  "schema": "flowstack.agent-manifest.v1",
+  "package": "@flowstack-ui/colors",
+  "packageVersion": "0.1.1",
+  "layer": "colors",
+  "components": [],
+  "guides": [
+    {
+      "id": "colors-system",
+      "name": "FLOWSTACK Colors system",
+      "json": "./colors-system.json",
+      "markdown": "./colors-system.md"
+    }
+  ],
+  "operations": [
+    {
+      "id": "color-conversion",
+      "name": "Color conversion and gamut mapping",
+      "guide": "./colors-system.json"
+    },
+    {
+      "id": "color-inspection",
+      "name": "Color inspection",
+      "guide": "./colors-system.json"
+    },
+    {
+      "id": "color-measurement",
+      "name": "Color contrast and difference measurement",
+      "guide": "./colors-system.json"
+    },
+    {
+      "id": "color-provenance",
+      "name": "Color provenance",
+      "guide": "./colors-system.json"
+    },
+    {
+      "id": "named-palette-reference",
+      "name": "Named palette reference",
+      "guide": "./colors-system.json"
+    },
+    {
+      "id": "palette-candidate",
+      "name": "Palette candidate generation and review",
+      "guide": "./colors-system.json"
+    }
+  ],
+  "coverage": "./coverage.json"
+}

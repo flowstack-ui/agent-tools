@@ -1,0 +1,58 @@
+{
+  "name": "@flowstack-ui/mcp",
+  "version": "0.1.0",
+  "description": "Local, exact-version MCP delivery for public FLOWSTACK Agent Knowledge.",
+  "type": "module",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstack-ui/agent-tools.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/flowstack-ui/agent-tools/issues"
+  },
+  "homepage": "https://agents.brick-ui.com/mcp",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "flowstack-mcp": "./bin/flowstack-mcp.mjs"
+  },
+  "exports": {
+    ".": "./src/server.mjs",
+    "./http": "./src/http.mjs",
+    "./capabilities.json": "./generated/capabilities.json",
+    "./tool-registry.json": "./generated/tool-registry.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "docs",
+    "generated",
+    "src",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check:generated": "node scripts/build.mjs --check",
+    "test": "npm run check:generated && node --test test/*.test.mjs",
+    "pack:check": "npm run build && node scripts/verify-package.mjs",
+    "check:repository": "npm run test && npm run pack:check",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.2.1"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0"
+  }
+}

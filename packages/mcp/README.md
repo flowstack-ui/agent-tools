@@ -1,0 +1,111 @@
+# @flowstack-ui/mcp
+
+Local, exact-version MCP access to public FLOWSTACK Agent Knowledge. The server
+is a thin adapter over installed public packages or an explicitly supplied
+Agent Tools source lock. It never fetches package metadata, substitutes
+`latest`, or reads private workspace notes. The package also exports the shared
+locked-only handler used by the public hosted endpoint; the CLI itself remains
+local stdio and opens no HTTP listener.
+
+## Run locally
+
+Use the exact packages installed in a project:
+
+```bash
+flowstack-mcp --project-root /path/to/project
+```
+
+Or explicitly add an exact Agent Tools source lock:
+
+```bash
+flowstack-mcp \
+  --project-root /path/to/project \
+  --source-lock /path/to/sources/lock.json
+```
+
+`FLOWSTACK_MCP_PROJECT_ROOT` and `FLOWSTACK_MCP_SOURCE_LOCK` provide the same
+local-path configuration. Command-line flags take precedence. URLs are
+rejected. Requests must name exact versions; tags and ranges are errors.
+
+The stdio entry uses the MCP TypeScript v2 `serveStdio(factory)` API. It
+negotiates the modern 2026 protocol and serves supported legacy stdio clients
+from the same factory. Standard output is reserved exclusively for JSON-RPC;
+diagnostics use standard error.
+
+## Hosted read-only endpoint
+
+`https://agents.brick-ui.com/mcp` exposes the same 11 tools through modern,
+stateless Streamable HTTP. Hosted resolution is closed to the checked public
+source lock: it cannot inspect project-installed dependencies, accepts no
+private source, serves no paid Blocks data, and performs no writes or outbound
+network requests. Responses are uncached and carry no cookie or session ID.
+
+Use the exact stdio package in application repositories when guidance must
+match their installed FLOWSTACK package versions. Use the hosted endpoint for
+public discovery and locked release guidance.
+
+## Source behavior
+
+- `auto` accepts an exact project-installed version first, then the exact
+  explicit lock entry.
+- `installed` requires the named version in the project installation.
+- `locked` requires the named version in the supplied source lock.
+- No policy falls forward to another version.
+
+Every result includes package, layer, version, provenance, and a public-authority
+attestation for installed allowlisted artifacts or admitted hash-locked package
+artifacts. Missing public
+artifacts are returned as explicit availability gaps. In particular, the
+current locked text corpus does not include component declaration files or
+Brick's `theme-contract.json`; those tools require the exact installed package
+until canonical ingestion includes those public artifacts. Examples are
+returned only from public source code fences that actually ship.
+
+`resolve_interface_job` requires an explicit `finished`, `headless`, or
+`theming` workflow. Finished work requires exact Brick and never promotes Atom
+to the primary owner; an optional exact Atom version supplies only behavior
+links carried by Brick guidance. Theming requires Theme. Paid Blocks remain
+outside this public source lock and MCP surface.
+
+Selection ranking considers only positive `intent` and `use` ownership fields,
+never alternative or cautionary notes. Matches include stable selection and intent
+identifiers and must clear a meaningful overlap threshold; otherwise the result is
+an explicit selection gap.
+
+`validate_composition` accepts an exact owner plus structured parts,
+relationships, imports, properties, and styles. It evaluates canonical rules
+that are objectively checkable, returns every remaining rule and guide
+validation as manual, and cannot report `valid: true` when anatomy is absent or
+a must-level rule remains unverified. `create_gap_report` requires evidence for
+every searched owner and checks only evidence linkage and ownership structure.
+It preserves claim prose as not semantically verified and accepts a structured
+fallback owner, layer, and description; Brick-to-Atom fallback ownership is rejected.
+
+See [docs/tools.md](docs/tools.md) for the generated tool inventory.
+
+## Security boundary
+
+The server accepts local package roots and a local checked source lock only.
+It rejects arbitrary URLs, path traversal, unknown package identities,
+unlocked snapshot files, version ranges/tags, unsafe archive references, and
+private markers in requests. Installed artifacts are admitted only through
+package manifests, exports, and documented public allowlists. Locked artifacts
+are admitted only after source-lock identity, inventory, relative-path, byte, and
+SHA-256 validation. Both are then public package authority: their canonical
+content is not marker- or secret-scanned, so legitimate boundary guidance remains
+readable. Private, machine-specific, and secret-like artifact paths remain rejected.
+The stdio CLI exposes no HTTP listener or authentication. The separately
+hosted adapter exposes no private Blueprints, Research Memory, Creative
+Intelligence, ranking policy, customer material, proprietary prompts, or paid
+Blocks source.
+
+## Verification
+
+```bash
+npm run check:repository
+```
+
+Verification generates the registry/docs/capability inventory from one source,
+drives list and call requests through the official JSON-RPC client, exercises
+exact installed and locked fixtures, checks rejection boundaries and stdout
+purity, and installs the exact archive in an isolated npx-style consumer.

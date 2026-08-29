@@ -1,0 +1,23 @@
+# Theme compilation
+
+Source: @flowstack-ui/theme@0.1.1
+Kind: operation
+ID: theme-compilation
+Guide: [theme-system](/packages/theme/0.1.1/guides/theme-system.txt)
+
+## Covered public surfaces
+
+- `.#CompiledThemeToken`
+- `.#ThemeCompilation`
+- `.#ThemeCompilationError`
+- `.#ThemeCompilationIssue`
+- `.#ThemeCompilationIssueCode`
+- `.#ThemeContrastPairResult`
+- `.#ThemeProjectContrastPairResult`
+- `.#compileTheme`
+- `./schema#CompiledThemeToken`
+- `./schema#ThemeCompilation`
+- `./schema#ThemeCompilationIssue`
+- `./schema#ThemeCompilationIssueCode`
+- `./schema#ThemeContrastPairResult`
+- `./schema#ThemeProjectContrastPairResult`

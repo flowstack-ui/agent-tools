@@ -1,0 +1,37 @@
+# Palette candidate generation and review
+
+Source: @flowstack-ui/colors@0.1.1
+Kind: operation
+ID: palette-candidate
+Guide: [colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## Covered public surfaces
+
+- `.#BrandSeedInput`
+- `.#CandidateAppearance`
+- `.#CandidateColorValue`
+- `.#CandidateMeasurement`
+- `.#CandidateReview`
+- `.#CandidateReviewDecision`
+- `.#CandidateReviewStatus`
+- `.#CandidateStatus`
+- `.#ColorGenerationRequest`
+- `.#ColorsCandidateEnvelope`
+- `.#DecorativeCandidateAppearance`
+- `.#DecorativeCandidateFamily`
+- `.#DecorativeSeedInput`
+- `.#GenerationDiagnostic`
+- `.#GenerationDiagnosticCode`
+- `.#InterfaceCandidateFamily`
+- `.#InterfaceRole`
+- `.#InterfaceSeedInput`
+- `.#NeutralCandidateFamily`
+- `.#NeutralRole`
+- `.#NeutralSeedInput`
+- `.#PaletteAppearance`
+- `.#PaletteCandidateFamily`
+- `.#PaletteProfile`
+- `.#PaletteSeedBase`
+- `.#defineColorGenerationRequest`
+- `.#generatePaletteCandidate`
+- `.#reviewPaletteCandidate`

@@ -1,0 +1,50 @@
+# SwipeableItem agent guide
+
+## Purpose
+
+Enhance a finished list-like row with logical start or end quick-action panels revealed by horizontal drag or keyboard while Atom owns state, measurement, gesture intent, scrolling preservation, and keyboard behavior.
+
+## Use when
+
+- A row has one or two frequent commands that benefit from touch reveal and every important command also remains available through an obvious tap or click route.
+
+## Choose something else when
+
+- There are many commands, discovery is critical, the row navigates or selects, or swipe would be surprising or the only pointer path. Use DropdownMenu, visible Button or IconButton controls, Link, or the appropriate selection component.
+
+## Required composition
+
+- Compose Root with one focusable Content surface and a labelled Actions group for each supported logical start or end side. Put real named Button or Link controls inside Actions and keep an obvious non-swipe route, normally a visible overflow trigger, inside Content.
+- Choose plain inside an existing row boundary or outline for a standalone boundary. Preserve surrounding List or Feed semantics and keep confirmation, undo, persistence, and coordination between rows in the application.
+
+## Rules
+
+- **MUST:** Treat swipe and keyboard reveal as enhancements; neither replaces the required obvious tap or click route to every important action.
+- **MUST:** Give every Actions panel a localized accessible group name and every child complete native semantics; keep closed panels inert and accessibility-hidden.
+- **MUST:** Preserve pan-y vertical scrolling, horizontal intent detection, pointer capture, cancellation rollback, measured logical-side widths, threshold settlement, and one owned pointer interaction.
+- **MUST:** Keep Content focusable and preserve direction-aware Arrow reveal, opposite-Arrow close, and Escape close only when Content owns the key; nested controls retain their own keyboard behavior.
+- **MUST:** Do not implement gesture execution around Brick SwipeableItem: Brick intentionally omits Atom's onFullSwipe and fullSwipeThreshold props so destructive or consequential commands require an explicit control.
+- **MUST:** Use openSide with onOpenSideChange or defaultOpenSide, preserve disabled versus focusable read-only behavior, and treat start and end as logical sides that follow LTR and RTL.
+- **MUST:** Keep authored Content wrapping, visible alternatives reachable, actions measured, and the shared clipped radius intact at narrow widths, zoom, RTL, forced colors, and reduced motion.
+- **MUST:** Load styles.css or core.css plus swipeable-item.css and the CSS for every composed action or row component.
+
+## Common mistakes
+
+- **Avoid:** Making swipe the only route to Delete, blocking vertical scroll, firing a destructive threshold gesture, or letting Arrow keys from nested controls reveal actions. **Instead:** Provide an obvious explicit control, preserve pan-y and gesture intent, use Brick's no-full-swipe API, and retain keyboard target isolation.
+- **Avoid:** Using SwipeableItem as List, Feed, navigation, selection, confirmation, or multi-row coordination ownership. **Instead:** Keep semantic row ownership and application effects outside the three-part enhancement boundary.
+
+## Validation checklist
+
+- Verify controlled/uncontrolled start/end/null state, LTR and RTL mapping, measured widths and offsets, pointer down/move/up settlement, threshold boundaries, cancellation, capture, vertical pan, disabled/read-only state, and action closeOnClick.
+- Verify Content focus, Arrow reveal/close, Escape, descendant keyboard isolation, inert hidden panels, group and control names, obvious pointer fallback, absence of full-swipe execution, native props, refs, and real-browser mouse/touch scrolling.
+- Verify plain and outline boundaries, long content, narrow widths, zoom, RTL, shared radii, focus, light/dark appearance, forced colors, reduced motion, and surrounding List or Feed semantics.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/swipeable-item`
+- `dropdown-menu`
+- `button`
+- `icon-button`
+- `link`
+- `list`
+- `feed`

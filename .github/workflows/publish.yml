@@ -1,0 +1,69 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: npm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            packages/mcp/package-lock.json
+      - name: Pin trusted-publishing client
+        run: npm install --global npm@11.6.2
+      - run: npm ci
+      - run: npm ci --prefix packages/mcp
+      - name: Validate protected release identity
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from "node:fs"
+          const root = JSON.parse(readFileSync("package.json"))
+          const mcp = JSON.parse(readFileSync("packages/mcp/package.json"))
+          const tag = process.env.GITHUB_REF_NAME
+          if (tag !== `v${root.version}` || mcp.version !== root.version) {
+            throw new Error(`tag/package mismatch: ${tag}, ${root.version}, ${mcp.version}`)
+          }
+          for (const value of [root, mcp]) {
+            if (value.repository?.url !== "git+https://github.com/flowstack-ui/agent-tools.git") {
+              throw new Error(`${value.name} repository metadata mismatch`)
+            }
+            if (value.publishConfig?.registry !== "https://registry.npmjs.org/" || value.publishConfig?.access !== "public") {
+              throw new Error(`${value.name} publish boundary mismatch`)
+            }
+          }
+          NODE
+          git fetch origin main --no-tags
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+      - run: npm run check:release
+      - name: Build verified archives once
+        run: |
+          mkdir -p "$RUNNER_TEMP/release"
+          npm pack --pack-destination "$RUNNER_TEMP/release"
+          npm pack --prefix packages/mcp --pack-destination "$RUNNER_TEMP/release"
+          ls -la "$RUNNER_TEMP/release"
+      - name: Publish or verify exact existing archives
+        env:
+          RELEASE_DIR: ${{ runner.temp }}/release
+        run: node scripts/publish-verified-archives.mjs

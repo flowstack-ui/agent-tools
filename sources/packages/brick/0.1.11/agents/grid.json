@@ -1,0 +1,83 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "grid",
+  "name": "Grid",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Arrange content on tokenized two-dimensional tracks with public column, row, gap, and item-placement controls.",
+  "useWhen": [
+    "Content needs coordinated rows and columns or responsive card tracks."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The layout has one primary row or column.",
+      "useInstead": "Stack"
+    }
+  ],
+  "composition": [
+    "Choose Grid tracks from the minimum readable child size; use Grid.Item placement only when source order remains meaningful.",
+    "Use as=\"ul\" or as=\"ol\" when the peers form a semantic list; Grid removes native list geometry while preserving the list relationship."
+  ],
+  "rules": [
+    {
+      "id": "grid-source-order",
+      "level": "must",
+      "statement": "Keep DOM order meaningful; visual placement must not create a confusing keyboard or reading sequence."
+    },
+    {
+      "id": "grid-spacing-values",
+      "level": "must",
+      "statement": "Use non-negative numeric factors for ordinary uniform and axis gaps; reserve explicit CSS values for measured exceptions or application spacing tokens, including inside responsive objects."
+    },
+    {
+      "id": "grid-semantic-list",
+      "level": "must",
+      "statement": "Use a semantic list host when the Grid children form a real set; do not add Block CSS to cancel native ul or ol margins, padding, or markers because Grid owns that host geometry."
+    },
+    {
+      "id": "grid-responsive-relationships",
+      "level": "must",
+      "statement": "Use responsive columns, gaps, unanchored spans, and alignment when the same authored Grid changes at Brick breakpoints; keep explicit line starts and ends static."
+    },
+    {
+      "id": "grid-item-as-child",
+      "level": "must",
+      "statement": "Use Grid.Item asChild when an existing link, Surface, or component should itself receive placement; provide exactly one element and preserve its native semantics."
+    },
+    {
+      "id": "grid-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus grid.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Keeping too many columns until cards become unreadably narrow.",
+      "correction": "Reduce columns at the content's real minimum width, not at a device-name breakpoint."
+    },
+    {
+      "mistake": "Adding local CSS only because a gap is outside the legacy zero-through-six token scale.",
+      "correction": "Use the supported numeric factor or explicit spacing value on gap, rowGap, or columnGap."
+    },
+    {
+      "mistake": "Combining a responsive Item span with explicit line placement.",
+      "correction": "Let the responsive item auto-place, or keep one deliberate static line placement."
+    },
+    {
+      "mistake": "Adding a Grid.Item wrapper and height CSS around an element that should itself stretch as the grid item.",
+      "correction": "Compose that one element with Grid.Item asChild."
+    }
+  ],
+  "validation": [
+    "Test intrinsic sizing, overflow, zoom, narrow widths, source order, and RTL.",
+    "Confirm numeric, explicit, axis-specific, and responsive gaps create the intended computed geometry.",
+    "For ul and ol hosts, confirm zero native margin and padding, no visual marker, and preserved list semantics.",
+    "Confirm each child remains readable before and after track changes."
+  ],
+  "related": [
+    "stack",
+    "card",
+    "surface"
+  ]
+}

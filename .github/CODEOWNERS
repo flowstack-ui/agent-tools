@@ -1,0 +1,11 @@
+* @willdonin
+
+/.github/workflows/ @willdonin
+/.codex-plugin/ @willdonin
+/.agents/ @willdonin
+/skills/ @willdonin
+/sources/lock.json @willdonin
+/scripts/ingest-archives.mjs @willdonin
+/scripts/lib/archive-safety.mjs @willdonin
+/packages/mcp/src/privacy.mjs @willdonin
+/packages/mcp/src/repository.mjs @willdonin

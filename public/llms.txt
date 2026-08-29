@@ -1,0 +1,19 @@
+# FLOWSTACK UI
+
+Version-aware public Agent Knowledge. Start with a task or exact package; then load only the linked narrow owner routes.
+
+## Packages
+
+- [@flowstack-ui/atom@0.24.0](/packages/atom/0.24.0/index.txt) — 70 components, 0 operations
+- [@flowstack-ui/brick@0.1.11](/packages/brick/0.1.11/index.txt) — 89 components, 0 operations
+- [@flowstack-ui/colors@0.1.1](/packages/colors/0.1.1/index.txt) — 0 components, 6 operations
+- [@flowstack-ui/theme@0.1.1](/packages/theme/0.1.1/index.txt) — 0 components, 7 operations
+
+## Tasks
+
+- [layout](/tasks/layout.txt) — Select layout, surface, spacing, responsive visibility, and structural owners.
+- [forms](/tasks/forms.txt) — Select forms, fields, labels, validation, and input controls.
+- [navigation](/tasks/navigation.txt) — Select navigation landmarks, menus, tabs, pagination, and route affordances.
+- [overlays](/tasks/overlays.txt) — Select dialogs, popovers, transient surfaces, and feedback owners.
+- [data](/tasks/data.txt) — Select tables, grids, lists, trees, feeds, status, and technical-data owners.
+- [theming](/tasks/theming.txt) — Route color operations through Colors and semantic compilation through Theme.

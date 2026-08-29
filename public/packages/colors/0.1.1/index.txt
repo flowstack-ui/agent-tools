@@ -1,0 +1,29 @@
+# @flowstack-ui/colors@0.1.1
+
+Archive SHA-256: `f23b0be0e9f0a2d514ea893c6555d7562a97e0829828b1aeff5a78c760218b08`
+Coverage: 76/76 public surfaces; zero failures.
+
+## document
+
+- [agent-knowledge](/packages/colors/0.1.1/docs/agent-knowledge.txt)
+- [architecture](/packages/colors/0.1.1/docs/architecture.txt)
+- [color-foundations](/packages/colors/0.1.1/docs/color-foundations.txt)
+- [compatibility](/packages/colors/0.1.1/docs/compatibility.txt)
+- [dependency-qualification](/packages/colors/0.1.1/docs/dependency-qualification.txt)
+- [installation](/packages/colors/0.1.1/docs/installation.txt)
+- [palette-generation](/packages/colors/0.1.1/docs/palette-generation.txt)
+- [releasing](/packages/colors/0.1.1/docs/releasing.txt)
+- [testing](/packages/colors/0.1.1/docs/testing.txt)
+
+## guide
+
+- [FLOWSTACK Colors system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## operation
+
+- [Color conversion and gamut mapping](/packages/colors/0.1.1/operations/color-conversion.txt)
+- [Color inspection](/packages/colors/0.1.1/operations/color-inspection.txt)
+- [Color contrast and difference measurement](/packages/colors/0.1.1/operations/color-measurement.txt)
+- [Color provenance](/packages/colors/0.1.1/operations/color-provenance.txt)
+- [Named palette reference](/packages/colors/0.1.1/operations/named-palette-reference.txt)
+- [Palette candidate generation and review](/packages/colors/0.1.1/operations/palette-candidate.txt)

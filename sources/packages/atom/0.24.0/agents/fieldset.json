@@ -1,0 +1,48 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "fieldset",
+  "name": "Fieldset",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Group related form controls under native fieldset and legend semantics while sharing group state and validation behavior.",
+  "useWhen": [
+    "Multiple related controls need one group question or label, especially radio or checkbox choices."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Only one control needs a label.",
+      "useInstead": "Field"
+    }
+  ],
+  "composition": [
+    "Compose Fieldset.Root -> Fieldset.Legend -> optional description/error -> Fields or grouped controls."
+  ],
+  "rules": [
+    {
+      "id": "fieldset-related-controls",
+      "level": "must",
+      "statement": "Group only controls that answer one related question."
+    },
+    {
+      "id": "fieldset-visible-legend",
+      "level": "must",
+      "statement": "Provide a meaningful legend unless an equivalent documented accessible naming strategy is required."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using one Field to label a collection of controls.",
+      "correction": "Use Fieldset for the group and Field for each independently labeled control."
+    }
+  ],
+  "validation": [
+    "Inspect fieldset and legend semantics.",
+    "Confirm disabled, required, and invalid group state reaches descendants as documented."
+  ],
+  "related": [
+    "form",
+    "field",
+    "checkbox"
+  ]
+}

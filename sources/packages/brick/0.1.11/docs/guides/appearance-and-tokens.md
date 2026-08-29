@@ -1,0 +1,175 @@
+# Appearance and tokens
+
+Brick ships complete light and dark semantic tokens. With no explicit setting,
+the default follows `prefers-color-scheme`.
+
+Set an appearance on the document or any subtree with the DOM contract:
+
+```html
+<html data-brick-appearance="dark">
+```
+
+```html
+<section data-brick-appearance="light">
+  <!-- This region uses light semantic values. -->
+</section>
+```
+
+Remove the attribute to return to the system preference.
+
+Brick also exports a typed, server-safe composition utility for local scopes:
+
+```tsx
+import { Appearance } from "@flowstack-ui/brick/appearance";
+
+<Appearance value="dark">
+  <section>Dark region</section>
+</Appearance>
+```
+
+Appearance always decorates exactly one existing host without an extra
+wrapper. Its existing component slot remains unchanged:
+
+```tsx
+<Appearance value="dark">
+  <AppBar.Root>...</AppBar.Root>
+</Appearance>
+```
+
+`value="inherit"` is the default and omits the explicit appearance attribute.
+Appearance adds no background, spacing, state, persistence, toggle, or React
+provider. Use Surface when the region also needs neutral paint; use Appearance
+when only the semantic-token boundary is needed or when another component
+already owns the visual region.
+
+The complete stylesheet and modular `core.css` apply the active semantic
+canvas, primary text color, body family, body size, and body line height to the
+document body through a low-specificity foundation rule. Themes normally
+change those semantic values rather than adding another body rule. Consumer
+CSS in a later layer can deliberately replace the document treatment.
+
+The optional reset stylesheet also maps native text selection to the active
+accent solid/on-solid pair, with system `Highlight` colors in forced-colors mode.
+This makes drag selection follow the compiled theme without requiring
+application CSS.
+
+## Custom themes
+
+Override public semantic variables through ordinary CSS:
+
+```css
+.brand-theme {
+  --brick-color-accent-solid: #5b5bd6;
+  --brick-color-accent-on-solid: #ffffff;
+  --brick-radius-control: 0.75rem;
+}
+```
+
+```tsx
+<section className="brand-theme">...</section>
+```
+
+Override foreground and background roles together, then verify contrast and
+all supported states. Arbitrary consumer overrides are outside Brick's visual
+accessibility guarantee.
+
+### Complete appearance maps
+
+A theme that supports both light and dark must assign its complete
+appearance-dependent color and shadow contract at every explicit re-entry
+boundary. Do not define light only at the outer theme root and assume it will
+return after a dark nested scope.
+
+```css
+@layer flowstack.theme {
+:where([data-flowstack-theme="ocean"]),
+:where([data-flowstack-theme="ocean"][data-brick-appearance="light"]),
+:where([data-flowstack-theme="ocean"] [data-brick-appearance="light"]) {
+  color-scheme: light;
+  /* Complete Ocean light semantic color assignments. */
+}
+
+:where([data-flowstack-theme="ocean"][data-brick-appearance="dark"]),
+:where([data-flowstack-theme="ocean"] [data-brick-appearance="dark"]) {
+  color-scheme: dark;
+  /* Complete Ocean dark semantic color assignments. */
+}
+}
+```
+
+Appearance-independent typography, radius, density, and motion values may
+remain on the outer theme root. Every color role claimed by an appearance must
+be complete, including surfaces, text, borders, focus, interaction states,
+status colors, scrim, and shadow.
+
+Brick reserves `flowstack.theme` between its token and foundation layers. The
+generated [theme contract](theme-contract.md) publishes the exact semantic and
+approved component-input boundary for theme tooling.
+
+### Portalled content
+
+A portal rendered under `body` cannot inherit a local scope from its trigger.
+Use one of two deterministic strategies.
+
+Portal into an element inside the desired scope:
+
+```tsx
+<Dialog.Portal container={scopedLayerElement}>...</Dialog.Portal>
+```
+
+Or apply the appearance to the portalled visual roots:
+
+```tsx
+<Drawer.Portal>
+  <Appearance value="dark">
+    <Drawer.Overlay />
+  </Appearance>
+  <Appearance value="dark">
+    <Drawer.Content>...</Drawer.Content>
+  </Appearance>
+</Drawer.Portal>
+```
+
+Brick does not inspect the trigger, copy computed CSS variables, or add a
+client context. This preserves server rendering and Atom's portal ownership.
+
+## Qualification checklist
+
+- Test the theme's document default and every supported explicit appearance.
+- Test light -> dark -> light and dark -> light -> dark nesting.
+- Test hover, pressed, selected, disabled, focus, and status treatments.
+- Test Drawer, Dialog, Menu, Popover, Tooltip, Select, and other portals used
+  by the product.
+- Test native form controls, forced colors, reduced motion, and contrast.
+- If a saved preference exists, apply the document attribute before paint in
+  the framework or application layer; Brick does not own persistence.
+
+## Typography recipes
+
+Brick exposes complete semantic typography tuples instead of asking each
+component to independently choose a font size, weight, line height, and letter
+spacing. Every recipe has these five variables:
+
+```text
+--brick-typography-<recipe>-font-family
+--brick-typography-<recipe>-font-size
+--brick-typography-<recipe>-font-weight
+--brick-typography-<recipe>-line-height
+--brick-typography-<recipe>-letter-spacing
+```
+
+The public recipe names are:
+
+- authored content: `display`, `title-lg`, `title-md`, `title-sm`, `body-lg`,
+  `body-md`, `body-sm`, and `caption`;
+- component anatomy: `label-md`, `label-strong`, `supporting-sm`,
+  `validation-sm`, `overlay-title`, `compact-title`, `compact-title-lg`,
+  `surface-title-sm`, `surface-title-md`, `surface-title-lg`,
+  `field-value-md`, and `field-value-lg`;
+- controls: `control-xs`, `control-sm`, `control-md`, `control-lg`, and
+  `control-xl`.
+
+Component anatomy owns its semantic element and styling contract. It does not
+nest `Text`; its local variables alias the same semantic recipes that `Text`
+uses. Override a semantic recipe to change a role across Brick, or a documented
+component variable for one component only.

@@ -1,0 +1,133 @@
+# Link
+
+Source: @flowstack-ui/brick@0.1.11
+Kind: component
+ID: link
+
+# Link agent guide
+
+## Purpose
+
+Render finished native navigation as inline, standalone, or button-like content without changing its link semantics.
+
+## Use when
+
+- The user moves to a route, URL, document, download, email address, or telephone destination.
+
+## Choose something else when
+
+- The interaction changes current state without navigating. Use Button.
+
+## Required composition
+
+- Provide a real href or compose a router-owned anchor. Leave the default theme variant to follow the project decoration policy, choose underline for a persistent local affordance, or choose plain only inside unmistakable navigation whose container, current state, hover/pressed treatment, and focus ring preserve the destination affordance without decoration. Neutral navigation stays primary at rest and gains semantic accent emphasis on hover and press.
+- When a Link completes a sentence or paragraph, keep it inside that semantic Text owner and leave its default inherited size so typography and wrapping remain one coherent text flow; use layout components only for independently meaningful peer items.
+
+## Rules
+
+- **MUST:** Preserve anchor semantics and a real destination even when the link looks like a button.
+- **MUST:** Keep a Link that completes surrounding prose inside the owning sentence or paragraph and inherit its typography; do not split one sentence into layout siblings merely to align it.
+- **MUST:** When a theme removes the resting underline, keep accent link text at least 3:1 distinct from adjacent primary text and restore the underline on interaction.
+- **MUST:** Load styles.css or core.css plus link.css.
+
+## Common mistakes
+
+- **Avoid:** Replacing ordinary inline or standalone navigation with Button only to increase emphasis. **Instead:** Use Link for ordinary navigation; use Button with a real href only when the destination intentionally needs a filled, soft, outlined, or ghost action treatment.
+- **Avoid:** Rendering prose and the Link that completes it as separate Stack children, or explicitly restating Link's default inherited size. **Instead:** Render one semantic Text sentence with an inline Link and leave its inherited size implicit; reserve Stack for independent peers.
+- **Avoid:** Removing resting underlines globally without validating links against surrounding text. **Instead:** Use the Theme Link input so compilation validates the required text distinction, or keep underlines.
+
+## Validation checklist
+
+- Inspect href and accessible name.
+- For inline prose links, confirm the Link remains inside the owning sentence or paragraph, inherits its typography, and wraps as one text flow.
+- Test focus, Enter navigation, visited/external behavior when relevant, and contrast.
+- For no-resting-underline themes, verify the compiled 3:1 text-distinction result and the interactive underline.
+- For explicit plain navigation, verify no interaction underline appears, neutral destinations gain semantic accent hover/press emphasis, and container, current, and focus treatments still communicate the destination.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/link`
+- `text`
+- `stack`
+- `button`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "link",
+  "name": "Link",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render finished native navigation as inline, standalone, or button-like content without changing its link semantics.",
+  "useWhen": [
+    "The user moves to a route, URL, document, download, email address, or telephone destination."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The interaction changes current state without navigating.",
+      "useInstead": "Button"
+    }
+  ],
+  "composition": [
+    "Provide a real href or compose a router-owned anchor. Leave the default theme variant to follow the project decoration policy, choose underline for a persistent local affordance, or choose plain only inside unmistakable navigation whose container, current state, hover/pressed treatment, and focus ring preserve the destination affordance without decoration. Neutral navigation stays primary at rest and gains semantic accent emphasis on hover and press.",
+    "When a Link completes a sentence or paragraph, keep it inside that semantic Text owner and leave its default inherited size so typography and wrapping remain one coherent text flow; use layout components only for independently meaningful peer items."
+  ],
+  "rules": [
+    {
+      "id": "link-destination",
+      "level": "must",
+      "statement": "Preserve anchor semantics and a real destination even when the link looks like a button."
+    },
+    {
+      "id": "link-inline-sentence",
+      "level": "must",
+      "statement": "Keep a Link that completes surrounding prose inside the owning sentence or paragraph and inherit its typography; do not split one sentence into layout siblings merely to align it."
+    },
+    {
+      "id": "link-plain-distinction",
+      "level": "must",
+      "statement": "When a theme removes the resting underline, keep accent link text at least 3:1 distinct from adjacent primary text and restore the underline on interaction."
+    },
+    {
+      "id": "link-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus link.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Replacing ordinary inline or standalone navigation with Button only to increase emphasis.",
+      "correction": "Use Link for ordinary navigation; use Button with a real href only when the destination intentionally needs a filled, soft, outlined, or ghost action treatment."
+    },
+    {
+      "mistake": "Rendering prose and the Link that completes it as separate Stack children, or explicitly restating Link's default inherited size.",
+      "correction": "Render one semantic Text sentence with an inline Link and leave its inherited size implicit; reserve Stack for independent peers."
+    },
+    {
+      "mistake": "Removing resting underlines globally without validating links against surrounding text.",
+      "correction": "Use the Theme Link input so compilation validates the required text distinction, or keep underlines."
+    }
+  ],
+  "validation": [
+    "Inspect href and accessible name.",
+    "For inline prose links, confirm the Link remains inside the owning sentence or paragraph, inherits its typography, and wraps as one text flow.",
+    "Test focus, Enter navigation, visited/external behavior when relevant, and contrast.",
+    "For no-resting-underline themes, verify the compiled 3:1 text-distinction result and the interactive underline.",
+    "For explicit plain navigation, verify no interaction underline appears, neutral destinations gain semantic accent hover/press emphasis, and container, current, and focus treatments still communicate the destination."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "link",
+      "versionPolicy": "installed-exact"
+    },
+    "text",
+    "stack",
+    "button"
+  ]
+}
+```

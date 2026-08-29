@@ -1,0 +1,18 @@
+# Color contrast and difference measurement
+
+Source: @flowstack-ui/colors@0.1.1
+Kind: operation
+ID: color-measurement
+Guide: [colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## Covered public surfaces
+
+- `.#ColorDifferenceMethod`
+- `.#ColorDifferenceReport`
+- `.#ContrastMeasurement`
+- `.#ContrastReport`
+- `.#DifferenceMeasurement`
+- `.#calculateColorDifference`
+- `.#calculateContrast`
+- `.#colorDifference`
+- `.#contrastRatio`

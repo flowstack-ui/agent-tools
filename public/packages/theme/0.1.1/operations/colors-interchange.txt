@@ -1,0 +1,35 @@
+# Colors interchange
+
+Source: @flowstack-ui/theme@0.1.1
+Kind: operation
+ID: colors-interchange
+Guide: [theme-system](/packages/theme/0.1.1/guides/theme-system.txt)
+
+## Covered public surfaces
+
+- `.#COLORS_CANDIDATE_SCHEMA`
+- `.#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA`
+- `.#COLORS_THEME_SCAFFOLD_SCHEMA`
+- `.#ColorsPaletteProfile`
+- `.#ColorsThemeScaffoldError`
+- `.#ColorsThemeScaffoldIssue`
+- `.#ColorsThemeScaffoldIssueCode`
+- `.#ColorsThemeScaffoldPaletteReport`
+- `.#ColorsThemeScaffoldReport`
+- `.#ColorsThemeScaffoldRequest`
+- `.#ColorsThemeScaffoldResult`
+- `.#ColorsThemeSemanticTarget`
+- `.#scaffoldThemeFromColors`
+- `.#scaffoldThemeFromColorsFiles`
+- `.#writeColorsThemeScaffold`
+- `./schema#COLORS_CANDIDATE_SCHEMA`
+- `./schema#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA`
+- `./schema#COLORS_THEME_SCAFFOLD_SCHEMA`
+- `./schema#ColorsPaletteProfile`
+- `./schema#ColorsThemeScaffoldIssue`
+- `./schema#ColorsThemeScaffoldIssueCode`
+- `./schema#ColorsThemeScaffoldPaletteReport`
+- `./schema#ColorsThemeScaffoldReport`
+- `./schema#ColorsThemeScaffoldRequest`
+- `./schema#ColorsThemeScaffoldResult`
+- `./schema#ColorsThemeSemanticTarget`

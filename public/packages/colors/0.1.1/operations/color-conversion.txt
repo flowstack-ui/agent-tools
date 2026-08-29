@@ -1,0 +1,14 @@
+# Color conversion and gamut mapping
+
+Source: @flowstack-ui/colors@0.1.1
+Kind: operation
+ID: color-conversion
+Guide: [colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## Covered public surfaces
+
+- `.#ColorConversionResult`
+- `.#GamutMappingResult`
+- `.#OutputGamut`
+- `.#convertColor`
+- `.#mapColorToGamut`

@@ -1,0 +1,160 @@
+# TreeGrid
+
+Source: @flowstack-ui/brick@0.1.11
+Kind: component
+ID: tree-grid
+
+# TreeGrid agent guide
+
+## Purpose
+
+Present finished hierarchical multi-column rows while Atom owns treegrid relationships, active-cell navigation, expansion, row selection, logical coordinates, and actionable-header semantics.
+
+## Use when
+
+- Parent-child rows expand and each visible row exposes several independently navigable columns, such as a structured file browser.
+
+## Choose something else when
+
+- The hierarchy has one primary column, rows are flat, people only read native tabular relationships, or cells require editing or independent controls. Use Tree, DataGrid, Table, or an application-owned data tool.
+
+## Required composition
+
+- Compose explicit TreeGrid.Container for horizontal overflow, then one named Root with truthful rowCount and columnCount, optional Caption, Header and Body rowgroups, optional Footer summaries, and uniquely valued indexed Rows. Give every data Row stable parentValue and level metadata, one column-one RowHeader with decorative Indicator, then indexed Cells.
+- For application sorting, give an indexed ColumnHeader onAction, update records and sortDirection outside TreeGrid, and keep SortIndicator decorative. Compose Toolbar, filters, Pagination, status, and detail surfaces outside Root.
+
+## Rules
+
+- **MUST:** Name Root and preserve treegrid, rowgroup, row, rowheader, columnheader, and gridcell relationships with durable Row values, stable parentValue and level, one-based logical indexes, and truthful full totals.
+- **MUST:** Keep Root as the sole Tab stop and preserve active-descendant navigation across visible cells, vertical row movement, Home/End and whole-grid movement, disabled skipping, loop policy, and RTL-aware expansion and collapse in the tree column.
+- **MUST:** Mark only real parent Rows expandable, keep descendants hidden from navigation while any ancestor is collapsed, and let Atom relocate an active descendant to the collapsed ancestor's RowHeader cell.
+- **MUST:** Align scalar, array, or null value with selectionMode, use stable unique Row values, keep active cell independent from selected rows, and distinguish selectable=false from disabled for headers, parents, and summaries.
+- **MUST:** Use ColumnHeader onAction for equivalent pointer and active-header Enter activation, keep sortDirection truthful, and keep sorting, filtering, editing, resizing, data mutation, fetching, pagination, and persistence application-owned.
+- **MUST:** Keep v1 cells free of independent links, buttons, inputs, menus, and editing; keep hierarchy and sort indicators decorative and preserve RowHeader as the tree-column semantic owner.
+- **MUST:** If an application windows hierarchical rows, preserve logical totals, indexes, levels, parent visibility, and durable identities while keeping the active cell and collapse destination mounted; geometry utilities do not own treegrid focus or semantics.
+- **MUST:** Use Container for honest overflow, preserve the content-aware minimum width and all columns at narrow sizes, let the outline Root own one rounded boundary, and keep logical indentation and alignment correct in RTL.
+- **MUST:** Load styles.css or core.css plus tree-grid.css and every stylesheet for external composed controls.
+
+## Common mistakes
+
+- **Avoid:** Using TreeGrid for a one-column tree or read-only table, deriving parent/level/index identity from a rendered page, or inserting arbitrary controls into cells. **Instead:** Choose Tree or Table when simpler semantics fit, supply stable full-collection hierarchy and coordinates, and use an application-owned data tool for interactive cells.
+- **Avoid:** Expecting sortDirection to reorder rows, hiding columns on mobile, or adding a second framed clipping wrapper around outline. **Instead:** Keep sorting application-owned, preserve honest overflow, and let Root own its complete border and corner paint.
+
+## Validation checklist
+
+- Verify Root naming and complete treegrid relationships, unique Row values, parentValue/level metadata, RowHeader ownership, one-based logical indexes, full totals, active descendant, selection metadata, disabled/read-only state, and sort direction.
+- Exercise LTR/RTL expansion, collapse and parent movement, next-cell arrows, vertical movement, Home/End, whole-grid movement, loop boundaries, disabled cells, collapse relocation, none/single/multiple selection, nonselectable Rows, and header pointer/Enter parity.
+- Verify controlled/uncontrolled expansion and active-cell state; both variants, sizes, densities, captions, numeric/logical alignment, Container overflow, deep hierarchy, 320px, zoom, RTL, long content, light/dark appearance, forced colors, reduced motion, and any windowed active target.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/tree-grid`
+- `tree`
+- `data-grid`
+- `table`
+- `toolbar`
+- `pagination`
+- `scroll-area`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "tree-grid",
+  "name": "TreeGrid",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present finished hierarchical multi-column rows while Atom owns treegrid relationships, active-cell navigation, expansion, row selection, logical coordinates, and actionable-header semantics.",
+  "useWhen": [
+    "Parent-child rows expand and each visible row exposes several independently navigable columns, such as a structured file browser."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The hierarchy has one primary column, rows are flat, people only read native tabular relationships, or cells require editing or independent controls.",
+      "useInstead": "Tree, DataGrid, Table, or an application-owned data tool"
+    }
+  ],
+  "composition": [
+    "Compose explicit TreeGrid.Container for horizontal overflow, then one named Root with truthful rowCount and columnCount, optional Caption, Header and Body rowgroups, optional Footer summaries, and uniquely valued indexed Rows. Give every data Row stable parentValue and level metadata, one column-one RowHeader with decorative Indicator, then indexed Cells.",
+    "For application sorting, give an indexed ColumnHeader onAction, update records and sortDirection outside TreeGrid, and keep SortIndicator decorative. Compose Toolbar, filters, Pagination, status, and detail surfaces outside Root."
+  ],
+  "rules": [
+    {
+      "id": "tree-grid-name-relationships",
+      "level": "must",
+      "statement": "Name Root and preserve treegrid, rowgroup, row, rowheader, columnheader, and gridcell relationships with durable Row values, stable parentValue and level, one-based logical indexes, and truthful full totals."
+    },
+    {
+      "id": "tree-grid-focus",
+      "level": "must",
+      "statement": "Keep Root as the sole Tab stop and preserve active-descendant navigation across visible cells, vertical row movement, Home/End and whole-grid movement, disabled skipping, loop policy, and RTL-aware expansion and collapse in the tree column."
+    },
+    {
+      "id": "tree-grid-expansion",
+      "level": "must",
+      "statement": "Mark only real parent Rows expandable, keep descendants hidden from navigation while any ancestor is collapsed, and let Atom relocate an active descendant to the collapsed ancestor's RowHeader cell."
+    },
+    {
+      "id": "tree-grid-selection",
+      "level": "must",
+      "statement": "Align scalar, array, or null value with selectionMode, use stable unique Row values, keep active cell independent from selected rows, and distinguish selectable=false from disabled for headers, parents, and summaries."
+    },
+    {
+      "id": "tree-grid-actions",
+      "level": "must",
+      "statement": "Use ColumnHeader onAction for equivalent pointer and active-header Enter activation, keep sortDirection truthful, and keep sorting, filtering, editing, resizing, data mutation, fetching, pagination, and persistence application-owned."
+    },
+    {
+      "id": "tree-grid-cell-boundary",
+      "level": "must",
+      "statement": "Keep v1 cells free of independent links, buttons, inputs, menus, and editing; keep hierarchy and sort indicators decorative and preserve RowHeader as the tree-column semantic owner."
+    },
+    {
+      "id": "tree-grid-virtualization",
+      "level": "must",
+      "statement": "If an application windows hierarchical rows, preserve logical totals, indexes, levels, parent visibility, and durable identities while keeping the active cell and collapse destination mounted; geometry utilities do not own treegrid focus or semantics."
+    },
+    {
+      "id": "tree-grid-responsive",
+      "level": "must",
+      "statement": "Use Container for honest overflow, preserve the content-aware minimum width and all columns at narrow sizes, let the outline Root own one rounded boundary, and keep logical indentation and alignment correct in RTL."
+    },
+    {
+      "id": "tree-grid-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus tree-grid.css and every stylesheet for external composed controls."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using TreeGrid for a one-column tree or read-only table, deriving parent/level/index identity from a rendered page, or inserting arbitrary controls into cells.",
+      "correction": "Choose Tree or Table when simpler semantics fit, supply stable full-collection hierarchy and coordinates, and use an application-owned data tool for interactive cells."
+    },
+    {
+      "mistake": "Expecting sortDirection to reorder rows, hiding columns on mobile, or adding a second framed clipping wrapper around outline.",
+      "correction": "Keep sorting application-owned, preserve honest overflow, and let Root own its complete border and corner paint."
+    }
+  ],
+  "validation": [
+    "Verify Root naming and complete treegrid relationships, unique Row values, parentValue/level metadata, RowHeader ownership, one-based logical indexes, full totals, active descendant, selection metadata, disabled/read-only state, and sort direction.",
+    "Exercise LTR/RTL expansion, collapse and parent movement, next-cell arrows, vertical movement, Home/End, whole-grid movement, loop boundaries, disabled cells, collapse relocation, none/single/multiple selection, nonselectable Rows, and header pointer/Enter parity.",
+    "Verify controlled/uncontrolled expansion and active-cell state; both variants, sizes, densities, captions, numeric/logical alignment, Container overflow, deep hierarchy, 320px, zoom, RTL, long content, light/dark appearance, forced colors, reduced motion, and any windowed active target."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "tree-grid",
+      "versionPolicy": "installed-exact"
+    },
+    "tree",
+    "data-grid",
+    "table",
+    "toolbar",
+    "pagination",
+    "scroll-area"
+  ]
+}
+```

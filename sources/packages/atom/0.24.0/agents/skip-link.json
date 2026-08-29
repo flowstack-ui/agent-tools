@@ -1,0 +1,48 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "skip-link",
+  "name": "SkipLink",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Let keyboard and assistive-technology users bypass repeated page navigation and move focus to main content.",
+  "useWhen": [
+    "A page repeats navigation or controls before its main content."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "There is no repeated content before the primary content target.",
+      "useInstead": "the normal document focus order"
+    }
+  ],
+  "composition": [
+    "Place Root near the beginning of the page and provide one matching Target id at main content."
+  ],
+  "rules": [
+    {
+      "id": "skip-link-match",
+      "level": "must",
+      "statement": "Keep Root href and Target id identical and unique."
+    },
+    {
+      "id": "skip-link-first",
+      "level": "must",
+      "statement": "Make Root the first useful focus target when it bypasses repeated navigation."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Linking to a missing id or adding a second main landmark around Target.",
+      "correction": "Use one matching Target as the page's main landmark."
+    }
+  ],
+  "validation": [
+    "Tab from the browser chrome, activate Root, and confirm Target receives visible focus and scrolls into view.",
+    "Confirm the document contains one main landmark."
+  ],
+  "related": [
+    "app-bar",
+    "sidebar",
+    "link"
+  ]
+}

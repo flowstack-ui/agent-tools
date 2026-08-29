@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a reproducible problem in a public Agent Tools surface.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: Security vulnerabilities belong in a private advisory, not this form.
+  - type: input
+    id: version
+    attributes:
+      label: Version or hosted route
+      placeholder: "@flowstack-ui/mcp 0.1.0 or https://agents.brick-ui.com/mcp"
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - LLM routes
+        - MCP server
+        - Workflow skill
+        - FLOWSTACK plugin
+        - npm package
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the shortest complete steps or a small public repository.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include relevant package, Codex, Node, operating-system, and client versions.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched for an existing issue.
+          required: true
+        - label: This report contains no secrets or private user data.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true

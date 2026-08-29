@@ -1,0 +1,90 @@
+# Public document: guides/theme-contract
+
+Source: @flowstack-ui/brick@0.1.11
+
+# Theme contract
+
+Brick publishes a generated, machine-readable description of the values that
+a FLOWSTACK theme may provide:
+
+```js
+import contract from "@flowstack-ui/brick/theme-contract.json" with { type: "json" };
+```
+
+The artifact uses the `flowstack.brick-theme-contract.v1` schema identifier.
+It is generated from Brick's token source, component documentation contracts,
+and cascade declaration, so theme tooling does not need a copied token list.
+Contract revision 2 added the required contrast declaration. Revision 3 adds
+closed categorical component inputs and conditional contrast pairs. The
+schema identifier remains version 1 because both revisions are additive for
+existing contract readers. Theme accepts revision 2 and newer, while tooling
+that needs categorical inputs and conditional validation must feature-detect
+the revision 3 fields.
+
+The contract records:
+
+- every semantic variable, type, light and dark default, and appearance
+  behavior;
+- atomic color families that must be reviewed together;
+- semantic foreground/background pairs, their text, text-distinction, or
+  non-text kind, optional component-input condition, and minimum contrast
+  ratio Theme must validate without rounding;
+- approved inherited component inputs, their semantic fallbacks, and any
+  closed `allowedValues` vocabulary;
+- local component extension variables and implementation-only variables;
+- component recipes, defaults, and state attributes used by qualification;
+- the reserved theme and appearance attributes; and
+- the exact cascade position for compiled theme CSS.
+
+## Token classifications
+
+`required` values are appearance-dependent semantic colors and shadows that a
+complete compiled appearance must contain. `derived` values are stable
+semantic foundations that can inherit Brick defaults. `component-input`
+values are the small audited set that may inherit from a theme scope.
+`optional-extension` values are public component-instance escape hatches, not
+global theme controls. `internal` values belong to Brick implementation.
+Deprecated values, when introduced, include their replacements.
+
+## Contrast pairs
+
+Brick publishes only adjacencies promised by maintained component recipes. It
+does not ask Theme to test every theoretical combination of semantic colors.
+Normal authored text pairs require `4.5:1`; meaningful non-text indicators
+require `3:1`. A conditional text-distinction pair requires `3:1` when a
+categorical theme decision removes the non-color cue that normally identifies
+an element. Disabled text and arbitrary local component overrides remain
+outside this static contract, while browser qualification covers opacity,
+gradients, images, and composition-specific adjacency.
+
+The public contract uses `wcag2-relative-luminance` over opaque sRGB values.
+Theme owns the calculation and generated report; Brick owns the declared pair
+semantics and thresholds.
+
+Brick currently approves Drawer background and radius plus Link resting
+decoration as inherited component inputs. `components.link.decoration` accepts
+only `"underline"` or `"none"`. When `"none"` is active, Theme validates the
+accent Link text against adjacent primary text at `3:1`; Link restores its
+underline on hover, focus, and active interaction. An explicit
+`variant="underline"` or `variant="plain"` remains a local exception.
+
+Other documented component variables remain available for local instance
+customization but are intentionally not accepted as global Theme inputs until
+a real product proves that scope safe. Shared appearance-dependent elevation
+uses semantic `--brick-shadow-floating` and `--brick-shadow-modal` tokens,
+which themes may map through `brick.light.shadow` and `brick.dark.shadow`.
+
+## Cascade and scopes
+
+Compiled theme variables belong in `flowstack.theme`, after `brick.tokens` and
+before `brick.foundations`. Unlayered application CSS can still deliberately
+override the result.
+
+Use `data-flowstack-theme` to select a named theme and
+`data-brick-appearance="light|dark"` for the nearest appearance boundary. A
+dual-appearance theme must re-emit its complete required map at nested light
+and dark boundaries. See Appearance and tokens [source reference: appearance-and-tokens.md] for
+scope and portal rules.
+
+This artifact describes Brick's consumption boundary. Theme authoring,
+validation, and CSS generation belong to the separate FLOWSTACK Theme package.

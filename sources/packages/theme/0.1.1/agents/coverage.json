@@ -1,0 +1,1587 @@
+{
+  "schema": "flowstack.agent-coverage.v1",
+  "package": "@flowstack-ui/theme",
+  "packageVersion": "0.1.1",
+  "layer": "theme",
+  "profile": {
+    "kind": "operation-package",
+    "ownerUnit": "operation"
+  },
+  "generatedFrom": {
+    "exports": "package.json",
+    "catalog": "agents/catalog.json",
+    "manifest": "dist/agents/manifest.json"
+  },
+  "summary": {
+    "publicSurfaces": 121,
+    "classifiedPublicSurfaces": 121,
+    "componentOwners": 0,
+    "guidedComponentOwners": 0,
+    "packageGuides": 1,
+    "unclassified": 0,
+    "invalidExclusions": 0,
+    "unresolvedSelections": 0,
+    "ownerUnits": 7,
+    "guidedOwnerUnits": 7,
+    "operationOwners": 7,
+    "guidedOperationOwners": 7,
+    "registryItems": 0,
+    "guidedRegistryItems": 0,
+    "registryFamilies": 0,
+    "invalidRegistryItems": 0,
+    "unresolvedDependencies": 0
+  },
+  "components": [],
+  "owners": [
+    {
+      "kind": "operation",
+      "id": "brick-contract-compatibility",
+      "name": "Brick contract compatibility",
+      "publicSurfaces": [
+        ".#BRICK_THEME_CONTRACT_SCHEMA",
+        ".#BrickAtomicColorFamily",
+        ".#BrickComponentThemeAssignment",
+        ".#BrickComponentThemeInput",
+        ".#BrickContractToken",
+        ".#BrickContrastCondition",
+        ".#BrickContrastContract",
+        ".#BrickContrastKind",
+        ".#BrickContrastPair",
+        ".#BrickThemeContract",
+        ".#BrickTokenClassification",
+        ".#BrickTokenDeprecation",
+        ".#assertBrickThemeContract",
+        ".#loadBrickThemeContract",
+        "./schema#BRICK_THEME_CONTRACT_SCHEMA",
+        "./schema#BrickAtomicColorFamily",
+        "./schema#BrickComponentThemeAssignment",
+        "./schema#BrickComponentThemeInput",
+        "./schema#BrickContractToken",
+        "./schema#BrickContrastCondition",
+        "./schema#BrickContrastContract",
+        "./schema#BrickContrastKind",
+        "./schema#BrickContrastPair",
+        "./schema#BrickThemeContract",
+        "./schema#BrickTokenClassification",
+        "./schema#BrickTokenDeprecation"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "colors-interchange",
+      "name": "Colors interchange",
+      "publicSurfaces": [
+        ".#COLORS_CANDIDATE_SCHEMA",
+        ".#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA",
+        ".#COLORS_THEME_SCAFFOLD_SCHEMA",
+        ".#ColorsPaletteProfile",
+        ".#ColorsThemeScaffoldError",
+        ".#ColorsThemeScaffoldIssue",
+        ".#ColorsThemeScaffoldIssueCode",
+        ".#ColorsThemeScaffoldPaletteReport",
+        ".#ColorsThemeScaffoldReport",
+        ".#ColorsThemeScaffoldRequest",
+        ".#ColorsThemeScaffoldResult",
+        ".#ColorsThemeSemanticTarget",
+        ".#scaffoldThemeFromColors",
+        ".#scaffoldThemeFromColorsFiles",
+        ".#writeColorsThemeScaffold",
+        "./schema#COLORS_CANDIDATE_SCHEMA",
+        "./schema#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA",
+        "./schema#COLORS_THEME_SCAFFOLD_SCHEMA",
+        "./schema#ColorsPaletteProfile",
+        "./schema#ColorsThemeScaffoldIssue",
+        "./schema#ColorsThemeScaffoldIssueCode",
+        "./schema#ColorsThemeScaffoldPaletteReport",
+        "./schema#ColorsThemeScaffoldReport",
+        "./schema#ColorsThemeScaffoldRequest",
+        "./schema#ColorsThemeScaffoldResult",
+        "./schema#ColorsThemeSemanticTarget"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "theme-artifacts",
+      "name": "Theme artifacts",
+      "publicSurfaces": [
+        ".#THEME_MANIFEST_SCHEMA",
+        ".#THEME_REPORT_SCHEMA",
+        ".#ThemeCompilationReport",
+        ".#ThemeManifest",
+        ".#compileThemeFiles",
+        ".#writeThemeArtifacts",
+        "./schema#THEME_MANIFEST_SCHEMA",
+        "./schema#THEME_REPORT_SCHEMA",
+        "./schema#ThemeCompilationReport",
+        "./schema#ThemeManifest"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "theme-cli",
+      "name": "Theme CLI",
+      "publicSurfaces": [
+        "bin:flowstack-theme"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "theme-compilation",
+      "name": "Theme compilation",
+      "publicSurfaces": [
+        ".#CompiledThemeToken",
+        ".#ThemeCompilation",
+        ".#ThemeCompilationError",
+        ".#ThemeCompilationIssue",
+        ".#ThemeCompilationIssueCode",
+        ".#ThemeContrastPairResult",
+        ".#ThemeProjectContrastPairResult",
+        ".#compileTheme",
+        "./schema#CompiledThemeToken",
+        "./schema#ThemeCompilation",
+        "./schema#ThemeCompilationIssue",
+        "./schema#ThemeCompilationIssueCode",
+        "./schema#ThemeContrastPairResult",
+        "./schema#ThemeProjectContrastPairResult"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "theme-definition",
+      "name": "Theme definition",
+      "publicSurfaces": [
+        ".#JsonPrimitive",
+        ".#JsonValue",
+        ".#THEME_DEFINITION_SCHEMA",
+        ".#ThemeAppearance",
+        ".#ThemeAppearanceRoles",
+        ".#ThemeAppearances",
+        ".#ThemeCompatibility",
+        ".#ThemeData",
+        ".#ThemeDefaultAppearance",
+        ".#ThemeDefinition",
+        ".#ThemeMetadata",
+        ".#ThemeProjectContrastPair",
+        ".#ThemeRelationships",
+        ".#defineTheme",
+        "./schema#JsonPrimitive",
+        "./schema#JsonValue",
+        "./schema#THEME_DEFINITION_SCHEMA",
+        "./schema#ThemeAppearance",
+        "./schema#ThemeAppearanceRoles",
+        "./schema#ThemeAppearances",
+        "./schema#ThemeCompatibility",
+        "./schema#ThemeData",
+        "./schema#ThemeDefaultAppearance",
+        "./schema#ThemeDefinition",
+        "./schema#ThemeMetadata",
+        "./schema#ThemeProjectContrastPair",
+        "./schema#ThemeRelationships"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "theme-validation",
+      "name": "Theme validation",
+      "publicSurfaces": [
+        ".#ThemeValidationError",
+        ".#ThemeValidationIssue",
+        ".#ThemeValidationIssueCode",
+        ".#ThemeValidationResult",
+        ".#assertThemeDefinition",
+        ".#isThemeDefinition",
+        ".#validateThemeDefinition",
+        "./schema#ThemeValidationIssue",
+        "./schema#ThemeValidationIssueCode",
+        "./schema#ThemeValidationResult"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    }
+  ],
+  "operations": [
+    {
+      "id": "brick-contract-compatibility",
+      "name": "Brick contract compatibility",
+      "publicSurfaces": [
+        ".#BRICK_THEME_CONTRACT_SCHEMA",
+        ".#BrickAtomicColorFamily",
+        ".#BrickComponentThemeAssignment",
+        ".#BrickComponentThemeInput",
+        ".#BrickContractToken",
+        ".#BrickContrastCondition",
+        ".#BrickContrastContract",
+        ".#BrickContrastKind",
+        ".#BrickContrastPair",
+        ".#BrickThemeContract",
+        ".#BrickTokenClassification",
+        ".#BrickTokenDeprecation",
+        ".#assertBrickThemeContract",
+        ".#loadBrickThemeContract",
+        "./schema#BRICK_THEME_CONTRACT_SCHEMA",
+        "./schema#BrickAtomicColorFamily",
+        "./schema#BrickComponentThemeAssignment",
+        "./schema#BrickComponentThemeInput",
+        "./schema#BrickContractToken",
+        "./schema#BrickContrastCondition",
+        "./schema#BrickContrastContract",
+        "./schema#BrickContrastKind",
+        "./schema#BrickContrastPair",
+        "./schema#BrickThemeContract",
+        "./schema#BrickTokenClassification",
+        "./schema#BrickTokenDeprecation"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "docs/architecture.md",
+      "status": "covered"
+    },
+    {
+      "id": "colors-interchange",
+      "name": "Colors interchange",
+      "publicSurfaces": [
+        ".#COLORS_CANDIDATE_SCHEMA",
+        ".#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA",
+        ".#COLORS_THEME_SCAFFOLD_SCHEMA",
+        ".#ColorsPaletteProfile",
+        ".#ColorsThemeScaffoldError",
+        ".#ColorsThemeScaffoldIssue",
+        ".#ColorsThemeScaffoldIssueCode",
+        ".#ColorsThemeScaffoldPaletteReport",
+        ".#ColorsThemeScaffoldReport",
+        ".#ColorsThemeScaffoldRequest",
+        ".#ColorsThemeScaffoldResult",
+        ".#ColorsThemeSemanticTarget",
+        ".#scaffoldThemeFromColors",
+        ".#scaffoldThemeFromColorsFiles",
+        ".#writeColorsThemeScaffold",
+        "./schema#COLORS_CANDIDATE_SCHEMA",
+        "./schema#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA",
+        "./schema#COLORS_THEME_SCAFFOLD_SCHEMA",
+        "./schema#ColorsPaletteProfile",
+        "./schema#ColorsThemeScaffoldIssue",
+        "./schema#ColorsThemeScaffoldIssueCode",
+        "./schema#ColorsThemeScaffoldPaletteReport",
+        "./schema#ColorsThemeScaffoldReport",
+        "./schema#ColorsThemeScaffoldRequest",
+        "./schema#ColorsThemeScaffoldResult",
+        "./schema#ColorsThemeSemanticTarget"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "docs/colors-interchange.md",
+      "status": "covered"
+    },
+    {
+      "id": "theme-artifacts",
+      "name": "Theme artifacts",
+      "publicSurfaces": [
+        ".#THEME_MANIFEST_SCHEMA",
+        ".#THEME_REPORT_SCHEMA",
+        ".#ThemeCompilationReport",
+        ".#ThemeManifest",
+        ".#compileThemeFiles",
+        ".#writeThemeArtifacts",
+        "./schema#THEME_MANIFEST_SCHEMA",
+        "./schema#THEME_REPORT_SCHEMA",
+        "./schema#ThemeCompilationReport",
+        "./schema#ThemeManifest"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "docs/installation.md",
+      "status": "covered"
+    },
+    {
+      "id": "theme-cli",
+      "name": "Theme CLI",
+      "publicSurfaces": [
+        "bin:flowstack-theme"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "README.md#json-cli",
+      "status": "covered"
+    },
+    {
+      "id": "theme-compilation",
+      "name": "Theme compilation",
+      "publicSurfaces": [
+        ".#CompiledThemeToken",
+        ".#ThemeCompilation",
+        ".#ThemeCompilationError",
+        ".#ThemeCompilationIssue",
+        ".#ThemeCompilationIssueCode",
+        ".#ThemeContrastPairResult",
+        ".#ThemeProjectContrastPairResult",
+        ".#compileTheme",
+        "./schema#CompiledThemeToken",
+        "./schema#ThemeCompilation",
+        "./schema#ThemeCompilationIssue",
+        "./schema#ThemeCompilationIssueCode",
+        "./schema#ThemeContrastPairResult",
+        "./schema#ThemeProjectContrastPairResult"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "docs/architecture.md",
+      "status": "covered"
+    },
+    {
+      "id": "theme-definition",
+      "name": "Theme definition",
+      "publicSurfaces": [
+        ".#JsonPrimitive",
+        ".#JsonValue",
+        ".#THEME_DEFINITION_SCHEMA",
+        ".#ThemeAppearance",
+        ".#ThemeAppearanceRoles",
+        ".#ThemeAppearances",
+        ".#ThemeCompatibility",
+        ".#ThemeData",
+        ".#ThemeDefaultAppearance",
+        ".#ThemeDefinition",
+        ".#ThemeMetadata",
+        ".#ThemeProjectContrastPair",
+        ".#ThemeRelationships",
+        ".#defineTheme",
+        "./schema#JsonPrimitive",
+        "./schema#JsonValue",
+        "./schema#THEME_DEFINITION_SCHEMA",
+        "./schema#ThemeAppearance",
+        "./schema#ThemeAppearanceRoles",
+        "./schema#ThemeAppearances",
+        "./schema#ThemeCompatibility",
+        "./schema#ThemeData",
+        "./schema#ThemeDefaultAppearance",
+        "./schema#ThemeDefinition",
+        "./schema#ThemeMetadata",
+        "./schema#ThemeProjectContrastPair",
+        "./schema#ThemeRelationships"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "docs/authoring.md",
+      "status": "covered"
+    },
+    {
+      "id": "theme-validation",
+      "name": "Theme validation",
+      "publicSurfaces": [
+        ".#ThemeValidationError",
+        ".#ThemeValidationIssue",
+        ".#ThemeValidationIssueCode",
+        ".#ThemeValidationResult",
+        ".#assertThemeDefinition",
+        ".#isThemeDefinition",
+        ".#validateThemeDefinition",
+        "./schema#ThemeValidationIssue",
+        "./schema#ThemeValidationIssueCode",
+        "./schema#ThemeValidationResult"
+      ],
+      "guideIds": [
+        "theme-system"
+      ],
+      "manifestPaths": [],
+      "documentationOwner": "docs/authoring.md",
+      "status": "covered"
+    }
+  ],
+  "registryItems": [],
+  "registryFamilies": [],
+  "surfaces": [
+    {
+      "surface": ".",
+      "classification": "aggregate",
+      "documentation": "README.md",
+      "reason": "The root export aggregates all classified Theme operations.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/*.json",
+      "classification": "metadata",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "The wildcard publishes machine-readable Agent Knowledge.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/*.md",
+      "classification": "metadata",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "The wildcard publishes generated readable Agent Knowledge.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/coverage.json",
+      "classification": "metadata",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "The coverage report reconciles public surfaces and operation owners.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/manifest.json",
+      "classification": "metadata",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "The manifest is the Agent Knowledge discovery index.",
+      "status": "covered"
+    },
+    {
+      "surface": "./package.json",
+      "classification": "metadata",
+      "documentation": "README.md",
+      "reason": "Package metadata supports installed version discovery.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema",
+      "classification": "metadata",
+      "documentation": "docs/authoring.md",
+      "reason": "The schema subpath mirrors public schema constants and types without creating duplicate operation owners.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BRICK_THEME_CONTRACT_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickAtomicColorFamily",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickComponentThemeAssignment",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickComponentThemeInput",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickContractToken",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickContrastCondition",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickContrastContract",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickContrastKind",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickContrastPair",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickThemeContract",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickTokenClassification",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#BrickTokenDeprecation",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#COLORS_CANDIDATE_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#COLORS_THEME_SCAFFOLD_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsPaletteProfile",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeScaffoldIssue",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeScaffoldIssueCode",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeScaffoldPaletteReport",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeScaffoldReport",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeScaffoldRequest",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeScaffoldResult",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ColorsThemeSemanticTarget",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#CompiledThemeToken",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#JsonPrimitive",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#JsonValue",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#THEME_DEFINITION_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#THEME_MANIFEST_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#THEME_REPORT_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "value": true,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeAppearance",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeAppearanceRoles",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeAppearances",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeCompatibility",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeCompilation",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeCompilationIssue",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeCompilationIssueCode",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeCompilationReport",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeContrastPairResult",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeData",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeDefaultAppearance",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeDefinition",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeManifest",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeMetadata",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeProjectContrastPair",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeProjectContrastPairResult",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeRelationships",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeValidationIssue",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeValidationIssueCode",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": "./schema#ThemeValidationResult",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "value": false,
+      "reason": "The schema subpath aliases the classified root schema contract.",
+      "status": "covered"
+    },
+    {
+      "surface": ".#assertBrickThemeContract",
+      "classification": "operation",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Asserts a supported installed Brick contract.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#assertThemeDefinition",
+      "classification": "operation",
+      "ownerId": "theme-validation",
+      "reason": "Asserts the Theme definition boundary.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BRICK_THEME_CONTRACT_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Identifies the Brick contract schema.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickAtomicColorFamily",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes Brick-owned atomic override families.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickComponentThemeAssignment",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes a contract-approved component assignment.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickComponentThemeInput",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes contract-approved component inputs.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickContractToken",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes one Brick semantic token.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickContrastCondition",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes conditional contract validation.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickContrastContract",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes Brick contrast policy.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickContrastKind",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Identifies contrast relationship kinds.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickContrastPair",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes one Brick-owned contrast relationship.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickThemeContract",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Defines the installed Brick contract.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickTokenClassification",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Classifies Brick token requirements.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#BrickTokenDeprecation",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Describes Brick token migration metadata.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLORS_CANDIDATE_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Identifies the serialized Colors candidate boundary.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLORS_THEME_SCAFFOLD_REPORT_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Identifies scaffold diagnostics.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLORS_THEME_SCAFFOLD_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Identifies scaffold mapping input.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsPaletteProfile",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Describes imported palette intent.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldError",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Reports scaffold failures.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldIssue",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Describes one scaffold issue.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldIssueCode",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Identifies scaffold issue kinds.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldPaletteReport",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Reports one imported palette.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldReport",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Reports the complete scaffold handoff.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldRequest",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Defines serialized scaffold mapping input.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeScaffoldResult",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Returns Theme source and diagnostics.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsThemeSemanticTarget",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Maps accepted palettes to Theme semantic jobs.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#CompiledThemeToken",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Describes one resolved output token.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#compileTheme",
+      "classification": "operation",
+      "ownerId": "theme-compilation",
+      "reason": "Compiles one Theme definition against one Brick contract.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#compileThemeFiles",
+      "classification": "operation",
+      "ownerId": "theme-artifacts",
+      "reason": "Loads Theme and Brick files for deterministic compilation.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#defineTheme",
+      "classification": "operation",
+      "ownerId": "theme-definition",
+      "reason": "Defines a typed JSON-compatible Theme source.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#isThemeDefinition",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "reason": "Checks the Theme definition boundary.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#JsonPrimitive",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines serializable primitive data.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#JsonValue",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines serializable Theme data.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#loadBrickThemeContract",
+      "classification": "operation-member",
+      "ownerId": "brick-contract-compatibility",
+      "reason": "Loads the exact contract file selected by the build.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#scaffoldThemeFromColors",
+      "classification": "operation",
+      "ownerId": "colors-interchange",
+      "reason": "Maps an accepted serialized Colors candidate into editable Theme source.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#scaffoldThemeFromColorsFiles",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Loads serialized Colors interchange files.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#THEME_DEFINITION_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Identifies the Theme definition schema.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#THEME_MANIFEST_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "reason": "Identifies the emitted manifest.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#THEME_REPORT_SCHEMA",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "reason": "Identifies the emitted report.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeAppearance",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines supported appearance identifiers.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeAppearanceRoles",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines appearance-aware project roles.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeAppearances",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines appearance policy.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeCompatibility",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Declares the authored Brick compatibility range.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeCompilation",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Returns all deterministic compilation outputs.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeCompilationError",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Reports compilation failures.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeCompilationIssue",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Describes one compilation issue.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeCompilationIssueCode",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Identifies compilation issue kinds.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeCompilationReport",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "reason": "Defines compilation report output.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeContrastPairResult",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Reports one Brick contrast validation.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeData",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines recursive Theme data.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeDefaultAppearance",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines default appearance policy.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeDefinition",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Owns the serializable Theme source contract.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeManifest",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "reason": "Defines emitted Theme manifest output.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeMetadata",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines Theme identity and provenance.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeProjectContrastPair",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Declares project-owned contrast relationships.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeProjectContrastPairResult",
+      "classification": "operation-member",
+      "ownerId": "theme-compilation",
+      "reason": "Reports one project contrast validation.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeRelationships",
+      "classification": "operation-member",
+      "ownerId": "theme-definition",
+      "reason": "Defines maintained project relationships.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeValidationError",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "reason": "Reports assertion failures.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeValidationIssue",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "reason": "Describes one definition issue.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeValidationIssueCode",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "reason": "Identifies definition issue kinds.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#ThemeValidationResult",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "reason": "Returns definition validity and diagnostics.",
+      "value": false,
+      "status": "covered"
+    },
+    {
+      "surface": ".#validateThemeDefinition",
+      "classification": "operation-member",
+      "ownerId": "theme-validation",
+      "reason": "Returns structured definition diagnostics.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#writeColorsThemeScaffold",
+      "classification": "operation-member",
+      "ownerId": "colors-interchange",
+      "reason": "Writes the editable Theme source and scaffold report.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": ".#writeThemeArtifacts",
+      "classification": "operation-member",
+      "ownerId": "theme-artifacts",
+      "reason": "Writes the complete static artifact set.",
+      "value": true,
+      "status": "covered"
+    },
+    {
+      "surface": "bin:flowstack-theme",
+      "classification": "operation",
+      "ownerId": "theme-cli",
+      "value": true,
+      "reason": "The public executable routes Theme file operations.",
+      "status": "covered"
+    }
+  ],
+  "guides": [
+    {
+      "id": "theme-system",
+      "name": "FLOWSTACK Theme system",
+      "sourceOwner": "agents",
+      "agentSources": {
+        "json": "agents/theme-system.json",
+        "markdown": "agents/theme-system.md"
+      },
+      "manifestPaths": {
+        "json": "./theme-system.json",
+        "markdown": "./theme-system.md"
+      },
+      "status": "covered"
+    }
+  ],
+  "exclusions": [],
+  "selectionDestinations": [
+    {
+      "source": "agents/theme-system.json",
+      "context": "Activate a compiled theme or choose product-specific brand direction",
+      "destination": {
+        "kind": "native-application",
+        "id": "application-art-direction"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Activate a compiled theme or choose product-specific brand direction",
+      "destination": {
+        "kind": "native-application",
+        "id": "application-theme-runtime"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Author a deterministic theme source",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-definition"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Check a theme definition before compatibility work",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-validation"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Produce files for an application build",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-artifacts"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Qualify Theme against Brick",
+      "destination": {
+        "kind": "operation",
+        "id": "brick-contract-compatibility"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "native-application",
+        "id": "application-theme-runtime"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "brick-contract-compatibility"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "colors-interchange"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-artifacts"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-cli"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-compilation"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-definition"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "related",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-validation"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Resolve semantic values and prove completeness and contrast",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-compilation"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Start from generated Colors candidates",
+      "destination": {
+        "kind": "operation",
+        "id": "colors-interchange"
+      },
+      "status": "covered"
+    },
+    {
+      "source": "agents/theme-system.json",
+      "context": "Validate, scaffold, or compile from automation",
+      "destination": {
+        "kind": "operation",
+        "id": "theme-cli"
+      },
+      "status": "covered"
+    }
+  ],
+  "nativeApplicationDestinations": [
+    {
+      "id": "application-art-direction",
+      "kind": "application",
+      "reason": "Project-specific brand selection and art direction require explicit application or authorized human input.",
+      "status": "covered"
+    },
+    {
+      "id": "application-theme-runtime",
+      "kind": "application",
+      "reason": "Applications own activation, persistence, first paint, fonts, assets, portals, routes, and delivery of compiled CSS.",
+      "status": "covered"
+    }
+  ],
+  "failures": []
+}

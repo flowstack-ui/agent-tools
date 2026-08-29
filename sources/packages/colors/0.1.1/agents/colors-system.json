@@ -1,0 +1,200 @@
+{
+  "schema": "flowstack.agent-guide.v1",
+  "id": "colors-system",
+  "name": "FLOWSTACK Colors system",
+  "package": "@flowstack-ui/colors",
+  "layer": "colors",
+  "kind": "guide",
+  "purpose": "Select, execute, and review deterministic color operations without assigning component semantics or hiding changes to source colors.",
+  "status": "0.1-release",
+  "decisionOrder": [
+    "Identify whether the task is inspection, conversion, measurement, raw-reference lookup, candidate generation and review, or provenance recording.",
+    "Preserve the exact source color unless the caller explicitly requests a bounded adaptation policy.",
+    "Keep conversion, gamut mapping, contrast, and perceptual difference as distinct reported operations.",
+    "For palette work, declare the intended profile and every exact interface reference surface before generation.",
+    "Review the deterministic candidate explicitly and retain its generation and engine provenance.",
+    "Hand only reviewed serialized candidates to Theme for semantic mapping and exact Brick contract validation.",
+    "Let the application or authorized project process make final brand and product-use decisions."
+  ],
+  "selection": [
+    {
+      "intent": "parse, normalize, or validate a supported color value",
+      "use": "Color inspection",
+      "note": "Use parseColor for syntax, normalizeColor for a serializable record, and validateColor for structured diagnostics.",
+      "destinations": [
+        {
+          "kind": "operation",
+          "id": "color-inspection"
+        }
+      ]
+    },
+    {
+      "intent": "convert a color space or explicitly map a color into an output gamut",
+      "use": "Color conversion and gamut mapping",
+      "note": "Conversion does not silently imply gamut mapping; request and report mapping separately.",
+      "destinations": [
+        {
+          "kind": "operation",
+          "id": "color-conversion"
+        }
+      ]
+    },
+    {
+      "intent": "measure exact contrast or perceptual difference",
+      "use": "Color contrast and difference measurement",
+      "note": "Measure exact pairs and provide an explicit backdrop before making a claim about translucent colors.",
+      "destinations": [
+        {
+          "kind": "operation",
+          "id": "color-measurement"
+        }
+      ]
+    },
+    {
+      "intent": "retrieve a stable named FLOWSTACK palette",
+      "use": "Named palette reference",
+      "note": "Treat the result as raw-reference data; step positions do not confer UI meaning or accessibility.",
+      "destinations": [
+        {
+          "kind": "operation",
+          "id": "named-palette-reference"
+        }
+      ]
+    },
+    {
+      "intent": "generate, inspect, and explicitly accept or reject a deterministic palette candidate",
+      "use": "Palette candidate generation and review",
+      "note": "Acceptance covers declared Colors measurements only; Theme and rendered Brick qualification remain separate.",
+      "destinations": [
+        {
+          "kind": "operation",
+          "id": "palette-candidate"
+        },
+        {
+          "kind": "native-application",
+          "id": "human-candidate-review"
+        },
+        {
+          "kind": "native-application",
+          "id": "theme-semantic-mapping"
+        }
+      ]
+    },
+    {
+      "intent": "record the source, engine, package, and transformation evidence for a color result",
+      "use": "Color provenance",
+      "note": "Keep provenance serializable and preserve the exact qualified engine version.",
+      "destinations": [
+        {
+          "kind": "operation",
+          "id": "color-provenance"
+        }
+      ]
+    },
+    {
+      "intent": "assign accent, danger, warning, success, information, surface, or text meaning",
+      "use": "Theme semantic mapping after explicit candidate review",
+      "note": "Colors never infers component or project semantics from hue or palette position.",
+      "destinations": [
+        {
+          "kind": "native-application",
+          "id": "theme-semantic-mapping"
+        },
+        {
+          "kind": "native-application",
+          "id": "application-brand-approval"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "colors-candidate-not-theme",
+      "level": "must",
+      "statement": "Treat Colors output as a candidate until a person or explicitly authorized project process approves it and Theme maps and validates its exact values."
+    },
+    {
+      "id": "colors-preserve-seed",
+      "level": "must",
+      "statement": "Preserve exact source colors by default; adapt only under an explicit bounded policy and report the perceptual change."
+    },
+    {
+      "id": "colors-pair-claims",
+      "level": "must",
+      "statement": "Make accessibility claims only for exact measured foreground and background pairs."
+    },
+    {
+      "id": "colors-no-semantic-hue",
+      "level": "must",
+      "statement": "Do not infer accent, danger, warning, success, or information meaning merely from hue or palette position."
+    },
+    {
+      "id": "colors-no-runtime",
+      "level": "must",
+      "statement": "Keep Colors out of React, the DOM, Brick, Theme, and the ordinary application browser runtime; exchange serializable artifacts with Theme."
+    },
+    {
+      "id": "colors-engine-version",
+      "level": "must",
+      "statement": "Pin the qualified color engine exactly and treat its recorded version as part of deterministic provenance."
+    },
+    {
+      "id": "colors-upgrade-review",
+      "level": "must",
+      "statement": "Do not regenerate an accepted Theme merely because Colors is upgraded; review candidate diffs and repeat semantic and rendered qualification."
+    },
+    {
+      "id": "colors-gamut-honesty",
+      "level": "must",
+      "statement": "Keep conversion and gamut mapping separate and report the method and perceptual change whenever a color is mapped."
+    },
+    {
+      "id": "colors-alpha-context",
+      "level": "must",
+      "statement": "Do not claim contrast or perceptual difference for a translucent color without an explicit backdrop."
+    },
+    {
+      "id": "colors-accepted-scope",
+      "level": "must",
+      "statement": "Treat accepted as passing only the candidate's declared Colors measurements; Theme mapping and rendered Brick qualification remain separate gates."
+    },
+    {
+      "id": "colors-explicit-review",
+      "level": "must",
+      "statement": "Record an explicit review decision before giving a serialized candidate to Theme and preserve its exact generation evidence."
+    },
+    {
+      "id": "colors-reference-surfaces",
+      "level": "must",
+      "statement": "Supply every intended interface reference surface when a family must work across canvas, raised, overlay, or similar backgrounds."
+    },
+    {
+      "id": "colors-named-reference",
+      "level": "must",
+      "statement": "Keep named FLOWSTACK palettes labelled raw-reference and do not infer interface semantics or accessibility from their step positions."
+    }
+  ],
+  "nativeFallback": {
+    "check": "Check the six Colors operations before writing a new color parser, converter, mapper, measurement, candidate generator, named palette lookup, or provenance envelope.",
+    "use": "Use Theme for semantic mapping and an application or authorized project process for final brand approval; do not rebuild those owners inside Colors.",
+    "report": "Report the exact unsupported operation, input, output, backdrop, or higher-layer decision when a Colors owner does not apply."
+  },
+  "validation": [
+    "Confirm the selected operation matches the task and every input uses a supported serialized color shape.",
+    "Verify parsing and normalization preserve the source while conversion and gamut mapping report their distinct outcomes.",
+    "Verify contrast and difference claims identify the exact opaque pair or an explicit qualified backdrop.",
+    "For candidates, inspect profile, appearances, exact reference surfaces, preservation policy, diagnostics, measurements, status, and deterministic output.",
+    "Confirm explicit review and complete provenance precede Theme interchange and that accepted is not described as Theme-qualified.",
+    "Confirm no React, DOM, Brick, Theme, application, private brand data, random generation, or hidden semantic inference entered the operation.",
+    "Resolve the installed package manifest and coverage report and confirm all six operation owners and all 76 public API surfaces are covered."
+  ],
+  "related": [
+    "docs/architecture.md",
+    "docs/color-foundations.md",
+    "docs/compatibility.md",
+    "docs/installation.md",
+    "docs/palette-generation.md",
+    "docs/dependency-qualification.md",
+    "docs/testing.md"
+  ]
+}

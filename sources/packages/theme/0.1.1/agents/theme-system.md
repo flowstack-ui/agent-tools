@@ -1,0 +1,93 @@
+# FLOWSTACK Theme system
+
+## Purpose
+
+Author, compile, and integrate a project theme without changing Brick component meaning or moving application runtime ownership into Theme.
+
+## Decision order
+
+1. Identify brand and product colors as project palettes and roles before mapping any value to Brick.
+2. If using Colors, review its candidate explicitly and scaffold selected families through the serialized file interchange.
+3. Install a released Brick version whose theme contract revision is supported by Theme.
+4. Map only UI meanings Brick owns into brick.light and brick.dark; keep charts, syntax, editorial, and campaign colors in project roles or namespaced extensions.
+5. Use appearanceRoles for optional project or package meanings that vary between light and dark, and declare their maintained foreground/background relationships explicitly.
+6. Override a complete atomic Brick family or inherit that entire family from Brick defaults.
+7. Use only Brick-declared component theme inputs and treat their closed values as project-wide policy with component props remaining available for local exceptions.
+8. Compile at build time, review the contrast report and static artifacts, then ship the CSS rather than the compiler.
+9. Let the application own activation, saved preference, fonts, assets, portals, and first-paint behavior.
+
+## Selection map
+
+- **Author a deterministic theme source:** use defineTheme with the flowstack.theme.v1 schema and JSON-compatible values.
+- **Check a theme definition before compatibility work:** use validateThemeDefinition for diagnostics or assertThemeDefinition for a throwing boundary.
+- **Qualify Theme against Brick:** use load and assert the theme-contract.json belonging to the exact installed Brick version.
+- **Start from generated Colors candidates:** use the serialized, explicitly reviewed Colors candidate and scaffold mapping handoff.
+- **Resolve semantic values and prove completeness and contrast:** use compileTheme against the selected installed Brick contract.
+- **Produce files for an application build:** use compileThemeFiles and writeThemeArtifacts for the complete deterministic CSS, token, manifest, and report set.
+- **Validate, scaffold, or compile from automation:** use the flowstack-theme CLI with explicit JSON, contract, mapping, and output paths.
+- **Activate a compiled theme or choose product-specific brand direction:** use application-owned runtime and authorized project inputs after Theme emits static artifacts.
+
+## Rules
+
+- **MUST:** Keep theme definitions JSON-compatible and deterministic; do not use functions, DOM state, environment-dependent values, or runtime callbacks.
+- **MUST:** Compile against the theme-contract.json exported by the installed Brick package and do not maintain a copied semantic-token list.
+- **MUST:** Treat Colors as optional serialized file input; never add a Colors runtime dependency or map an unreviewed candidate.
+- **MUST:** When one member of an atomic Brick color family changes, provide the complete family for that appearance or inherit the complete Brick default.
+- **MUST:** Map values by semantic UI meaning; never misuse warning, danger, success, or information merely to obtain a desired hue.
+- **MUST:** Keep unlimited non-Brick brand, visualization, syntax, editorial, and product colors in palettes, roles, or namespaced extensions.
+- **MUST:** Treat insufficient or unprovable Brick-declared and project-declared contrast pairs as build failures; do not round a failing ratio into a pass.
+- **MUST:** Define every appearance-aware project role for every supported appearance, keep its logical meaning stable, and do not duplicate the same path in invariant roles.
+- **MUST:** Ship compiled static CSS and keep @flowstack-ui/theme in build tooling unless a separately qualified runtime adapter is introduced.
+- **MUST:** Keep theme selection, persistence, pre-paint setup, font and asset loading, and portal-container coordination in the application.
+- **MUST:** Do not add theme breakpoints expecting them to recompile Brick media queries; Brick component breakpoints and application layout policy have separate owners.
+- **SHOULD:** Use components only for inputs explicitly audited in the Brick contract; honor closed allowed values and their conditional validation, and keep local component token overrides local.
+
+## Ownership
+
+### Brick
+
+- accessible default values
+- semantic UI roles and component recipes
+- atomic families, contrast pairs, and approved component inputs
+
+### Theme
+
+- serializable project values and mappings
+- compatibility, completeness, alias, and contrast validation
+- appearance-aware project roles and explicit project relationships
+- deterministic CSS, token, manifest, and report artifacts
+
+### Application
+
+- activation and saved preference
+- font and asset loading
+- first paint, portals, routes, and product art direction
+
+## Native and application fallback
+
+1. Check whether the task is deterministic Theme authoring, validation, compatibility, compilation, artifact writing, or CLI automation before using this package.
+2. Use application-owned integration for runtime activation, persistence, first paint, fonts, assets, portal placement, routes, and product-specific art direction.
+3. Report a Theme or Brick contract gap instead of copying semantic tokens, weakening validation, inventing brand decisions, or shipping the compiler in the browser.
+
+## Validation checklist
+
+- Validate the definition envelope before compiling.
+- When using Colors interchange, confirm the candidate review and scaffold report identify the intended families and semantic jobs.
+- Compile against the exact installed Brick contract revision and review every diagnostic.
+- When a categorical component input activates conditional validation, confirm every resulting contrast pair passes in every supported appearance.
+- Confirm every appearance role is complete and every declared project relationship passes in every supported appearance.
+- Confirm theme.report.json contains one passing result for every declared pair and supported appearance.
+- Verify generated artifacts are byte-stable and committed only when the application owns committed build output.
+- Build the production application and verify explicit light, dark, nested appearance, portal, first-paint, and forced-colors behavior where applicable.
+- Confirm the browser bundle does not contain the Theme compiler.
+
+## Related guidance
+
+- `theme-definition (operation)`
+- `theme-validation (operation)`
+- `brick-contract-compatibility (operation)`
+- `colors-interchange (operation)`
+- `theme-compilation (operation)`
+- `theme-artifacts (operation)`
+- `theme-cli (operation)`
+- `application-theme-runtime (native/application)`

@@ -1,0 +1,141 @@
+# Public document: authoring
+
+Source: @flowstack-ui/theme@0.1.1
+
+# Authoring
+
+A theme definition is serializable project data. JSON is the CLI boundary;
+TypeScript may use `defineTheme` for typing as long as the resulting object
+remains JSON-compatible.
+
+## Start with project meaning
+
+Define any number of raw palettes, then name the roles your product needs:
+
+```json
+{
+  "$schema": "flowstack.theme.v1",
+  "metadata": { "id": "acme", "name": "Acme" },
+  "compatibility": { "brick": "^0.1.11" },
+  "appearances": {
+    "supported": ["light", "dark"],
+    "default": "system"
+  },
+  "palettes": {
+    "brand": {
+      "blue": "#2457c5",
+      "orange": "#c44d18",
+      "magenta": "#a53c8e"
+    }
+  },
+  "roles": {
+    "brandPrimary": "{palettes.brand.blue}",
+    "promotion": "{palettes.brand.magenta}"
+  }
+}
+```
+
+Extra colors are not forced into Brick's smaller vocabulary. Charts,
+campaigns, syntax, editorial colors, maps, and future Block roles remain in
+`roles` or a namespaced `extensions` object and emit as
+`--flowstack-theme-*` variables.
+
+## Appearance-aware project roles
+
+Use `appearanceRoles` when one project meaning must adapt with light and dark
+appearance without becoming a required Brick semantic:
+
+```json
+{
+  "appearanceRoles": {
+    "light": {
+      "blocks": {
+        "expressiveSurface": {
+          "surface": "#4a2f00",
+          "foreground": "#ffffff"
+        }
+      }
+    },
+    "dark": {
+      "blocks": {
+        "expressiveSurface": {
+          "surface": "#2f2108",
+          "foreground": "#ffffff"
+        }
+      }
+    }
+  },
+  "relationships": {
+    "contrast": [
+      {
+        "id": "blocks-expressive-surface-content",
+        "kind": "text",
+        "foreground": "blocks.expressiveSurface.foreground",
+        "background": "blocks.expressiveSurface.surface",
+        "minimumRatio": 4.5
+      }
+    ]
+  }
+}
+```
+
+The compiler emits stable
+`--flowstack-theme-roles-blocks-expressive-surface-*` variables under the
+active appearance selectors. Every logical role must exist in every supported
+appearance. Declared project contrast relationships must resolve to opaque
+sRGB colors and meet the same unrounded WCAG 2 floors used for Brick pairs.
+Keep media-composition and transparency checks in the consuming product.
+
+## Map Brick semantics
+
+The `brick` section changes stable UI meanings. Map by purpose, not merely by
+hue: a promotional orange is not a warning unless it communicates warning.
+
+```json
+{
+  "brick": {
+    "light": {
+      "color": {
+        "accent": {
+          "border": "#829fe0",
+          "on-soft": "#173b86",
+          "on-solid": "#ffffff",
+          "soft": "#e8efff",
+          "soft-hover": "#d9e5ff",
+          "soft-pressed": "#c6d7ff",
+          "solid": "{roles.brandPrimary}",
+          "solid-hover": "#1c489f",
+          "solid-pressed": "#173d88",
+          "text": "#214b9e"
+        }
+      }
+    }
+  }
+}
+```
+
+Brick publishes atomic families. Changing one member requires every member of
+that family for the same appearance; omitting the entire family safely
+inherits Brick's defaults. This prevents a new rest color from accidentally
+keeping unrelated hover, pressed, or foreground values.
+
+## Other sections
+
+- `foundations` accepts contract-declared appearance-invariant typography,
+  radius, density, and motion paths. Appearance-dependent semantic shadows are
+  mapped under `brick.light.shadow` and `brick.dark.shadow`.
+- `components` accepts only Brick's audited inherited component inputs. It is
+  not a selector or arbitrary-recipe registry. For example,
+  `components.link.decoration` accepts the intent values `"always"` or
+  `"interaction"`; the latter emits interaction-only decoration and compiles
+  only when the theme's accent link text remains at least `3:1` distinct from
+  adjacent primary text. A single Link can still override the theme with
+  `variant="underline"` or `variant="plain"`.
+- `requirements` records application work such as font and asset loading.
+- `guidance` records intent and review notes for people and agents.
+- `relationships.contrast` validates explicit foreground/background pairs
+  from `appearanceRoles`; it does not expand Brick's semantic vocabulary.
+
+Aliases must occupy the complete value, for example
+`"{roles.brandPrimary}"`. Unknown aliases, cycles, unsupported values,
+incomplete families, and unknown Brick paths fail compilation.

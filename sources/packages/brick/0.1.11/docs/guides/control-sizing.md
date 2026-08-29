@@ -1,0 +1,55 @@
+# Control sizing
+
+Brick uses one shared size vocabulary for controls that commonly appear in the
+same row. A matching `size` should produce a shared outer rhythm rather than a
+collection of unrelated component scales.
+
+## Shared contract
+
+| Size | Minimum block size | Control text | Typical use |
+| --- | ---: | ---: | --- |
+| `sm` | 36px | `control-sm` | Compact application toolbars and page headers |
+| `md` | 44px | `control-md` | General application controls |
+| `lg` | 52px | `control-lg` | Comfortable or prominent controls |
+
+Button, IconButton, Select, MultiSelect, Toggle, ToggleGroup, and comparable
+button-like controls consume these shared geometry and control-typography
+recipes. Their internal padding may differ when required by their anatomy, but
+their outer height, icon scale, radius family, and baseline must align when the
+same size is used.
+
+Tabs uses the same control typography and target scale. A line tab may keep a
+44px target while a nested `body-sm` label creates a deliberately quieter page
+header; the target must not be reduced just to make the text look smaller.
+
+## Editable-control exception
+
+Input, Textarea, and editable Combobox content retain at least 16px text even
+at `sm` to avoid avoidable mobile focus zoom. They still consume the shared
+36/44/52px geometry and `--brick-radius-control`, so they align with adjacent
+button-like controls without pretending that editable and action typography
+have identical constraints.
+
+## Composition
+
+Use the same named size on controls that share a row. Let Stack own row gap and
+alignment, and let Theme own `--brick-radius-control`, control typography, and
+control height tokens. Do not repair a mismatched row with per-component
+heights, transforms, margins, or literal radii.
+
+When a control is intentionally more prominent, change its supported size and
+document that hierarchy. Do not silently customize one component so that the
+same size means something different.
+
+## Verification
+
+- Compare Button, Select, Toggle, ToggleGroup, and other button-like peers in
+  one row at `sm`, `md`, and `lg`.
+- Confirm matching minimum block size, vertical center, radius family, icon
+  scale, and control typography.
+- Confirm editable controls remain at least 16px while preserving the same
+  outer geometry.
+- Change the active Theme radius and typography inputs and confirm every peer
+  updates together.
+- Check long labels, zoom, narrow widths, RTL, focus rings, and light/dark
+  appearance without introducing one-off CSS.

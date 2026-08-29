@@ -1,0 +1,63 @@
+{
+  "name": "@flowstack-ui/agent-tools",
+  "version": "0.1.0",
+  "description": "Version-aware delivery adapters for public FLOWSTACK Agent Knowledge.",
+  "type": "module",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstack-ui/agent-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flowstack-ui/agent-tools/issues"
+  },
+  "homepage": "https://agents.brick-ui.com",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    ".codex-plugin",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "docs",
+    "public",
+    "skills"
+  ],
+  "exports": {
+    "./llms.txt": "./public/llms.txt",
+    "./index.json": "./public/index.json",
+    "./public/*": "./public/*",
+    "./skills/*": "./skills/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "sources:ingest": "node scripts/ingest-archives.mjs",
+    "build": "node scripts/build-llms.mjs",
+    "build:hosting": "npm run check:generated && npm run --prefix packages/mcp check:generated",
+    "check:generated": "node scripts/build-llms.mjs --check",
+    "test": "npm run check:generated && node --test test/*.test.mjs",
+    "pack:check": "npm run build && node scripts/verify-package.mjs",
+    "mcp:build": "npm run build --prefix packages/mcp",
+    "mcp:test": "npm test --prefix packages/mcp",
+    "mcp:pack:check": "npm run pack:check --prefix packages/mcp",
+    "mcp:check": "npm run check:repository --prefix packages/mcp",
+    "host:verify": "node scripts/verify-hosted.mjs",
+    "verify:repository-contract": "node scripts/verify-repository-contract.mjs",
+    "check:focused": "npm run test",
+    "check:repository": "npm run verify:repository-contract && npm run test && npm run pack:check && npm run mcp:check",
+    "check:release": "npm run check:repository",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/node": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.2.1"
+  }
+}

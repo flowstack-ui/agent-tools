@@ -1,0 +1,162 @@
+{
+  "schema": "flowstack.agent-delivery-config.v1",
+  "packages": [
+    { "id": "atom", "name": "@flowstack-ui/atom" },
+    { "id": "brick", "name": "@flowstack-ui/brick" },
+    { "id": "colors", "name": "@flowstack-ui/colors" },
+    { "id": "theme", "name": "@flowstack-ui/theme" }
+  ],
+  "budgets": {
+    "llmsBytes": 32768,
+    "taskSliceBytes": 65536,
+    "packageSliceBytes": 131072
+  },
+  "tasks": [
+    {
+      "id": "layout",
+      "description": "Select layout, surface, spacing, responsive visibility, and structural owners.",
+      "sections": [
+        {
+          "id": "default-finished",
+          "title": "Default: finished interface",
+          "description": "Use Brick for an ordinary finished interface. Do not import Atom directly.",
+          "routes": [
+            { "package": "brick", "kind": "guide", "ids": ["layer-selection", "interface-composition"] },
+            { "package": "brick", "kind": "component", "ids": ["aspect-ratio", "bleed", "card", "container", "divider", "frame", "grid", "group", "hide", "section", "show", "stack", "surface", "z-stack"] }
+          ]
+        },
+        {
+          "id": "explicit-headless",
+          "title": "Explicit exception: headless behavior",
+          "description": "Use Atom only when the task explicitly requires reusable headless behavior without Brick's finished visual contract.",
+          "routes": [
+            { "package": "atom", "kind": "guide", "ids": ["layer-selection", "behavior-composition"] },
+            { "package": "atom", "kind": "component", "ids": ["aspect-ratio", "direction", "divider", "visually-hidden"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forms",
+      "description": "Select forms, fields, labels, validation, and input controls.",
+      "sections": [
+        {
+          "id": "default-finished",
+          "title": "Default: finished interface",
+          "description": "Use Brick for an ordinary finished form. Do not import Atom directly.",
+          "routes": [
+            { "package": "brick", "kind": "guide", "ids": ["layer-selection", "interface-composition"] },
+            { "package": "brick", "kind": "component", "ids": ["button", "checkbox", "checkbox-group", "color-picker", "combobox", "field", "fieldset", "file-upload", "form", "icon-button", "input", "multi-select", "number-input", "otp-field", "password-toggle-field", "radio-group", "rating", "select", "slider", "switch", "textarea", "toggle", "toggle-group"] }
+          ]
+        },
+        {
+          "id": "explicit-headless",
+          "title": "Explicit exception: headless behavior",
+          "description": "Use Atom only when the task explicitly requires reusable headless form behavior without Brick's finished visual contract.",
+          "routes": [
+            { "package": "atom", "kind": "guide", "ids": ["layer-selection", "behavior-composition"] },
+            { "package": "atom", "kind": "component", "ids": ["button", "checkbox", "checkbox-group", "color-picker", "combobox", "field", "fieldset", "file-upload", "form", "input", "label", "multi-select", "number-input", "otp-field", "password-toggle-field", "radio-group", "rating", "select", "slider", "switch", "textarea", "toggle", "toggle-group"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "description": "Select navigation landmarks, menus, tabs, pagination, and route affordances.",
+      "sections": [
+        {
+          "id": "default-finished",
+          "title": "Default: finished interface",
+          "description": "Use Brick for ordinary finished navigation. Do not import Atom directly.",
+          "routes": [
+            { "package": "brick", "kind": "guide", "ids": ["layer-selection", "interface-composition"] },
+            { "package": "brick", "kind": "component", "ids": ["app-bar", "bottom-navigation", "breadcrumb", "context-menu", "drawer", "dropdown-menu", "link", "link-box", "menubar", "nav-list", "navigation-menu", "pagination", "sidebar", "skip-link", "tabs", "toolbar"] }
+          ]
+        },
+        {
+          "id": "explicit-headless",
+          "title": "Explicit exception: headless behavior",
+          "description": "Use Atom only when the task explicitly requires reusable headless navigation behavior without Brick's finished visual contract.",
+          "routes": [
+            { "package": "atom", "kind": "guide", "ids": ["layer-selection", "behavior-composition"] },
+            { "package": "atom", "kind": "component", "ids": ["app-bar", "bottom-navigation", "breadcrumb", "context-menu", "drawer", "dropdown-menu", "link", "menu", "menubar", "nav-list", "navigation-menu", "pagination", "sidebar", "skip-link", "tabs", "toolbar"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "overlays",
+      "description": "Select dialogs, popovers, transient surfaces, and feedback owners.",
+      "sections": [
+        {
+          "id": "default-finished",
+          "title": "Default: finished interface",
+          "description": "Use Brick for ordinary finished overlays. Do not import Atom directly.",
+          "routes": [
+            { "package": "brick", "kind": "guide", "ids": ["layer-selection", "interface-composition"] },
+            { "package": "brick", "kind": "component", "ids": ["alert-dialog", "context-menu", "dialog", "drawer", "dropdown-menu", "hover-card", "popover", "toast", "tooltip"] }
+          ]
+        },
+        {
+          "id": "explicit-headless",
+          "title": "Explicit exception: headless behavior",
+          "description": "Use Atom only when the task explicitly requires reusable headless overlay behavior without Brick's finished visual contract.",
+          "routes": [
+            { "package": "atom", "kind": "guide", "ids": ["layer-selection", "behavior-composition"] },
+            { "package": "atom", "kind": "component", "ids": ["alert-dialog", "context-menu", "dialog", "drawer", "dropdown-menu", "hover-card", "menu", "modal", "popover", "toast", "tooltip"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "description": "Select tables, grids, lists, trees, feeds, status, and technical-data owners.",
+      "sections": [
+        {
+          "id": "default-finished",
+          "title": "Default: finished interface",
+          "description": "Use Brick for an ordinary finished data interface. Do not import Atom directly.",
+          "routes": [
+            { "package": "brick", "kind": "guide", "ids": ["layer-selection", "interface-composition"] },
+            { "package": "brick", "kind": "component", "ids": ["data-grid", "data-list", "feed", "list", "progress", "progress-circle", "reorderable-list", "status", "table", "tree", "tree-grid"] }
+          ]
+        },
+        {
+          "id": "explicit-headless",
+          "title": "Explicit exception: headless behavior",
+          "description": "Use Atom only when the task explicitly requires reusable headless data behavior without Brick's finished visual contract.",
+          "routes": [
+            { "package": "atom", "kind": "guide", "ids": ["layer-selection", "behavior-composition"] },
+            { "package": "atom", "kind": "component", "ids": ["data-grid", "feed", "list", "listbox", "progress", "reorder", "table", "tree", "tree-grid"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theming",
+      "description": "Route color operations through Colors and semantic compilation through Theme.",
+      "sections": [
+        {
+          "id": "finished-color-tools",
+          "title": "Finished color interaction",
+          "description": "Use Brick Color Picker and Color Swatch for finished interface selection and display; use Colors and Theme for authoring system values.",
+          "routes": [
+            { "package": "brick", "kind": "component", "ids": ["color-picker", "color-swatch"] }
+          ]
+        },
+        {
+          "id": "colors-candidate",
+          "title": "Step 1: Colors candidate",
+          "description": "Use Colors for deterministic raw color work and explicit candidate review before semantic mapping.",
+          "routes": [{ "package": "colors", "kinds": ["guide", "operation"], "all": true }]
+        },
+        {
+          "id": "theme-semantics",
+          "title": "Step 2: Theme semantics and Brick qualification",
+          "description": "Pass only reviewed Colors artifacts to Theme, then validate against the exact Brick contract.",
+          "routes": [{ "package": "theme", "kinds": ["guide", "operation"], "all": true }]
+        }
+      ]
+    }
+  ]
+}

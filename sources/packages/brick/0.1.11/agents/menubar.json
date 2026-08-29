@@ -1,0 +1,109 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "menubar",
+  "name": "Menubar",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a finished persistent application command strip with coordinated top-level menus while Atom owns menubar semantics, roving focus, adjacent-menu handoff, and shared Menu behavior.",
+  "useWhen": [
+    "A desktop-like application has several persistent command categories such as File, Edit, and View that must behave as one keyboard menubar."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "There is one temporary command menu, ordinary website navigation, a route list, or a toolbar of immediately executable controls.",
+      "useInstead": "DropdownMenu, NavigationMenu or NavList, or Toolbar"
+    },
+    {
+      "condition": "The application needs responsive mobile replacement or overflow orchestration.",
+      "useInstead": "An application-owned composition using DropdownMenu, Drawer, or another appropriate command surface"
+    }
+  ],
+  "composition": [
+    "Give Menubar.Root an accessible name and compose one or more uniquely valued Menubar.Menu scopes, each containing Menubar.Trigger and portalled Menubar.Content. Build Content from the shared command, selection, grouping, separator, static row, and paired submenu anatomy.",
+    "Root owns sm, md, or lg density and horizontal or vertical orientation; Content and SubContent inherit that density. Reproduce any local Appearance scope on each portalled visual root."
+  ],
+  "rules": [
+    {
+      "id": "menubar-application-commands",
+      "level": "must",
+      "statement": "Use Menubar only for persistent application command categories, not website navigation, page tabs, route-current state, or a responsive application shell."
+    },
+    {
+      "id": "menubar-root-name",
+      "level": "must",
+      "statement": "Give the role=menubar Root an accessible name and keep every top-level Trigger as its role=menuitem child with one Atom-owned roving tab stop."
+    },
+    {
+      "id": "menubar-menu-scope",
+      "level": "must",
+      "statement": "Give every top-level Menu a unique value and keep its Trigger and Content within that Menu scope so controlled value and adjacent-menu handoff remain deterministic."
+    },
+    {
+      "id": "menubar-orientation",
+      "level": "must",
+      "statement": "Match orientation to the visible Root arrangement and preserve direction-aware Arrow movement, Home/End, first and last item opening, adjacent handoff, and nested submenu keys in LTR and RTL."
+    },
+    {
+      "id": "menubar-shared-menu-contract",
+      "level": "must",
+      "statement": "Preserve uniquely valued item roles, real focus, typeahead, disabled navigation, checkbox and radio state, closeOnSelect, paired submenus, whole-root Tab exit, Escape restoration, and parent-modal ownership."
+    },
+    {
+      "id": "menubar-row-anatomy",
+      "level": "must",
+      "statement": "Use Leading, ItemLabel, Description, Shortcut, ItemIndicator, and tone=danger for their documented jobs; shortcuts are visual hints and Menubar does not register global commands."
+    },
+    {
+      "id": "menubar-responsive",
+      "level": "must",
+      "statement": "Do not automatically wrap, collapse, or change Menubar semantics at a breakpoint; applications own an explicit scrolling region or a separately selected mobile command surface."
+    },
+    {
+      "id": "menubar-theme-scope",
+      "level": "must",
+      "statement": "When Content leaves a local Appearance scope through Portal, reproduce that scope on the portalled visual root or target a container inside it."
+    },
+    {
+      "id": "menubar-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus menubar.css and every composed child component stylesheet."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Menubar as styled website navigation, omitting Root's name, duplicating top-level values, or implementing each heading as an independent dropdown.",
+      "correction": "Use Menubar only for application commands and preserve its named, uniquely valued, orientation-aware top-level ownership."
+    },
+    {
+      "mistake": "Hiding or collapsing the command strip at a Brick breakpoint or treating Shortcut text as registered keyboard behavior.",
+      "correction": "Let the application select a responsive alternative and keep shortcut execution in application code."
+    }
+  ],
+  "validation": [
+    "Verify Root naming and orientation, unique Menu values, one top-level tab stop, Home/End, horizontal and vertical Arrow movement, LTR and RTL, pointer and touch opening, keyboard first and last opening, hover switching, controlled active value, disabled triggers, and adjacent-menu focus ownership.",
+    "Verify shared item focus and typeahead, checkbox mixed and radio state, submenus, selection close policy, whole-root Tab exit, top-layer Escape, focus return, portals, parent-modal ownership, and asChild or render composition.",
+    "Verify three densities, persistent Root and open-trigger paint, constrained popup scrolling, danger meaning, narrow overflow policy, zoom, long localization, reduced motion, forced colors, portalled appearance, and complete CSS."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "menubar",
+      "versionPolicy": "installed-exact"
+    },
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "menu",
+      "versionPolicy": "installed-exact"
+    },
+    "dropdown-menu",
+    "context-menu",
+    "navigation-menu",
+    "nav-list",
+    "toolbar",
+    "drawer",
+    "appearance"
+  ]
+}

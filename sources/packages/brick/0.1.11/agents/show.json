@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "show",
+  "name": "Show",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Show content only at selected Brick breakpoints through CSS, avoiding JavaScript viewport state and hydration flicker.",
+  "useWhen": [
+    "A complete region should appear only at selected Brick breakpoints."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Content must remain available to assistive technology while visually hidden, or rendering depends on authorization or data.",
+      "useInstead": "VisuallyHidden or application conditional rendering"
+    }
+  ],
+  "composition": [
+    "Wrap the smallest complete composition whose responsive presence changes; combine with Hide only for intentional alternate desktop/mobile structures."
+  ],
+  "rules": [
+    {
+      "id": "show-first-paint",
+      "level": "must",
+      "statement": "Use Show's CSS breakpoint contract rather than client viewport detection for responsive first paint."
+    },
+    {
+      "id": "show-valid-tree",
+      "level": "must",
+      "statement": "Keep IDs, landmarks, form relationships, and focus order valid in every visible alternative."
+    },
+    {
+      "id": "show-transparent-layout",
+      "level": "must",
+      "statement": "Rely on Show's layout-transparent visible state inside parent layouts and put paint or geometry on a child layout component."
+    },
+    {
+      "id": "show-default-props",
+      "level": "must",
+      "statement": "Omit default-valued props such as as=div; use as only for deliberate HTML semantics or valid document structure."
+    },
+    {
+      "id": "show-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus show.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Adding application CSS to repair Show spacing or writing as=div even though div is the default.",
+      "correction": "Rely on Show's layout-transparent default and specify as only when semantics require another host."
+    },
+    {
+      "mistake": "Forgetting show.css or rendering duplicate visible navigation because Show and Hide use the wrong thresholds.",
+      "correction": "Load the modular CSS and verify exact breakpoint boundaries."
+    }
+  ],
+  "validation": [
+    "Test boundary pixels, zoom, first paint, hydration, focus order, landmarks, and duplicate IDs.",
+    "Confirm CSS is loaded."
+  ],
+  "related": [
+    "hide",
+    "visually-hidden",
+    "app-bar",
+    "drawer"
+  ]
+}

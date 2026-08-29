@@ -1,0 +1,36 @@
+# Theme definition
+
+Source: @flowstack-ui/theme@0.1.1
+Kind: operation
+ID: theme-definition
+Guide: [theme-system](/packages/theme/0.1.1/guides/theme-system.txt)
+
+## Covered public surfaces
+
+- `.#JsonPrimitive`
+- `.#JsonValue`
+- `.#THEME_DEFINITION_SCHEMA`
+- `.#ThemeAppearance`
+- `.#ThemeAppearanceRoles`
+- `.#ThemeAppearances`
+- `.#ThemeCompatibility`
+- `.#ThemeData`
+- `.#ThemeDefaultAppearance`
+- `.#ThemeDefinition`
+- `.#ThemeMetadata`
+- `.#ThemeProjectContrastPair`
+- `.#ThemeRelationships`
+- `.#defineTheme`
+- `./schema#JsonPrimitive`
+- `./schema#JsonValue`
+- `./schema#THEME_DEFINITION_SCHEMA`
+- `./schema#ThemeAppearance`
+- `./schema#ThemeAppearanceRoles`
+- `./schema#ThemeAppearances`
+- `./schema#ThemeCompatibility`
+- `./schema#ThemeData`
+- `./schema#ThemeDefaultAppearance`
+- `./schema#ThemeDefinition`
+- `./schema#ThemeMetadata`
+- `./schema#ThemeProjectContrastPair`
+- `./schema#ThemeRelationships`

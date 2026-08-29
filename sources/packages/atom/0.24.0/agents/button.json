@@ -1,0 +1,49 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "button",
+  "name": "Button",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide native action behavior or safe emphasized-link behavior while preserving the correct button or link semantics through custom rendering.",
+  "useWhen": [
+    "The user triggers an action such as submit, save, open, dismiss, or retry.",
+    "A destination is intentionally presented as an emphasized action control and Button receives its href."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A destination should read as ordinary inline or standalone navigation.",
+      "useInstead": "Link"
+    }
+  ],
+  "composition": [
+    "Use Button.Root without href for an action and with href for an emphasized destination; compose through asChild or render only when the replacement preserves the resolved semantics."
+  ],
+  "rules": [
+    {
+      "id": "button-resolved-semantics",
+      "level": "must",
+      "statement": "Omit href for actions and provide href for emphasized destinations so Button resolves the correct native semantics."
+    },
+    {
+      "id": "button-explicit-type",
+      "level": "should",
+      "statement": "Set type explicitly inside a form unless submit is intended."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Navigating from onPress without exposing a destination.",
+      "correction": "Provide href for Button link mode, or use Link when the destination should read as ordinary navigation."
+    }
+  ],
+  "validation": [
+    "Confirm the rendered element has an accessible name.",
+    "Confirm keyboard activation and disabled behavior match the intended action."
+  ],
+  "related": [
+    "link",
+    "pressable",
+    "form"
+  ]
+}

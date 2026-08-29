@@ -1,0 +1,704 @@
+{
+  "schema": "flowstack.mcp-tool-registry.v1",
+  "package": "@flowstack-ui/mcp",
+  "version": "0.1.0",
+  "transport": "stdio",
+  "tools": [
+    {
+      "name": "list_flowstack_packages",
+      "method": "listPackages",
+      "description": "List exact FLOWSTACK package versions available from the project installation and explicit source lock.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "list_components",
+      "method": "listComponents",
+      "description": "List canonical component or operation owners for one exact FLOWSTACK package version.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "package",
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "resolve_interface_job",
+      "method": "resolveInterfaceJob",
+      "description": "Resolve an interface job through positive intent/use ownership fields in the deterministic selection map for an explicit finished, headless, or theming workflow; returns a selection gap below the confidence threshold.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "workflow": {
+            "type": "string",
+            "enum": [
+              "finished",
+              "headless",
+              "theming"
+            ]
+          },
+          "job": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "atom": {
+                "description": "Exact package version; tags and ranges are rejected",
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+              },
+              "brick": {
+                "description": "Exact package version; tags and ranges are rejected",
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+              },
+              "colors": {
+                "description": "Exact package version; tags and ranges are rejected",
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+              },
+              "theme": {
+                "description": "Exact package version; tags and ranges are rejected",
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+              }
+            },
+            "additionalProperties": false
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          }
+        },
+        "required": [
+          "workflow",
+          "job",
+          "versions"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_package_guide",
+      "method": "getPackageGuide",
+      "description": "Retrieve one package-owned guide from an exact package version.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "guide": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "guide"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_component_guidance",
+      "method": "getComponentGuidance",
+      "description": "Retrieve canonical component or operation guidance from an exact package version.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9/-]*$"
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_component_props",
+      "method": "getComponentProps",
+      "description": "Retrieve source-backed public TypeScript declarations for an installed exact component, or report the packed-artifact gap explicitly.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "component": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "component"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_component_examples",
+      "method": "getComponentExamples",
+      "description": "Find source-backed public examples for one exact component; returns an explicit gap when none ship.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "component": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "limit": {
+            "default": 5,
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "component",
+          "limit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_theme_contract",
+      "method": "getThemeContract",
+      "description": "Retrieve the exact installed Brick theme contract, or report that the locked public snapshot lacks it.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          }
+        },
+        "required": [
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_docs",
+      "method": "searchDocs",
+      "description": "Search bounded public package docs and Agent Knowledge for one exact version; arbitrary paths and URLs are never fetched.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "limit": {
+            "default": 10,
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "query",
+          "limit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "validate_composition",
+      "method": "validateComposition",
+      "description": "Evaluate structured parts and relationships against one exact owner guide's checkable anatomy and severity rules, returning manual checks explicitly.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9/-]*$"
+          },
+          "composition": {
+            "type": "object",
+            "properties": {
+              "parts": {
+                "default": [],
+                "maxItems": 200,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "component": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9.]*$"
+                    },
+                    "props": {
+                      "default": {},
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "component",
+                    "props"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "relationships": {
+                "default": [],
+                "maxItems": 400,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "contains",
+                        "siblings",
+                        "labels",
+                        "describes",
+                        "wraps",
+                        "portal-owner"
+                      ]
+                    },
+                    "from": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "to": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "from",
+                    "to"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "imports": {
+                "default": [],
+                "maxItems": 100,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 300
+                }
+              },
+              "styles": {
+                "default": [],
+                "maxItems": 100,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 300
+                }
+              }
+            },
+            "required": [
+              "parts",
+              "relationships",
+              "imports",
+              "styles"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "owner",
+          "composition"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "create_gap_report",
+      "method": "createGapReport",
+      "description": "Create an evidence-linked structured public gap proposal after exact-version manifest and selection-map searches; structural checks never claim semantic verification of submitted prose.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "colors",
+              "theme"
+            ]
+          },
+          "version": {
+            "description": "Exact package version; tags and ranges are rejected",
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "source": {
+            "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
+            "type": "string",
+            "enum": [
+              "auto",
+              "installed",
+              "locked"
+            ]
+          },
+          "interfaceJob": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "searchedOwners": {
+            "minItems": 1,
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9/-]*$"
+            }
+          },
+          "evidence": {
+            "minItems": 1,
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "owner": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9/-]*$"
+                },
+                "artifact": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9/_.-]*$"
+                },
+                "finding": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "owner",
+                "artifact",
+                "finding"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "missingCapability": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "proposedOwner": {
+            "type": "string",
+            "enum": [
+              "atom",
+              "brick",
+              "adapter",
+              "theme",
+              "block",
+              "blueprint",
+              "application"
+            ]
+          },
+          "fallback": {
+            "type": "object",
+            "properties": {
+              "owner": {
+                "type": "string",
+                "enum": [
+                  "atom",
+                  "brick",
+                  "adapter",
+                  "theme",
+                  "block",
+                  "blueprint",
+                  "application"
+                ]
+              },
+              "layer": {
+                "type": "string",
+                "enum": [
+                  "behavior",
+                  "finished-interface",
+                  "adapter",
+                  "theme",
+                  "copied-composition",
+                  "blueprint",
+                  "application"
+                ]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "owner",
+              "layer",
+              "description"
+            ],
+            "additionalProperties": false
+          },
+          "verification": {
+            "minItems": 1,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          }
+        },
+        "required": [
+          "package",
+          "version",
+          "interfaceJob",
+          "searchedOwners",
+          "evidence",
+          "missingCapability",
+          "proposedOwner",
+          "fallback",
+          "verification"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

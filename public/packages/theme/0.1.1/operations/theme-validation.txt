@@ -1,0 +1,19 @@
+# Theme validation
+
+Source: @flowstack-ui/theme@0.1.1
+Kind: operation
+ID: theme-validation
+Guide: [theme-system](/packages/theme/0.1.1/guides/theme-system.txt)
+
+## Covered public surfaces
+
+- `.#ThemeValidationError`
+- `.#ThemeValidationIssue`
+- `.#ThemeValidationIssueCode`
+- `.#ThemeValidationResult`
+- `.#assertThemeDefinition`
+- `.#isThemeDefinition`
+- `.#validateThemeDefinition`
+- `./schema#ThemeValidationIssue`
+- `./schema#ThemeValidationIssueCode`
+- `./schema#ThemeValidationResult`

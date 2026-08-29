@@ -1,0 +1,55 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "bottom-navigation",
+  "name": "BottomNavigation",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Style a short, stable set of primary compact-application destinations with active state and label-visibility recipes.",
+  "useWhen": [
+    "A compact application needs a small fixed set of primary destinations at the bottom edge."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Navigation is longer, grouped, top-level disclosure navigation, or local panel switching.",
+      "useInstead": "NavList, NavigationMenu, or Tabs"
+    }
+  ],
+  "composition": [
+    "Place named Items with unique values inside Root; provide href for destinations and include text labels even when the selected visual recipe hides them."
+  ],
+  "rules": [
+    {
+      "id": "bottom-navigation-labels",
+      "level": "must",
+      "statement": "Keep every icon destination's text accessible in every label-visibility mode."
+    },
+    {
+      "id": "bottom-navigation-overlay",
+      "level": "must",
+      "statement": "When fixed or sticky, coordinate application content and safe-area spacing outside the component."
+    },
+    {
+      "id": "bottom-navigation-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus bottom-navigation.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using BottomNavigation as a generic mobile menu or removing labels from the DOM.",
+      "correction": "Use Drawer/NavList for a menu and preserve each Item label."
+    }
+  ],
+  "validation": [
+    "Check active, disabled, label visibility, safe areas, narrow widths, touch targets, focus, and RTL.",
+    "Confirm URL destinations render links and CSS is loaded."
+  ],
+  "related": [
+    "nav-list",
+    "tabs",
+    "icon-button",
+    "show",
+    "hide"
+  ]
+}

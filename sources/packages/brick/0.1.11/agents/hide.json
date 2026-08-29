@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "hide",
+  "name": "Hide",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Hide content through Brick's CSS breakpoint contract without JavaScript viewport state or hydration flicker.",
+  "useWhen": [
+    "One composition should be absent at selected Brick breakpoints while remaining present elsewhere."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Content should be visually hidden but remain available to assistive technology, or should not render for business reasons.",
+      "useInstead": "VisuallyHidden or application conditional rendering"
+    }
+  ],
+  "composition": [
+    "Wrap the smallest complete region whose presence changes; pair with Show only when desktop and mobile genuinely need distinct compositions."
+  ],
+  "rules": [
+    {
+      "id": "hide-css-breakpoint",
+      "level": "must",
+      "statement": "Use Hide instead of JavaScript matchMedia for first-paint responsive visibility."
+    },
+    {
+      "id": "hide-no-semantic-loss",
+      "level": "must",
+      "statement": "Do not hide the only accessible name, error, instruction, or required content at a breakpoint."
+    },
+    {
+      "id": "hide-transparent-layout",
+      "level": "must",
+      "statement": "Rely on Hide's layout-transparent visible state inside parent layouts and put paint or geometry on a child layout component."
+    },
+    {
+      "id": "hide-default-props",
+      "level": "must",
+      "statement": "Omit default-valued props such as as=div; use as only for deliberate HTML semantics or valid document structure."
+    },
+    {
+      "id": "hide-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus hide.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Adding application CSS to repair Hide spacing or writing as=div even though div is the default.",
+      "correction": "Rely on Hide's layout-transparent default and specify as only when semantics require another host."
+    },
+    {
+      "mistake": "Using Hide without its modular CSS or duplicating two interactive trees with conflicting IDs.",
+      "correction": "Load hide.css and verify alternate compositions have independent valid relationships."
+    }
+  ],
+  "validation": [
+    "Test boundary pixels, zoom, first paint, hydration, focus order, and duplicate IDs across all visibility states.",
+    "Confirm CSS is loaded."
+  ],
+  "related": [
+    "show",
+    "visually-hidden",
+    "app-bar",
+    "drawer"
+  ]
+}

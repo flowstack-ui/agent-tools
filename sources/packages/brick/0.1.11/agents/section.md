@@ -1,0 +1,42 @@
+# Section agent guide
+
+## Purpose
+
+Own themeable responsive block rhythm for major semantic page and application regions.
+
+## Use when
+
+- A thematic page or application region needs consistent large vertical rhythm beyond local component spacing.
+
+## Choose something else when
+
+- The need is child arrangement, inline measure, visual paint, or a complete content pattern. Use Stack/Grid, Container, Surface, or a qualified Block.
+
+## Required composition
+
+- Place Container inside Section for measured content; compose Surface with asChild around Section when paint must cover the Section rhythm; use Stack or Grid inside for child relationships.
+
+## Rules
+
+- **MUST:** Use Section's named responsive rhythm instead of repeating large page-section padding CSS.
+- **MUST:** Use the default section host only for a thematic grouping, normally with a heading; select as=div when spacing alone has no sectioning meaning.
+- **MUST:** Keep paint in Surface, inline measure in Container, and child arrangement in Stack or Grid rather than adding those responsibilities to Section.
+- **MUST:** Choose a named recipe first; customize documented Section variables only when the theme or one deliberate region needs a value the scale cannot express.
+- **MUST:** Load styles.css or core.css plus section.css.
+
+## Common mistakes
+
+- **Avoid:** Using Stack gap for page rhythm, Surface inset as section spacing, or Section as a generic div around every group. **Instead:** Assign each responsibility to Section, Surface, Container, Stack, or Grid and use as=div only when Section rhythm is useful without section semantics.
+
+## Validation checklist
+
+- Check named and responsive rhythm at constrained and wide widths, zoom, RTL, and vertical writing modes.
+- Confirm the section has appropriate document meaning and that Surface asChild composition produces one host when full-width paint is needed.
+
+## Related guidance
+
+- `container`
+- `surface`
+- `stack`
+- `grid`
+- `interface-composition`

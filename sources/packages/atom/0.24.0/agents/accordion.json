@@ -1,0 +1,74 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "accordion",
+  "name": "Accordion",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Coordinate a group of related disclosure sections with linked headings, triggers, panels, expanded state, and keyboard navigation.",
+  "useWhen": [
+    "Several related sections form one scannable disclosure group and readers should reveal only the details they need."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Only one independent in-flow region needs disclosure.",
+      "useInstead": "Collapsible"
+    },
+    {
+      "condition": "Peer controls switch one shared content view rather than independently revealing sections.",
+      "useInstead": "Tabs"
+    },
+    {
+      "condition": "Content must layer, dismiss outside, contain focus, or lock document scrolling.",
+      "useInstead": "Dialog, Drawer, or another matching overlay primitive"
+    }
+  ],
+  "composition": [
+    "Compose Root > Item > Header > Trigger and place the matching Content as a sibling of Header inside the same Item.",
+    "Give every Item a stable unique value and choose the Header level from the surrounding document outline.",
+    "Use landmark=false on Content when many simultaneous regions would make landmark navigation noisy."
+  ],
+  "rules": [
+    {
+      "id": "accordion-anatomy",
+      "level": "must",
+      "statement": "Keep each Trigger and Content inside one Item so Atom can own their IDs, expanded state, labeling, and focus navigation."
+    },
+    {
+      "id": "accordion-heading-level",
+      "level": "must",
+      "statement": "Set Header to the heading level required by the host document; do not rely on the default when it would skip or duplicate the page outline."
+    },
+    {
+      "id": "accordion-state-owner",
+      "level": "must",
+      "statement": "Use Root controlled or uncontrolled props for expanded state instead of adding competing click handlers or manual ARIA attributes."
+    },
+    {
+      "id": "accordion-client-boundary",
+      "level": "must",
+      "statement": "Treat Accordion as interactive client behavior and keep the client boundary at the smallest composition that owns its state or handlers."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Accordion for one disclosure, placing Trigger outside Header, or writing aria-expanded and aria-controls manually.",
+      "correction": "Use Collapsible for one region and preserve Accordion's complete Item, Header, Trigger, and Content anatomy."
+    },
+    {
+      "mistake": "Leaving every Content as a region in a large or multiple-open Accordion.",
+      "correction": "Use landmark=false when the number of regions would make assistive-technology landmark navigation noisy."
+    }
+  ],
+  "validation": [
+    "Check unique Item values, heading order, Trigger accessible names, aria-expanded and aria-controls relationships, and Content labeling.",
+    "Test Enter, Space, Home, End, orientation-aware arrow navigation, RTL, disabled items, single and multiple state, and controlled and uncontrolled use.",
+    "Check mounted and unmounted closed content, focus retention, reduced motion integration, and whether region landmarks remain useful."
+  ],
+  "related": [
+    "collapsible",
+    "tabs",
+    "drawer",
+    "dialog"
+  ]
+}

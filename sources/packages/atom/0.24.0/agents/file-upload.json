@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "file-upload",
+  "name": "FileUpload",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Coordinate native file picking, optional drag and drop, client-side acceptance feedback, selected-file state, removal, Field validation, and multipart form participation.",
+  "useWhen": [
+    "Users choose local files and the experience needs a custom picker action, drop target, selected-file list, removal, or client-side rejection feedback."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The browser's native file input is sufficient or the task only receives an already-hosted URL or remote asset reference.",
+      "useInstead": "a native input type=file or the application-owned remote-source workflow"
+    }
+  ],
+  "composition": [
+    "Compose Root with HiddenInput and an accessible Trigger for keyboard, touch, and pointer picker access. Add Dropzone as an enhancement, and use ItemGroup with Item, optional ItemName and ItemSize, and ItemDeleteTrigger when selected files must be reviewed or removed."
+  ],
+  "rules": [
+    {
+      "id": "file-upload-native-input",
+      "level": "must",
+      "statement": "Render HiddenInput when Trigger, native picker, required validity, name, form, accept, or multiple file semantics are needed; keep it aligned with the visible Trigger."
+    },
+    {
+      "id": "file-upload-access-path",
+      "level": "must",
+      "statement": "Always provide a visible accessible Trigger for keyboard, touch, and single-pointer selection; Dropzone alone is not an equivalent accessible picker."
+    },
+    {
+      "id": "file-upload-validation",
+      "level": "must",
+      "statement": "Use accept, maxFiles, maxSize, and validateFile only for immediate client feedback and validate file type, size, content, authorization, and storage policy again on the server."
+    },
+    {
+      "id": "file-upload-state",
+      "level": "must",
+      "statement": "Use files with onFilesChange for controlled state or defaultFiles for uncontrolled state, choose appendFiles intentionally in multiple mode, and expose rejected files as visible authored feedback."
+    },
+    {
+      "id": "file-upload-drop",
+      "level": "must",
+      "statement": "Preserve file-only drag acceptance, accept/reject preview, nested enter/leave handling, disabled/read-only behavior, and document-drop protection unless the application intentionally owns outside drops."
+    },
+    {
+      "id": "file-upload-form",
+      "level": "must",
+      "statement": "Preserve HiddenInput name, form, multiple, selected FileList synchronization where supported, required validity, validation focus, Field relationships, deletion reset for same-file reselection, and uncontrolled form reset."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Dropzone as the only picker, treating accept or client validation as a security boundary, hiding rejection reasons, or forgetting that selecting the same removed file requires native input reset.",
+      "correction": "Include HiddenInput and Trigger, validate again on the server, present rejection feedback, and use ItemDeleteTrigger or Root behavior to keep native selection synchronized."
+    }
+  ],
+  "validation": [
+    "Verify picker opening by pointer, touch, Enter, and Space; controlled/uncontrolled files; single replace and multiple append/replace policy; accept extension/MIME/wildcard rules; max count and size; custom rejection; visible rejection feedback; disabled/read-only behavior; and same-file reselection after removal.",
+    "Verify drag enter/over/leave/drop accept and reject state, non-file drags, nested targets, outside document file-drop protection, HiddenInput name/form/required/multiple/FileList behavior, Field labels and errors, native/inline validation focus, reset, ItemGroup rendering, metadata, delete labels, refs, and asChild/render composition."
+  ],
+  "related": [
+    "input",
+    "field",
+    "form"
+  ]
+}

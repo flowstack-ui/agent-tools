@@ -1,0 +1,94 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "hover-card",
+  "name": "HoverCard",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a finished supplemental, nonessential, non-interactive preview from a genuine link or similarly meaningful trigger while Atom owns hover, focus-visible, dismissal, portal, and positioning behavior.",
+  "useWhen": [
+    "A genuine link or other focusable subject benefits from a richer passive preview whose information is redundant with the destination or visible page."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The content is a brief text hint, contains controls or required actions, must hold focus, or is essential on touch and non-hover input.",
+      "useInstead": "Tooltip, Popover, Dialog, or visible inline content"
+    }
+  ],
+  "composition": [
+    "Compose HoverCard.Root with HoverCard.Trigger asChild around a genuine semantic link, plus HoverCard.Portal and HoverCard.Content; add HoverCard.Arrow only when the styled preview needs a pointer. Content may contain passive Brick text, Avatar, Badge, and layout components but no interactive descendants.",
+    "Choose Content size sm, md, or lg from preview measure. Brick keeps non-Arrow children in its private scrolling viewport and Arrow as a direct Content child; do not target the private viewport. Reproduce any local Appearance scope on portalled Content."
+  ],
+  "rules": [
+    {
+      "id": "hover-card-supplemental",
+      "level": "must",
+      "statement": "Keep every essential fact and required action available outside Content because touch does not open HoverCard and the preview is not promised to assistive technology."
+    },
+    {
+      "id": "hover-card-noninteractive",
+      "level": "must",
+      "statement": "Do not put links, buttons, inputs, menus, or required interaction inside Content; use Popover for interactive floating content."
+    },
+    {
+      "id": "hover-card-trigger-native",
+      "level": "must",
+      "statement": "Preserve Trigger's genuine native destination, complete accessible name, action, and tab order through asChild or render; do not add popup, expanded, controls, or dialog semantics."
+    },
+    {
+      "id": "hover-card-input-contract",
+      "level": "must",
+      "statement": "Preserve Atom's mouse-capable hover, focus-visible opening, delays, safe pointer corridor, Escape handling, and touch and compatibility-event suppression; touch must retain the native Trigger action without opening the preview."
+    },
+    {
+      "id": "hover-card-content-anatomy",
+      "level": "must",
+      "statement": "Keep Content generic and nonsemantic, choose size only for bounded measure, let the private viewport own constrained scrolling, and keep optional Arrow as a direct Content child."
+    },
+    {
+      "id": "hover-card-positioning",
+      "level": "should",
+      "statement": "Style and validate from the collision-resolved data-side and available viewport bounds rather than assuming the requested placement always wins."
+    },
+    {
+      "id": "hover-card-theme-scope",
+      "level": "must",
+      "statement": "When Portal leaves a local Appearance scope, reproduce that scope on Content or target a portal container inside it."
+    },
+    {
+      "id": "hover-card-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus hover-card.css and every composed child component stylesheet."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Putting a profile action or essential fact only in HoverCard, expecting touch to open it, or adding popup ARIA relationships.",
+      "correction": "Keep the preview passive and redundant, preserve the trigger destination, and use Popover or visible content when users must interact or access the information."
+    },
+    {
+      "mistake": "Using HoverCard for a short label, targeting its private viewport, or assuming portalled Content inherits local Appearance.",
+      "correction": "Use Tooltip for brief hints, customize only public parts and tokens, and make the portal scope explicit."
+    }
+  ],
+  "validation": [
+    "Verify the genuine Trigger destination and name, controlled and disabled state, mouse hover and focus-visible opening, delays, Trigger-to-Content pointer corridor, Escape, focus stability, and that touch taps and long presses preserve native Trigger activation without opening.",
+    "Audit Content for no essential or interactive descendants and no popup ARIA; verify portal and render composition, three bounded sizes, private scrolling, direct optional Arrow, collision flips and shifts, and available-size containment.",
+    "Verify 256px containment, zoom, long localization, LTR and RTL, reduced motion, forced colors, light and dark portalled appearance, and complete CSS."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "hover-card",
+      "versionPolicy": "installed-exact"
+    },
+    "tooltip",
+    "popover",
+    "dialog",
+    "link",
+    "avatar",
+    "badge",
+    "appearance"
+  ]
+}

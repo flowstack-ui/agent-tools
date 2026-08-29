@@ -1,0 +1,101 @@
+# Textarea
+
+Source: @flowstack-ui/brick@0.1.11
+Kind: component
+ID: textarea
+
+# Textarea agent guide
+
+## Purpose
+
+Render finished native multi-line text entry with Brick sizing, states, resize policy, and Atom field integration.
+
+## Use when
+
+- The user enters sentences, paragraphs, notes, or other multi-line text.
+
+## Choose something else when
+
+- The expected value is short and single-line. Use Input.
+
+## Required composition
+
+- Place Textarea inside one Field.Root after Field.Label and add description or character guidance when useful.
+
+## Rules
+
+- **MUST:** Use a persistent accessible label.
+- **MUST:** Load styles.css or core.css plus textarea.css and field.css when composed with Field.
+
+## Common mistakes
+
+- **Avoid:** Using a single-line Input for long freeform content. **Instead:** Use Textarea and allow a usable multi-line measure.
+
+## Validation checklist
+
+- Inspect label, name, and messaging relationships.
+- Test multi-line entry, resize policy, narrow widths, invalid/disabled states, and contrast.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/textarea`
+- `field`
+- `input`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "textarea",
+  "name": "Textarea",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render finished native multi-line text entry with Brick sizing, states, resize policy, and Atom field integration.",
+  "useWhen": [
+    "The user enters sentences, paragraphs, notes, or other multi-line text."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The expected value is short and single-line.",
+      "useInstead": "Input"
+    }
+  ],
+  "composition": [
+    "Place Textarea inside one Field.Root after Field.Label and add description or character guidance when useful."
+  ],
+  "rules": [
+    {
+      "id": "textarea-label",
+      "level": "must",
+      "statement": "Use a persistent accessible label."
+    },
+    {
+      "id": "textarea-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus textarea.css and field.css when composed with Field."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a single-line Input for long freeform content.",
+      "correction": "Use Textarea and allow a usable multi-line measure."
+    }
+  ],
+  "validation": [
+    "Inspect label, name, and messaging relationships.",
+    "Test multi-line entry, resize policy, narrow widths, invalid/disabled states, and contrast."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "textarea",
+      "versionPolicy": "installed-exact"
+    },
+    "field",
+    "input"
+  ]
+}
+```

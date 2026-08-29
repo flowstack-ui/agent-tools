@@ -1,0 +1,1033 @@
+{
+  "schema": "flowstack.agent-coverage.v1",
+  "package": "@flowstack-ui/colors",
+  "packageVersion": "0.1.1",
+  "layer": "colors",
+  "profile": {
+    "kind": "operation-package",
+    "ownerUnit": "operation"
+  },
+  "generatedFrom": {
+    "exports": "package.json",
+    "catalog": "agents/catalog.json",
+    "manifest": "dist/agents/manifest.json"
+  },
+  "summary": {
+    "publicSurfaces": 76,
+    "classifiedPublicSurfaces": 76,
+    "componentOwners": 0,
+    "guidedComponentOwners": 0,
+    "packageGuides": 1,
+    "ownerUnits": 6,
+    "guidedOwnerUnits": 6,
+    "operationOwners": 6,
+    "guidedOperationOwners": 6,
+    "registryItems": 0,
+    "guidedRegistryItems": 0,
+    "registryFamilies": 0,
+    "unclassified": 0,
+    "invalidExclusions": 0,
+    "unresolvedSelections": 0,
+    "invalidRegistryItems": 0,
+    "unresolvedDependencies": 0
+  },
+  "components": [],
+  "owners": [
+    {
+      "kind": "operation",
+      "id": "color-conversion",
+      "name": "Color conversion and gamut mapping",
+      "publicSurfaces": [
+        ".#ColorConversionResult",
+        ".#GamutMappingResult",
+        ".#OutputGamut",
+        ".#convertColor",
+        ".#mapColorToGamut"
+      ],
+      "guideIds": [
+        "colors-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "color-inspection",
+      "name": "Color inspection",
+      "publicSurfaces": [
+        ".#ColorComponents",
+        ".#ColorDiagnostic",
+        ".#ColorDiagnosticCode",
+        ".#ColorInput",
+        ".#ColorRecord",
+        ".#ColorValidationResult",
+        ".#DtcgColorComponent",
+        ".#DtcgColorToken",
+        ".#DtcgColorValue",
+        ".#StructuredColor",
+        ".#SupportedColorSpace",
+        ".#normalizeColor",
+        ".#parseColor",
+        ".#validateColor"
+      ],
+      "guideIds": [
+        "colors-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "color-measurement",
+      "name": "Color contrast and difference measurement",
+      "publicSurfaces": [
+        ".#ColorDifferenceMethod",
+        ".#ColorDifferenceReport",
+        ".#ContrastMeasurement",
+        ".#ContrastReport",
+        ".#DifferenceMeasurement",
+        ".#calculateColorDifference",
+        ".#calculateContrast",
+        ".#colorDifference",
+        ".#contrastRatio"
+      ],
+      "guideIds": [
+        "colors-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "color-provenance",
+      "name": "Color provenance",
+      "publicSurfaces": [
+        ".#ColorProvenance",
+        ".#ColorSource",
+        ".#SeedPreservationPolicy",
+        ".#SeedPreservationResult",
+        ".#createColorProvenance"
+      ],
+      "guideIds": [
+        "colors-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "named-palette-reference",
+      "name": "Named palette reference",
+      "publicSurfaces": [
+        ".#NAMED_PALETTE_NAMES",
+        ".#NamedPaletteName",
+        ".#NamedPaletteReference",
+        ".#TwelveStepScale",
+        ".#getNamedPalette",
+        ".#isNamedPaletteName"
+      ],
+      "guideIds": [
+        "colors-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "palette-candidate",
+      "name": "Palette candidate generation and review",
+      "publicSurfaces": [
+        ".#BrandSeedInput",
+        ".#CandidateAppearance",
+        ".#CandidateColorValue",
+        ".#CandidateMeasurement",
+        ".#CandidateReview",
+        ".#CandidateReviewDecision",
+        ".#CandidateReviewStatus",
+        ".#CandidateStatus",
+        ".#ColorGenerationRequest",
+        ".#ColorsCandidateEnvelope",
+        ".#DecorativeCandidateAppearance",
+        ".#DecorativeCandidateFamily",
+        ".#DecorativeSeedInput",
+        ".#GenerationDiagnostic",
+        ".#GenerationDiagnosticCode",
+        ".#InterfaceCandidateFamily",
+        ".#InterfaceRole",
+        ".#InterfaceSeedInput",
+        ".#NeutralCandidateFamily",
+        ".#NeutralRole",
+        ".#NeutralSeedInput",
+        ".#PaletteAppearance",
+        ".#PaletteCandidateFamily",
+        ".#PaletteProfile",
+        ".#PaletteSeedBase",
+        ".#defineColorGenerationRequest",
+        ".#generatePaletteCandidate",
+        ".#reviewPaletteCandidate"
+      ],
+      "guideIds": [
+        "colors-system"
+      ],
+      "manifestPaths": [],
+      "status": "covered"
+    }
+  ],
+  "operations": [
+    {
+      "id": "color-conversion",
+      "name": "Color conversion and gamut mapping",
+      "guideId": "colors-system",
+      "documentation": "docs/color-foundations.md",
+      "publicSurfaces": [
+        ".#ColorConversionResult",
+        ".#GamutMappingResult",
+        ".#OutputGamut",
+        ".#convertColor",
+        ".#mapColorToGamut"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "color-inspection",
+      "name": "Color inspection",
+      "guideId": "colors-system",
+      "documentation": "docs/color-foundations.md",
+      "publicSurfaces": [
+        ".#ColorComponents",
+        ".#ColorDiagnostic",
+        ".#ColorDiagnosticCode",
+        ".#ColorInput",
+        ".#ColorRecord",
+        ".#ColorValidationResult",
+        ".#DtcgColorComponent",
+        ".#DtcgColorToken",
+        ".#DtcgColorValue",
+        ".#StructuredColor",
+        ".#SupportedColorSpace",
+        ".#normalizeColor",
+        ".#parseColor",
+        ".#validateColor"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "color-measurement",
+      "name": "Color contrast and difference measurement",
+      "guideId": "colors-system",
+      "documentation": "docs/color-foundations.md",
+      "publicSurfaces": [
+        ".#ColorDifferenceMethod",
+        ".#ColorDifferenceReport",
+        ".#ContrastMeasurement",
+        ".#ContrastReport",
+        ".#DifferenceMeasurement",
+        ".#calculateColorDifference",
+        ".#calculateContrast",
+        ".#colorDifference",
+        ".#contrastRatio"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "color-provenance",
+      "name": "Color provenance",
+      "guideId": "colors-system",
+      "documentation": "docs/color-foundations.md",
+      "publicSurfaces": [
+        ".#ColorProvenance",
+        ".#ColorSource",
+        ".#SeedPreservationPolicy",
+        ".#SeedPreservationResult",
+        ".#createColorProvenance"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "named-palette-reference",
+      "name": "Named palette reference",
+      "guideId": "colors-system",
+      "documentation": "docs/palette-generation.md",
+      "publicSurfaces": [
+        ".#NAMED_PALETTE_NAMES",
+        ".#NamedPaletteName",
+        ".#NamedPaletteReference",
+        ".#TwelveStepScale",
+        ".#getNamedPalette",
+        ".#isNamedPaletteName"
+      ],
+      "status": "covered"
+    },
+    {
+      "id": "palette-candidate",
+      "name": "Palette candidate generation and review",
+      "guideId": "colors-system",
+      "documentation": "docs/palette-generation.md",
+      "publicSurfaces": [
+        ".#BrandSeedInput",
+        ".#CandidateAppearance",
+        ".#CandidateColorValue",
+        ".#CandidateMeasurement",
+        ".#CandidateReview",
+        ".#CandidateReviewDecision",
+        ".#CandidateReviewStatus",
+        ".#CandidateStatus",
+        ".#ColorGenerationRequest",
+        ".#ColorsCandidateEnvelope",
+        ".#DecorativeCandidateAppearance",
+        ".#DecorativeCandidateFamily",
+        ".#DecorativeSeedInput",
+        ".#GenerationDiagnostic",
+        ".#GenerationDiagnosticCode",
+        ".#InterfaceCandidateFamily",
+        ".#InterfaceRole",
+        ".#InterfaceSeedInput",
+        ".#NeutralCandidateFamily",
+        ".#NeutralRole",
+        ".#NeutralSeedInput",
+        ".#PaletteAppearance",
+        ".#PaletteCandidateFamily",
+        ".#PaletteProfile",
+        ".#PaletteSeedBase",
+        ".#defineColorGenerationRequest",
+        ".#generatePaletteCandidate",
+        ".#reviewPaletteCandidate"
+      ],
+      "status": "covered"
+    }
+  ],
+  "registryItems": [],
+  "registryFamilies": [],
+  "surfaces": [
+    {
+      "surface": ".#BrandSeedInput",
+      "symbol": "BrandSeedInput",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#calculateColorDifference",
+      "symbol": "calculateColorDifference",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#calculateContrast",
+      "symbol": "calculateContrast",
+      "surfaceKind": "value",
+      "classification": "operation",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateAppearance",
+      "symbol": "CandidateAppearance",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateColorValue",
+      "symbol": "CandidateColorValue",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateMeasurement",
+      "symbol": "CandidateMeasurement",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateReview",
+      "symbol": "CandidateReview",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateReviewDecision",
+      "symbol": "CandidateReviewDecision",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateReviewStatus",
+      "symbol": "CandidateReviewStatus",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#CandidateStatus",
+      "symbol": "CandidateStatus",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLOR_ENGINE_NAME",
+      "symbol": "COLOR_ENGINE_NAME",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/dependency-qualification.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLOR_ENGINE_VERSION",
+      "symbol": "COLOR_ENGINE_VERSION",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/dependency-qualification.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLOR_GENERATION_REQUEST_SCHEMA",
+      "symbol": "COLOR_GENERATION_REQUEST_SCHEMA",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/palette-generation.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLOR_PROVENANCE_SCHEMA",
+      "symbol": "COLOR_PROVENANCE_SCHEMA",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/color-foundations.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLOR_RECORD_SCHEMA",
+      "symbol": "COLOR_RECORD_SCHEMA",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/color-foundations.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorComponents",
+      "symbol": "ColorComponents",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorConversionResult",
+      "symbol": "ColorConversionResult",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-conversion",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorDiagnostic",
+      "symbol": "ColorDiagnostic",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorDiagnosticCode",
+      "symbol": "ColorDiagnosticCode",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#colorDifference",
+      "symbol": "colorDifference",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorDifferenceMethod",
+      "symbol": "ColorDifferenceMethod",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorDifferenceReport",
+      "symbol": "ColorDifferenceReport",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorGenerationRequest",
+      "symbol": "ColorGenerationRequest",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorInput",
+      "symbol": "ColorInput",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorProvenance",
+      "symbol": "ColorProvenance",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-provenance",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorRecord",
+      "symbol": "ColorRecord",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLORS_CANDIDATE_SCHEMA",
+      "symbol": "COLORS_CANDIDATE_SCHEMA",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/palette-generation.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#COLORS_PACKAGE_VERSION",
+      "symbol": "COLORS_PACKAGE_VERSION",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/compatibility.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorsCandidateEnvelope",
+      "symbol": "ColorsCandidateEnvelope",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorSource",
+      "symbol": "ColorSource",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-provenance",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ColorValidationResult",
+      "symbol": "ColorValidationResult",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ContrastMeasurement",
+      "symbol": "ContrastMeasurement",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#contrastRatio",
+      "symbol": "contrastRatio",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#ContrastReport",
+      "symbol": "ContrastReport",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#convertColor",
+      "symbol": "convertColor",
+      "surfaceKind": "value",
+      "classification": "operation",
+      "ownerId": "color-conversion",
+      "status": "covered"
+    },
+    {
+      "surface": ".#createColorProvenance",
+      "symbol": "createColorProvenance",
+      "surfaceKind": "value",
+      "classification": "operation",
+      "ownerId": "color-provenance",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DecorativeCandidateAppearance",
+      "symbol": "DecorativeCandidateAppearance",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DecorativeCandidateFamily",
+      "symbol": "DecorativeCandidateFamily",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DecorativeSeedInput",
+      "symbol": "DecorativeSeedInput",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#defineColorGenerationRequest",
+      "symbol": "defineColorGenerationRequest",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DifferenceMeasurement",
+      "symbol": "DifferenceMeasurement",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-measurement",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DtcgColorComponent",
+      "symbol": "DtcgColorComponent",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DtcgColorToken",
+      "symbol": "DtcgColorToken",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#DtcgColorValue",
+      "symbol": "DtcgColorValue",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#FlowstackColorError",
+      "symbol": "FlowstackColorError",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/color-foundations.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#GAMUT_MAPPING_JND",
+      "symbol": "GAMUT_MAPPING_JND",
+      "surfaceKind": "value",
+      "classification": "metadata",
+      "documentation": "docs/color-foundations.md",
+      "status": "covered"
+    },
+    {
+      "surface": ".#GamutMappingResult",
+      "symbol": "GamutMappingResult",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-conversion",
+      "status": "covered"
+    },
+    {
+      "surface": ".#generatePaletteCandidate",
+      "symbol": "generatePaletteCandidate",
+      "surfaceKind": "value",
+      "classification": "operation",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#GenerationDiagnostic",
+      "symbol": "GenerationDiagnostic",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#GenerationDiagnosticCode",
+      "symbol": "GenerationDiagnosticCode",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#getNamedPalette",
+      "symbol": "getNamedPalette",
+      "surfaceKind": "value",
+      "classification": "operation",
+      "ownerId": "named-palette-reference",
+      "status": "covered"
+    },
+    {
+      "surface": ".#InterfaceCandidateFamily",
+      "symbol": "InterfaceCandidateFamily",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#InterfaceRole",
+      "symbol": "InterfaceRole",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#InterfaceSeedInput",
+      "symbol": "InterfaceSeedInput",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#isNamedPaletteName",
+      "symbol": "isNamedPaletteName",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "named-palette-reference",
+      "status": "covered"
+    },
+    {
+      "surface": ".#mapColorToGamut",
+      "symbol": "mapColorToGamut",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "color-conversion",
+      "status": "covered"
+    },
+    {
+      "surface": ".#NAMED_PALETTE_NAMES",
+      "symbol": "NAMED_PALETTE_NAMES",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "named-palette-reference",
+      "status": "covered"
+    },
+    {
+      "surface": ".#NamedPaletteName",
+      "symbol": "NamedPaletteName",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "named-palette-reference",
+      "status": "covered"
+    },
+    {
+      "surface": ".#NamedPaletteReference",
+      "symbol": "NamedPaletteReference",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "named-palette-reference",
+      "status": "covered"
+    },
+    {
+      "surface": ".#NeutralCandidateFamily",
+      "symbol": "NeutralCandidateFamily",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#NeutralRole",
+      "symbol": "NeutralRole",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#NeutralSeedInput",
+      "symbol": "NeutralSeedInput",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#normalizeColor",
+      "symbol": "normalizeColor",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#OutputGamut",
+      "symbol": "OutputGamut",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-conversion",
+      "status": "covered"
+    },
+    {
+      "surface": ".#PaletteAppearance",
+      "symbol": "PaletteAppearance",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#PaletteCandidateFamily",
+      "symbol": "PaletteCandidateFamily",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#PaletteProfile",
+      "symbol": "PaletteProfile",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#PaletteSeedBase",
+      "symbol": "PaletteSeedBase",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#parseColor",
+      "symbol": "parseColor",
+      "surfaceKind": "value",
+      "classification": "operation",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#reviewPaletteCandidate",
+      "symbol": "reviewPaletteCandidate",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "palette-candidate",
+      "status": "covered"
+    },
+    {
+      "surface": ".#SeedPreservationPolicy",
+      "symbol": "SeedPreservationPolicy",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-provenance",
+      "status": "covered"
+    },
+    {
+      "surface": ".#SeedPreservationResult",
+      "symbol": "SeedPreservationResult",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-provenance",
+      "status": "covered"
+    },
+    {
+      "surface": ".#StructuredColor",
+      "symbol": "StructuredColor",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#SupportedColorSpace",
+      "symbol": "SupportedColorSpace",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    },
+    {
+      "surface": ".#TwelveStepScale",
+      "symbol": "TwelveStepScale",
+      "surfaceKind": "type",
+      "classification": "operation-member",
+      "ownerId": "named-palette-reference",
+      "status": "covered"
+    },
+    {
+      "surface": ".#validateColor",
+      "symbol": "validateColor",
+      "surfaceKind": "value",
+      "classification": "operation-member",
+      "ownerId": "color-inspection",
+      "status": "covered"
+    }
+  ],
+  "metadataExports": [
+    {
+      "surface": ".",
+      "documentation": "README.md",
+      "reason": "Aggregate runtime and type export.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/colors-system.json",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "Compatible direct machine guide path.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/colors-system.md",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "Compatible direct human guide path.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/manifest.json",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "Agent discovery manifest.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/coverage.json",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "Deterministic catalog coverage report.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/*.json",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "Machine-readable Agent Knowledge wildcard.",
+      "status": "covered"
+    },
+    {
+      "surface": "./agents/*.md",
+      "documentation": "docs/agent-knowledge.md",
+      "reason": "Human-readable Agent Knowledge wildcard.",
+      "status": "covered"
+    },
+    {
+      "surface": "./package.json",
+      "documentation": "docs/compatibility.md",
+      "reason": "Public package identity metadata.",
+      "status": "covered"
+    }
+  ],
+  "guides": [
+    {
+      "id": "colors-system",
+      "json": "./colors-system.json",
+      "markdown": "./colors-system.md",
+      "status": "covered"
+    }
+  ],
+  "exclusions": [],
+  "selectionDestinations": [
+    {
+      "kind": "operation",
+      "id": "color-inspection",
+      "intent": "parse, normalize, or validate a supported color value",
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "color-conversion",
+      "intent": "convert a color space or explicitly map a color into an output gamut",
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "color-measurement",
+      "intent": "measure exact contrast or perceptual difference",
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "named-palette-reference",
+      "intent": "retrieve a stable named FLOWSTACK palette",
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "palette-candidate",
+      "intent": "generate, inspect, and explicitly accept or reject a deterministic palette candidate",
+      "status": "covered"
+    },
+    {
+      "kind": "native-application",
+      "id": "human-candidate-review",
+      "intent": "generate, inspect, and explicitly accept or reject a deterministic palette candidate",
+      "status": "covered"
+    },
+    {
+      "kind": "native-application",
+      "id": "theme-semantic-mapping",
+      "intent": "generate, inspect, and explicitly accept or reject a deterministic palette candidate",
+      "status": "covered"
+    },
+    {
+      "kind": "operation",
+      "id": "color-provenance",
+      "intent": "record the source, engine, package, and transformation evidence for a color result",
+      "status": "covered"
+    },
+    {
+      "kind": "native-application",
+      "id": "theme-semantic-mapping",
+      "intent": "assign accent, danger, warning, success, information, surface, or text meaning",
+      "status": "covered"
+    },
+    {
+      "kind": "native-application",
+      "id": "application-brand-approval",
+      "intent": "assign accent, danger, warning, success, information, surface, or text meaning",
+      "status": "covered"
+    }
+  ],
+  "failures": []
+}

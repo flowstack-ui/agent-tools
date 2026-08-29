@@ -1,0 +1,96 @@
+# Breadcrumb
+
+Source: @flowstack-ui/atom@0.24.0
+Kind: component
+ID: breadcrumb
+
+# Breadcrumb agent guide
+
+## Purpose
+
+Represent the current page's ancestry as a named navigation landmark and ordered hierarchy.
+
+## Use when
+
+- The current page belongs to a hierarchy and users may navigate to ancestor pages.
+
+## Choose something else when
+
+- The choices are result pages or a general destination list. Use Pagination or NavList.
+
+## Required composition
+
+- Compose Root > List > Item containing ancestor Link or the single current Page, with decorative Separator parts between items.
+
+## Rules
+
+- **MUST:** Render one non-link Page for the current location and use links only for ancestors.
+- **MUST:** When Ellipsis opens hidden pages, compose it with a real named button.
+
+## Common mistakes
+
+- **Avoid:** Making the current page another link or placing separators outside the ordered list. **Instead:** Use Page once and keep Item and Separator parts inside List.
+
+## Validation checklist
+
+- Confirm the nav has a useful accessible name and one aria-current page.
+- Confirm separators are absent from the accessibility tree.
+
+## Related guidance
+
+- `link`
+- `pagination`
+- `nav-list`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "breadcrumb",
+  "name": "Breadcrumb",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Represent the current page's ancestry as a named navigation landmark and ordered hierarchy.",
+  "useWhen": [
+    "The current page belongs to a hierarchy and users may navigate to ancestor pages."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The choices are result pages or a general destination list.",
+      "useInstead": "Pagination or NavList"
+    }
+  ],
+  "composition": [
+    "Compose Root > List > Item containing ancestor Link or the single current Page, with decorative Separator parts between items."
+  ],
+  "rules": [
+    {
+      "id": "breadcrumb-one-current",
+      "level": "must",
+      "statement": "Render one non-link Page for the current location and use links only for ancestors."
+    },
+    {
+      "id": "breadcrumb-interactive-ellipsis",
+      "level": "must",
+      "statement": "When Ellipsis opens hidden pages, compose it with a real named button."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Making the current page another link or placing separators outside the ordered list.",
+      "correction": "Use Page once and keep Item and Separator parts inside List."
+    }
+  ],
+  "validation": [
+    "Confirm the nav has a useful accessible name and one aria-current page.",
+    "Confirm separators are absent from the accessibility tree."
+  ],
+  "related": [
+    "link",
+    "pagination",
+    "nav-list"
+  ]
+}
+```

@@ -1,0 +1,62 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "field",
+  "name": "Field",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Visually arrange one control with its label, description, error, and inherited Atom field relationships.",
+  "useWhen": [
+    "One finished control needs a visible label and may need help or error text."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Several related controls share one group label.",
+      "useInstead": "Fieldset, with Field inside when individual controls also need labels"
+    }
+  ],
+  "composition": [
+    "Compose Field.Root -> Field.Label -> one control -> optional Field.Description -> optional Field.Error."
+  ],
+  "rules": [
+    {
+      "id": "field-one-control",
+      "level": "must",
+      "statement": "Associate one Field with one control."
+    },
+    {
+      "id": "field-marker",
+      "level": "must",
+      "statement": "Field.Label already renders the default required marker; never add a second asterisk or RequiredIndicator unless the default is disabled."
+    },
+    {
+      "id": "field-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus field.css and the owned control stylesheet."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Adding a manual required asterisk beside a required Field.Label.",
+      "correction": "Set required on Field.Root and use the built-in Label marker, or explicitly replace it once."
+    }
+  ],
+  "validation": [
+    "Confirm label, description, and error relationships.",
+    "Confirm exactly one required marker.",
+    "Check vertical and horizontal layouts at narrow widths."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "field",
+      "versionPolicy": "installed-exact"
+    },
+    "form",
+    "fieldset",
+    "input",
+    "textarea",
+    "checkbox"
+  ]
+}

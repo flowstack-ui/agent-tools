@@ -1,0 +1,51 @@
+# HoverCard agent guide
+
+## Purpose
+
+Present a finished supplemental, nonessential, non-interactive preview from a genuine link or similarly meaningful trigger while Atom owns hover, focus-visible, dismissal, portal, and positioning behavior.
+
+## Use when
+
+- A genuine link or other focusable subject benefits from a richer passive preview whose information is redundant with the destination or visible page.
+
+## Choose something else when
+
+- The content is a brief text hint, contains controls or required actions, must hold focus, or is essential on touch and non-hover input. Use Tooltip, Popover, Dialog, or visible inline content.
+
+## Required composition
+
+- Compose HoverCard.Root with HoverCard.Trigger asChild around a genuine semantic link, plus HoverCard.Portal and HoverCard.Content; add HoverCard.Arrow only when the styled preview needs a pointer. Content may contain passive Brick text, Avatar, Badge, and layout components but no interactive descendants.
+- Choose Content size sm, md, or lg from preview measure. Brick keeps non-Arrow children in its private scrolling viewport and Arrow as a direct Content child; do not target the private viewport. Reproduce any local Appearance scope on portalled Content.
+
+## Rules
+
+- **MUST:** Keep every essential fact and required action available outside Content because touch does not open HoverCard and the preview is not promised to assistive technology.
+- **MUST:** Do not put links, buttons, inputs, menus, or required interaction inside Content; use Popover for interactive floating content.
+- **MUST:** Preserve Trigger's genuine native destination, complete accessible name, action, and tab order through asChild or render; do not add popup, expanded, controls, or dialog semantics.
+- **MUST:** Preserve Atom's mouse-capable hover, focus-visible opening, delays, safe pointer corridor, Escape handling, and touch and compatibility-event suppression; touch must retain the native Trigger action without opening the preview.
+- **MUST:** Keep Content generic and nonsemantic, choose size only for bounded measure, let the private viewport own constrained scrolling, and keep optional Arrow as a direct Content child.
+- **SHOULD:** Style and validate from the collision-resolved data-side and available viewport bounds rather than assuming the requested placement always wins.
+- **MUST:** When Portal leaves a local Appearance scope, reproduce that scope on Content or target a portal container inside it.
+- **MUST:** Load styles.css or core.css plus hover-card.css and every composed child component stylesheet.
+
+## Common mistakes
+
+- **Avoid:** Putting a profile action or essential fact only in HoverCard, expecting touch to open it, or adding popup ARIA relationships. **Instead:** Keep the preview passive and redundant, preserve the trigger destination, and use Popover or visible content when users must interact or access the information.
+- **Avoid:** Using HoverCard for a short label, targeting its private viewport, or assuming portalled Content inherits local Appearance. **Instead:** Use Tooltip for brief hints, customize only public parts and tokens, and make the portal scope explicit.
+
+## Validation checklist
+
+- Verify the genuine Trigger destination and name, controlled and disabled state, mouse hover and focus-visible opening, delays, Trigger-to-Content pointer corridor, Escape, focus stability, and that touch taps and long presses preserve native Trigger activation without opening.
+- Audit Content for no essential or interactive descendants and no popup ARIA; verify portal and render composition, three bounded sizes, private scrolling, direct optional Arrow, collision flips and shifts, and available-size containment.
+- Verify 256px containment, zoom, long localization, LTR and RTL, reduced motion, forced colors, light and dark portalled appearance, and complete CSS.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/hover-card`
+- `tooltip`
+- `popover`
+- `dialog`
+- `link`
+- `avatar`
+- `badge`
+- `appearance`

@@ -1,0 +1,50 @@
+# FileUpload agent guide
+
+## Purpose
+
+Present a finished local-file picker, optional drop target, and removable selected-file list while Atom owns native picking, file state, client acceptance, Field validation, reset, and multipart form participation.
+
+## Use when
+
+- A form needs one or more local files selected through the native picker, optional drag and drop, review, removal, or visible client-side rejection feedback before application processing.
+
+## Choose something else when
+
+- A native file input is sufficient, the value is a textual path or URL, the asset is already remote, or the job is transfer progress, retry, persistence, preview editing, or server policy. Use a native input type=file, Input, Progress, Toast, Image, or an application-owned upload workflow.
+
+## Required composition
+
+- Compose one Field with FileUpload.Root, exactly one HiddenInput, and an accessible Trigger. Add Dropzone only as an enhancement; use ItemGroup with one Item per accepted file and optional ItemName, ItemSize, and file-specific ItemDeleteTrigger.
+- State both browse and drop paths plus material constraints in visible copy. Use Root's outline or soft recipe, size, shape, and width while keeping upload transport, progress, rejection copy, and server policy outside FileUpload.
+
+## Rules
+
+- **MUST:** Render exactly one HiddenInput whenever picker, Trigger, required validity, name, form, accept, or multiple semantics are needed and keep it aligned with the visible control.
+- **MUST:** Always provide a visible accessible Trigger for keyboard, touch, and pointer selection; Dropzone alone is not an equivalent picker, and Trigger already owns its button recipe rather than nesting Button.
+- **MUST:** Use accept, maxFiles, maxSize, and validateFile only for immediate client feedback, show authored localized rejection reasons, and validate type, size, content, authorization, and storage policy again on the server.
+- **MUST:** Use files with onFilesChange or defaultFiles, choose appendFiles deliberately for multiple selection, and distinguish rejected candidates from the validity of the currently selected files.
+- **MUST:** Preserve file-only drag state, nested drag handling, document-drop protection, disabled/read-only behavior, native FileList synchronization, required focus, Field relationships, external form, same-file reselection after deletion, and uncontrolled reset.
+- **MUST:** Keep ItemGroup and Item native list semantics, preserve each complete filename despite visual truncation, give every removal action a file-specific name, and do not nest Brick List or IconButton into the owning parts.
+- **MUST:** Keep drop copy and selected-file metadata contained under long filenames, localization, narrow widths, zoom, and RTL while retaining visible focus, non-color accept/reject cues, and effective action targets.
+- **MUST:** Load styles.css or core.css plus file-upload.css and Field CSS when composed.
+
+## Common mistakes
+
+- **Avoid:** Using Dropzone as the only picker, treating accept as security, hiding rejection reasons, wrapping Trigger in Button, or forgetting same-file reselection after removal. **Instead:** Include HiddenInput and Trigger, validate again on the server, present rejection feedback, preserve the owning interactive parts, and let Atom synchronize native selection.
+- **Avoid:** Turning local file selection into an upload transport with progress, retry, preview lifecycle, storage, or malware claims. **Instead:** Keep FileUpload responsible for local selection and compose application-owned transfer status and durable results beside it.
+
+## Validation checklist
+
+- Verify picker opening by pointer, touch, Enter, and Space; controlled/uncontrolled files; single replacement and multiple append/replace policy; accept rules; maximum count and size; custom rejection; visible rejection feedback; disabled/read-only state; and same-file reselection.
+- Verify accepted/rejected and nested drag behavior, non-file drags, document-drop protection, HiddenInput name/form/required/multiple/FileList behavior, Field labels/errors, inline/native focus, reset, ItemGroup metadata, delete labels, native props, refs, and composition.
+- Verify both recipes, all sizes/shapes/widths, long filenames and localized copy, narrow width, zoom, RTL, touch targets, light/dark appearance, forced colors, focus, invalid, disabled, read-only, accept, and reject paint.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/file-upload`
+- `input`
+- `field`
+- `form`
+- `progress`
+- `toast`
+- `image`

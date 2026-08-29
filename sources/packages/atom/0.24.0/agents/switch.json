@@ -1,0 +1,64 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "switch",
+  "name": "Switch",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Represent an immediately applied on/off setting with switch semantics, controlled or uncontrolled state, field integration, and optional native form participation.",
+  "useWhen": [
+    "A setting becomes active or inactive immediately when the user operates it."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The choice is a form answer applied later or a command whose pressed state remains active.",
+      "useInstead": "Checkbox or Toggle"
+    }
+  ],
+  "composition": [
+    "Give Root visible text or a native accessible name and add Thumb only when the styled layer needs a decorative movable part. Use name, value, and form when checked state must submit."
+  ],
+  "rules": [
+    {
+      "id": "switch-name",
+      "level": "must",
+      "statement": "Give Root a complete accessible name with visible text, aria-label, aria-labelledby, or Field labeling; Thumb remains decorative and aria-hidden."
+    },
+    {
+      "id": "switch-state",
+      "level": "must",
+      "statement": "Use checked with onCheckedChange for controlled state or defaultChecked for uncontrolled state, and preserve role=switch with aria-checked."
+    },
+    {
+      "id": "switch-immediate-setting",
+      "level": "must",
+      "statement": "Use Switch only for an immediately applied on/off setting; do not substitute it for a deferred checkbox answer or pressed command."
+    },
+    {
+      "id": "switch-readonly",
+      "level": "must",
+      "statement": "Keep read-only Switch focusable while preventing Enter, Space, pointer, and custom-element activation from changing state."
+    },
+    {
+      "id": "switch-form",
+      "level": "must",
+      "statement": "Preserve aligned native submission and required-validity proxies, Field state and descriptions, validation focus, and uncontrolled form reset when form behavior applies."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Switch for a submit-later checkbox, relying on Thumb as the accessible control, or using disabled when the value should remain focusable and read-only.",
+      "correction": "Choose by timing and semantics, name Root, keep Thumb decorative, and use readOnly for discoverable locked state."
+    }
+  ],
+  "validation": [
+    "Verify accessible name, role and checked state, controlled and uncontrolled updates, pointer, Enter, and Space activation, disabled and read-only behavior, Thumb state inheritance, and native and custom asChild/render semantics.",
+    "Verify named checked-value submission, required validity with and without name, invalid and Field descriptions, inline/native validation focus, form association, and uncontrolled reset."
+  ],
+  "related": [
+    "checkbox",
+    "toggle",
+    "field",
+    "form"
+  ]
+}

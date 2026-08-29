@@ -1,0 +1,95 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "combobox",
+  "name": "Combobox",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present finished editable filtering and single-value selection while Atom owns committed value, input text, open state, listbox focus, positioning, dismissal, validation, and form participation.",
+  "useWhen": [
+    "A predefined option set benefits from editable filtering, including search-and-navigate interfaces whose selected result triggers an application-owned effect."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Any text is valid without options, one predefined value needs no filtering, several values must be selected, or the popup contains commands.",
+      "useInstead": "Input, Select or RadioGroup, MultiSelect, or DropdownMenu"
+    }
+  ],
+  "composition": [
+    "Compose a persistent Field.Label, then Combobox.Root with the complete options -> Combobox.Control with Input and optional Clear and Trigger -> optional Portal -> Content -> Listbox -> one Item per available option, plus Empty, Loading, groups, and labels when required.",
+    "Keep committed value, inputValue, and open as independent state axes. Keep rendered Items aligned with Root options and put noninteractive complete labels inside each Item."
+  ],
+  "rules": [
+    {
+      "id": "combobox-three-states",
+      "level": "must",
+      "statement": "Keep committed value, editable input text, and popup open state independent and pair each controlled prop with its matching callback."
+    },
+    {
+      "id": "combobox-one-collection",
+      "level": "must",
+      "statement": "Keep Root options, rendered Items, stable values, labels, disabled state, grouping, and custom filtering aligned as one authoritative collection."
+    },
+    {
+      "id": "combobox-semantic-owners",
+      "level": "must",
+      "statement": "Keep Input as the named editable combobox focus owner, Content as positioning and dismissal owner, and Listbox as semantic option owner; never hand-position a Surface or put listbox role on Content."
+    },
+    {
+      "id": "combobox-keyboard-form",
+      "level": "must",
+      "statement": "Preserve active-descendant focus, Arrow/Home/End, Enter, Escape close-then-clear, Tab, openOnFocus, pointer selection, disabled skipping, required committed-value validity, named hidden submission, external form, and reset."
+    },
+    {
+      "id": "combobox-free-solo",
+      "level": "must",
+      "statement": "Enable freeSolo only when values outside the predefined collection are valid; display text alone must not satisfy required validity for a closed vocabulary."
+    },
+    {
+      "id": "combobox-application-effect",
+      "level": "must",
+      "statement": "Keep routing, remote loading, analytics, persistence, and destination policy in application callbacks while Empty and Loading accurately reflect the current collection state."
+    },
+    {
+      "id": "combobox-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus combobox.css and Field CSS when composed."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Conflating input text with committed value, enabling freeSolo for closed vocabulary, omitting rendered Items, or putting listbox role on Content.",
+      "correction": "Manage all three states, restrict freeSolo, align options with Items, and preserve Atom's compound semantic owners."
+    },
+    {
+      "mistake": "Putting Link, Button, or other controls inside Item or closing a hand-positioned result Surface with custom document listeners.",
+      "correction": "Use noninteractive option labels and perform the selected value's application effect from onValueChange inside the complete Combobox popup anatomy."
+    }
+  ],
+  "validation": [
+    "Verify controlled and uncontrolled committed value, input text, and open state; default label initialization; filtering and grouping; disabled options; typing; Arrow/Home/End; Enter option and freeSolo commits; Escape; Tab; openOnFocus; Empty; Loading; Clear; Trigger; pointer selection; and clearOnSelect.",
+    "Verify visible Field naming, required committed-value validity, inline/native validation focus, hidden named value, external form, reset, Control-sized collision positioning, Portal, outside dismissal and cancellation, and highlighted-item scrolling.",
+    "Verify recipes and sizes, long labels, narrow widths, zoom, RTL, mobile focus, light and dark appearance, forced colors, and application-owned search-and-navigate effects."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "combobox",
+      "versionPolicy": "installed-exact"
+    },
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "listbox",
+      "versionPolicy": "installed-exact"
+    },
+    "field",
+    "input",
+    "select",
+    "radio-group",
+    "multi-select",
+    "dropdown-menu",
+    "popover"
+  ]
+}

@@ -1,0 +1,15 @@
+# Named palette reference
+
+Source: @flowstack-ui/colors@0.1.1
+Kind: operation
+ID: named-palette-reference
+Guide: [colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## Covered public surfaces
+
+- `.#NAMED_PALETTE_NAMES`
+- `.#NamedPaletteName`
+- `.#NamedPaletteReference`
+- `.#TwelveStepScale`
+- `.#getNamedPalette`
+- `.#isNamedPaletteName`

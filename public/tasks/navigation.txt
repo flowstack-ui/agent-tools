@@ -1,0 +1,51 @@
+# FLOWSTACK task: navigation
+
+Select navigation landmarks, menus, tabs, pagination, and route affordances.
+
+Load only the routes required for the current job and preserve their exact package versions.
+
+## Default: finished interface
+
+Use Brick for ordinary finished navigation. Do not import Atom directly.
+
+- [brick/guide/layer-selection](/packages/brick/0.1.11/guides/layer-selection.txt)
+- [brick/guide/interface-composition](/packages/brick/0.1.11/guides/interface-composition.txt)
+- [brick/component/app-bar](/packages/brick/0.1.11/components/app-bar.txt)
+- [brick/component/bottom-navigation](/packages/brick/0.1.11/components/bottom-navigation.txt)
+- [brick/component/breadcrumb](/packages/brick/0.1.11/components/breadcrumb.txt)
+- [brick/component/context-menu](/packages/brick/0.1.11/components/context-menu.txt)
+- [brick/component/drawer](/packages/brick/0.1.11/components/drawer.txt)
+- [brick/component/dropdown-menu](/packages/brick/0.1.11/components/dropdown-menu.txt)
+- [brick/component/link](/packages/brick/0.1.11/components/link.txt)
+- [brick/component/link-box](/packages/brick/0.1.11/components/link-box.txt)
+- [brick/component/menubar](/packages/brick/0.1.11/components/menubar.txt)
+- [brick/component/nav-list](/packages/brick/0.1.11/components/nav-list.txt)
+- [brick/component/navigation-menu](/packages/brick/0.1.11/components/navigation-menu.txt)
+- [brick/component/pagination](/packages/brick/0.1.11/components/pagination.txt)
+- [brick/component/sidebar](/packages/brick/0.1.11/components/sidebar.txt)
+- [brick/component/skip-link](/packages/brick/0.1.11/components/skip-link.txt)
+- [brick/component/tabs](/packages/brick/0.1.11/components/tabs.txt)
+- [brick/component/toolbar](/packages/brick/0.1.11/components/toolbar.txt)
+
+## Explicit exception: headless behavior
+
+Use Atom only when the task explicitly requires reusable headless navigation behavior without Brick's finished visual contract.
+
+- [atom/guide/layer-selection](/packages/atom/0.24.0/guides/layer-selection.txt)
+- [atom/guide/behavior-composition](/packages/atom/0.24.0/guides/behavior-composition.txt)
+- [atom/component/app-bar](/packages/atom/0.24.0/components/app-bar.txt)
+- [atom/component/bottom-navigation](/packages/atom/0.24.0/components/bottom-navigation.txt)
+- [atom/component/breadcrumb](/packages/atom/0.24.0/components/breadcrumb.txt)
+- [atom/component/context-menu](/packages/atom/0.24.0/components/context-menu.txt)
+- [atom/component/drawer](/packages/atom/0.24.0/components/drawer.txt)
+- [atom/component/dropdown-menu](/packages/atom/0.24.0/components/dropdown-menu.txt)
+- [atom/component/link](/packages/atom/0.24.0/components/link.txt)
+- [atom/component/menu](/packages/atom/0.24.0/components/menu.txt)
+- [atom/component/menubar](/packages/atom/0.24.0/components/menubar.txt)
+- [atom/component/nav-list](/packages/atom/0.24.0/components/nav-list.txt)
+- [atom/component/navigation-menu](/packages/atom/0.24.0/components/navigation-menu.txt)
+- [atom/component/pagination](/packages/atom/0.24.0/components/pagination.txt)
+- [atom/component/sidebar](/packages/atom/0.24.0/components/sidebar.txt)
+- [atom/component/skip-link](/packages/atom/0.24.0/components/skip-link.txt)
+- [atom/component/tabs](/packages/atom/0.24.0/components/tabs.txt)
+- [atom/component/toolbar](/packages/atom/0.24.0/components/toolbar.txt)

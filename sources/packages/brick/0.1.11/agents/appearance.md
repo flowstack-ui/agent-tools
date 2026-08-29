@@ -1,0 +1,48 @@
+# Appearance agent guide
+
+## Purpose
+
+Apply one explicit light, dark, or inherited semantic-token boundary without adding visual paint, layout, state, or a required client provider.
+
+## Use when
+
+- A local region must use a different supported appearance from its DOM ancestor.
+- An existing Brick host should receive an appearance boundary without another wrapper.
+- Portalled visual roots must explicitly reproduce the appearance scope they left.
+
+## Choose something else when
+
+- The whole application is selecting or persisting a user preference. Use Application or framework appearance bootstrap on the document root.
+- The region needs neutral background paint, inset, border, radius, or elevation. Use Surface as the one direct child of Appearance when both paint and an appearance boundary are needed.
+
+## Required composition
+
+- Pass exactly one existing DOM or Brick host to Appearance. That host may contain any number of descendants, must accept DOM props and a ref, and receives the boundary without a wrapper. For a portal, target a container inside the intended scope or apply Appearance to every portalled visual root.
+
+## Rules
+
+- **MUST:** Use Appearance only with a theme that supplies a complete appearance-dependent color and shadow assignment for the requested explicit appearance.
+- **MUST:** Do not recolor descendants component by component after establishing the scope.
+- **MUST:** Pass exactly one existing host. Do not pass a Fragment, string, or multiple direct children; author a semantic host explicitly when the region does not already have one.
+- **MUST:** Do not assume a portal inherits the trigger's local CSS scope; preserve it with a scoped container or explicit portalled root scopes.
+- **MUST:** Keep saved preference, toggle state, storage, and pre-paint scripts in the application or framework layer.
+- **MUST:** Load styles.css or styles/core.css plus appearance.css.
+
+## Common mistakes
+
+- **Avoid:** Wrapping every region in Surface only to switch between light and dark. **Instead:** Use Appearance; make Surface its direct child only when visual paint is also part of the job.
+- **Avoid:** Defining branded light values only on the outer theme root. **Instead:** Repeat the complete light semantic assignment at the theme's explicit light re-entry selector.
+- **Avoid:** Opening a Drawer or Menu from a dark section and expecting its body portal to remain dark. **Instead:** Use a scoped Portal container or apply the intended Appearance to its portalled visual roots.
+
+## Validation checklist
+
+- Inspect the DOM and confirm Appearance adds no wrapper while preserving child classes, styles, native props, handlers, component slot, and refs.
+- Test light to dark to light and dark to light to dark with representative controls and interaction states.
+- Test every used portalled family, native controls, contrast, forced colors, SSR, and hydration.
+
+## Related guidance
+
+- `surface`
+- `app-bar`
+- `drawer`
+- `tabs`

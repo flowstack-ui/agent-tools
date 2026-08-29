@@ -1,0 +1,39 @@
+# FLOWSTACK task: data
+
+Select tables, grids, lists, trees, feeds, status, and technical-data owners.
+
+Load only the routes required for the current job and preserve their exact package versions.
+
+## Default: finished interface
+
+Use Brick for an ordinary finished data interface. Do not import Atom directly.
+
+- [brick/guide/layer-selection](/packages/brick/0.1.11/guides/layer-selection.txt)
+- [brick/guide/interface-composition](/packages/brick/0.1.11/guides/interface-composition.txt)
+- [brick/component/data-grid](/packages/brick/0.1.11/components/data-grid.txt)
+- [brick/component/data-list](/packages/brick/0.1.11/components/data-list.txt)
+- [brick/component/feed](/packages/brick/0.1.11/components/feed.txt)
+- [brick/component/list](/packages/brick/0.1.11/components/list.txt)
+- [brick/component/progress](/packages/brick/0.1.11/components/progress.txt)
+- [brick/component/progress-circle](/packages/brick/0.1.11/components/progress-circle.txt)
+- [brick/component/reorderable-list](/packages/brick/0.1.11/components/reorderable-list.txt)
+- [brick/component/status](/packages/brick/0.1.11/components/status.txt)
+- [brick/component/table](/packages/brick/0.1.11/components/table.txt)
+- [brick/component/tree](/packages/brick/0.1.11/components/tree.txt)
+- [brick/component/tree-grid](/packages/brick/0.1.11/components/tree-grid.txt)
+
+## Explicit exception: headless behavior
+
+Use Atom only when the task explicitly requires reusable headless data behavior without Brick's finished visual contract.
+
+- [atom/guide/layer-selection](/packages/atom/0.24.0/guides/layer-selection.txt)
+- [atom/guide/behavior-composition](/packages/atom/0.24.0/guides/behavior-composition.txt)
+- [atom/component/data-grid](/packages/atom/0.24.0/components/data-grid.txt)
+- [atom/component/feed](/packages/atom/0.24.0/components/feed.txt)
+- [atom/component/list](/packages/atom/0.24.0/components/list.txt)
+- [atom/component/listbox](/packages/atom/0.24.0/components/listbox.txt)
+- [atom/component/progress](/packages/atom/0.24.0/components/progress.txt)
+- [atom/component/reorder](/packages/atom/0.24.0/components/reorder.txt)
+- [atom/component/table](/packages/atom/0.24.0/components/table.txt)
+- [atom/component/tree](/packages/atom/0.24.0/components/tree.txt)
+- [atom/component/tree-grid](/packages/atom/0.24.0/components/tree-grid.txt)

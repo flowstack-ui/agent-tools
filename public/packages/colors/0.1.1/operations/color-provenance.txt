@@ -1,0 +1,14 @@
+# Color provenance
+
+Source: @flowstack-ui/colors@0.1.1
+Kind: operation
+ID: color-provenance
+Guide: [colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+
+## Covered public surfaces
+
+- `.#ColorProvenance`
+- `.#ColorSource`
+- `.#SeedPreservationPolicy`
+- `.#SeedPreservationResult`
+- `.#createColorProvenance`

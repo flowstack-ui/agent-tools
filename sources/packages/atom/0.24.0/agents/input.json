@@ -1,0 +1,48 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "input",
+  "name": "Input",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide headless native single-line text entry that participates in Field relationships and controlled or uncontrolled value handling.",
+  "useWhen": [
+    "The user enters one line of text, email, search, URL, telephone, or another supported native input value."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The value needs multiple lines.",
+      "useInstead": "Textarea"
+    }
+  ],
+  "composition": [
+    "Place Input.Root inside one Field.Root with Field.Label; add a stable name when it participates in submission."
+  ],
+  "rules": [
+    {
+      "id": "input-labeled",
+      "level": "must",
+      "statement": "Give every Input an accessible name, normally through Field.Label."
+    },
+    {
+      "id": "input-native-type",
+      "level": "should",
+      "statement": "Choose the narrowest correct native type and autocomplete value."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using placeholder text as the only label.",
+      "correction": "Add a persistent Field.Label and keep placeholder text optional."
+    }
+  ],
+  "validation": [
+    "Inspect name, type, autocomplete, label, and description relationships.",
+    "Test keyboard entry and browser autofill where relevant."
+  ],
+  "related": [
+    "field",
+    "form",
+    "textarea"
+  ]
+}

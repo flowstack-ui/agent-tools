@@ -1,0 +1,65 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "toggle-group",
+  "name": "ToggleGroup",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Coordinate related toggle-button commands with single or multiple pressed selection and one orientation-aware roving focus stop.",
+  "useWhen": [
+    "Several related commands, such as alignment or formatting controls, should expose pressed state and navigate as one keyboard group."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The controls are unrelated, represent form answers, or turn settings on and off immediately.",
+      "useInstead": "individual Toggle controls, RadioGroup or CheckboxGroup, or Switch"
+    }
+  ],
+  "composition": [
+    "Give Root an accessible group name, choose type=single or type=multiple, and compose uniquely valued Item parts with visible text or accessible labels."
+  ],
+  "rules": [
+    {
+      "id": "toggle-group-name",
+      "level": "must",
+      "statement": "Give Root a concise accessible name and every icon-only Item its own accessible command name."
+    },
+    {
+      "id": "toggle-group-type",
+      "level": "must",
+      "statement": "Choose single when at most one command may be pressed and multiple for independent pressed commands; match controlled value and defaultValue shapes to that type."
+    },
+    {
+      "id": "toggle-group-values",
+      "level": "must",
+      "statement": "Provide stable unique Item values and route controlled updates through onValueChange."
+    },
+    {
+      "id": "toggle-group-roving",
+      "level": "must",
+      "statement": "Preserve one roving Tab stop, disabled-item skipping, DOM-order registration, looping policy, orientation-specific Arrow keys, Home/End, and horizontal RTL mirroring."
+    },
+    {
+      "id": "toggle-group-composition",
+      "level": "must",
+      "statement": "Preserve each Item's button and aria-pressed behavior and Root's group behavior when using asChild or render."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using ToggleGroup for radio form answers, mixing string and array controlled values with the wrong type, or giving every Item a Tab stop.",
+      "correction": "Choose the correct semantic group, keep value shape aligned to type, and retain the owned roving-focus model."
+    }
+  ],
+  "validation": [
+    "Verify Root and Item names, single and multiple controlled and uncontrolled state, unique values, pressed semantics, disabled Root and Items, pointer, Enter, Space, and selection callbacks.",
+    "Verify one roving Tab stop when selected and unselected, DOM-order changes, Arrow navigation by orientation, Home/End, loop boundaries, horizontal LTR/RTL, and native, asChild, and render composition."
+  ],
+  "related": [
+    "toggle",
+    "radio-group",
+    "checkbox-group",
+    "switch",
+    "toolbar"
+  ]
+}

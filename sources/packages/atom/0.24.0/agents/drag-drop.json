@@ -1,0 +1,81 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "drag-drop",
+  "name": "DragDrop",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide headless same-document drag lifecycle, pointer and keyboard input, target resolution, cancellation, and accessible announcements for components that define their own movement rules.",
+  "useWhen": [
+    "Building a reusable collection component whose items move between explicit same-document targets and whose product-specific rules cannot be represented by Reorder."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The user is only arranging a single linear list.",
+      "useInstead": "Reorder"
+    },
+    {
+      "condition": "The task is automatic data sorting, native file transfer, freeform canvas placement, or movement between tree parents.",
+      "useInstead": "the relevant collection, file, canvas, or tree-specific behavior"
+    }
+  ],
+  "composition": [
+    "Place Draggable and DropTarget parts within Root; nest Handle inside each Draggable and provide a human label for every source and target.",
+    "Provide localized Root instructions and message functions, and convert onDragEnd details into application or adapter state only after a valid release.",
+    "Add a visible simple-pointer alternative appropriate to the surrounding interface; generic dragging alone does not satisfy that requirement."
+  ],
+  "rules": [
+    {
+      "id": "drag-drop-explicit-handle",
+      "level": "must",
+      "statement": "Use an explicitly labelled native Handle and preserve its focus across keyed item movement."
+    },
+    {
+      "id": "drag-drop-release-cancel",
+      "level": "must",
+      "statement": "Commit pointer movement only on release over a valid target; pointer cancellation, Escape, and invalid release must preserve application order."
+    },
+    {
+      "id": "drag-drop-alternative",
+      "level": "must",
+      "statement": "Provide a visible non-dragging simple-pointer operation for every movement job."
+    },
+    {
+      "id": "drag-drop-stable-identity",
+      "level": "must",
+      "statement": "Use stable application identities for source and target values; never use a changing visual index as identity."
+    },
+    {
+      "id": "drag-drop-context-boundary",
+      "level": "should",
+      "statement": "Prefer a collection-specific adapter such as Reorder, DataGrid, Tree, or Kanban over exposing generic drag events directly in finished application UI."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using DragDrop directly for a normal sortable list or treating data sort order as manual item order.",
+      "correction": "Use Reorder for one-dimensional manual arrangement and keep query sorting separate."
+    },
+    {
+      "mistake": "Depending on drag gestures or keyboard movement as the only alternatives.",
+      "correction": "Add visible one-activation movement controls or another contextual simple-pointer alternative."
+    },
+    {
+      "mistake": "Mutating application objects during pointer movement.",
+      "correction": "Render transient data attributes during movement and update controlled application state only from a completed drop."
+    }
+  ],
+  "validation": [
+    "Verify mouse, pen, touch-delay, keyboard, Escape, pointer cancellation, invalid release, and focus continuity.",
+    "Verify localized instructions and announcements use human labels and one-based positions.",
+    "Verify disabled/read-only sources and targets, vertical/horizontal direction, RTL, zoom, and a visible simple-pointer alternative.",
+    "Verify values remain stable while the surrounding collection reorders or updates."
+  ],
+  "related": [
+    "reorder",
+    "collection",
+    "data-grid",
+    "tree",
+    "file-upload"
+  ]
+}

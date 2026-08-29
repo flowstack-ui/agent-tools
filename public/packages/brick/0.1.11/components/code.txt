@@ -1,0 +1,120 @@
+# Code
+
+Source: @flowstack-ui/brick@0.1.11
+Kind: component
+ID: code
+
+# Code agent guide
+
+## Purpose
+
+Present a short inline technical literal with native code semantics and a finished Brick technical-text recipe.
+
+## Use when
+
+- A short identifier, attribute, command, filename, value, or API name belongs inside prose or a compact label.
+
+## Choose something else when
+
+- The source is multi-line, preserves whitespace, needs language metadata, or may scroll. Use Code Block.
+- The content represents keyboard input, computer output, a variable, editable source, or executable source. Use the correct native semantic element or an application-owned editor, terminal, or sandbox.
+
+## Required composition
+
+- Keep Code inside the surrounding Text or component content owner when the literal completes that sentence or label.
+- Choose subtle for an independently visible inline token and plain with tone inherit when the surrounding component already owns paint and foreground.
+
+## Rules
+
+- **MUST:** Use Code only for a short computer-code fragment and preserve its one native code host; do not select it merely to obtain monospace typography.
+- **MUST:** Keep Code inline with the prose or compact label it completes and use Code Block for multi-line or overflow-owned technical source.
+- **MUST:** Choose variant, tone, and size through the closed Code recipes before overriding public variables; use tone inherit when a parent intentionally owns foreground contrast.
+- **MUST:** Load styles.css or core.css plus code.css.
+
+## Common mistakes
+
+- **Avoid:** Using generic Text or a native span with monospace CSS for a real technical literal. **Instead:** Use Code so the literal keeps native code semantics and the shared Brick technical recipe.
+- **Avoid:** Putting a complete diff, command transcript, or configuration example inside Code. **Instead:** Use Code Block so preserved whitespace, naming, focus, and overflow have one explicit owner.
+
+## Validation checklist
+
+- Confirm one native code element, correct surrounding sentence flow, safe wrapping of long tokens, and no unintended block or scroll behavior.
+- Check inherited typography, subtle and plain recipes, light and dark appearances, forced colors, zoom, localization, RTL/bidi content, and CSS delivery.
+
+## Related guidance
+
+- `code-block`
+- `text`
+- `interface-composition`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "code",
+  "name": "Code",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a short inline technical literal with native code semantics and a finished Brick technical-text recipe.",
+  "useWhen": [
+    "A short identifier, attribute, command, filename, value, or API name belongs inside prose or a compact label."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The source is multi-line, preserves whitespace, needs language metadata, or may scroll.",
+      "useInstead": "Code Block"
+    },
+    {
+      "condition": "The content represents keyboard input, computer output, a variable, editable source, or executable source.",
+      "useInstead": "the correct native semantic element or an application-owned editor, terminal, or sandbox"
+    }
+  ],
+  "composition": [
+    "Keep Code inside the surrounding Text or component content owner when the literal completes that sentence or label.",
+    "Choose subtle for an independently visible inline token and plain with tone inherit when the surrounding component already owns paint and foreground."
+  ],
+  "rules": [
+    {
+      "id": "code-native-semantics",
+      "level": "must",
+      "statement": "Use Code only for a short computer-code fragment and preserve its one native code host; do not select it merely to obtain monospace typography."
+    },
+    {
+      "id": "code-inline-boundary",
+      "level": "must",
+      "statement": "Keep Code inline with the prose or compact label it completes and use Code Block for multi-line or overflow-owned technical source."
+    },
+    {
+      "id": "code-recipe-selection",
+      "level": "must",
+      "statement": "Choose variant, tone, and size through the closed Code recipes before overriding public variables; use tone inherit when a parent intentionally owns foreground contrast."
+    },
+    {
+      "id": "code-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus code.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using generic Text or a native span with monospace CSS for a real technical literal.",
+      "correction": "Use Code so the literal keeps native code semantics and the shared Brick technical recipe."
+    },
+    {
+      "mistake": "Putting a complete diff, command transcript, or configuration example inside Code.",
+      "correction": "Use Code Block so preserved whitespace, naming, focus, and overflow have one explicit owner."
+    }
+  ],
+  "validation": [
+    "Confirm one native code element, correct surrounding sentence flow, safe wrapping of long tokens, and no unintended block or scroll behavior.",
+    "Check inherited typography, subtle and plain recipes, light and dark appearances, forced colors, zoom, localization, RTL/bidi content, and CSS delivery."
+  ],
+  "related": [
+    "code-block",
+    "text",
+    "interface-composition"
+  ]
+}
+```

@@ -1,0 +1,37 @@
+# FLOWSTACK task: layout
+
+Select layout, surface, spacing, responsive visibility, and structural owners.
+
+Load only the routes required for the current job and preserve their exact package versions.
+
+## Default: finished interface
+
+Use Brick for an ordinary finished interface. Do not import Atom directly.
+
+- [brick/guide/layer-selection](/packages/brick/0.1.11/guides/layer-selection.txt)
+- [brick/guide/interface-composition](/packages/brick/0.1.11/guides/interface-composition.txt)
+- [brick/component/aspect-ratio](/packages/brick/0.1.11/components/aspect-ratio.txt)
+- [brick/component/bleed](/packages/brick/0.1.11/components/bleed.txt)
+- [brick/component/card](/packages/brick/0.1.11/components/card.txt)
+- [brick/component/container](/packages/brick/0.1.11/components/container.txt)
+- [brick/component/divider](/packages/brick/0.1.11/components/divider.txt)
+- [brick/component/frame](/packages/brick/0.1.11/components/frame.txt)
+- [brick/component/grid](/packages/brick/0.1.11/components/grid.txt)
+- [brick/component/group](/packages/brick/0.1.11/components/group.txt)
+- [brick/component/hide](/packages/brick/0.1.11/components/hide.txt)
+- [brick/component/section](/packages/brick/0.1.11/components/section.txt)
+- [brick/component/show](/packages/brick/0.1.11/components/show.txt)
+- [brick/component/stack](/packages/brick/0.1.11/components/stack.txt)
+- [brick/component/surface](/packages/brick/0.1.11/components/surface.txt)
+- [brick/component/z-stack](/packages/brick/0.1.11/components/z-stack.txt)
+
+## Explicit exception: headless behavior
+
+Use Atom only when the task explicitly requires reusable headless behavior without Brick's finished visual contract.
+
+- [atom/guide/layer-selection](/packages/atom/0.24.0/guides/layer-selection.txt)
+- [atom/guide/behavior-composition](/packages/atom/0.24.0/guides/behavior-composition.txt)
+- [atom/component/aspect-ratio](/packages/atom/0.24.0/components/aspect-ratio.txt)
+- [atom/component/direction](/packages/atom/0.24.0/components/direction.txt)
+- [atom/component/divider](/packages/atom/0.24.0/components/divider.txt)
+- [atom/component/visually-hidden](/packages/atom/0.24.0/components/visually-hidden.txt)

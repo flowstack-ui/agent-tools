@@ -1,0 +1,65 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "modal",
+  "name": "Modal",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide the shared headless foundation for custom modal-family primitives, including state, layer ownership, focus containment and restoration, background isolation, scroll locking, dismissal, and portal branches.",
+  "useWhen": [
+    "A primitive author must build a custom blocking layer whose behavior cannot be expressed by Dialog, AlertDialog, or Drawer and must reuse Atom's modal ownership contract."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "An application needs an ordinary modal task, an urgent consequential decision, a modal side sheet, or a small attached interactive panel.",
+      "useInstead": "Dialog, AlertDialog, Drawer, or Popover"
+    }
+  ],
+  "composition": [
+    "Compose Root around the custom content owner; add Trigger for local activation or omit it for controlled and triggerless workflows, and use Portal only when the content must leave its DOM location. Build the content owner with useModalContent, spread its contentProps onto the focusable content element, and compose the returned presenceRef with the content ref.",
+    "Place Title when it supplies the accessible name, Description when descriptive context is needed, and Close when the surface needs an owned close control. Native labeling can replace Title, and controlled workflows can close without Close. Register consumer-owned third-party portals with Branch only when they cannot be mounted inside the content element."
+  ],
+  "rules": [
+    {
+      "id": "modal-foundation-only",
+      "level": "must",
+      "statement": "Use Modal as a primitive-authoring foundation, not as a shortcut around the purpose-built Dialog, AlertDialog, Drawer, or Popover contracts."
+    },
+    {
+      "id": "modal-content-contract",
+      "level": "must",
+      "statement": "Apply every useModalContent contentProp and the composed presenceRef to the real content element so role, ARIA, focus, presence, isolation, and layer ownership remain intact."
+    },
+    {
+      "id": "modal-accessible-name",
+      "level": "must",
+      "statement": "Give the owned content an accessible name with one Title or native aria-label or aria-labelledby; add Description or a native description relationship when the contract requires one."
+    },
+    {
+      "id": "modal-branch-scope",
+      "level": "must",
+      "statement": "Prefer mounting descendant portals inside the content; otherwise wrap only the same-document third-party portal owner with Branch so focus, isolation, and scrolling recognize it."
+    },
+    {
+      "id": "modal-focus-policy",
+      "level": "should",
+      "statement": "Use initialFocus and finalFocus only for explicit workflow targets; preserve the built-in touch-safe initial focus, top-layer containment, and restoration fallbacks unless the workflow intentionally disables them."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Rendering a custom role=dialog node while using only Root state, or treating an arbitrary portalled descendant as automatically inside the modal.",
+      "correction": "Build the content through useModalContent and either mount descendant layers inside it or register an unavoidable third-party portal with Branch."
+    }
+  ],
+  "validation": [
+    "Verify controlled and uncontrolled state, accessible naming, initial focus for keyboard, pointer, touch, and programmatic opening, Tab containment, top-layer Escape and backdrop behavior, exit presence, scroll lock, and final-focus restoration.",
+    "Verify nested modal ownership and every registered Branch with keyboard focus, wheel and touch scrolling, background isolation, unmount cleanup, and same-document portal containers."
+  ],
+  "related": [
+    "dialog",
+    "alert-dialog",
+    "drawer",
+    "popover"
+  ]
+}

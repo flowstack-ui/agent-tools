@@ -1,0 +1,62 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "alert-dialog",
+  "name": "AlertDialog",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Require an explicit response to an urgent or consequential decision with alertdialog semantics, safe initial focus, and non-dismissible backdrop behavior.",
+  "useWhen": [
+    "A destructive, irreversible, security-sensitive, or otherwise consequential action requires the user to choose a safe cancellation or explicit action before continuing."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The surface presents ordinary information, a form, or a task that is not an urgent consequential decision.",
+      "useInstead": "Dialog"
+    }
+  ],
+  "composition": [
+    "Compose Root around Content; add Trigger for local activation or omit it for controlled and triggerless workflows, and use Portal only when the layer must leave its DOM location. When Overlay is rendered, keep it as a sibling of Content. Inside Content, supply the required accessible name and description with Title and Description or native ARIA relationships, and use Cancel and Action when the decision needs those owned controls."
+  ],
+  "rules": [
+    {
+      "id": "alert-dialog-required-semantics",
+      "level": "must",
+      "statement": "Keep the fixed alertdialog role and provide both an accessible name with Title or native labeling and an accessible description with Description or native aria-describedby."
+    },
+    {
+      "id": "alert-dialog-safe-focus",
+      "level": "must",
+      "statement": "Make Cancel the safe initial focus target for consequential actions unless an explicitly safer workflow target is supplied."
+    },
+    {
+      "id": "alert-dialog-no-backdrop-dismissal",
+      "level": "must",
+      "statement": "Do not add backdrop dismissal; require Cancel, Action, or an intentional permitted Escape path to resolve the decision."
+    },
+    {
+      "id": "alert-dialog-sibling-overlay",
+      "level": "must",
+      "statement": "Render Overlay and Content as siblings inside Portal and rely on AlertDialog's inherited modal focus, isolation, scroll, and top-layer ownership."
+    },
+    {
+      "id": "alert-dialog-owned-actions",
+      "level": "must",
+      "statement": "Use Cancel and Action for the decision controls so close reasons and interaction details remain available to controlled workflows."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using AlertDialog for ordinary forms, focusing the destructive Action first, omitting Description, or making the backdrop dismiss the decision.",
+      "correction": "Use Dialog for ordinary tasks; for consequential decisions provide Title, Description, safe Cancel focus, explicit Action, and no backdrop dismissal."
+    }
+  ],
+  "validation": [
+    "Verify alertdialog role, accessible name and description, safe Cancel initial focus for keyboard, pointer, touch, and programmatic opening, Tab containment, and that backdrop interaction cannot close the layer.",
+    "Verify Cancel and Action close reasons, controlled state, permitted Escape behavior, nested top-layer ownership, document scroll lock, background isolation, exit presence, and focus restoration."
+  ],
+  "related": [
+    "dialog",
+    "modal"
+  ]
+}

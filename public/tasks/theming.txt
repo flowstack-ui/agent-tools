@@ -1,0 +1,37 @@
+# FLOWSTACK task: theming
+
+Route color operations through Colors and semantic compilation through Theme.
+
+Load only the routes required for the current job and preserve their exact package versions.
+
+## Finished color interaction
+
+Use Brick Color Picker and Color Swatch for finished interface selection and display; use Colors and Theme for authoring system values.
+
+- [brick/component/color-picker](/packages/brick/0.1.11/components/color-picker.txt)
+- [brick/component/color-swatch](/packages/brick/0.1.11/components/color-swatch.txt)
+
+## Step 1: Colors candidate
+
+Use Colors for deterministic raw color work and explicit candidate review before semantic mapping.
+
+- [colors/guide/colors-system](/packages/colors/0.1.1/guides/colors-system.txt)
+- [colors/operation/color-conversion](/packages/colors/0.1.1/operations/color-conversion.txt)
+- [colors/operation/color-inspection](/packages/colors/0.1.1/operations/color-inspection.txt)
+- [colors/operation/color-measurement](/packages/colors/0.1.1/operations/color-measurement.txt)
+- [colors/operation/color-provenance](/packages/colors/0.1.1/operations/color-provenance.txt)
+- [colors/operation/named-palette-reference](/packages/colors/0.1.1/operations/named-palette-reference.txt)
+- [colors/operation/palette-candidate](/packages/colors/0.1.1/operations/palette-candidate.txt)
+
+## Step 2: Theme semantics and Brick qualification
+
+Pass only reviewed Colors artifacts to Theme, then validate against the exact Brick contract.
+
+- [theme/guide/theme-system](/packages/theme/0.1.1/guides/theme-system.txt)
+- [theme/operation/brick-contract-compatibility](/packages/theme/0.1.1/operations/brick-contract-compatibility.txt)
+- [theme/operation/colors-interchange](/packages/theme/0.1.1/operations/colors-interchange.txt)
+- [theme/operation/theme-artifacts](/packages/theme/0.1.1/operations/theme-artifacts.txt)
+- [theme/operation/theme-cli](/packages/theme/0.1.1/operations/theme-cli.txt)
+- [theme/operation/theme-compilation](/packages/theme/0.1.1/operations/theme-compilation.txt)
+- [theme/operation/theme-definition](/packages/theme/0.1.1/operations/theme-definition.txt)
+- [theme/operation/theme-validation](/packages/theme/0.1.1/operations/theme-validation.txt)
