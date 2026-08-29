@@ -27,10 +27,7 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-          cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            packages/mcp/package-lock.json
+          package-manager-cache: false
       - name: Pin trusted-publishing client
         run: npm install --global npm@11.6.2
       - run: npm ci
