@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.1
+
+### Changed
+
+- Route all four public workflows through the hosted exact-version FLOWSTACK
+  MCP when local resolver execution is unavailable, while preserving the local
+  installed-package resolver as the stronger project evidence path.
+- Require hosted workflows to establish exact locked-source inventory,
+  zero-failure coverage, package guides, and selected owner guidance instead of
+  stopping merely because a client cannot execute bundled Node scripts.
+
 ## 0.1.0
 
 ### Added

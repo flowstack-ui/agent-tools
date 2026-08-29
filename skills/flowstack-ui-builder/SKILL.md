@@ -9,9 +9,10 @@ Build from package-owned guidance, not remembered component rules.
 
 ## Resolve authority
 
-1. Inspect the target project's dependencies and lockfile. Run `scripts/resolve-agent-knowledge.mjs` from this skill for every FLOWSTACK package and owner you use. Pass `--project`, `--package`, and, when selecting an owner, `--kind` plus `--id`. If that exact package is not installed, also pass its exact `--version`; ranges and implicit locked-version selection are rejected.
-2. Read the resolved manifest, zero-failure coverage, package guides, and selected owner artifacts. Prefer the installed package. The resolver may use Agent Tools only when its locked route has the exact requested or installed version.
-3. Stop with an unavailable-version report if exact guidance cannot be resolved. Never substitute current, latest, sibling-repository, or remembered guidance.
+1. Inspect the target project's dependencies and lockfile. Determine one exact version for every FLOWSTACK package you use; ask for the exact version when the environment cannot expose the dependency graph. Ranges and inferred `latest` versions are not evidence.
+2. When local script execution is available, run `scripts/resolve-agent-knowledge.mjs` from this skill for every package and owner. Pass `--project`, `--package`, and, when selecting an owner, `--kind` plus `--id`. If that exact package is not installed, also pass its exact `--version`. Read the resolved manifest, zero-failure coverage, package guides, and selected owner artifacts.
+3. When local script execution is unavailable, use the plugin-provided FLOWSTACK MCP tools instead. Call `list_flowstack_packages` and require the exact package/version with `locked-source` provenance. Call `list_components` for that exact package/version to establish its closed owner inventory and zero-failure coverage, then call `get_package_guide` for the required package guides and `get_component_guidance` for every selected component or operation owner. Use `resolve_interface_job` only as a source-backed selection aid; still load every selected guide and owner explicitly.
+4. Prefer the installed package when the local resolver can prove it. Treat hosted MCP results as exact public locked-release guidance, never as proof of the consumer's installed files. Stop with an unavailable-version report only when neither exact local resolution nor exact hosted MCP resolution succeeds. Never substitute current, latest, sibling-repository, or remembered guidance.
 
 ## Select the layer
 

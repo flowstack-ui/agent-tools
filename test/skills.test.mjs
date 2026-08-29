@@ -15,7 +15,7 @@ const skillNames = [
   "flowstack-ui-review",
 ];
 
-test("exposes the same four skills through standard discovery aliases and a skills-only plugin", async () => {
+test("exposes the same four skills through standard discovery aliases and a skills-only source plugin", async () => {
   const aliasesRoot = join(root, ".agents", "skills");
   const plugin = JSON.parse(await readFile(join(root, ".codex-plugin", "plugin.json"), "utf8"));
   const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
@@ -54,6 +54,12 @@ test("ships exactly four self-contained skills with one byte-identical resolver 
     const resolver = await readFile(join(directory, "scripts", "resolve-agent-knowledge.mjs"));
     assert.match(skill, new RegExp(`^---\\nname: ${name}\\n`, "u"));
     assert.match(skill, /exact `--version` whenever|also pass its exact `--version`/u);
+    assert.match(skill, /plugin-provided FLOWSTACK MCP tools/u);
+    assert.match(skill, /list_flowstack_packages/u);
+    assert.match(skill, /list_components/u);
+    assert.match(skill, /get_package_guide/u);
+    assert.match(skill, /get_component_guidance/u);
+    assert.match(skill, /locked-source/u);
     assert.doesNotMatch(`${skill}\n${metadata}`, /(?:TODO|\[TODO|allow_implicit_invocation:\s*false)/u);
     assert.match(metadata, new RegExp(`\\$${name}\\b`, "u"));
     resolverAuthority ??= resolver;
