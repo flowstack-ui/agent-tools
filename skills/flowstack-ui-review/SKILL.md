@@ -9,7 +9,11 @@ Review against package-owned evidence, not remembered component rules.
 
 ## Establish exact evidence
 
-Inspect the target dependency graph and lockfile. Use `scripts/resolve-agent-knowledge.mjs` for each FLOWSTACK package and reviewed owner, then read its resolved manifest, zero-failure coverage, package guides, and selected artifacts. Pass an exact `--version` whenever that package is not installed; ranges and implicit locked-version selection are rejected. The resolver accepts installed artifacts or exact matching Agent Tools routes only. If the installed/requested version is unavailable, report that as a blocking finding; never review against latest or current-main guidance.
+Inspect the target dependency graph and lockfile and determine every exact FLOWSTACK package version under review; ask for an exact version when the environment cannot expose it. When local script execution is available, use `scripts/resolve-agent-knowledge.mjs` for each package and reviewed owner, then read its resolved manifest, zero-failure coverage, package guides, and selected artifacts. Pass an exact `--version` whenever that package is not installed.
+
+When local execution is unavailable, use the plugin-provided FLOWSTACK MCP tools. Call `list_flowstack_packages` and require each exact package/version with `locked-source` provenance. Call `list_components` to establish the exact package's closed owner inventory and zero-failure coverage, then call `get_package_guide` for every governing guide and `get_component_guidance` for every reviewed owner. Hosted MCP proves the locked public release guidance, not the consumer's installed file contents; base implementation findings on code the user supplied or the environment can actually inspect.
+
+If neither the exact local resolver nor exact hosted MCP can resolve the requested version, report that as a blocking finding. Never review against latest, current-main, sibling-repository, or remembered guidance.
 
 ## Audit ownership
 

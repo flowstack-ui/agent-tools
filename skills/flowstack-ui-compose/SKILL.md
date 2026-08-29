@@ -13,7 +13,11 @@ Start from a supplied Blueprint or an application plan that identifies the jobs,
 
 ## Resolve exact public guidance
 
-Inspect the target dependencies and lockfile. Run `scripts/resolve-agent-knowledge.mjs` for Brick and every other selected public package or owner. Pass an exact `--version` whenever that package is not installed; ranges and implicit locked-version selection are rejected. Read the resolved manifest, zero-failure coverage, package guides, and selected artifacts. Use installed artifacts or an exact matching Agent Tools locked route only. Stop and report an unavailable version rather than substituting latest, current-main, or remembered guidance.
+Inspect the target dependencies and lockfile and determine an exact version for Brick and every other selected public package; ask for the exact version when the environment cannot expose it. When local script execution is available, run `scripts/resolve-agent-knowledge.mjs` for every package and owner, passing an exact `--version` whenever that package is not installed. Read the resolved manifest, zero-failure coverage, package guides, and selected artifacts.
+
+When local execution is unavailable, use the plugin-provided FLOWSTACK MCP tools. Call `list_flowstack_packages` and require each exact package/version with `locked-source` provenance. Call `list_components` for each exact package/version to establish its closed owner inventory and zero-failure coverage, then call `get_package_guide` for the required package guides and `get_component_guidance` for every selected owner. `resolve_interface_job` may narrow a supplied job, but it never replaces reading the exact guides and owners. Hosted results prove an exact locked public release, not the consumer's installed files.
+
+Stop and report an unavailable version only when neither exact local resolution nor exact hosted MCP resolution succeeds. Never substitute latest, current-main, sibling-repository, or remembered guidance.
 
 ## Map the composition
 
