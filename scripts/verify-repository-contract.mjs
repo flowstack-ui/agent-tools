@@ -30,9 +30,12 @@ assert.equal(mcpPackage.repository.directory, "packages/mcp");
 
 assert.match(publishWorkflow, /^\s*id-token: write$/mu);
 assert.match(publishWorkflow, /^\s*environment: npm$/mu);
+assert.match(publishWorkflow, /^\s*workflow_dispatch:$/mu);
 assert.match(publishWorkflow, /^\s*package-manager-cache: false$/mu);
 assert.doesNotMatch(publishWorkflow, /^\s*cache: npm$/mu, "release builds must not restore package-manager caches");
 assert.doesNotMatch(publishWorkflow, /NODE_AUTH_TOKEN/u, "trusted publication must not use a long-lived npm token");
+assert.match(publishWorkflow, /npm pack \.\/packages\/mcp --pack-destination/u);
+assert.doesNotMatch(publishWorkflow, /npm pack --prefix packages\/mcp/u, "npm pack --prefix can silently repack the repository root");
 
 assert.match(hostedDriftWorkflow, /^\s*schedule:$/mu);
 assert.match(hostedDriftWorkflow, /^\s*workflow_dispatch:$/mu);
