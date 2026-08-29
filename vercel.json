@@ -8,9 +8,13 @@
     "api/mcp.mjs": {
       "includeFiles": "{sources/**,packages/mcp/generated/**,packages/mcp/src/**}",
       "maxDuration": 10
+    },
+    "api/openai-apps-challenge.mjs": {
+      "maxDuration": 5
     }
   },
   "rewrites": [
+    { "source": "/.well-known/openai-apps-challenge", "destination": "/api/openai-apps-challenge" },
     { "source": "/mcp", "destination": "/api/mcp" }
   ],
   "headers": [
