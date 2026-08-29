@@ -7,8 +7,15 @@ const source = z.enum(["auto", "installed", "locked"]).optional().describe("Exac
 const packageVersion = { package: packageId, version, source };
 const versions = z.object({ atom: version.optional(), brick: version.optional(), colors: version.optional(), theme: version.optional() }).refine((value) => Object.values(value).some(Boolean), "at least one exact package version is required");
 const safeText = z.string().min(1).max(4000);
+const outputSchema = z.looseObject({
+  package: z.string(),
+  layer: z.string(),
+  version: z.string(),
+  provenance: z.record(z.string(), z.unknown()),
+  data: z.unknown()
+});
 
-export const TOOL_DEFINITIONS = Object.freeze([
+const definitions = [
   { name: "list_flowstack_packages", method: "listPackages", description: "List exact FLOWSTACK package versions available from the project installation and explicit source lock.", inputSchema: z.object({}) },
   { name: "list_components", method: "listComponents", description: "List canonical component or operation owners for one exact FLOWSTACK package version.", inputSchema: z.object({ ...packageVersion, query: z.string().max(200).optional() }) },
   { name: "resolve_interface_job", method: "resolveInterfaceJob", description: "Resolve an interface job through positive intent/use ownership fields in the deterministic selection map for an explicit finished, headless, or theming workflow; returns a selection gap below the confidence threshold.", inputSchema: z.object({ workflow: z.enum(["finished", "headless", "theming"]), job: safeText.max(500), versions, source }) },
@@ -20,4 +27,6 @@ export const TOOL_DEFINITIONS = Object.freeze([
   { name: "search_docs", method: "searchDocs", description: "Search bounded public package docs and Agent Knowledge for one exact version; arbitrary paths and URLs are never fetched.", inputSchema: z.object({ ...packageVersion, query: safeText.max(200), limit: z.number().int().min(1).max(50).default(10) }) },
   { name: "validate_composition", method: "validateComposition", description: "Evaluate structured parts and relationships against one exact owner guide's checkable anatomy and severity rules, returning manual checks explicitly.", inputSchema: z.object({ ...packageVersion, owner: z.string().regex(/^[a-z0-9][a-z0-9/-]*$/u), composition: z.object({ parts: z.array(z.object({ id: z.string().regex(/^[A-Za-z][A-Za-z0-9_-]*$/u), component: z.string().regex(/^[A-Za-z][A-Za-z0-9.]*$/u), props: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])).default({}) })).max(200).default([]), relationships: z.array(z.object({ type: z.enum(["contains", "siblings", "labels", "describes", "wraps", "portal-owner"]), from: z.string().regex(/^[A-Za-z][A-Za-z0-9_-]*$/u), to: z.string().regex(/^[A-Za-z][A-Za-z0-9_-]*$/u) })).max(400).default([]), imports: z.array(z.string().max(300)).max(100).default([]), styles: z.array(z.string().max(300)).max(100).default([]) }) }) },
   { name: "create_gap_report", method: "createGapReport", description: "Create an evidence-linked structured public gap proposal after exact-version manifest and selection-map searches; structural checks never claim semantic verification of submitted prose.", inputSchema: z.object({ ...packageVersion, interfaceJob: safeText.max(500), searchedOwners: z.array(z.string().regex(/^[a-z0-9][a-z0-9/-]*$/u)).min(1).max(50), evidence: z.array(z.object({ owner: z.string().regex(/^[a-z0-9][a-z0-9/-]*$/u), artifact: z.string().regex(/^[a-z0-9][a-z0-9/_.-]*$/u), finding: safeText.max(500) })).min(1).max(50), missingCapability: safeText.max(1000), proposedOwner: z.enum(["atom", "brick", "adapter", "theme", "block", "blueprint", "application"]), fallback: z.object({ owner: z.enum(["atom", "brick", "adapter", "theme", "block", "blueprint", "application"]), layer: z.enum(["behavior", "finished-interface", "adapter", "theme", "copied-composition", "blueprint", "application"]), description: safeText.max(1000) }), verification: z.array(safeText.max(500)).min(1).max(20) }) }
-]);
+];
+
+export const TOOL_DEFINITIONS = Object.freeze(definitions.map((definition) => Object.freeze({ ...definition, outputSchema })));

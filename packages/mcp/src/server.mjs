@@ -3,6 +3,7 @@ import { FlowstackRepository } from "./repository.mjs";
 import { FlowstackTools } from "./tools.mjs";
 import { TOOL_DEFINITIONS } from "./tool-registry.mjs";
 import { SERVER_NAME, SERVER_VERSION } from "./constants.mjs";
+import { registerFlowstackSkills } from "./skills.mjs";
 
 const SERVER_INSTRUCTIONS = [
   "Use exact FLOWSTACK package versions; never substitute a tag, range, or another layer.",
@@ -19,10 +20,17 @@ const READ_ONLY_ANNOTATIONS = {
 
 export function createFlowstackServerFromRepository(repository) {
   const tools = new FlowstackTools(repository);
-  const server = new McpServer({ name: SERVER_NAME, version: SERVER_VERSION }, { instructions: SERVER_INSTRUCTIONS });
+  const server = new McpServer(
+    { name: SERVER_NAME, version: SERVER_VERSION },
+    {
+      instructions: SERVER_INSTRUCTIONS,
+      capabilities: { extensions: { "io.modelcontextprotocol/skills": {} } }
+    }
+  );
   for (const definition of TOOL_DEFINITIONS) {
-    server.registerTool(definition.name, { description: definition.description, inputSchema: definition.inputSchema, annotations: READ_ONLY_ANNOTATIONS }, async (input) => tools.invoke(definition.method, input));
+    server.registerTool(definition.name, { description: definition.description, inputSchema: definition.inputSchema, outputSchema: definition.outputSchema, annotations: READ_ONLY_ANNOTATIONS }, async (input) => tools.invoke(definition.method, input));
   }
+  registerFlowstackSkills(server);
   return server;
 }
 

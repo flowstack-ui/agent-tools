@@ -108,9 +108,9 @@ guidance. New owners use baseline and candidate resolution passes. An
 unavailable identity is reported instead of being silently replaced with
 current guidance. Reference captures and private research remain outside public
 package and installed files. The canonical skill directories support
-standalone GitHub installation and are also exposed by the skills-only
-FLOWSTACK plugin. The plugin is opt-in and does not silently install or
-configure MCP.
+standalone GitHub installation and are also exposed as a digest-verified static
+snapshot by the hosted MCP server for FLOWSTACK plugin submissions. Installing
+a standalone skill remains opt-in and does not silently start or configure MCP.
 
 ## Release boundary
 

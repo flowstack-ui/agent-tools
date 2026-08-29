@@ -17,6 +17,42 @@ Input schema:
 }
 ```
 
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
+}
+```
+
 ## list_components
 
 List canonical component or operation owners for one exact FLOWSTACK package version.
@@ -61,6 +97,42 @@ Input schema:
     "version"
   ],
   "additionalProperties": false
+}
+```
+
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
 }
 ```
 
@@ -133,6 +205,42 @@ Input schema:
 }
 ```
 
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
+}
+```
+
 ## get_package_guide
 
 Retrieve one package-owned guide from an exact package version.
@@ -178,6 +286,42 @@ Input schema:
     "guide"
   ],
   "additionalProperties": false
+}
+```
+
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
 }
 ```
 
@@ -229,6 +373,42 @@ Input schema:
 }
 ```
 
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
+}
+```
+
 ## get_component_props
 
 Retrieve source-backed public TypeScript declarations for an installed exact component, or report the packed-artifact gap explicitly.
@@ -274,6 +454,42 @@ Input schema:
     "component"
   ],
   "additionalProperties": false
+}
+```
+
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
 }
 ```
 
@@ -332,6 +548,42 @@ Input schema:
 }
 ```
 
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
+}
+```
+
 ## get_theme_contract
 
 Retrieve the exact installed Brick theme contract, or report that the locked public snapshot lacks it.
@@ -362,6 +614,42 @@ Input schema:
     "version"
   ],
   "additionalProperties": false
+}
+```
+
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
 }
 ```
 
@@ -418,6 +706,42 @@ Input schema:
     "limit"
   ],
   "additionalProperties": false
+}
+```
+
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
 }
 ```
 
@@ -582,6 +906,42 @@ Input schema:
 }
 ```
 
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
+}
+```
+
 ## create_gap_report
 
 Create an evidence-linked structured public gap proposal after exact-version manifest and selection-map searches; structural checks never claim semantic verification of submitted prose.
@@ -739,5 +1099,41 @@ Input schema:
     "verification"
   ],
   "additionalProperties": false
+}
+```
+
+Output schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "data": {}
+  },
+  "required": [
+    "package",
+    "layer",
+    "version",
+    "provenance",
+    "data"
+  ],
+  "additionalProperties": {}
 }
 ```
