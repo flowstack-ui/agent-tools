@@ -1,6 +1,6 @@
 {
   "name": "@flowstack-ui/mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Local, exact-version MCP delivery for public FLOWSTACK Agent Knowledge.",
   "type": "module",
   "license": "MIT",

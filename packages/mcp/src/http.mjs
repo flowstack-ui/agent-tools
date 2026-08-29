@@ -74,7 +74,7 @@ export async function createFlowstackHttpHandler({ sourceLock, allowedHostnames,
   const origins = new Set(allowedOrigins.map(parseOrigin));
   assert.equal(origins.has(undefined), false, "HTTP MCP allowed origins must be valid HTTP(S) origins");
   const factory = await createFlowstackServerFactory({ sourceLock, policy: "locked-only" });
-  const mcp = createMcpHandler(factory, { legacy: "reject", responseMode: "json", onerror });
+  const mcp = createMcpHandler(factory, { legacy: "stateless", responseMode: "json", onerror });
 
   return {
     async fetch(request) {

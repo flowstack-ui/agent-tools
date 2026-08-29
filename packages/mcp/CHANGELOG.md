@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2
+
+### Fixed
+
+- Enable the official stateless legacy HTTP adapter alongside the modern
+  protocol so current plugin clients can negotiate without sessions, cookies,
+  cache state, or any change to locked-only tool behavior.
+
 ## 0.1.1
 
 ### Changed

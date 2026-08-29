@@ -19,14 +19,14 @@ function structured(result) {
   return result.structuredContent ?? JSON.parse(result.content.find(({ type }) => type === "text").text);
 }
 
-test("hosted HTTP MCP serves exact locked knowledge through the official modern client", async () => {
+for (const mode of ["modern", "legacy"]) test(`hosted HTTP MCP serves exact locked knowledge through the official ${mode} client`, async () => {
   const handler = await createFlowstackHttpHandler({ sourceLock, allowedHostnames: ["agents.test"], allowedOrigins: ["https://agents.test"] });
   const responses = [];
   const transport = new StreamableHTTPClientTransport(new URL("https://agents.test/mcp"), { fetch: webFetch(handler, responses) });
-  const client = new Client({ name: "flowstack-http-test", version: "1.0.0" }, { versionNegotiation: { mode: "auto", probe: { timeoutMs: 2000 } } });
+  const client = new Client({ name: "flowstack-http-test", version: "1.0.0" }, { versionNegotiation: mode === "modern" ? { mode: "auto", probe: { timeoutMs: 2000 } } : { mode: "legacy" } });
   try {
     await client.connect(transport);
-    assert.equal(client.getNegotiatedProtocolVersion(), "2026-07-28");
+    assert.equal(client.getNegotiatedProtocolVersion(), mode === "modern" ? "2026-07-28" : "2025-11-25");
     assert.match(client.getInstructions(), /exact FLOWSTACK package versions/u);
     assert.match(client.getInstructions(), /begin with Brick/u);
     assert.match(client.getInstructions(), /Private Blocks/u);
@@ -73,7 +73,7 @@ test("hosted HTTP MCP rejects untrusted hosts and origins and handles CORS prefl
   }
 });
 
-test("hosted HTTP MCP enforces its modern, bounded, JSON-only request matrix", async () => {
+test("hosted HTTP MCP enforces its bounded JSON-only request matrix", async () => {
   const handler = await createFlowstackHttpHandler({ sourceLock, allowedHostnames: ["agents.test"], allowedOrigins: ["https://agents.test"] });
   const headers = { accept: "application/json, text/event-stream", "content-type": "application/json" };
   try {
@@ -88,9 +88,9 @@ test("hosted HTTP MCP enforces its modern, bounded, JSON-only request matrix", a
     assert.equal(accept.status, 406);
     const oversized = await handler.fetch(new Request("https://agents.test/mcp", { method: "POST", headers, body: "x".repeat(HTTP_MCP_MAX_BODY_BYTES + 1) }));
     assert.equal(oversized.status, 413);
-    const legacy = await handler.fetch(new Request("https://agents.test/mcp", { method: "POST", headers, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-11-25", capabilities: {}, clientInfo: { name: "legacy", version: "1" } } }) }));
-    assert.equal(legacy.status, 400);
-    assert.match(await legacy.text(), /Unsupported protocol version/u);
+    const legacy = await handler.fetch(new Request("https://agents.test/mcp", { method: "POST", headers, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "codex-compatible", version: "1" } } }) }));
+    assert.equal(legacy.status, 200);
+    assert.match(await legacy.text(), /"protocolVersion":"2025-06-18"/u);
     assert.equal(legacy.headers.get("cache-control"), "no-store");
     assert.equal(legacy.headers.has("set-cookie"), false);
     assert.equal(legacy.headers.has("mcp-session-id"), false);

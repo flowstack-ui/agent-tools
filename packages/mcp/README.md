@@ -34,11 +34,13 @@ diagnostics use standard error.
 
 ## Hosted read-only endpoint
 
-`https://agents.brick-ui.com/mcp` exposes the same 11 tools through modern,
-stateless Streamable HTTP. Hosted resolution is closed to the checked public
+`https://agents.brick-ui.com/mcp` exposes the same 11 tools through modern and
+legacy stateless Streamable HTTP so current ChatGPT and Codex plugin runtimes
+can negotiate their supported revision. Hosted resolution is closed to the checked public
 source lock: it cannot inspect project-installed dependencies, accepts no
 private source, serves no paid Blocks data, and performs no writes or outbound
-network requests. Responses are uncached and carry no cookie or session ID.
+network requests. Responses are uncached and carry no cookie or session ID in
+either protocol era.
 
 Use the exact stdio package in application repositories when guidance must
 match their installed FLOWSTACK package versions. Use the hosted endpoint for
