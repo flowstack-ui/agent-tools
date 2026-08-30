@@ -1,0 +1,277 @@
+# Atom behavior composition
+
+Source: @flowstack-ui/atom@0.25.1
+Kind: guide
+ID: behavior-composition
+
+# Atom behavior composition
+
+## Purpose
+
+Compose Atom primitives without duplicating their owned semantics, state, accessibility, focus, or interaction behavior.
+
+## Decision order
+
+1. Write the semantic, state, focus, keyboard, pointer, touch, and assistive-technology requirements.
+2. Choose the primitive whose public contract owns that behavior.
+3. Follow its required anatomy and preserve the relationships between Root, trigger, content, label, description, and items.
+4. Use native props, asChild, or render only when the replacement preserves resolved semantics and required handlers.
+5. Test the behavior before adding any higher-layer styling or product workflow.
+
+## Selection map
+
+- **one behavior owner:** use one public Atom primitive. Do not combine primitives that compete for the same focus or state contract.
+- **compound anatomy:** use the documented Root and named parts. Keep required parts inside their owning context.
+- **several related disclosure sections:** use Accordion. Preserve Item, Header, Trigger, and Content relationships and choose heading levels from the host document.
+- **static item or sequence semantics:** use List. Keep ordered or unordered native meaning and do not invent an interaction model.
+- **custom element integration:** use asChild or render. Merge props and refs instead of replacing Atom handlers.
+- **controlled application state:** use the primitive's controlled props. Keep business effects outside the primitive.
+
+## Rules
+
+- **MUST:** Follow each primitive's documented anatomy and required labeling relationships.
+- **MUST:** Preserve Atom props, handlers, refs, IDs, ARIA attributes, and data state when custom rendering.
+- **MUST:** Do not replace an Atom contract with hand-written event listeners, focus movement, or ARIA.
+- **SHOULD:** Keep pure structural composition server-safe and introduce a client boundary only where behavior requires it.
+
+## Native fallback
+
+1. Verify that no Atom primitive or native element already owns the complete behavior.
+2. Use semantic native HTML for ordinary document structure and behavior that needs no reusable Atom contract.
+3. Document any repeated manual behavior as a potential Atom gap instead of silently normalizing it in applications.
+
+## Validation checklist
+
+- Inspect the final DOM rather than only the JSX component names.
+- Exercise keyboard, pointer, touch, focus return, dismissal, disabled state, controlled state, and RTL behavior as applicable.
+- Run automated accessibility checks and perform the component's manual protocol for material interaction changes.
+- Confirm application effects do not replace or fight the primitive's state owner.
+
+## Related guidance
+
+- `layer-selection`
+- `form`
+- `field`
+- `fieldset`
+- `navigation-menu`
+- `menu`
+- `dropdown-menu`
+- `context-menu`
+- `menubar`
+- `tooltip`
+- `hover-card`
+- `checkbox-group`
+- `radio-group`
+- `switch`
+- `toggle`
+- `toggle-group`
+- `slider`
+- `rating`
+- `listbox`
+- `select`
+- `multi-select`
+- `combobox`
+- `number-input`
+- `otp-field`
+- `password-toggle-field`
+- `file-upload`
+- `clipboard`
+- `toast`
+- `swipeable-item`
+- `collapsible`
+- `table`
+- `data-grid`
+- `tree`
+- `tree-grid`
+- `feed`
+- `aspect-ratio`
+- `avatar`
+- `badge`
+- `label`
+- `progress`
+- `visually-hidden`
+- `direction`
+- `modal`
+- `dialog`
+- `alert-dialog`
+- `drawer`
+- `popover`
+- `tabs`
+- `toolbar`
+- `accordion`
+- `list`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-guide.v1",
+  "id": "behavior-composition",
+  "name": "Atom behavior composition",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "guide",
+  "purpose": "Compose Atom primitives without duplicating their owned semantics, state, accessibility, focus, or interaction behavior.",
+  "decisionOrder": [
+    "Write the semantic, state, focus, keyboard, pointer, touch, and assistive-technology requirements.",
+    "Choose the primitive whose public contract owns that behavior.",
+    "Follow its required anatomy and preserve the relationships between Root, trigger, content, label, description, and items.",
+    "Use native props, asChild, or render only when the replacement preserves resolved semantics and required handlers.",
+    "Test the behavior before adding any higher-layer styling or product workflow."
+  ],
+  "selection": [
+    {
+      "intent": "one behavior owner",
+      "use": "one public Atom primitive",
+      "note": "Do not combine primitives that compete for the same focus or state contract.",
+      "destinations": [
+        {
+          "kind": "guide",
+          "id": "layer-selection"
+        }
+      ]
+    },
+    {
+      "intent": "compound anatomy",
+      "use": "the documented Root and named parts",
+      "note": "Keep required parts inside their owning context.",
+      "destinations": [
+        {
+          "kind": "guide",
+          "id": "behavior-composition"
+        }
+      ]
+    },
+    {
+      "intent": "several related disclosure sections",
+      "use": "Accordion",
+      "note": "Preserve Item, Header, Trigger, and Content relationships and choose heading levels from the host document.",
+      "destinations": [
+        {
+          "kind": "component",
+          "id": "accordion"
+        }
+      ]
+    },
+    {
+      "intent": "static item or sequence semantics",
+      "use": "List",
+      "note": "Keep ordered or unordered native meaning and do not invent an interaction model.",
+      "destinations": [
+        {
+          "kind": "component",
+          "id": "list"
+        }
+      ]
+    },
+    {
+      "intent": "custom element integration",
+      "use": "asChild or render",
+      "note": "Merge props and refs instead of replacing Atom handlers.",
+      "destinations": [
+        {
+          "kind": "guide",
+          "id": "behavior-composition"
+        }
+      ]
+    },
+    {
+      "intent": "controlled application state",
+      "use": "the primitive's controlled props",
+      "note": "Keep business effects outside the primitive.",
+      "destinations": [
+        {
+          "kind": "native-application",
+          "id": "application-state"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "composition-anatomy",
+      "level": "must",
+      "statement": "Follow each primitive's documented anatomy and required labeling relationships."
+    },
+    {
+      "id": "composition-merge",
+      "level": "must",
+      "statement": "Preserve Atom props, handlers, refs, IDs, ARIA attributes, and data state when custom rendering."
+    },
+    {
+      "id": "composition-no-native-rebuild",
+      "level": "must",
+      "statement": "Do not replace an Atom contract with hand-written event listeners, focus movement, or ARIA."
+    },
+    {
+      "id": "composition-server-boundary",
+      "level": "should",
+      "statement": "Keep pure structural composition server-safe and introduce a client boundary only where behavior requires it."
+    }
+  ],
+  "nativeFallback": {
+    "check": "Verify that no Atom primitive or native element already owns the complete behavior.",
+    "use": "Use semantic native HTML for ordinary document structure and behavior that needs no reusable Atom contract.",
+    "report": "Document any repeated manual behavior as a potential Atom gap instead of silently normalizing it in applications."
+  },
+  "validation": [
+    "Inspect the final DOM rather than only the JSX component names.",
+    "Exercise keyboard, pointer, touch, focus return, dismissal, disabled state, controlled state, and RTL behavior as applicable.",
+    "Run automated accessibility checks and perform the component's manual protocol for material interaction changes.",
+    "Confirm application effects do not replace or fight the primitive's state owner."
+  ],
+  "related": [
+    "layer-selection",
+    "form",
+    "field",
+    "fieldset",
+    "navigation-menu",
+    "menu",
+    "dropdown-menu",
+    "context-menu",
+    "menubar",
+    "tooltip",
+    "hover-card",
+    "checkbox-group",
+    "radio-group",
+    "switch",
+    "toggle",
+    "toggle-group",
+    "slider",
+    "rating",
+    "listbox",
+    "select",
+    "multi-select",
+    "combobox",
+    "number-input",
+    "otp-field",
+    "password-toggle-field",
+    "file-upload",
+    "clipboard",
+    "toast",
+    "swipeable-item",
+    "collapsible",
+    "table",
+    "data-grid",
+    "tree",
+    "tree-grid",
+    "feed",
+    "aspect-ratio",
+    "avatar",
+    "badge",
+    "label",
+    "progress",
+    "visually-hidden",
+    "direction",
+    "modal",
+    "dialog",
+    "alert-dialog",
+    "drawer",
+    "popover",
+    "tabs",
+    "toolbar",
+    "accordion",
+    "list"
+  ]
+}
+```

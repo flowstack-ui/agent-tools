@@ -1,0 +1,96 @@
+# ScrollArea
+
+Source: @flowstack-ui/atom@0.25.1
+Kind: component
+ID: scroll-area
+
+# ScrollArea agent guide
+
+## Purpose
+
+Provide an owned scroll viewport and synchronized scrollbar anatomy without replacing native document scrolling.
+
+## Use when
+
+- A bounded region needs explicit scroll viewport and scrollbar behavior or stable compound scrollbar anatomy.
+
+## Choose something else when
+
+- The page or ordinary content region can use native overflow and browser scrollbars. Use native document or overflow scrolling.
+
+## Required composition
+
+- Compose Viewport and the required Scrollbar/Thumb parts inside Root, adding Corner when both axes are present.
+
+## Rules
+
+- **MUST:** Preserve wheel, touch, keyboard, and assistive-technology scrolling without hijacking page input.
+- **SHOULD:** Make the viewport focusable and named only when keyboard access to an otherwise unreachable scrolling region requires it.
+
+## Common mistakes
+
+- **Avoid:** Wrapping every overflow region in ScrollArea or removing visible focus to hide a focusable viewport. **Instead:** Use native overflow by default and add ScrollArea only for its owned behavior.
+
+## Validation checklist
+
+- Test mouse, trackpad, touch, keyboard, zoom, nested scrolling, both axes, and RTL.
+- Confirm focusability and accessible naming are intentional.
+
+## Related guidance
+
+- `table`
+- `data-grid`
+- `sidebar`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "scroll-area",
+  "name": "ScrollArea",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide an owned scroll viewport and synchronized scrollbar anatomy without replacing native document scrolling.",
+  "useWhen": [
+    "A bounded region needs explicit scroll viewport and scrollbar behavior or stable compound scrollbar anatomy."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The page or ordinary content region can use native overflow and browser scrollbars.",
+      "useInstead": "native document or overflow scrolling"
+    }
+  ],
+  "composition": [
+    "Compose Viewport and the required Scrollbar/Thumb parts inside Root, adding Corner when both axes are present."
+  ],
+  "rules": [
+    {
+      "id": "scroll-area-native-input",
+      "level": "must",
+      "statement": "Preserve wheel, touch, keyboard, and assistive-technology scrolling without hijacking page input."
+    },
+    {
+      "id": "scroll-area-focus",
+      "level": "should",
+      "statement": "Make the viewport focusable and named only when keyboard access to an otherwise unreachable scrolling region requires it."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Wrapping every overflow region in ScrollArea or removing visible focus to hide a focusable viewport.",
+      "correction": "Use native overflow by default and add ScrollArea only for its owned behavior."
+    }
+  ],
+  "validation": [
+    "Test mouse, trackpad, touch, keyboard, zoom, nested scrolling, both axes, and RTL.",
+    "Confirm focusability and accessible naming are intentional."
+  ],
+  "related": [
+    "table",
+    "data-grid",
+    "sidebar"
+  ]
+}
+```

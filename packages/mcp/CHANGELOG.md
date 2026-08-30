@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4
+
+- Refresh locked exact-version resolution to Atom `0.25.1` and Brick `0.1.12`
+  while retaining Colors and Theme `0.1.1`.
+- Expose the newly qualified typography owners through the existing eleven
+  read-only MCP tools without adding private Blocks or source-component data.
+
 ## 0.1.3
 
 - Advertise and serve the bounded static skills extension used by OpenAI Scan

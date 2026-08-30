@@ -1,0 +1,175 @@
+# Checkbox Group
+
+Source: @flowstack-ui/brick@0.1.12
+Kind: component
+ID: checkbox-group
+
+# Checkbox Group agent guide
+
+## Purpose
+
+Coordinate related multi-selection with structured item labels, optional descriptions, native repeated form values, and an optional aggregate parent control.
+
+## Use when
+
+- Several independently selectable choices belong to one named group or need a select-all parent.
+
+## Choose something else when
+
+- The choice is independent and does not share group state. Use Checkbox.
+- Exactly one option must be selected. Use Radio Group or Select.
+- The interface needs remote option loading, search, or a generated filter engine. Use Combobox or application-owned discovery controls.
+
+## Required composition
+
+- Give Root an accessible group name directly or compose it inside Fieldset with one visible Legend and shared description or error.
+- Compose Root with Item children; wrap each primary label in ItemLabel and supporting text in ItemDescription when structured item relationships are needed.
+- Use Parent only with an explicit allValues list containing the currently selectable declared values; omit individually disabled values and never infer the collection from rendered children.
+
+## Rules
+
+- **MUST:** Use Checkbox Group only for related multi-selection; keep one-of-many choice, independent consent, remote search, and application filter execution in their owning patterns.
+- **MUST:** Give Root a persistent accessible group name and every Item a complete visible associated label; placeholder or surrounding layout does not name the group.
+- **MUST:** Give every Item a unique stable string value and let the application own persistence, query synchronization, result counts, and filtering side effects.
+- **MUST:** Supply Parent allValues explicitly from the selectable declared set and do not include disabled choices or derive the set from DOM children.
+- **MUST:** Use the vertical default for scan-heavy groups and horizontal only when wrapped reading order remains clear under narrow widths, zoom, and localization.
+- **MUST:** Keep required or invalid messaging at group scope when any eligible option can satisfy the requirement; do not paint every Item as individually invalid.
+- **MUST:** Preserve disabled and read-only Items, one-or-more required validity, first-enabled validation focus, Fieldset relationships, named repeated-value submission, external form association, and uncontrolled reset.
+- **MUST:** Load styles.css or core.css plus checkbox-group.css and any Fieldset styles used.
+
+## Common mistakes
+
+- **Avoid:** Building a filter facet with unrelated standalone checkboxes and no group name. **Instead:** Use one named CheckboxGroup.Root with stable Item values and keep query execution in the application.
+- **Avoid:** Using Parent without an explicit current selectable set. **Instead:** Pass allValues deliberately so none, mixed, and all state remain deterministic.
+- **Avoid:** Adding custom row hover or focus paint around labels. **Instead:** Keep the full row clickable while Brick confines visual interaction feedback to the checkbox square.
+
+## Validation checklist
+
+- Inspect the group name, item labels and descriptions, unique values, repeated native form entries, required validity, reset, and disabled or read-only behavior.
+- Toggle Items and Parent with keyboard, pointer, and touch; verify none, mixed, and all states against the exact declared allValues set.
+- Check vertical and horizontal wrapping, long localized labels, 320 CSS pixels, 200% text, 400% zoom, RTL, dark appearance, and forced colors.
+- Confirm application-owned filtering, persistence, URL state, counts, and asynchronous results remain outside Checkbox Group.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/checkbox-group`
+- `checkbox`
+- `fieldset`
+- `radio-group`
+- `toggle-group`
+- `select`
+- `combobox`
+- `form`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "checkbox-group",
+  "name": "Checkbox Group",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Coordinate related multi-selection with structured item labels, optional descriptions, native repeated form values, and an optional aggregate parent control.",
+  "useWhen": [
+    "Several independently selectable choices belong to one named group or need a select-all parent."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The choice is independent and does not share group state.",
+      "useInstead": "Checkbox"
+    },
+    {
+      "condition": "Exactly one option must be selected.",
+      "useInstead": "Radio Group or Select"
+    },
+    {
+      "condition": "The interface needs remote option loading, search, or a generated filter engine.",
+      "useInstead": "Combobox or application-owned discovery controls"
+    }
+  ],
+  "composition": [
+    "Give Root an accessible group name directly or compose it inside Fieldset with one visible Legend and shared description or error.",
+    "Compose Root with Item children; wrap each primary label in ItemLabel and supporting text in ItemDescription when structured item relationships are needed.",
+    "Use Parent only with an explicit allValues list containing the currently selectable declared values; omit individually disabled values and never infer the collection from rendered children."
+  ],
+  "rules": [
+    {
+      "id": "checkbox-group-related-choices",
+      "level": "must",
+      "statement": "Use Checkbox Group only for related multi-selection; keep one-of-many choice, independent consent, remote search, and application filter execution in their owning patterns."
+    },
+    {
+      "id": "checkbox-group-naming",
+      "level": "must",
+      "statement": "Give Root a persistent accessible group name and every Item a complete visible associated label; placeholder or surrounding layout does not name the group."
+    },
+    {
+      "id": "checkbox-group-value-identity",
+      "level": "must",
+      "statement": "Give every Item a unique stable string value and let the application own persistence, query synchronization, result counts, and filtering side effects."
+    },
+    {
+      "id": "checkbox-group-parent-values",
+      "level": "must",
+      "statement": "Supply Parent allValues explicitly from the selectable declared set and do not include disabled choices or derive the set from DOM children."
+    },
+    {
+      "id": "checkbox-group-orientation",
+      "level": "must",
+      "statement": "Use the vertical default for scan-heavy groups and horizontal only when wrapped reading order remains clear under narrow widths, zoom, and localization."
+    },
+    {
+      "id": "checkbox-group-invalid-scope",
+      "level": "must",
+      "statement": "Keep required or invalid messaging at group scope when any eligible option can satisfy the requirement; do not paint every Item as individually invalid."
+    },
+    {
+      "id": "checkbox-group-state-form",
+      "level": "must",
+      "statement": "Preserve disabled and read-only Items, one-or-more required validity, first-enabled validation focus, Fieldset relationships, named repeated-value submission, external form association, and uncontrolled reset."
+    },
+    {
+      "id": "checkbox-group-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus checkbox-group.css and any Fieldset styles used."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Building a filter facet with unrelated standalone checkboxes and no group name.",
+      "correction": "Use one named CheckboxGroup.Root with stable Item values and keep query execution in the application."
+    },
+    {
+      "mistake": "Using Parent without an explicit current selectable set.",
+      "correction": "Pass allValues deliberately so none, mixed, and all state remain deterministic."
+    },
+    {
+      "mistake": "Adding custom row hover or focus paint around labels.",
+      "correction": "Keep the full row clickable while Brick confines visual interaction feedback to the checkbox square."
+    }
+  ],
+  "validation": [
+    "Inspect the group name, item labels and descriptions, unique values, repeated native form entries, required validity, reset, and disabled or read-only behavior.",
+    "Toggle Items and Parent with keyboard, pointer, and touch; verify none, mixed, and all states against the exact declared allValues set.",
+    "Check vertical and horizontal wrapping, long localized labels, 320 CSS pixels, 200% text, 400% zoom, RTL, dark appearance, and forced colors.",
+    "Confirm application-owned filtering, persistence, URL state, counts, and asynchronous results remain outside Checkbox Group."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "checkbox-group",
+      "versionPolicy": "installed-exact"
+    },
+    "checkbox",
+    "fieldset",
+    "radio-group",
+    "toggle-group",
+    "select",
+    "combobox",
+    "form"
+  ]
+}
+```

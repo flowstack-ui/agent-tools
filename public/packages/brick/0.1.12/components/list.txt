@@ -1,0 +1,139 @@
+# List
+
+Source: @flowstack-ui/brick@0.1.12
+Kind: component
+ID: list
+
+# List agent guide
+
+## Purpose
+
+Render finished ordered or unordered content with native list semantics, optional structured rows, markers, density, and boundaries.
+
+## Use when
+
+- Content is naturally a set of peer items or a sequence and needs Brick's finished list presentation.
+
+## Choose something else when
+
+- Rows are persistent route destinations or need current-route state. Use NavList.
+- Rows form a keyboard-operated choice, action collection, data table, or two-dimensional grid. Use Listbox, Menu, Table, or DataGrid according to the interaction.
+- Content only needs visual spacing and has no list relationship. Use Stack or Grid.
+
+## Required composition
+
+- Compose Root > Item; for structured rows use Leading, Content with Title and Description, then Trailing in that order.
+- Use ordered only when sequence changes meaning and preserve native list hosts when composing with asChild or render.
+- Keep Trailing for compact metadata or controls; when a long action would narrow supporting copy, place the action with the title inside Content using Brick layout instead.
+
+## Rules
+
+- **MUST:** Use List only for a real item or sequence relationship and preserve native list semantics.
+- **MUST:** Keep structured row parts in Leading, Content, Trailing order and use one Content and one Trailing maximum per Item.
+- **MUST:** Keep Trailing compact; move long actions into a Content-owned layout when a fixed trailing column would damage narrow-screen reading.
+- **MUST:** Do not add row selection, activation, focus movement, or navigation behavior to List; choose the component that owns that interaction.
+- **MUST:** Load styles.css or core.css plus list.css.
+
+## Common mistakes
+
+- **Avoid:** Using List as a generic row layout, making an Item itself clickable, or placing a long action in Trailing until supporting text becomes a narrow column. **Instead:** Use Stack or Grid for non-list layout, NavList or another interaction owner for clickable rows, and move long actions into Content's own layout.
+- **Avoid:** Assuming an Item's disabled presentation disables controls inside it. **Instead:** Apply the proper disabled contract to every interactive descendant; List's disabled state is descriptive and visual only.
+
+## Validation checklist
+
+- Inspect ul or ol and li output, ordered meaning, marker behavior, structured-part order, nesting, roles, and CSS delivery.
+- Test long titles and descriptions, compact and comfortable density, all variants and markers, first-line marker alignment in bordered simple and structured rows, 320 CSS px, 200 and 400 percent zoom, RTL, and forced colors.
+- Confirm Trailing content does not squeeze Content, controls have names and touch targets, disabled descendants are handled explicitly, and List adds no keyboard model.
+
+## Related guidance
+
+- `nav-list`
+- `stack`
+- `grid`
+- `text`
+- `divider`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "list",
+  "name": "List",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render finished ordered or unordered content with native list semantics, optional structured rows, markers, density, and boundaries.",
+  "useWhen": [
+    "Content is naturally a set of peer items or a sequence and needs Brick's finished list presentation."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Rows are persistent route destinations or need current-route state.",
+      "useInstead": "NavList"
+    },
+    {
+      "condition": "Rows form a keyboard-operated choice, action collection, data table, or two-dimensional grid.",
+      "useInstead": "Listbox, Menu, Table, or DataGrid according to the interaction"
+    },
+    {
+      "condition": "Content only needs visual spacing and has no list relationship.",
+      "useInstead": "Stack or Grid"
+    }
+  ],
+  "composition": [
+    "Compose Root > Item; for structured rows use Leading, Content with Title and Description, then Trailing in that order.",
+    "Use ordered only when sequence changes meaning and preserve native list hosts when composing with asChild or render.",
+    "Keep Trailing for compact metadata or controls; when a long action would narrow supporting copy, place the action with the title inside Content using Brick layout instead."
+  ],
+  "rules": [
+    {
+      "id": "list-native-relationship",
+      "level": "must",
+      "statement": "Use List only for a real item or sequence relationship and preserve native list semantics."
+    },
+    {
+      "id": "list-structured-order",
+      "level": "must",
+      "statement": "Keep structured row parts in Leading, Content, Trailing order and use one Content and one Trailing maximum per Item."
+    },
+    {
+      "id": "list-trailing-width",
+      "level": "must",
+      "statement": "Keep Trailing compact; move long actions into a Content-owned layout when a fixed trailing column would damage narrow-screen reading."
+    },
+    {
+      "id": "list-no-interaction",
+      "level": "must",
+      "statement": "Do not add row selection, activation, focus movement, or navigation behavior to List; choose the component that owns that interaction."
+    },
+    {
+      "id": "list-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus list.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using List as a generic row layout, making an Item itself clickable, or placing a long action in Trailing until supporting text becomes a narrow column.",
+      "correction": "Use Stack or Grid for non-list layout, NavList or another interaction owner for clickable rows, and move long actions into Content's own layout."
+    },
+    {
+      "mistake": "Assuming an Item's disabled presentation disables controls inside it.",
+      "correction": "Apply the proper disabled contract to every interactive descendant; List's disabled state is descriptive and visual only."
+    }
+  ],
+  "validation": [
+    "Inspect ul or ol and li output, ordered meaning, marker behavior, structured-part order, nesting, roles, and CSS delivery.",
+    "Test long titles and descriptions, compact and comfortable density, all variants and markers, first-line marker alignment in bordered simple and structured rows, 320 CSS px, 200 and 400 percent zoom, RTL, and forced colors.",
+    "Confirm Trailing content does not squeeze Content, controls have names and touch targets, disabled descendants are handled explicitly, and List adds no keyboard model."
+  ],
+  "related": [
+    "nav-list",
+    "stack",
+    "grid",
+    "text",
+    "divider"
+  ]
+}
+```

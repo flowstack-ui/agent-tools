@@ -1,0 +1,103 @@
+# Fieldset
+
+Source: @flowstack-ui/brick@0.1.12
+Kind: component
+ID: fieldset
+
+# Fieldset agent guide
+
+## Purpose
+
+Render a finished native group for related controls with a legend, group messaging, and inherited Atom state.
+
+## Use when
+
+- Multiple related controls answer one group question.
+
+## Choose something else when
+
+- Only one control needs a label. Use Field.
+
+## Required composition
+
+- Compose Fieldset.Root -> Fieldset.Legend -> optional description/error -> Fields or grouped choices.
+
+## Rules
+
+- **MUST:** Give the related group a meaningful legend.
+- **MUST:** Load styles.css or core.css plus fieldset.css and child component styles.
+
+## Common mistakes
+
+- **Avoid:** Using visual heading and div wrappers for a related choice group. **Instead:** Use Fieldset so the group label and state remain semantic.
+
+## Validation checklist
+
+- Inspect fieldset and legend semantics.
+- Check group messaging, state propagation, spacing, and responsive layout.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/fieldset`
+- `form`
+- `field`
+- `checkbox`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "fieldset",
+  "name": "Fieldset",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render a finished native group for related controls with a legend, group messaging, and inherited Atom state.",
+  "useWhen": [
+    "Multiple related controls answer one group question."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Only one control needs a label.",
+      "useInstead": "Field"
+    }
+  ],
+  "composition": [
+    "Compose Fieldset.Root -> Fieldset.Legend -> optional description/error -> Fields or grouped choices."
+  ],
+  "rules": [
+    {
+      "id": "fieldset-legend",
+      "level": "must",
+      "statement": "Give the related group a meaningful legend."
+    },
+    {
+      "id": "fieldset-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus fieldset.css and child component styles."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using visual heading and div wrappers for a related choice group.",
+      "correction": "Use Fieldset so the group label and state remain semantic."
+    }
+  ],
+  "validation": [
+    "Inspect fieldset and legend semantics.",
+    "Check group messaging, state propagation, spacing, and responsive layout."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "fieldset",
+      "versionPolicy": "installed-exact"
+    },
+    "form",
+    "field",
+    "checkbox"
+  ]
+}
+```

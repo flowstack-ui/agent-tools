@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "blockquote",
+  "name": "Blockquote",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Compose an extended quotation, source URL, and optional attribution with correct native structure and finished Brick styling.",
+  "useWhen": [
+    "An extended quotation and optional attribution form one self-contained content unit."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The quotation is inline within a sentence.",
+      "useInstead": "native q inside the surrounding content owner"
+    },
+    {
+      "condition": "The interface is a testimonial card with media, ratings, or actions.",
+      "useInstead": "Card or a product Block composed with Blockquote"
+    }
+  ],
+  "composition": [
+    "Place Blockquote.Content and optional Blockquote.Caption as siblings inside Blockquote.Root; put the source URL on Content through cite.",
+    "Use Blockquote.Cite inside Caption only for a referenced work or source, not merely for the person quoted."
+  ],
+  "rules": [
+    {
+      "id": "blockquote-native",
+      "level": "must",
+      "statement": "Preserve figure Root, blockquote Content, sibling figcaption Caption, and native cite Cite."
+    },
+    {
+      "id": "blockquote-attribution",
+      "level": "must",
+      "statement": "Keep attribution outside Content so it is not represented as part of the quotation."
+    },
+    {
+      "id": "blockquote-recipes",
+      "level": "must",
+      "statement": "Select only the documented accent, surface, or plain variant and start, center, or end alignment."
+    },
+    {
+      "id": "blockquote-icon",
+      "level": "must",
+      "statement": "Keep Icon decorative unless a consumer intentionally overrides aria-hidden for meaningful custom content."
+    },
+    {
+      "id": "blockquote-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus blockquote.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Putting the author or source inside Blockquote.Content.",
+      "correction": "Render attribution in sibling Blockquote.Caption and use Cite only for a work or source title."
+    }
+  ],
+  "validation": [
+    "Confirm native figure, blockquote, figcaption, and cite mapping; source URL forwarding; logical alignment; selection and copy; forced colors; zoom; text spacing; localization; RTL; and CSS delivery.",
+    "Confirm Blockquote adds no tab stop, role, interaction, or application provenance policy."
+  ],
+  "related": [
+    "text",
+    "mark",
+    "interface-composition"
+  ]
+}

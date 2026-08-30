@@ -1,0 +1,82 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "prose",
+  "name": "Prose",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Apply finished descendant typography, rhythm, and readable measure to trusted React content.",
+  "useWhen": [
+    "An application, CMS adapter, or Markdown renderer already produced trusted React children that need coherent editorial typography."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Content is untrusted or still needs HTML or Markdown parsing.",
+      "useInstead": "an application-owned sanitizer and parser before Prose"
+    },
+    {
+      "condition": "A small explicit piece of interface copy needs one recipe.",
+      "useInstead": "Text"
+    },
+    {
+      "condition": "Content needs editing behavior.",
+      "useInstead": "a source-installed editor composition"
+    }
+  ],
+  "composition": [
+    "Pass trusted native React descendants to Prose and let the application own document structure, trust, and data loading.",
+    "Use direct Brick components when richer anatomy or behavior is needed; their classes intentionally override Prose's low-specificity descendant styles."
+  ],
+  "rules": [
+    {
+      "id": "prose-trust",
+      "level": "must",
+      "statement": "Sanitize and parse untrusted external content before it becomes Prose children; Prose never makes raw HTML safe."
+    },
+    {
+      "id": "prose-semantics",
+      "level": "must",
+      "statement": "Keep heading hierarchy, landmark choice, link destinations, table headers, language, and alternative text application-owned."
+    },
+    {
+      "id": "prose-measure",
+      "level": "must",
+      "statement": "Use the narrow, default, wide, or none reading measure intentionally rather than adding duplicate width CSS."
+    },
+    {
+      "id": "prose-components",
+      "level": "must",
+      "statement": "Use direct Link, List, Blockquote, Code Block, Table, or Image components when their richer public contract is required, including accessible preserved horizontal scrolling for source or complex tables."
+    },
+    {
+      "id": "prose-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus prose.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Passing unsanitized HTML through dangerouslySetInnerHTML inside Prose.",
+      "correction": "Keep trust and sanitization in the application, then render trusted React children."
+    },
+    {
+      "mistake": "Using Prose as a generic spacing wrapper around interface controls.",
+      "correction": "Use Stack and Text for interface composition; reserve Prose for editorial descendants."
+    }
+  ],
+  "validation": [
+    "Confirm native descendant semantics and source order remain unchanged.",
+    "Confirm size and measure, headings, lists, links, quotes, tables, code, media, dark appearance, forced colors, narrow widths, zoom, text spacing, localization, RTL, SSR, refs, and modular CSS delivery."
+  ],
+  "related": [
+    "text",
+    "link",
+    "list",
+    "blockquote",
+    "code",
+    "code-block",
+    "table",
+    "image",
+    "interface-composition"
+  ]
+}

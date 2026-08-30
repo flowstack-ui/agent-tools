@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.4
+
+- Refresh the atomic public source lock to Atom `0.25.1`, Brick `0.1.12`,
+  Colors `0.1.1`, and Theme `0.1.1` from exact published archives.
+- Expand deterministic LLM, skill-resolver, and MCP delivery to 225 narrow
+  routes, including Atom Highlight and Brick's complete typography guidance.
+- Preserve the private paid Blocks and source-component boundary; Rich Text
+  Editor source, item guidance, registry metadata, and install credentials are
+  not ingested or exposed.
+
 ## 0.1.3
 
 - Expose the four canonical FLOWSTACK workflow skills through the bounded
