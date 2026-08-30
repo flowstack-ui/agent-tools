@@ -4,10 +4,10 @@
     {
       "id": "atom",
       "name": "@flowstack-ui/atom",
-      "version": "0.24.0",
-      "archive": "flowstack-ui-atom-0.24.0.tgz",
-      "archiveBytes": 1073717,
-      "archiveSha256": "1fbbbe2b8109f6a056637ebe3e4ceafdebaddad3e64567eb5e43f5b958f35fbb",
+      "version": "0.25.1",
+      "archive": "flowstack-ui-atom-0.25.1.tgz",
+      "archiveBytes": 1082922,
+      "archiveSha256": "c9cf5da713e5aa62456030ff0b811ac1b0a8a4335431c472feeab9f51dc0b66e",
       "profile": {
         "kind": "component-package",
         "ownerUnit": "component"
@@ -205,8 +205,8 @@
         },
         {
           "path": "agents/coverage.json",
-          "bytes": 915102,
-          "sha256": "ab047ff54ada4ae9789b3ec9e656d80726012e74dcf31ce590efba1bf9ae0a87"
+          "bytes": 921502,
+          "sha256": "62249df342974c1368622492059e3c22607780e53b3c49a56337e507aa16e2ad"
         },
         {
           "path": "agents/data-grid.json",
@@ -329,6 +329,16 @@
           "sha256": "e19860f33ecfa8393251318c9ea3267b887b7164f8276dce1aa4a5247a1c680d"
         },
         {
+          "path": "agents/highlight.json",
+          "bytes": 3356,
+          "sha256": "30f42b393a699a520461b1fccc1fc2bc923d25a7933adc901022a9af76c73c81"
+        },
+        {
+          "path": "agents/highlight.md",
+          "bytes": 2596,
+          "sha256": "1844d3c69109f3726e529ff88e3a4470ce0b7e7360fc0c3e1fb47df33dc58348"
+        },
+        {
           "path": "agents/hover-card.json",
           "bytes": 3265,
           "sha256": "7c74a6f4034bf2e2c65f713233bb1b3bbb0869af8f620b1ca233328e04199804"
@@ -370,13 +380,13 @@
         },
         {
           "path": "agents/layer-selection.json",
-          "bytes": 19109,
-          "sha256": "170cf9e61b40435ac5650006e0e4887538cb40f50511c661f59dbc1d72a683ad"
+          "bytes": 19550,
+          "sha256": "ff976852a884b5c139c5430a763e8e00f9ffd2f35171dd633a615a2530036533"
         },
         {
           "path": "agents/layer-selection.md",
-          "bytes": 8461,
-          "sha256": "b53ae94ddce54b2ffc75f20f5d702c49729bb54dbc771cde91786267348ae9f9"
+          "bytes": 8638,
+          "sha256": "5b6d87244b65f2d6dc4df3e0c526bc7bdefcaa4395e27312993e54d38f663423"
         },
         {
           "path": "agents/link.json",
@@ -410,8 +420,8 @@
         },
         {
           "path": "agents/manifest.json",
-          "bytes": 9721,
-          "sha256": "55ac5970df36ffd221bdab84c72290f41eba7ac8fe8131134d9ab9bab4681def"
+          "bytes": 9855,
+          "sha256": "b5ca2d2d576c37b987713c47a21098c27f49ee47ccdb1759fdb35c7fe7d371de"
         },
         {
           "path": "agents/menu.json",
@@ -776,17 +786,17 @@
         {
           "path": "package.json",
           "bytes": 135,
-          "sha256": "9c0bcf4c1582e2251e76d801ed525e45afc852969ba8bac4801bc282183bca4c"
+          "sha256": "af76ebff8a008397288d848e1a0b9a0341ce384a152b1df1640dbc034fa73ee3"
         }
       ]
     },
     {
       "id": "brick",
       "name": "@flowstack-ui/brick",
-      "version": "0.1.11",
-      "archive": "flowstack-ui-brick-0.1.11.tgz",
-      "archiveBytes": 808741,
-      "archiveSha256": "2ef92c69dad840583a6b47a854650734e1f18b902cf4a712174a0d95dcab4f1f",
+      "version": "0.1.12",
+      "archive": "flowstack-ui-brick-0.1.12.tgz",
+      "archiveBytes": 842390,
+      "archiveSha256": "746d9f8732fdc2b4ad38a2bd53f8c11a5d76a642f219dffe0306c54db7a7514b",
       "profile": {
         "kind": "component-package",
         "ownerUnit": "component"
@@ -799,8 +809,8 @@
         },
         {
           "path": "README.md",
-          "bytes": 13728,
-          "sha256": "c50faf56e0d981cc6de8965c085ab96574bb7a9ae0eed5942ca596463abf5297"
+          "bytes": 14274,
+          "sha256": "9de4c50913727b29c92184fb146a855cd3893ddf0fdeb1051e4f5debf449297e"
         },
         {
           "path": "agents/accordion.json",
@@ -881,6 +891,16 @@
           "path": "agents/bleed.md",
           "bytes": 1134,
           "sha256": "e37e15fec956eca06b6f9672a9f00a0c35ef3a96968a1f0084ec2febd9d4db97"
+        },
+        {
+          "path": "agents/blockquote.json",
+          "bytes": 2574,
+          "sha256": "8d515ffc44d2c690ccffd31b27a4ab253eb0897e9b0ba8ce953bb93eb3a2c583"
+        },
+        {
+          "path": "agents/blockquote.md",
+          "bytes": 1875,
+          "sha256": "42dcd60408ef3dfb0d98a59716dc6eb63c20155c62042cfe8cf96b487d25c5d0"
         },
         {
           "path": "agents/bottom-navigation.json",
@@ -964,13 +984,13 @@
         },
         {
           "path": "agents/code-block.json",
-          "bytes": 3714,
-          "sha256": "2d787040f244dfac1abefe461db4c4196221d669f891c0a6a526c62b9d935908"
+          "bytes": 4902,
+          "sha256": "3c24341fe67da96dd65f92f0fa73b5fa9165ad191f2dff4b6b97f42d96775813"
         },
         {
           "path": "agents/code-block.md",
-          "bytes": 2942,
-          "sha256": "dce957745a90595ca30a93a91ef2b4fcba30f72652390a880116e6014a56c0c8"
+          "bytes": 3922,
+          "sha256": "86b1c631523ffb1f8e566e36c4e7980424bd9da12963eec0b731b3bcddf04be5"
         },
         {
           "path": "agents/code.json",
@@ -1044,8 +1064,8 @@
         },
         {
           "path": "agents/coverage.json",
-          "bytes": 609690,
-          "sha256": "33b2345df31493850a5320018912ec6dd5e6865c9d3e637d6cadc6e1209bb2bf"
+          "bytes": 633850,
+          "sha256": "2cd5b784462c52a2a863a52244e5461f0eeb5fefa754fc73921c097f72927b00"
         },
         {
           "path": "agents/data-grid.json",
@@ -1106,6 +1126,16 @@
           "path": "agents/dropdown-menu.md",
           "bytes": 4741,
           "sha256": "cc523fd22e1f23f7c1d8f108355fbc61f56f0c3485a5ca0e84d955d3d48bad46"
+        },
+        {
+          "path": "agents/em.json",
+          "bytes": 2009,
+          "sha256": "73717db43ecfcf4685c5aa1f373b724a9c17385214683debf2e6743753d9a561"
+        },
+        {
+          "path": "agents/em.md",
+          "bytes": 1492,
+          "sha256": "ae74b6cc00338d45ce699c67dbc8c3a9433b4c200d07a57778acb79eadd25ed3"
         },
         {
           "path": "agents/feed.json",
@@ -1198,6 +1228,16 @@
           "sha256": "1f130fd9b2f09837e5fd0dc13a377634764be98b20975aa5309c77d2d5678bb4"
         },
         {
+          "path": "agents/highlight.json",
+          "bytes": 2897,
+          "sha256": "88c20fc3bcc2a518798a51a2129f51e2bfe78fefa3feeb8e9987cbc74841fd15"
+        },
+        {
+          "path": "agents/highlight.md",
+          "bytes": 2129,
+          "sha256": "e29927e876ccf380ba45c4b567143636b614a9ef9f4b75d04239dd1338e7192f"
+        },
+        {
           "path": "agents/hover-card.json",
           "bytes": 5081,
           "sha256": "8a7e09667a8523b7a6648ffbb0502ff8750d7e377ffa7dc0bd67bd9ab84d20fd"
@@ -1249,23 +1289,33 @@
         },
         {
           "path": "agents/interface-composition.json",
-          "bytes": 23093,
-          "sha256": "557e4972d8a5ba42f13682e1c5a43a1be95979b66affadc2922e5a1d2e4489c5"
+          "bytes": 23084,
+          "sha256": "e2ee87fb615fc3552d6a99bc6c26da6e34cbb2a56e9ee7d43c4c20fd8eb77187"
         },
         {
           "path": "agents/interface-composition.md",
-          "bytes": 15217,
-          "sha256": "2398f287b2bd54601b1b28f4b25e0ef7398297a3ae67c082e67d349dbed83ea5"
+          "bytes": 15141,
+          "sha256": "64727351bcdeaf0dc7c9d63e864a5a7c3bef93ccca115431c7b167c070f348ec"
+        },
+        {
+          "path": "agents/kbd.json",
+          "bytes": 2100,
+          "sha256": "e86a28b79d131d89f96fd6f253d8f6464e6b2d82b136d7a3dc64f4b8821f11f7"
+        },
+        {
+          "path": "agents/kbd.md",
+          "bytes": 1521,
+          "sha256": "0958f4202b76ab39bb3f28ce7f64d0708615245fd52ca810b798aab30a0489db"
         },
         {
           "path": "agents/layer-selection.json",
-          "bytes": 35701,
-          "sha256": "ac2a6ccd14d368cacf6cab4536e27694e856627361bcba9e13cf471c989c39d8"
+          "bytes": 38749,
+          "sha256": "3ef2b58288b1b0f8d3dda965211d0291dad4dad0391c8653ca4c37d316142a42"
         },
         {
           "path": "agents/layer-selection.md",
-          "bytes": 14508,
-          "sha256": "9d96b653c71ece3473decfbbedbc608b45c41093025f8ea4390608446fbfaec8"
+          "bytes": 15607,
+          "sha256": "d126770b894f8f1f68d89740d14289f1b7f3cf016cd72cd3a023977a17bbf085"
         },
         {
           "path": "agents/link-box.json",
@@ -1299,8 +1349,18 @@
         },
         {
           "path": "agents/manifest.json",
-          "bytes": 12204,
-          "sha256": "b1fd6585c796bf5abd88aea3f9f854f1a5f9b435a8e762f8a80e8088e6d72377"
+          "bytes": 12924,
+          "sha256": "96940b25dae17740b25678a7a97898dbe069dff20b392fdf8143b6ad440ea8b5"
+        },
+        {
+          "path": "agents/mark.json",
+          "bytes": 1629,
+          "sha256": "42ddf7d67f98e5c7a504aadee96fc8d8446e5c33196c9f79f97d1ba1cd344bef"
+        },
+        {
+          "path": "agents/mark.md",
+          "bytes": 1124,
+          "sha256": "ed25c9f016e57187a414228ca6e9759b95e66c8c6dc56fc5ea582be75ac25902"
         },
         {
           "path": "agents/menubar.json",
@@ -1421,6 +1481,16 @@
           "path": "agents/progress.md",
           "bytes": 3939,
           "sha256": "eee96af4459f33839f4f6f0e202ab1e179d831305b2648e962b866e7f1890bf8"
+        },
+        {
+          "path": "agents/prose.json",
+          "bytes": 3132,
+          "sha256": "cf7985de42b196fe88bfc74b12a2e810f9fd4a7f2f062dce65ec10e5787afddb"
+        },
+        {
+          "path": "agents/prose.md",
+          "bytes": 2363,
+          "sha256": "0b63ee1f761163c7563d27c3372f0b8d9c3130d061eb3cfdebf774ed04a44a70"
         },
         {
           "path": "agents/radio-group.json",
@@ -1755,7 +1825,7 @@
         {
           "path": "package.json",
           "bytes": 144,
-          "sha256": "028d329b41fededbd0979cca24878d205a5ca4b138ce326f8d517ccd19b998d3"
+          "sha256": "b9d21f4f8510d85b801f5d69a5a769f2a23dcd84dbcb90f1174fccf0927ad97c"
         }
       ]
     },

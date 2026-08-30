@@ -1,0 +1,100 @@
+# Link
+
+Source: @flowstack-ui/atom@0.25.1
+Kind: component
+ID: link
+
+# Link agent guide
+
+## Purpose
+
+Provide native destination navigation with composition support for router-owned anchors.
+
+## Use when
+
+- The user moves to a URL, route, document, download, email address, or telephone destination.
+
+## Choose something else when
+
+- The interaction changes current application state without navigating. Use Button.
+
+## Required composition
+
+- Render an anchor with a real href, or compose a router link that preserves anchor semantics and href output.
+
+## Rules
+
+- **MUST:** Provide a real navigable destination.
+- **MUST:** Make the accessible name describe the destination or result.
+
+## Common mistakes
+
+- **Avoid:** Using a click handler on a non-link element for navigation. **Instead:** Render Link or a router anchor through the public composition API.
+
+## Validation checklist
+
+- Inspect the rendered href.
+- Confirm Enter activates navigation and the link appears in the accessibility tree.
+
+## Related guidance
+
+- `button`
+- `pressable`
+- `breadcrumb`
+- `nav-list`
+- `navigation-menu`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "link",
+  "name": "Link",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide native destination navigation with composition support for router-owned anchors.",
+  "useWhen": [
+    "The user moves to a URL, route, document, download, email address, or telephone destination."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The interaction changes current application state without navigating.",
+      "useInstead": "Button"
+    }
+  ],
+  "composition": [
+    "Render an anchor with a real href, or compose a router link that preserves anchor semantics and href output."
+  ],
+  "rules": [
+    {
+      "id": "link-real-destination",
+      "level": "must",
+      "statement": "Provide a real navigable destination."
+    },
+    {
+      "id": "link-purpose",
+      "level": "must",
+      "statement": "Make the accessible name describe the destination or result."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a click handler on a non-link element for navigation.",
+      "correction": "Render Link or a router anchor through the public composition API."
+    }
+  ],
+  "validation": [
+    "Inspect the rendered href.",
+    "Confirm Enter activates navigation and the link appears in the accessibility tree."
+  ],
+  "related": [
+    "button",
+    "pressable",
+    "breadcrumb",
+    "nav-list",
+    "navigation-menu"
+  ]
+}
+```

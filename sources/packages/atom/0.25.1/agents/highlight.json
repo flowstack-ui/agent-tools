@@ -1,0 +1,73 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "highlight",
+  "name": "Highlight",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Segment plain text against one or more literal queries and render matched text with native mark semantics without owning visual styling or search application state.",
+  "useWhen": [
+    "Visible plain text needs deterministic, server-safe query highlighting and the styled layer should not recreate matching, overlap, or whole-word behavior."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The emphasis is authored rather than query-driven, the content contains arbitrary React nodes, or the application needs interactive find navigation.",
+      "useInstead": "a native mark or em element, application-owned rich-content traversal, or application-owned search navigation"
+    }
+  ],
+  "composition": [
+    "Pass plain text and literal query values to Highlight.Root. Style its root and Highlight.Match slots in Brick, or call findHighlightSegments when another renderer must preserve the same matching contract."
+  ],
+  "rules": [
+    {
+      "id": "highlight-literal-query",
+      "level": "must",
+      "statement": "Treat every query as literal text rather than executable regular-expression syntax."
+    },
+    {
+      "id": "highlight-plain-text",
+      "level": "must",
+      "statement": "Use Highlight only for plain text; do not flatten or clone arbitrary React content to search through it."
+    },
+    {
+      "id": "highlight-overlap",
+      "level": "must",
+      "statement": "Resolve matches from left to right, preferring the longest query at the same offset and authored query order as the final tie breaker."
+    },
+    {
+      "id": "highlight-whole-word",
+      "level": "must",
+      "statement": "Use exactMatch only for Unicode-aware whole-word matching; it is not equality of the complete input string."
+    },
+    {
+      "id": "highlight-style-boundary",
+      "level": "must",
+      "statement": "Keep color, decoration, theme variants, result navigation, and search state outside Atom."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Building a regular expression directly from user-entered search text or duplicating matching in Brick.",
+      "correction": "Pass literal queries to Highlight.Root or findHighlightSegments and let Atom escape and resolve them."
+    },
+    {
+      "mistake": "Using Highlight to make arbitrary JSX searchable or to control the active search result.",
+      "correction": "Keep rich-content traversal and active-result navigation in the application and use Highlight only at plain-text rendering boundaries."
+    }
+  ],
+  "validation": [
+    "Verify empty, repeated, overlapping, punctuation, Unicode, case-sensitive, whole-word, and first-match-only inputs preserve the original text and stable offsets.",
+    "Verify Root and Match remain server-safe, emit native span and mark semantics, preserve native props and refs, and introduce no keyboard or focus behavior.",
+    "Verify the exact public subpath, namespace, pure utility, generated Agent Knowledge, and packed Consumer all resolve from the same candidate."
+  ],
+  "related": [
+    {
+      "kind": "native-application",
+      "id": "native-element"
+    },
+    {
+      "kind": "native-application",
+      "id": "application-state"
+    }
+  ]
+}

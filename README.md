@@ -73,7 +73,7 @@ Or configure the exact local stdio MCP release in a project's
 ```toml
 [mcp_servers.flowstack]
 command = "npx"
-args = ["--yes", "@flowstack-ui/mcp@0.1.3", "--project-root", "."]
+args = ["--yes", "@flowstack-ui/mcp@0.1.4", "--project-root", "."]
 cwd = "."
 required = true
 ```
