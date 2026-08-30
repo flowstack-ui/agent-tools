@@ -74,9 +74,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -164,24 +164,24 @@ Input schema:
       "type": "object",
       "properties": {
         "atom": {
-          "description": "Exact package version; tags and ranges are rejected",
           "type": "string",
-          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+          "description": "Exact package version; tags and ranges are rejected"
         },
         "brick": {
-          "description": "Exact package version; tags and ranges are rejected",
           "type": "string",
-          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+          "description": "Exact package version; tags and ranges are rejected"
         },
         "colors": {
-          "description": "Exact package version; tags and ranges are rejected",
           "type": "string",
-          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+          "description": "Exact package version; tags and ranges are rejected"
         },
         "theme": {
-          "description": "Exact package version; tags and ranges are rejected",
           "type": "string",
-          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+          "description": "Exact package version; tags and ranges are rejected"
         }
       },
       "additionalProperties": false
@@ -262,9 +262,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -346,9 +346,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -430,9 +430,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -514,9 +514,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -596,9 +596,9 @@ Input schema:
   "type": "object",
   "properties": {
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -674,9 +674,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -766,9 +766,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
@@ -963,9 +963,9 @@ Input schema:
       ]
     },
     "version": {
-      "description": "Exact package version; tags and ranges are rejected",
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+      "description": "Exact package version; tags and ranges are rejected"
     },
     "source": {
       "description": "Exact source policy; auto tries an exact installed match before the explicit lock",
