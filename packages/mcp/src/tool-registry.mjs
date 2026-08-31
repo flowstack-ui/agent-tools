@@ -12,12 +12,20 @@ const outputSchema = z.looseObject({
   layer: z.string(),
   version: z.string(),
   provenance: z.record(z.string(), z.unknown()),
+  coverage: z.object({
+    schema: z.string(),
+    package: z.string(),
+    packageVersion: z.string(),
+    profile: z.unknown().optional(),
+    summary: z.record(z.string(), z.unknown()),
+    failures: z.array(z.unknown())
+  }).optional(),
   data: z.unknown()
 });
 
 const definitions = [
   { name: "list_flowstack_packages", method: "listPackages", description: "List exact FLOWSTACK package versions available from the project installation and explicit source lock.", inputSchema: z.object({}) },
-  { name: "list_components", method: "listComponents", description: "List canonical component or operation owners for one exact FLOWSTACK package version.", inputSchema: z.object({ ...packageVersion, query: z.string().max(200).optional() }) },
+  { name: "list_components", method: "listComponents", description: "List canonical component or operation owners plus closed coverage evidence for one exact FLOWSTACK package version.", inputSchema: z.object({ ...packageVersion, query: z.string().max(200).optional() }) },
   { name: "resolve_interface_job", method: "resolveInterfaceJob", description: "Resolve an interface job through positive intent/use ownership fields in the deterministic selection map for an explicit finished, headless, or theming workflow; returns a selection gap below the confidence threshold.", inputSchema: z.object({ workflow: z.enum(["finished", "headless", "theming"]), job: safeText.max(500), versions, source }) },
   { name: "get_package_guide", method: "getPackageGuide", description: "Retrieve one package-owned guide from an exact package version.", inputSchema: z.object({ ...packageVersion, guide: z.string().regex(/^[a-z0-9-]+$/u) }) },
   { name: "get_component_guidance", method: "getComponentGuidance", description: "Retrieve canonical component or operation guidance from an exact package version.", inputSchema: z.object({ ...packageVersion, id: z.string().regex(/^[a-z0-9][a-z0-9/-]*$/u) }) },

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5
+
+- Return exact closed-coverage evidence with `list_components` so hosted-only
+  clients can verify that the requested public package version is complete
+  before using its component or operation guidance.
+
 ## 0.1.4
 
 - Refresh locked exact-version resolution to Atom `0.25.1` and Brick `0.1.12`

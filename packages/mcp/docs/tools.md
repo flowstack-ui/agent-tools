@@ -40,6 +40,40 @@ Output schema:
       },
       "additionalProperties": {}
     },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
+    },
     "data": {}
   },
   "required": [
@@ -55,7 +89,7 @@ Output schema:
 
 ## list_components
 
-List canonical component or operation owners for one exact FLOWSTACK package version.
+List canonical component or operation owners plus closed coverage evidence for one exact FLOWSTACK package version.
 
 Input schema:
 
@@ -122,6 +156,40 @@ Output schema:
         "type": "string"
       },
       "additionalProperties": {}
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
     },
     "data": {}
   },
@@ -228,6 +296,40 @@ Output schema:
       },
       "additionalProperties": {}
     },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
+    },
     "data": {}
   },
   "required": [
@@ -311,6 +413,40 @@ Output schema:
         "type": "string"
       },
       "additionalProperties": {}
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
     },
     "data": {}
   },
@@ -396,6 +532,40 @@ Output schema:
       },
       "additionalProperties": {}
     },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
+    },
     "data": {}
   },
   "required": [
@@ -479,6 +649,40 @@ Output schema:
         "type": "string"
       },
       "additionalProperties": {}
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
     },
     "data": {}
   },
@@ -571,6 +775,40 @@ Output schema:
       },
       "additionalProperties": {}
     },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
+    },
     "data": {}
   },
   "required": [
@@ -639,6 +877,40 @@ Output schema:
         "type": "string"
       },
       "additionalProperties": {}
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
     },
     "data": {}
   },
@@ -731,6 +1003,40 @@ Output schema:
         "type": "string"
       },
       "additionalProperties": {}
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
     },
     "data": {}
   },
@@ -929,6 +1235,40 @@ Output schema:
       },
       "additionalProperties": {}
     },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
+    },
     "data": {}
   },
   "required": [
@@ -1124,6 +1464,40 @@ Output schema:
         "type": "string"
       },
       "additionalProperties": {}
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "profile": {},
+        "summary": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        },
+        "failures": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "packageVersion",
+        "summary",
+        "failures"
+      ],
+      "additionalProperties": false
     },
     "data": {}
   },
