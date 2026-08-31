@@ -1,0 +1,100 @@
+# Checkbox
+
+Source: @flowstack-ui/atom@0.26.0
+Kind: component
+ID: checkbox
+
+# Checkbox agent guide
+
+## Purpose
+
+Provide an independent checked, unchecked, or mixed selection with keyboard, pointer, touch, and form behavior.
+
+## Use when
+
+- A user independently turns an option on or off, or an aggregate parent represents mixed child selection.
+
+## Choose something else when
+
+- Exactly one option must be selected from a set. Use RadioGroup.
+
+## Required composition
+
+- Compose Checkbox.Root with Checkbox.Indicator and a visible associated label, usually inside Field.
+
+## Rules
+
+- **MUST:** Provide a visible label for each checkbox unless the visual context is truly redundant and an accessible name remains.
+- **MUST:** Use checkbox semantics only for independently selectable values or a documented aggregate mixed state.
+
+## Common mistakes
+
+- **Avoid:** Using a checkbox for mutually exclusive choices. **Instead:** Use RadioGroup for a one-of-many decision.
+
+## Validation checklist
+
+- Toggle with Space and pointer/touch.
+- Inspect checked or mixed state and submitted name/value.
+- Confirm disabled state cannot change.
+
+## Related guidance
+
+- `field`
+- `fieldset`
+- `form`
+- `radio-group`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "checkbox",
+  "name": "Checkbox",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide an independent checked, unchecked, or mixed selection with keyboard, pointer, touch, and form behavior.",
+  "useWhen": [
+    "A user independently turns an option on or off, or an aggregate parent represents mixed child selection."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Exactly one option must be selected from a set.",
+      "useInstead": "RadioGroup"
+    }
+  ],
+  "composition": [
+    "Compose Checkbox.Root with Checkbox.Indicator and a visible associated label, usually inside Field."
+  ],
+  "rules": [
+    {
+      "id": "checkbox-visible-label",
+      "level": "must",
+      "statement": "Provide a visible label for each checkbox unless the visual context is truly redundant and an accessible name remains."
+    },
+    {
+      "id": "checkbox-independent-choice",
+      "level": "must",
+      "statement": "Use checkbox semantics only for independently selectable values or a documented aggregate mixed state."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a checkbox for mutually exclusive choices.",
+      "correction": "Use RadioGroup for a one-of-many decision."
+    }
+  ],
+  "validation": [
+    "Toggle with Space and pointer/touch.",
+    "Inspect checked or mixed state and submitted name/value.",
+    "Confirm disabled state cannot change."
+  ],
+  "related": [
+    "field",
+    "fieldset",
+    "form",
+    "radio-group"
+  ]
+}
+```

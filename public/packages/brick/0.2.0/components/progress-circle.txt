@@ -1,0 +1,142 @@
+# ProgressCircle
+
+Source: @flowstack-ui/brick@0.2.0
+Kind: component
+ID: progress-circle
+
+# ProgressCircle agent guide
+
+## Purpose
+
+Present compact circular read-only task progress with Brick-owned SVG ring geometry while Atom Progress owns progressbar semantics, normalized range state, and determinate or indeterminate behavior.
+
+## Use when
+
+- Ongoing measurable or indeterminate work needs compact circular feedback in a card, toolbar, dialog, or other bounded region.
+
+## Choose something else when
+
+- Linear space communicates change more clearly, the value is a stable measurement or user input, stages matter, or the finished layout is loading. Use Progress, the native meter element, Slider, Steps, or Skeleton.
+
+## Required composition
+
+- Give ProgressCircle.Root a concise Label or native accessible name, pass a measurable value or null/omit it for indeterminate work, then compose one Circle with Brick-owned Track before Indicator. Add optional Value and Label outside Circle.
+- Choose size, thickness, cap, and tone on Root. Keep SVG geometry decorative, preserve clockwise motion independent of RTL, and keep application aria-busy state and announcements outside ProgressCircle.
+
+## Rules
+
+- **MUST:** Give Root an accessible task name through Label or native ARIA; Circle, Track, Indicator, and visible Value are decorative or silent and do not replace that name.
+- **MUST:** Use a numeric value only for measurable work, pass null or omit it for indeterminate work, and preserve Atom's truthful min/max normalization, clamping, state, and aria-valuenow behavior.
+- **MUST:** Treat Circle, Track, and Indicator as Brick-owned fixed SVG presentation over Atom Progress context; keep one Circle, order Track before Indicator, and do not override viewBox, radius, circumference, dash array, or dash offset.
+- **MUST:** Keep Root as the only progressbar and announcement path, keep SVG anatomy aria-hidden and unfocusable, and do not make circular progress keyboard adjustable or use it for static measurement.
+- **SHOULD:** Localize optional visible Value and provide aria-valuetext when the numeric range needs domain wording; do not assume the decorative Value changes Root's accessible value text.
+- **MUST:** Keep the ring square, contained within its surrounding region, clockwise in LTR and RTL, label wrapping intact, track visible, and reduced-motion indeterminate state understandable as a static arc.
+- **MUST:** Load styles.css or core.css plus progress-circle.css.
+
+## Common mistakes
+
+- **Avoid:** Using an unlabeled decorative spinner, adding progressbar semantics to SVG, passing zero for unknown work, or reversing the ring in RTL. **Instead:** Name Atom-backed Root, use indeterminate null state, keep Brick SVG silent, and retain clockwise geometry.
+- **Avoid:** Overriding component-owned SVG radius or dash geometry or using ProgressCircle for capacity or input. **Instead:** Use public size/thickness/cap/tone recipes and choose native meter or Slider for other semantic jobs.
+
+## Validation checklist
+
+- Verify Root naming, determinate loading/complete and indeterminate state, aria-valuenow presence/absence, clamping, invalid-range normalization, custom value text, localized visible Value, and Atom state propagation.
+- Verify one Root progressbar, one decorative Circle, Track before Indicator, fixed component-owned geometry, silent/unfocusable SVG, no keyboard interaction, native props, refs, and supported composition.
+- Verify five sizes, three thicknesses, both caps, all tones, square containment, long labels, zoom, clockwise LTR/RTL behavior, track contrast, light/dark appearance, forced colors, and reduced motion.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/progress`
+- `progress`
+- `slider`
+- `skeleton`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "progress-circle",
+  "name": "ProgressCircle",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present compact circular read-only task progress with Brick-owned SVG ring geometry while Atom Progress owns progressbar semantics, normalized range state, and determinate or indeterminate behavior.",
+  "useWhen": [
+    "Ongoing measurable or indeterminate work needs compact circular feedback in a card, toolbar, dialog, or other bounded region."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Linear space communicates change more clearly, the value is a stable measurement or user input, stages matter, or the finished layout is loading.",
+      "useInstead": "Progress, the native meter element, Slider, Steps, or Skeleton"
+    }
+  ],
+  "composition": [
+    "Give ProgressCircle.Root a concise Label or native accessible name, pass a measurable value or null/omit it for indeterminate work, then compose one Circle with Brick-owned Track before Indicator. Add optional Value and Label outside Circle.",
+    "Choose size, thickness, cap, and tone on Root. Keep SVG geometry decorative, preserve clockwise motion independent of RTL, and keep application aria-busy state and announcements outside ProgressCircle."
+  ],
+  "rules": [
+    {
+      "id": "progress-circle-name",
+      "level": "must",
+      "statement": "Give Root an accessible task name through Label or native ARIA; Circle, Track, Indicator, and visible Value are decorative or silent and do not replace that name."
+    },
+    {
+      "id": "progress-circle-state",
+      "level": "must",
+      "statement": "Use a numeric value only for measurable work, pass null or omit it for indeterminate work, and preserve Atom's truthful min/max normalization, clamping, state, and aria-valuenow behavior."
+    },
+    {
+      "id": "progress-circle-brick-anatomy",
+      "level": "must",
+      "statement": "Treat Circle, Track, and Indicator as Brick-owned fixed SVG presentation over Atom Progress context; keep one Circle, order Track before Indicator, and do not override viewBox, radius, circumference, dash array, or dash offset."
+    },
+    {
+      "id": "progress-circle-semantic-owner",
+      "level": "must",
+      "statement": "Keep Root as the only progressbar and announcement path, keep SVG anatomy aria-hidden and unfocusable, and do not make circular progress keyboard adjustable or use it for static measurement."
+    },
+    {
+      "id": "progress-circle-value",
+      "level": "should",
+      "statement": "Localize optional visible Value and provide aria-valuetext when the numeric range needs domain wording; do not assume the decorative Value changes Root's accessible value text."
+    },
+    {
+      "id": "progress-circle-responsive",
+      "level": "must",
+      "statement": "Keep the ring square, contained within its surrounding region, clockwise in LTR and RTL, label wrapping intact, track visible, and reduced-motion indeterminate state understandable as a static arc."
+    },
+    {
+      "id": "progress-circle-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus progress-circle.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using an unlabeled decorative spinner, adding progressbar semantics to SVG, passing zero for unknown work, or reversing the ring in RTL.",
+      "correction": "Name Atom-backed Root, use indeterminate null state, keep Brick SVG silent, and retain clockwise geometry."
+    },
+    {
+      "mistake": "Overriding component-owned SVG radius or dash geometry or using ProgressCircle for capacity or input.",
+      "correction": "Use public size/thickness/cap/tone recipes and choose native meter or Slider for other semantic jobs."
+    }
+  ],
+  "validation": [
+    "Verify Root naming, determinate loading/complete and indeterminate state, aria-valuenow presence/absence, clamping, invalid-range normalization, custom value text, localized visible Value, and Atom state propagation.",
+    "Verify one Root progressbar, one decorative Circle, Track before Indicator, fixed component-owned geometry, silent/unfocusable SVG, no keyboard interaction, native props, refs, and supported composition.",
+    "Verify five sizes, three thicknesses, both caps, all tones, square containment, long labels, zoom, clockwise LTR/RTL behavior, track contrast, light/dark appearance, forced colors, and reduced motion."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "progress",
+      "versionPolicy": "installed-exact"
+    },
+    "progress",
+    "slider",
+    "skeleton"
+  ]
+}
+```

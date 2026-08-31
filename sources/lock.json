@@ -4,10 +4,10 @@
     {
       "id": "atom",
       "name": "@flowstack-ui/atom",
-      "version": "0.25.1",
-      "archive": "flowstack-ui-atom-0.25.1.tgz",
-      "archiveBytes": 1082922,
-      "archiveSha256": "c9cf5da713e5aa62456030ff0b811ac1b0a8a4335431c472feeab9f51dc0b66e",
+      "version": "0.26.0",
+      "archive": "flowstack-ui-atom-0.26.0.tgz",
+      "archiveBytes": 1095963,
+      "archiveSha256": "5d8593aa083017e0daabb5de2f59176e22e6ef4e131d0601aa68f98b7cd8a005",
       "profile": {
         "kind": "component-package",
         "ownerUnit": "component"
@@ -20,8 +20,8 @@
         },
         {
           "path": "README.md",
-          "bytes": 8208,
-          "sha256": "b5575167547f7062963c4fac89aa8f052ca412443c4375f31ceb1ab1faf4dc01"
+          "bytes": 8550,
+          "sha256": "e74fef7d51bab3b7eb8b2042619c3cf058c18a3453a25e977097818462f16db8"
         },
         {
           "path": "agents/accordion.json",
@@ -175,13 +175,13 @@
         },
         {
           "path": "agents/color-picker.json",
-          "bytes": 2572,
-          "sha256": "035cd3cafcfc757f4fd58a8f1fbc5128e6c413f90e9789829e9e66e5b9642f73"
+          "bytes": 3956,
+          "sha256": "dc4257a3258bdad26e4096742244964d2f17853371ea9a8e9f7b41ee1e0be895"
         },
         {
           "path": "agents/color-picker.md",
-          "bytes": 1963,
-          "sha256": "4ac1af7605da7552b1db6e982106fe64655c2fb40b3ae99e45831ae3bf5bae76"
+          "bytes": 3047,
+          "sha256": "6c33229735ae4ea623265b7f8393b47ad126ac149d0a387958417d0ecb935bfc"
         },
         {
           "path": "agents/combobox.json",
@@ -205,8 +205,8 @@
         },
         {
           "path": "agents/coverage.json",
-          "bytes": 921502,
-          "sha256": "62249df342974c1368622492059e3c22607780e53b3c49a56337e507aa16e2ad"
+          "bytes": 950526,
+          "sha256": "861f0b11dc2dece22bf6dc19589e44b919aca742f6a0359b3a57d4471862a380"
         },
         {
           "path": "agents/data-grid.json",
@@ -421,7 +421,7 @@
         {
           "path": "agents/manifest.json",
           "bytes": 9855,
-          "sha256": "b5ca2d2d576c37b987713c47a21098c27f49ee47ccdb1759fdb35c7fe7d371de"
+          "sha256": "c234a3b2a4156b0107b3b3d0e05366b886e85baad0cb81f29c6a579afb7e1217"
         },
         {
           "path": "agents/menu.json",
@@ -786,17 +786,17 @@
         {
           "path": "package.json",
           "bytes": 135,
-          "sha256": "af76ebff8a008397288d848e1a0b9a0341ce384a152b1df1640dbc034fa73ee3"
+          "sha256": "6c1ba458984896f29c89af235a79fadaf616d723d16e3a32fa13e4f344edb301"
         }
       ]
     },
     {
       "id": "brick",
       "name": "@flowstack-ui/brick",
-      "version": "0.1.12",
-      "archive": "flowstack-ui-brick-0.1.12.tgz",
-      "archiveBytes": 842390,
-      "archiveSha256": "746d9f8732fdc2b4ad38a2bd53f8c11a5d76a642f219dffe0306c54db7a7514b",
+      "version": "0.2.0",
+      "archive": "flowstack-ui-brick-0.2.0.tgz",
+      "archiveBytes": 850926,
+      "archiveSha256": "4c14aba9b2fbae3db671d77683e6f50b7e8a603a7701a3800364e297c036fb36",
       "profile": {
         "kind": "component-package",
         "ownerUnit": "component"
@@ -1014,23 +1014,23 @@
         },
         {
           "path": "agents/color-picker.json",
-          "bytes": 3119,
-          "sha256": "5dfb00bd7f0d6b8411d6ad3326552c26e90f756c7e0e783c2906075d5d148d67"
+          "bytes": 4066,
+          "sha256": "e928c385d990072eaaba601e1fe8e1129190eb2d9d15041a5a628e481ee7bc13"
         },
         {
           "path": "agents/color-picker.md",
-          "bytes": 2349,
-          "sha256": "8386c2de1938a1f97bce02ce12710ae06508d5b71772fd1619519bb1fa6fcb7b"
+          "bytes": 3092,
+          "sha256": "d25a302ed72082e3a9831896835b3029b7a32128e0355a86e2e3b7a795757b13"
         },
         {
           "path": "agents/color-swatch.json",
-          "bytes": 1659,
-          "sha256": "aff86588e1f3771a27fc4d6739613e02881b433d7ba6a5b3524d78ca4d90acde"
+          "bytes": 2194,
+          "sha256": "fafa634ab801d092eccb60861044eb8d9d840d98be903beafb0e23ba2f6e5226"
         },
         {
           "path": "agents/color-swatch.md",
-          "bytes": 1171,
-          "sha256": "2d0b9faa055412a4dd77f5442c47bf77e92d922fa3bb96a25e6522025c56554c"
+          "bytes": 1585,
+          "sha256": "35e92810b39029b1d3f26f5869b8f201f2e85d2e47511d740677fbd73f5ea911"
         },
         {
           "path": "agents/combobox.json",
@@ -1064,8 +1064,8 @@
         },
         {
           "path": "agents/coverage.json",
-          "bytes": 633850,
-          "sha256": "2cd5b784462c52a2a863a52244e5461f0eeb5fefa754fc73921c097f72927b00"
+          "bytes": 653418,
+          "sha256": "c89ed8900114f76b79360cc3eec65c185bb01afea4c60518470634cc8eaeacb9"
         },
         {
           "path": "agents/data-grid.json",
@@ -1349,8 +1349,8 @@
         },
         {
           "path": "agents/manifest.json",
-          "bytes": 12924,
-          "sha256": "96940b25dae17740b25678a7a97898dbe069dff20b392fdf8143b6ad440ea8b5"
+          "bytes": 12923,
+          "sha256": "be0e349015607d5c35336f849ee8d074107ce6d0577ac9e63bc03605a4275061"
         },
         {
           "path": "agents/mark.json",
@@ -1824,8 +1824,8 @@
         },
         {
           "path": "package.json",
-          "bytes": 144,
-          "sha256": "b9d21f4f8510d85b801f5d69a5a769f2a23dcd84dbcb90f1174fccf0927ad97c"
+          "bytes": 143,
+          "sha256": "0f63cbc66e3f0cea83e4163ca7f8761f189fd260598ef85052fd4a26a16d44a8"
         }
       ]
     },

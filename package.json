@@ -1,6 +1,6 @@
 {
   "name": "@flowstack-ui/agent-tools",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Version-aware delivery adapters for public FLOWSTACK Agent Knowledge.",
   "type": "module",
   "license": "MIT",

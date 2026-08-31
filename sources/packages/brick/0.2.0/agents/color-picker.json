@@ -1,0 +1,94 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "color-picker",
+  "name": "Color Picker",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Edit, inspect, choose, and submit one color through a finished popup or inline editor with area, channel, format, preset, native chooser, and EyeDropper paths.",
+  "useWhen": [
+    "A form, editor, or settings surface needs one color value with a finished visual editor.",
+    "Users need alpha, RGB, HSL, HSB, channel sliders, named presets, or a progressive platform color-picking path."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The interface only previews a color.",
+      "useInstead": "Color Swatch"
+    },
+    {
+      "condition": "The task requires gradients, automatic color naming, contrast scoring, palette persistence, or a color wheel.",
+      "useInstead": "application-owned specialist behavior composed around Color Picker"
+    }
+  ],
+  "composition": [
+    "Place Label and Control inside Root; include HiddenInput when the value participates in native form submission.",
+    "For a popup, compose Trigger, Positioner, and Content. For an always-visible editor, set Root inline and render Content directly.",
+    "Build the visual editor from Area, ChannelSlider, format controls, channel inputs, and SwatchGroup; ValueSwatch and ValueText expose the current value.",
+    "Place SwatchIndicator inside Swatch or ValueSwatch whenever selection needs a visible non-color cue."
+  ],
+  "rules": [
+    {
+      "id": "color-picker-ownership",
+      "level": "must",
+      "statement": "Use Brick parts for the finished interface and keep parsing, format conversion, selection, focus, dismissal, and form state in the exact Atom-backed machine."
+    },
+    {
+      "id": "color-picker-label",
+      "level": "must",
+      "statement": "Give the primary editable or native input an accessible name through Label or an explicit aria-label."
+    },
+    {
+      "id": "color-picker-form",
+      "level": "must",
+      "statement": "Provide name to Root and render exactly one HiddenInput when the color must submit."
+    },
+    {
+      "id": "color-picker-popup",
+      "level": "must",
+      "statement": "Wrap popup Content in Positioner; do not recreate positioning, focus restoration, or outside dismissal."
+    },
+    {
+      "id": "color-picker-selection",
+      "level": "must",
+      "statement": "Name every SwatchTrigger and render SwatchIndicator or an equivalent visible non-color selected cue."
+    },
+    {
+      "id": "color-picker-css",
+      "level": "must",
+      "statement": "Load styles.css, or core.css plus color-picker.css for modular delivery."
+    },
+    {
+      "id": "color-picker-platform",
+      "level": "should",
+      "statement": "Treat NativeInput and EyeDropperTrigger as optional platform enhancements, not the only way to edit the color."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Reimplementing color conversion, pointer math, keyboard state, or popup behavior in Brick or application code.",
+      "correction": "Compose the released ColorPicker anatomy and controlled callbacks."
+    },
+    {
+      "mistake": "Putting popup Content beside Root without Positioner.",
+      "correction": "Use Trigger, Positioner, and Content as the released popup composition."
+    },
+    {
+      "mistake": "Naming both visible inputs and HiddenInput for submission.",
+      "correction": "Put name on Root and render one HiddenInput."
+    },
+    {
+      "mistake": "Using raw color alone to show the selected preset.",
+      "correction": "Render SwatchIndicator and an accessible preset name."
+    }
+  ],
+  "validation": [
+    "Test area and channel synchronization, alpha, RGB/HSL/HSB format changes, presets, text/native/EyeDropper paths, controlled state, popup focus and dismissal, disabled/read-only/invalid, form submit/reset, light/dark, forced colors, reduced motion, narrow/zoom, RTL, and non-color selection cues."
+  ],
+  "related": [
+    "color-swatch",
+    "field",
+    "form",
+    "input",
+    "popover"
+  ]
+}

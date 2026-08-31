@@ -1,0 +1,116 @@
+# SegmentGroup
+
+Source: @flowstack-ui/brick@0.2.0
+Kind: component
+ID: segment-group
+
+# SegmentGroup agent guide
+
+## Purpose
+
+Present one mutually exclusive immediate mode in a compact segmented surface with radio semantics and a moving visual indicator.
+
+## Use when
+
+- A small visible set such as list/grid, density, or appearance must keep exactly one immediate mode selected.
+
+## Choose something else when
+
+- Commands may be independently pressed, the choices select paired panels, or an ordinary form choice is needed. Use ToggleGroup, Tabs, or RadioGroup according to the interaction.
+
+## Required composition
+
+- Compose Root with one Indicator and directly owned Items; give Root a complete accessible name and every icon-only Item its own complete name.
+- Choose one shared size on Root so adjacent Button, Select, and other named-size controls align through Brick's control contract.
+
+## Rules
+
+- **MUST:** Use SegmentGroup only for one mutually exclusive value and preserve Atom Radio Group semantics and keyboard behavior.
+- **MUST:** Render one decorative Indicator for the canonical moving-selection recipe; selection and naming must remain on Items.
+- **MUST:** Do not use SegmentGroup for paired content panels or route navigation; use Tabs or navigation destinations.
+- **MUST:** Load styles.css or core.css plus segment-group.css.
+
+## Common mistakes
+
+- **Avoid:** Using ToggleGroup single mode for a required one-of-many mode or using SegmentGroup as visual tabs. **Instead:** Choose SegmentGroup for one compact radio-semantic mode and Tabs only when panels are paired.
+
+## Validation checklist
+
+- Check click, Space, arrows, Home/End, looping, controlled state, disabled/read-only state, and complete accessible naming.
+- Check indicator movement after selection and resize, exact shared outer sizes, inset Root boundary, shallow selected elevation, focus containment, light/dark themes, reduced motion, forced colors, zoom, and RTL.
+
+## Related guidance
+
+- `radio-group`
+- `toggle-group`
+- `tabs`
+- `button`
+- `select`
+- `toolbar`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "segment-group",
+  "name": "SegmentGroup",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present one mutually exclusive immediate mode in a compact segmented surface with radio semantics and a moving visual indicator.",
+  "useWhen": [
+    "A small visible set such as list/grid, density, or appearance must keep exactly one immediate mode selected."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Commands may be independently pressed, the choices select paired panels, or an ordinary form choice is needed.",
+      "useInstead": "ToggleGroup, Tabs, or RadioGroup according to the interaction"
+    }
+  ],
+  "composition": [
+    "Compose Root with one Indicator and directly owned Items; give Root a complete accessible name and every icon-only Item its own complete name.",
+    "Choose one shared size on Root so adjacent Button, Select, and other named-size controls align through Brick's control contract."
+  ],
+  "rules": [
+    {
+      "id": "segment-group-single-choice",
+      "level": "must",
+      "statement": "Use SegmentGroup only for one mutually exclusive value and preserve Atom Radio Group semantics and keyboard behavior."
+    },
+    {
+      "id": "segment-group-indicator",
+      "level": "must",
+      "statement": "Render one decorative Indicator for the canonical moving-selection recipe; selection and naming must remain on Items."
+    },
+    {
+      "id": "segment-group-not-tabs",
+      "level": "must",
+      "statement": "Do not use SegmentGroup for paired content panels or route navigation; use Tabs or navigation destinations."
+    },
+    {
+      "id": "segment-group-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus segment-group.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using ToggleGroup single mode for a required one-of-many mode or using SegmentGroup as visual tabs.",
+      "correction": "Choose SegmentGroup for one compact radio-semantic mode and Tabs only when panels are paired."
+    }
+  ],
+  "validation": [
+    "Check click, Space, arrows, Home/End, looping, controlled state, disabled/read-only state, and complete accessible naming.",
+    "Check indicator movement after selection and resize, exact shared outer sizes, inset Root boundary, shallow selected elevation, focus containment, light/dark themes, reduced motion, forced colors, zoom, and RTL."
+  ],
+  "related": [
+    "radio-group",
+    "toggle-group",
+    "tabs",
+    "button",
+    "select",
+    "toolbar"
+  ]
+}
+```

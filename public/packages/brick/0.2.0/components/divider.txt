@@ -1,0 +1,104 @@
+# Divider
+
+Source: @flowstack-ui/brick@0.2.0
+Kind: component
+ID: divider
+
+# Divider agent guide
+
+## Purpose
+
+Render a finished decorative or semantic content boundary with horizontal or vertical visual recipes.
+
+## Use when
+
+- Adjacent content groups need a visible boundary and Atom Divider semantics.
+
+## Choose something else when
+
+- Spacing alone expresses the relationship or the boundary is interactive. Use Stack gap or a dedicated splitter.
+
+## Required composition
+
+- Use Divider inside the layout owner shared by the adjacent complete groups and choose decorative=false only when the separation has meaning.
+
+## Rules
+
+- **MUST:** Choose semantic versus decorative behavior independently from color, thickness, and orientation.
+- **MUST:** Place Divider between complete semantic or interactive groups under one consistent layout owner; do not split a trigger from the content it controls.
+- **MUST:** Load styles.css or core.css plus divider.css.
+
+## Common mistakes
+
+- **Avoid:** Using a bordered div or text glyph for every separator, or placing a Divider inside only part of a repeated group's anatomy. **Instead:** Use Divider when there is a boundary, Stack gap when there is only spacing, and keep repeated boundaries after complete groups under the same owner.
+
+## Validation checklist
+
+- Check orientation, adjacent-group ownership, contrast, forced colors, zoom, and semantics.
+- Confirm it is not focusable and CSS is loaded.
+
+## Related guidance
+
+- `stack`
+- `toolbar`
+- `surface`
+- `nav-list`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "divider",
+  "name": "Divider",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render a finished decorative or semantic content boundary with horizontal or vertical visual recipes.",
+  "useWhen": [
+    "Adjacent content groups need a visible boundary and Atom Divider semantics."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Spacing alone expresses the relationship or the boundary is interactive.",
+      "useInstead": "Stack gap or a dedicated splitter"
+    }
+  ],
+  "composition": [
+    "Use Divider inside the layout owner shared by the adjacent complete groups and choose decorative=false only when the separation has meaning."
+  ],
+  "rules": [
+    {
+      "id": "divider-meaning",
+      "level": "must",
+      "statement": "Choose semantic versus decorative behavior independently from color, thickness, and orientation."
+    },
+    {
+      "id": "divider-group-owner",
+      "level": "must",
+      "statement": "Place Divider between complete semantic or interactive groups under one consistent layout owner; do not split a trigger from the content it controls."
+    },
+    {
+      "id": "divider-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus divider.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a bordered div or text glyph for every separator, or placing a Divider inside only part of a repeated group's anatomy.",
+      "correction": "Use Divider when there is a boundary, Stack gap when there is only spacing, and keep repeated boundaries after complete groups under the same owner."
+    }
+  ],
+  "validation": [
+    "Check orientation, adjacent-group ownership, contrast, forced colors, zoom, and semantics.",
+    "Confirm it is not focusable and CSS is loaded."
+  ],
+  "related": [
+    "stack",
+    "toolbar",
+    "surface",
+    "nav-list"
+  ]
+}
+```

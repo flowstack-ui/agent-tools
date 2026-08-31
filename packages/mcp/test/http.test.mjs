@@ -36,14 +36,14 @@ for (const mode of ["modern", "legacy"]) test(`hosted HTTP MCP serves exact lock
     const packages = structured(await client.callTool({ name: "list_flowstack_packages", arguments: {} }));
     assert.equal(packages.data.length, 4);
     assert.ok(packages.data.every(({ source, provenance }) => source === "locked-source" && provenance.source === "locked-source"));
-    const components = structured(await client.callTool({ name: "list_components", arguments: { package: "brick", version: "0.1.12", query: "color" } }));
+    const components = structured(await client.callTool({ name: "list_components", arguments: { package: "brick", version: "0.2.0", query: "color" } }));
     assert.ok(components.data.some(({ id }) => id === "color-picker"));
     assert.ok(components.data.every(({ provenance }) => provenance.source === "locked-source"));
     assert.equal(components.coverage.package, "@flowstack-ui/brick");
-    assert.equal(components.coverage.packageVersion, "0.1.12");
+    assert.equal(components.coverage.packageVersion, "0.2.0");
     assert.equal(components.coverage.summary.publicSurfaces, components.coverage.summary.classifiedPublicSurfaces);
     assert.deepEqual(components.coverage.failures, []);
-    const installed = await client.callTool({ name: "list_components", arguments: { package: "brick", version: "0.1.12", source: "installed" } });
+    const installed = await client.callTool({ name: "list_components", arguments: { package: "brick", version: "0.2.0", source: "installed" } });
     assert.equal(installed.isError, true);
     assert.match(structured(installed).error.message, /locked-only repository policy/u);
     assert.ok(responses.every((response) => response.headers.get("cache-control") === "no-store"));

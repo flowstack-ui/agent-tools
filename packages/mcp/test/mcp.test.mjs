@@ -34,16 +34,16 @@ function snapshot(path, content) {
 
 const ALL_TOOL_CALLS = [
   ["list_flowstack_packages", {}],
-  ["list_components", { package: "atom", version: "0.25.1", source: "locked", query: "button" }],
-  ["resolve_interface_job", { workflow: "finished", job: "bounded page width", versions: { brick: "0.1.12", atom: "0.25.1" }, source: "locked" }],
-  ["get_package_guide", { package: "atom", version: "0.25.1", source: "locked", guide: "layer-selection" }],
-  ["get_component_guidance", { package: "atom", version: "0.25.1", source: "locked", id: "button" }],
-  ["get_component_props", { package: "atom", version: "0.25.1", source: "locked", component: "button" }],
-  ["get_component_examples", { package: "atom", version: "0.25.1", source: "locked", component: "button", limit: 2 }],
-  ["get_theme_contract", { version: "0.1.12", source: "locked" }],
-  ["search_docs", { package: "brick", version: "0.1.12", source: "locked", query: "CSS", limit: 3 }],
-  ["validate_composition", { package: "brick", version: "0.1.12", source: "locked", owner: "button", composition: { parts: [{ id: "action", component: "Button", props: { "aria-label": "Save" } }], relationships: [], imports: ["@flowstack-ui/brick/button"], styles: ["styles.css", "button.css"] } }],
-  ["create_gap_report", { package: "brick", version: "0.1.12", source: "locked", interfaceJob: "A public custom control", searchedOwners: ["button"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "The exact owner lacks the required public option." }], missingCapability: "A supported public property", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "Use the closest supported Brick or semantic native route." }, verification: ["Keyboard review"] }]
+  ["list_components", { package: "atom", version: "0.26.0", source: "locked", query: "button" }],
+  ["resolve_interface_job", { workflow: "finished", job: "bounded page width", versions: { brick: "0.2.0", atom: "0.26.0" }, source: "locked" }],
+  ["get_package_guide", { package: "atom", version: "0.26.0", source: "locked", guide: "layer-selection" }],
+  ["get_component_guidance", { package: "atom", version: "0.26.0", source: "locked", id: "button" }],
+  ["get_component_props", { package: "atom", version: "0.26.0", source: "locked", component: "button" }],
+  ["get_component_examples", { package: "atom", version: "0.26.0", source: "locked", component: "button", limit: 2 }],
+  ["get_theme_contract", { version: "0.2.0", source: "locked" }],
+  ["search_docs", { package: "brick", version: "0.2.0", source: "locked", query: "CSS", limit: 3 }],
+  ["validate_composition", { package: "brick", version: "0.2.0", source: "locked", owner: "button", composition: { parts: [{ id: "action", component: "Button", props: { "aria-label": "Save" } }], relationships: [], imports: ["@flowstack-ui/brick/button"], styles: ["styles.css", "button.css"] } }],
+  ["create_gap_report", { package: "brick", version: "0.2.0", source: "locked", interfaceJob: "A public custom control", searchedOwners: ["button"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "The exact owner lacks the required public option." }], missingCapability: "A supported public property", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "Use the closest supported Brick or semantic native route." }, verification: ["Keyboard review"] }]
 ];
 
 for (const mode of ["modern", "legacy"]) {
@@ -69,17 +69,17 @@ for (const mode of ["modern", "legacy"]) {
 
 test("workflow routing cannot misroute finished, headless, or theming work", async () => {
   const tools = new FlowstackTools(await new FlowstackRepository({ sourceLock }).initialize());
-  const finishedMissing = await tools.invoke("resolveInterfaceJob", { workflow: "finished", job: "action", versions: { atom: "0.25.1" }, source: "locked" });
+  const finishedMissing = await tools.invoke("resolveInterfaceJob", { workflow: "finished", job: "action", versions: { atom: "0.26.0" }, source: "locked" });
   assert.equal(finishedMissing.isError, true);
   assert.equal(structured(finishedMissing).attempted.workflow, "finished");
-  const finished = structured(await tools.invoke("resolveInterfaceJob", { workflow: "finished", job: "bounded page width", versions: { brick: "0.1.12", atom: "0.25.1" }, source: "locked" }));
+  const finished = structured(await tools.invoke("resolveInterfaceJob", { workflow: "finished", job: "bounded page width", versions: { brick: "0.2.0", atom: "0.26.0" }, source: "locked" }));
   assert.ok(finished.data.length > 0 && finished.data.every(({ package: name }) => name === "@flowstack-ui/brick"));
-  assert.ok(finished.data.every(({ provenance }) => provenance.version === "0.1.12"));
+  assert.ok(finished.data.every(({ provenance }) => provenance.version === "0.2.0"));
   assert.ok(finished.data.every(({ selectionId, intentId }) => typeof selectionId === "string" && typeof intentId === "string"));
-  const ambiguous = structured(await tools.invoke("resolveInterfaceJob", { workflow: "finished", job: "responsive form field", versions: { brick: "0.1.12", atom: "0.25.1" }, source: "locked" }));
+  const ambiguous = structured(await tools.invoke("resolveInterfaceJob", { workflow: "finished", job: "responsive form field", versions: { brick: "0.2.0", atom: "0.26.0" }, source: "locked" }));
   assert.ok(ambiguous.availability === "selection-gap" || ambiguous.data.every(({ destinations }) => destinations.some(({ id }) => id === "field" || id === "form")));
   assert.ok(ambiguous.data.every(({ destinations }) => destinations.every(({ id }) => id !== "toast" && id !== "native-quotation")));
-  const headlessMissing = await tools.invoke("resolveInterfaceJob", { workflow: "headless", job: "keyboard action", versions: { brick: "0.1.12" }, source: "locked" });
+  const headlessMissing = await tools.invoke("resolveInterfaceJob", { workflow: "headless", job: "keyboard action", versions: { brick: "0.2.0" }, source: "locked" });
   assert.equal(headlessMissing.isError, true);
   const themeMissing = await tools.invoke("resolveInterfaceJob", { workflow: "theming", job: "palette candidate", versions: { colors: "0.1.1" }, source: "locked" });
   assert.equal(themeMissing.isError, true);
@@ -88,7 +88,7 @@ test("workflow routing cannot misroute finished, headless, or theming work", asy
 test("every hash-locked package guide remains readable as admitted public authority", async () => {
   const repository = await new FlowstackRepository({ sourceLock }).initialize();
   const tools = new FlowstackTools(repository);
-  const exact = { atom: "0.25.1", brick: "0.1.12", colors: "0.1.1", theme: "0.1.1" };
+  const exact = { atom: "0.26.0", brick: "0.2.0", colors: "0.1.1", theme: "0.1.1" };
   let guideCount = 0;
   for (const [packageId, version] of Object.entries(exact)) {
     const handle = await repository.resolvePackage(packageId, version, "locked");
@@ -107,14 +107,14 @@ test("every hash-locked package guide remains readable as admitted public author
 
 test("structured composition validation never passes absent anatomy and exposes checkable and manual rules", async () => {
   const tools = new FlowstackTools(await new FlowstackRepository({ sourceLock }).initialize());
-  const absent = structured(await tools.invoke("validateComposition", { package: "brick", version: "0.1.12", source: "locked", owner: "button", composition: { parts: [], relationships: [], imports: [], styles: ["styles.css", "button.css"] } }));
+  const absent = structured(await tools.invoke("validateComposition", { package: "brick", version: "0.2.0", source: "locked", owner: "button", composition: { parts: [], relationships: [], imports: [], styles: ["styles.css", "button.css"] } }));
   assert.equal(absent.data.valid, false);
   assert.ok(absent.data.findings.some(({ code }) => code === "absent-anatomy"));
   assert.ok(absent.data.manualValidations.length > 0);
-  const dialog = structured(await tools.invoke("validateComposition", { package: "atom", version: "0.25.1", source: "locked", owner: "dialog", composition: { parts: [{ id: "overlay", component: "DialogOverlay", props: {} }, { id: "content", component: "DialogContent", props: { "aria-label": "Preferences" } }], relationships: [{ type: "contains", from: "overlay", to: "content" }], imports: ["@flowstack-ui/atom/dialog"], styles: [] } }));
+  const dialog = structured(await tools.invoke("validateComposition", { package: "atom", version: "0.26.0", source: "locked", owner: "dialog", composition: { parts: [{ id: "overlay", component: "DialogOverlay", props: {} }, { id: "content", component: "DialogContent", props: { "aria-label": "Preferences" } }], relationships: [{ type: "contains", from: "overlay", to: "content" }], imports: ["@flowstack-ui/atom/dialog"], styles: [] } }));
   assert.equal(dialog.data.valid, false);
   assert.ok(dialog.data.rules.some(({ id, status }) => id.includes("sibling-overlay") && status === "fail"));
-  const badge = structured(await tools.invoke("validateComposition", { package: "brick", version: "0.1.12", source: "locked", owner: "notification-badge", composition: { parts: [{ id: "badge", component: "NotificationBadge", props: { count: 3 } }, { id: "button", component: "Button", props: { "aria-label": "Notifications: 3 unread" } }], relationships: [{ type: "wraps", from: "badge", to: "button" }], imports: ["@flowstack-ui/brick/badge", "@flowstack-ui/brick/button"], styles: ["styles.css", "badge.css", "button.css"] } }));
+  const badge = structured(await tools.invoke("validateComposition", { package: "brick", version: "0.2.0", source: "locked", owner: "notification-badge", composition: { parts: [{ id: "badge", component: "NotificationBadge", props: { count: 3 } }, { id: "button", component: "Button", props: { "aria-label": "Notifications: 3 unread" } }], relationships: [{ type: "wraps", from: "badge", to: "button" }], imports: ["@flowstack-ui/brick/badge", "@flowstack-ui/brick/button"], styles: ["styles.css", "badge.css", "button.css"] } }));
   assert.ok(badge.data.rules.some(({ id, status }) => id === "notification-badge-one-child" && status === "pass"));
   assert.ok(badge.data.rules.some(({ id, status }) => id === "notification-badge-mode" && status === "pass"));
   assert.equal(badge.data.valid, false, "uncheckable must rules require manual review");
@@ -122,16 +122,16 @@ test("structured composition validation never passes absent anatomy and exposes 
 
 test("gap reports link every owner to exact evidence without claiming semantic proof and reject structured Atom fallbacks", async () => {
   const tools = new FlowstackTools(await new FlowstackRepository({ sourceLock }).initialize());
-  const unsafe = structured(await tools.invoke("createGapReport", { package: "brick", version: "0.1.12", source: "locked", interfaceJob: "Custom action", searchedOwners: ["button"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "Purple elephants prove this arbitrary nonsense claim." }], missingCapability: "Custom option", proposedOwner: "atom", fallback: { owner: "atom", layer: "behavior", description: "Use Atom Button directly" }, verification: ["Keyboard review"] }));
+  const unsafe = structured(await tools.invoke("createGapReport", { package: "brick", version: "0.2.0", source: "locked", interfaceJob: "Custom action", searchedOwners: ["button"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "Purple elephants prove this arbitrary nonsense claim." }], missingCapability: "Custom option", proposedOwner: "atom", fallback: { owner: "atom", layer: "behavior", description: "Use Atom Button directly" }, verification: ["Keyboard review"] }));
   assert.equal(unsafe.data.structuralValidation, false);
   assert.equal(unsafe.data.claimValidation.status, "not-semantically-verified");
   assert.equal(unsafe.data.status, "evidence-linked-proposal");
   assert.ok(unsafe.data.findings.some(({ code }) => code === "brick-direct-atom-fallback"));
   assert.ok(unsafe.data.findings.some(({ code }) => code === "unsafe-proposed-owner"));
-  const unknown = await tools.invoke("createGapReport", { package: "brick", version: "0.1.12", source: "locked", interfaceJob: "Custom action", searchedOwners: ["not-a-real-owner"], evidence: [{ owner: "not-a-real-owner", artifact: "agents/button.json", finding: "Claim" }], missingCapability: "Custom option", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "Use a native button" }, verification: ["Keyboard review"] });
+  const unknown = await tools.invoke("createGapReport", { package: "brick", version: "0.2.0", source: "locked", interfaceJob: "Custom action", searchedOwners: ["not-a-real-owner"], evidence: [{ owner: "not-a-real-owner", artifact: "agents/button.json", finding: "Claim" }], missingCapability: "Custom option", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "Use a native button" }, verification: ["Keyboard review"] });
   assert.equal(unknown.isError, true);
-  assert.equal(structured(unknown).attempted.version, "0.1.12");
-  const missingEvidence = await tools.invoke("createGapReport", { package: "brick", version: "0.1.12", source: "locked", interfaceJob: "Custom action", searchedOwners: ["button", "link"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "Claim" }], missingCapability: "Custom option", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "Use an existing route" }, verification: ["Keyboard review"] });
+  assert.equal(structured(unknown).attempted.version, "0.2.0");
+  const missingEvidence = await tools.invoke("createGapReport", { package: "brick", version: "0.2.0", source: "locked", interfaceJob: "Custom action", searchedOwners: ["button", "link"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "Claim" }], missingCapability: "Custom option", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "Use an existing route" }, verification: ["Keyboard review"] });
   assert.equal(missingEvidence.isError, true);
   assert.match(structured(missingEvidence).error.message, /requires at least one exact artifact evidence/u);
 });
@@ -142,7 +142,7 @@ test("unavailable versions and private content are explicit errors", async () =>
   const unavailable = await tools.invoke("getPackageGuide", { package: "atom", version: "9.9.9", source: "locked", guide: "layer-selection" });
   assert.equal(unavailable.isError, true);
   assert.match(structured(unavailable).error.message, /unavailable/u);
-  const rejected = await tools.invoke("createGapReport", { package: "brick", version: "0.1.12", source: "locked", interfaceJob: "private blueprint", searchedOwners: ["button"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "x" }], missingCapability: "x", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "x" }, verification: ["x"] });
+  const rejected = await tools.invoke("createGapReport", { package: "brick", version: "0.2.0", source: "locked", interfaceJob: "private blueprint", searchedOwners: ["button"], evidence: [{ owner: "button", artifact: "agents/button.json", finding: "x" }], missingCapability: "x", proposedOwner: "brick", fallback: { owner: "brick", layer: "finished-interface", description: "x" }, verification: ["x"] });
   assert.equal(rejected.isError, true);
   assert.equal(structured(rejected).error.message, "private-content marker rejected");
 });

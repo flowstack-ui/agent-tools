@@ -4,17 +4,17 @@
     {
       "id": "atom",
       "name": "@flowstack-ui/atom",
-      "version": "0.25.1",
-      "archive": "flowstack-ui-atom-0.25.1.tgz",
-      "archiveBytes": 1082922,
-      "archiveSha256": "c9cf5da713e5aa62456030ff0b811ac1b0a8a4335431c472feeab9f51dc0b66e",
+      "version": "0.26.0",
+      "archive": "flowstack-ui-atom-0.26.0.tgz",
+      "archiveBytes": 1095963,
+      "archiveSha256": "5d8593aa083017e0daabb5de2f59176e22e6ef4e131d0601aa68f98b7cd8a005",
       "profile": {
         "kind": "component-package",
         "ownerUnit": "component"
       },
       "coverage": {
-        "publicSurfaces": 2806,
-        "classifiedPublicSurfaces": 2806,
+        "publicSurfaces": 2904,
+        "classifiedPublicSurfaces": 2904,
         "failures": 0
       },
       "counts": {
@@ -22,22 +22,22 @@
         "components": 71,
         "operations": 0
       },
-      "route": "/packages/atom/0.25.1/index.txt"
+      "route": "/packages/atom/0.26.0/index.txt"
     },
     {
       "id": "brick",
       "name": "@flowstack-ui/brick",
-      "version": "0.1.12",
-      "archive": "flowstack-ui-brick-0.1.12.tgz",
-      "archiveBytes": 842390,
-      "archiveSha256": "746d9f8732fdc2b4ad38a2bd53f8c11a5d76a642f219dffe0306c54db7a7514b",
+      "version": "0.2.0",
+      "archive": "flowstack-ui-brick-0.2.0.tgz",
+      "archiveBytes": 850926,
+      "archiveSha256": "4c14aba9b2fbae3db671d77683e6f50b7e8a603a7701a3800364e297c036fb36",
       "profile": {
         "kind": "component-package",
         "ownerUnit": "component"
       },
       "coverage": {
-        "publicSurfaces": 2690,
-        "classifiedPublicSurfaces": 2690,
+        "publicSurfaces": 2776,
+        "classifiedPublicSurfaces": 2776,
         "failures": 0
       },
       "counts": {
@@ -45,7 +45,7 @@
         "components": 95,
         "operations": 0
       },
-      "route": "/packages/brick/0.1.12/index.txt"
+      "route": "/packages/brick/0.2.0/index.txt"
     },
     {
       "id": "colors",
@@ -102,8 +102,8 @@
   "corpus": {
     "llms": {
       "path": "/llms.txt",
-      "bytes": 1197,
-      "sha256": "3435086c6903e54458e589f3d5afb7c9210b17cfb0e8f42763297b4eedf9c067"
+      "bytes": 1195,
+      "sha256": "2276ef5dad5c2b4002384fc005864f43a76de42bc9273de659d5f99f443ff1a4"
     }
   },
   "routes": [
@@ -113,1646 +113,1646 @@
       "kind": "entrypoint",
       "id": "llms",
       "path": "/llms.txt",
-      "bytes": 1197,
-      "sha256": "3435086c6903e54458e589f3d5afb7c9210b17cfb0e8f42763297b4eedf9c067"
+      "bytes": 1195,
+      "sha256": "2276ef5dad5c2b4002384fc005864f43a76de42bc9273de659d5f99f443ff1a4"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "accordion",
-      "path": "/packages/atom/0.25.1/components/accordion.txt",
+      "path": "/packages/atom/0.26.0/components/accordion.txt",
       "bytes": 6015,
-      "sha256": "97d38821dae870dc4105432147e22988a69e9d4b1d13b2398fff2f69e65c0ea8"
+      "sha256": "04180135b10b0697667476a293e3a22d6e391b158ef368e8e58f7203819bd290"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "alert-dialog",
-      "path": "/packages/atom/0.25.1/components/alert-dialog.txt",
+      "path": "/packages/atom/0.26.0/components/alert-dialog.txt",
       "bytes": 5972,
-      "sha256": "4a813530796ec6b13e4846ce2b4686618bfe9f1eb0aa835e5fd7f8e6c4e8523b"
+      "sha256": "60b1df73e089f703430876faacb2ffbf57681028c8b5e7ce509517bcb8081726"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "app-bar",
-      "path": "/packages/atom/0.25.1/components/app-bar.txt",
+      "path": "/packages/atom/0.26.0/components/app-bar.txt",
       "bytes": 2833,
-      "sha256": "5ac5f833e9a46c73ff6efc28477ac96c1cecfd130396d97c69430a7b8aea056f"
+      "sha256": "df19a73620c979f3fc436571d8ba41f2d303f5fe036135f18777ea91c000cabd"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "aspect-ratio",
-      "path": "/packages/atom/0.25.1/components/aspect-ratio.txt",
+      "path": "/packages/atom/0.26.0/components/aspect-ratio.txt",
       "bytes": 5290,
-      "sha256": "c3c311da8503c3c9cd94e01542133447ced743f196f090d5a2fc9394c43d6e72"
+      "sha256": "12d4940d9e38de8934486dbb7f8b39d8dfbc519e43cfee41cf51056e134214cc"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "avatar",
-      "path": "/packages/atom/0.25.1/components/avatar.txt",
+      "path": "/packages/atom/0.26.0/components/avatar.txt",
       "bytes": 6304,
-      "sha256": "475990b87f93d9ac8eb7c297950a83550a01b27c236a459093ff10d769f8c2fb"
+      "sha256": "9a0a7970770381b776eb9c984e9deb2fb5b1c302375c89c605b12d6deec4f8de"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "badge",
-      "path": "/packages/atom/0.25.1/components/badge.txt",
+      "path": "/packages/atom/0.26.0/components/badge.txt",
       "bytes": 6179,
-      "sha256": "658d26c9e00ae14c26e518642629d4b91fdb6b499eb34c438b590f3f9197bbad"
+      "sha256": "983b13de87627d684b520ec3aa3f1bf2ad4c914854e078cae19ff110f0ddde5e"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "bottom-navigation",
-      "path": "/packages/atom/0.25.1/components/bottom-navigation.txt",
+      "path": "/packages/atom/0.26.0/components/bottom-navigation.txt",
       "bytes": 2985,
-      "sha256": "1a9d9fe980f076a7ced123e9f56ea103b77c83c0f16020222b9ade23510ac953"
+      "sha256": "f6a3bd93242dd956e99e2cf09e4a6bc96338cb382a1074bc8f466cf485a40ac6"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "breadcrumb",
-      "path": "/packages/atom/0.25.1/components/breadcrumb.txt",
+      "path": "/packages/atom/0.26.0/components/breadcrumb.txt",
       "bytes": 2752,
-      "sha256": "21397a90484ca60538a8d7f5287025e0d22ae048a0f38c172863aa917b80ab23"
+      "sha256": "8b03e555c2414fb785f6b1b4f556252d2667d2e8e7c7d7f82fbd339d57874e58"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "button",
-      "path": "/packages/atom/0.25.1/components/button.txt",
+      "path": "/packages/atom/0.26.0/components/button.txt",
       "bytes": 3191,
-      "sha256": "b26bc4d60738baed717be7c8b546529d5f5afb4786cec6947404040528574f7a"
+      "sha256": "e5ddfc0aec23ba907dee76c4832b66e2b6d228d512b80acf97e25d35df7b947d"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "carousel",
-      "path": "/packages/atom/0.25.1/components/carousel.txt",
+      "path": "/packages/atom/0.26.0/components/carousel.txt",
       "bytes": 6360,
-      "sha256": "3cfdf7a2e91e0c1f8e2df5933c16d1650b45fe2b9375f542dfb4e852477706ed"
+      "sha256": "0b433ecca7321a24fbf923d4f08bd3bfe39cb07a30de49eed227cc4476ebb57d"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "checkbox-group",
-      "path": "/packages/atom/0.25.1/components/checkbox-group.txt",
+      "path": "/packages/atom/0.26.0/components/checkbox-group.txt",
       "bytes": 6445,
-      "sha256": "a8ee27d6dee3bc2dfe0cbe2d004d1665d680c791169c51b29bca32d54aca6899"
+      "sha256": "40e7c903b9f7a9d522e582ab3620d5e1e3a55d1df20f9d7584a92350a0709a0c"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "checkbox",
-      "path": "/packages/atom/0.25.1/components/checkbox.txt",
+      "path": "/packages/atom/0.26.0/components/checkbox.txt",
       "bytes": 2786,
-      "sha256": "e09a99a720ac4f1ac53d5ada4145fc9e447595dd24322acb65620e9615a0facf"
+      "sha256": "d1c429e292c6d89e94bc5932c0e1649c635aea4bb1ad4cf57cd0f4ed9ae41505"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "clipboard",
-      "path": "/packages/atom/0.25.1/components/clipboard.txt",
+      "path": "/packages/atom/0.26.0/components/clipboard.txt",
       "bytes": 6075,
-      "sha256": "cbcd451afb2004a54197e07b1656082f53a0338fcf438cfb53645ae7a1d9bd51"
+      "sha256": "b8a3f6496018518427dee70abb77ef076e335957b21d46cc32de44fd569675cd"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "collapsible",
-      "path": "/packages/atom/0.25.1/components/collapsible.txt",
+      "path": "/packages/atom/0.26.0/components/collapsible.txt",
       "bytes": 5853,
-      "sha256": "06b8f40d3962459f353c6dc0f0d4e8a6bec2d933b81f5516c267094b55020bc6"
+      "sha256": "78837326a1db00c4aa88ae75ddd003df6ddad536c7ccea6e03f1fe3352d856c4"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "color-picker",
-      "path": "/packages/atom/0.25.1/components/color-picker.txt",
-      "bytes": 4651,
-      "sha256": "ffbb90e59f152f949bbf08ce42d89e37ff8782372cff1ef5aebb3f267cc9d891"
+      "path": "/packages/atom/0.26.0/components/color-picker.txt",
+      "bytes": 7119,
+      "sha256": "07bc866cd56e17496140415c2521eaaa203329c120d6bf3e8d6440a5b518fc4b"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "combobox",
-      "path": "/packages/atom/0.25.1/components/combobox.txt",
+      "path": "/packages/atom/0.26.0/components/combobox.txt",
       "bytes": 7245,
-      "sha256": "500306de993e3a9e21fd334cdef2810dcd3f4d7bc97b7420d8a31db2e213676c"
+      "sha256": "e8ef3fd337db64e09332e50bab1321c22fd78b1a1de394b06adaff8102305028"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "context-menu",
-      "path": "/packages/atom/0.25.1/components/context-menu.txt",
+      "path": "/packages/atom/0.26.0/components/context-menu.txt",
       "bytes": 6015,
-      "sha256": "56a39a81ac23e6f3e06bce8797ba5fef0434113c3bcb1838fa902804159bc3f1"
+      "sha256": "a593b8435d74d8c87c4fd30c00ad5b7e9f5362c3c57994d3a4176dfefc8e9891"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "data-grid",
-      "path": "/packages/atom/0.25.1/components/data-grid.txt",
+      "path": "/packages/atom/0.26.0/components/data-grid.txt",
       "bytes": 8034,
-      "sha256": "87d7d10590e8611d349bbdfd77417c09bb0a6a051894cced06e648e64a530d5a"
+      "sha256": "cc5b3d428d9781e9e5555cac28b6066bf536f7eb69f61ebf708f45c6a16006bb"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "dialog",
-      "path": "/packages/atom/0.25.1/components/dialog.txt",
+      "path": "/packages/atom/0.26.0/components/dialog.txt",
       "bytes": 6029,
-      "sha256": "e5f1f06352b28064d0f90a9f5ef3f8aeeb620ad352d6bfd1574322253c14a8aa"
+      "sha256": "4b783401d08550e6cfe9821532423096e766c7580fc4fe43bdbc95f339887ee5"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "direction",
-      "path": "/packages/atom/0.25.1/components/direction.txt",
+      "path": "/packages/atom/0.26.0/components/direction.txt",
       "bytes": 7267,
-      "sha256": "a1f3ce89576cd8b5664c79347c94f1ee8d2819c5198510bd5c6a3095c17ce2ba"
+      "sha256": "3880849e9ec4ab655532a5b2b3891b31706d7fd8352056266b5f32944631d78c"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "divider",
-      "path": "/packages/atom/0.25.1/components/divider.txt",
+      "path": "/packages/atom/0.26.0/components/divider.txt",
       "bytes": 2497,
-      "sha256": "c649e222511b5d35b380fdc65171d036af0ccd377f8bb904264c60ba9f4e4d1b"
+      "sha256": "b376aac14a6905174de0caf660b2222784a160eef62be74f9c9f92d7a4f3ebfc"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "drag-drop",
-      "path": "/packages/atom/0.25.1/components/drag-drop.txt",
+      "path": "/packages/atom/0.26.0/components/drag-drop.txt",
       "bytes": 6853,
-      "sha256": "a10f1008136775111b148028c5c208523ce90a8e48cb0259fc39f418132fe01b"
+      "sha256": "76241fe569d27335cdf29d8bec4ab9023e79b53b37953fffd2af6c6592dde63f"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "drawer",
-      "path": "/packages/atom/0.25.1/components/drawer.txt",
+      "path": "/packages/atom/0.26.0/components/drawer.txt",
       "bytes": 3209,
-      "sha256": "3821c592e94174d85e48ca9b0ac92ca0e247ac9415998618122fb37e23df6788"
+      "sha256": "4e67653cd0268c40fcea922f3b95a86ce588ec47114e63030ef95333e012fae3"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "dropdown-menu",
-      "path": "/packages/atom/0.25.1/components/dropdown-menu.txt",
+      "path": "/packages/atom/0.26.0/components/dropdown-menu.txt",
       "bytes": 5479,
-      "sha256": "a0f5118caab3d9c95e9ae715a8b4a66f22d93e9a0ff45c700a213ad46fc43c0d"
+      "sha256": "ccf3278293f4b81de55fef3a3911a984f5d1bd71afab28b1214b86bc413fcbc9"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "feed",
-      "path": "/packages/atom/0.25.1/components/feed.txt",
+      "path": "/packages/atom/0.26.0/components/feed.txt",
       "bytes": 8002,
-      "sha256": "3204a88156d412ee1c8d400345640988a3b6298f65bf143225fffa3c4826e8f7"
+      "sha256": "66c64ca15e41eacac304ac1401d9c5f968fdc6972335194496016a443ad111cc"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "field",
-      "path": "/packages/atom/0.25.1/components/field.txt",
+      "path": "/packages/atom/0.26.0/components/field.txt",
       "bytes": 3305,
-      "sha256": "22a0205caea8ff3ce003da15231a20470a6b60ab2533868ead8f31ee80c3f96b"
+      "sha256": "e6cad6f33b1cd95a5546fec83b466d27913460d4fd9314d48a8f94cd82d23fa7"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "fieldset",
-      "path": "/packages/atom/0.25.1/components/fieldset.txt",
+      "path": "/packages/atom/0.26.0/components/fieldset.txt",
       "bytes": 2633,
-      "sha256": "990b3be8707e380cd487aab7231f29a29b61ead0c4f478816c131f4c34008449"
+      "sha256": "fac10617cff266010e2d008046bc80ee0c3f67abb38187447941eb765cdcde42"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "file-upload",
-      "path": "/packages/atom/0.25.1/components/file-upload.txt",
+      "path": "/packages/atom/0.26.0/components/file-upload.txt",
       "bytes": 7371,
-      "sha256": "6d439fb878469e852547144620ff63a4542604d98d15105b09d4a0484dde16d2"
+      "sha256": "49bba1b81b95b66349066ea6f7d60edc4e45f0a3eba51746760eca732bbf385f"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "form",
-      "path": "/packages/atom/0.25.1/components/form.txt",
+      "path": "/packages/atom/0.26.0/components/form.txt",
       "bytes": 2606,
-      "sha256": "87bd06c9d40710980dccdbac09d52d9bf8bfe9f3fce9fb91f6720c074cfc62e2"
+      "sha256": "6640f3e70fdaf230e156ecbf88bd0e3c1a08fd28fc1462c8a19d11dcc086b7ca"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "highlight",
-      "path": "/packages/atom/0.25.1/components/highlight.txt",
+      "path": "/packages/atom/0.26.0/components/highlight.txt",
       "bytes": 6062,
-      "sha256": "9ce3e7640f8cb1a8a8d3cd24bfd419d1be716dfc66ea38f6121b0c761ba03b5a"
+      "sha256": "e779816b73bfd68ca1b87f68b2368c529d689b7e6cd36b4abbdfe920e29852ef"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "hover-card",
-      "path": "/packages/atom/0.25.1/components/hover-card.txt",
+      "path": "/packages/atom/0.26.0/components/hover-card.txt",
       "bytes": 5967,
-      "sha256": "ea1ef1b1294d970be87d17aacca6350c64451274ef655c1938549f04d31d39cc"
+      "sha256": "0361d06ba6ab72748fc0cebc33680437aa5451ca49aa144cdc80f3978b3a4151"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "image",
-      "path": "/packages/atom/0.25.1/components/image.txt",
+      "path": "/packages/atom/0.26.0/components/image.txt",
       "bytes": 2845,
-      "sha256": "4c957b933c4862ec815c3ead776eedcfb2c8692986ba3e867c9141e1c0f1c444"
+      "sha256": "a81dee538da94acde7270b5a42ece25704dca9dd9d751d4cbee7efaf4a43085e"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "input",
-      "path": "/packages/atom/0.25.1/components/input.txt",
+      "path": "/packages/atom/0.26.0/components/input.txt",
       "bytes": 2590,
-      "sha256": "374845a05b0281050b24fc1bdf0d32a822f89771f32a7c4d830e05bccb448699"
+      "sha256": "6fd6eac7430fd9e52f294b118876a7dc27c31b99861d9d959473dec576d7d40e"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "label",
-      "path": "/packages/atom/0.25.1/components/label.txt",
+      "path": "/packages/atom/0.26.0/components/label.txt",
       "bytes": 5871,
-      "sha256": "4b4425c53c75961b34c1c4d799cfc3d2834a38f9e1c708c4598fd7238fc518a5"
+      "sha256": "7db75be062878ee1ecfef0562526790442e7aff9b693639e2b570bc65f21b4c1"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "link",
-      "path": "/packages/atom/0.25.1/components/link.txt",
+      "path": "/packages/atom/0.26.0/components/link.txt",
       "bytes": 2558,
-      "sha256": "2bb893cb41cec7edb40c987cebeeb635a134393991f30a089426b43dd7049e86"
+      "sha256": "6139be916a6f7d980047aee7435dfe7a70cb3e7fef80f3a0d6499d4d3f1d7201"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "list",
-      "path": "/packages/atom/0.25.1/components/list.txt",
+      "path": "/packages/atom/0.26.0/components/list.txt",
       "bytes": 5540,
-      "sha256": "c73072f4b759667dd984683c5c714656c0d893a065fa5cd0ab0d924e8a1d9e76"
+      "sha256": "1a99dfaca9c569dc051c442ab2468b92b67f17da7c9c590288e7aa4f686464ba"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "listbox",
-      "path": "/packages/atom/0.25.1/components/listbox.txt",
+      "path": "/packages/atom/0.26.0/components/listbox.txt",
       "bytes": 6199,
-      "sha256": "d5bd5d35146c4c47cfd38eac1e3717595e2deff0e6acd4cee985a4d0fdb976e2"
+      "sha256": "48718ba4caa8c1b320ed6eb1f3abe1cfd0c1802125b09199d473f04a4e69eafc"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "menu",
-      "path": "/packages/atom/0.25.1/components/menu.txt",
+      "path": "/packages/atom/0.26.0/components/menu.txt",
       "bytes": 7087,
-      "sha256": "ffe28e1b7b08f7e3da083858b54c2c2191f2112f07dde8ff450636e225640664"
+      "sha256": "5a0c2e823cce79d8e16daf6bc6c8f2ca7878d38e875d41575c3e992408940628"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "menubar",
-      "path": "/packages/atom/0.25.1/components/menubar.txt",
+      "path": "/packages/atom/0.26.0/components/menubar.txt",
       "bytes": 6100,
-      "sha256": "690aba9e44d589791e792ccac08c531c745ddbc20050592338910ef7f29430ac"
+      "sha256": "11a4c9fa20e48d660ec135aa5b824c1818f5ffd06b521e1e938ec179d6817ba2"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "modal",
-      "path": "/packages/atom/0.25.1/components/modal.txt",
+      "path": "/packages/atom/0.26.0/components/modal.txt",
       "bytes": 7231,
-      "sha256": "ee4818fa94d33e4d45143b2e17705e37dbf018433ebc12a89e15bf7d6a601cea"
+      "sha256": "810b610311d3bb4ba5ad0562f351b6a57582f55db04bc7384af75492d791521f"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "multi-select",
-      "path": "/packages/atom/0.25.1/components/multi-select.txt",
+      "path": "/packages/atom/0.26.0/components/multi-select.txt",
       "bytes": 6692,
-      "sha256": "1ee051fb639adb6dcdb7964a2d166e255c167e960af369d7d85602fd3794f922"
+      "sha256": "8f6814a92e6e770147b0d4802300043303b1382aada7a6134f2019bebcc0ac0f"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "nav-list",
-      "path": "/packages/atom/0.25.1/components/nav-list.txt",
+      "path": "/packages/atom/0.26.0/components/nav-list.txt",
       "bytes": 3523,
-      "sha256": "8da48506c6d539f81fb2736b810ef276c72f62ab2efc69421aa49345b8fe1bce"
+      "sha256": "a996d11fb0e96b99ccb5d4986af9db7bc0e271883c69cbc499f71222f83bbc08"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "navigation-menu",
-      "path": "/packages/atom/0.25.1/components/navigation-menu.txt",
+      "path": "/packages/atom/0.26.0/components/navigation-menu.txt",
       "bytes": 4084,
-      "sha256": "2897f0a833cea981f7458851ea81731f28c145e498b870d8d8cd47fde86528cd"
+      "sha256": "47c928a1533cd0f0df3dda84695de81a65acf4a3b90788746247d0a15e1f2f0f"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "number-input",
-      "path": "/packages/atom/0.25.1/components/number-input.txt",
+      "path": "/packages/atom/0.26.0/components/number-input.txt",
       "bytes": 6820,
-      "sha256": "6ce2c118e0acaa0a4b3272649eaf213d09cacb35792301219aae873214271674"
+      "sha256": "fc4d15d3960381380c89dc9b70984cf6ac3e10b184a57a63c8b29701ad82e7f3"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "otp-field",
-      "path": "/packages/atom/0.25.1/components/otp-field.txt",
+      "path": "/packages/atom/0.26.0/components/otp-field.txt",
       "bytes": 6671,
-      "sha256": "60505e7857bb183811fd673ec5cf4f4fd5bcf2630100d6d4e5ca4023f2a30dd0"
+      "sha256": "f8a76205f3804f594b70a45457b9d2dc740db12be5b401d22f9a92ab4d3151aa"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "pagination",
-      "path": "/packages/atom/0.25.1/components/pagination.txt",
+      "path": "/packages/atom/0.26.0/components/pagination.txt",
       "bytes": 4531,
-      "sha256": "edef30019b54804d79fff8113728b6b2743f578b37014f1a86f5df6c4ed62e49"
+      "sha256": "580c319451c90bc3b0bf11f79aab8bd6039b5f20f8b1c0ebb52668c28eb199a2"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "password-toggle-field",
-      "path": "/packages/atom/0.25.1/components/password-toggle-field.txt",
+      "path": "/packages/atom/0.26.0/components/password-toggle-field.txt",
       "bytes": 6384,
-      "sha256": "489857362745d317568d4054fa7fe6b31b860b691e1ee10372ff35a2812ec50e"
+      "sha256": "6ad1a475289e8786f6b7e6fd74eebc54df791bbfc7218a78c5e1c6ba4336f8c1"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "popover",
-      "path": "/packages/atom/0.25.1/components/popover.txt",
+      "path": "/packages/atom/0.26.0/components/popover.txt",
       "bytes": 6996,
-      "sha256": "b8e0a0e737885d40ab77efa6575acf4c7a2b45c18f832dad1ebb5cbf2392a803"
+      "sha256": "2c7a72ce76cd6538f9b0c82666ff1660d42e5fc925c33fda8ec1b97526a4f8d2"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "pressable",
-      "path": "/packages/atom/0.25.1/components/pressable.txt",
+      "path": "/packages/atom/0.26.0/components/pressable.txt",
       "bytes": 2738,
-      "sha256": "bacc1042ab386cd91feed936dfba69677848d4a230f47ad43dee5ef2b7b1f7ae"
+      "sha256": "bf3adf71366b864511b75869680eb684c38c5ca649a5949713834465eaba5f90"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "progress",
-      "path": "/packages/atom/0.25.1/components/progress.txt",
+      "path": "/packages/atom/0.26.0/components/progress.txt",
       "bytes": 6535,
-      "sha256": "ed5ad328e15606fb06e340bd86c1938048aa74791774d7a302df6d8e6c3e7338"
+      "sha256": "a74c9ef90fcd9e1aa6e25d54a5d4adaf23812029083e458eee86d30bba90e8e5"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "radio-group",
-      "path": "/packages/atom/0.25.1/components/radio-group.txt",
+      "path": "/packages/atom/0.26.0/components/radio-group.txt",
       "bytes": 5951,
-      "sha256": "af13384c1322e98ac7ad5d53917024957e6018d0a9f2fdcd8c802b15ca18ceab"
+      "sha256": "f929c06b49c26e69c91571385891b30fed8ac9102d70224ab5ad2925e22b044a"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "rating",
-      "path": "/packages/atom/0.25.1/components/rating.txt",
+      "path": "/packages/atom/0.26.0/components/rating.txt",
       "bytes": 6416,
-      "sha256": "529ec46a11455b99490cd03e5df216e6c807cdfc3c1ce245798f1d8b8f38c8d1"
+      "sha256": "00886b26e9852bfd6f5f32806bc835e50754b00cc26a76b94eecdcb5def95389"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "reorder",
-      "path": "/packages/atom/0.25.1/components/reorder.txt",
+      "path": "/packages/atom/0.26.0/components/reorder.txt",
       "bytes": 6344,
-      "sha256": "693e84a2b50975f8bbe03c948eb1d3c75019c3ab2d4d564e8d736cbd8c644d0e"
+      "sha256": "8e48775c741530386881341d80f0a1fe1029301671534fe0eff484f08762aa47"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "scroll-area",
-      "path": "/packages/atom/0.25.1/components/scroll-area.txt",
+      "path": "/packages/atom/0.26.0/components/scroll-area.txt",
       "bytes": 3110,
-      "sha256": "b5cab466102866dfea2469e657b172386cf0aa1cec95b421b231ac5f1de25cec"
+      "sha256": "4131b38e5ba90ce91dfe0fe9a8fb876c049dbf2a7a25f7fab83ecaf976ad0991"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "select",
-      "path": "/packages/atom/0.25.1/components/select.txt",
+      "path": "/packages/atom/0.26.0/components/select.txt",
       "bytes": 6972,
-      "sha256": "b9a4b0a6c110452baa527503f31741e9b2b46f1b7d3b55ecee4392eaa692d815"
+      "sha256": "012a51a3f66e3b7f4c65014bb992abafc723abf84ae348f5f6adcb18dd87e2dd"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "sidebar",
-      "path": "/packages/atom/0.25.1/components/sidebar.txt",
+      "path": "/packages/atom/0.26.0/components/sidebar.txt",
       "bytes": 3057,
-      "sha256": "cf93f779a94c656f9f050d6be7d80d1de826293ffe36339d3b38ecd2031ff1bf"
+      "sha256": "16f6aa5f11bde0c723a394eede6559c89a4169cf789a9e54579e09081cab59d1"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "skip-link",
-      "path": "/packages/atom/0.25.1/components/skip-link.txt",
+      "path": "/packages/atom/0.26.0/components/skip-link.txt",
       "bytes": 2629,
-      "sha256": "b95079732754eb1760315dd85567e37d2d204fbdabd3ebef238ba41e14c06420"
+      "sha256": "b893afa76de28f717441afcaa1db2a9fa5f1576d0765fcbd797a509605bb876e"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "slider",
-      "path": "/packages/atom/0.25.1/components/slider.txt",
+      "path": "/packages/atom/0.26.0/components/slider.txt",
       "bytes": 6331,
-      "sha256": "ef91dac4d9b51472d7393f81f96d3308b7ab3b0185bafa2a111932ece1c9097f"
+      "sha256": "b9e4eaba4cceb4cc3b5de8e10754d077929740bfd06c9efa84abf2953d2205bd"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "swipeable-item",
-      "path": "/packages/atom/0.25.1/components/swipeable-item.txt",
+      "path": "/packages/atom/0.26.0/components/swipeable-item.txt",
       "bytes": 6864,
-      "sha256": "66e97822daaf8b3cd0c62fddf2230c3ed522bab89ad08d186208d33aeabcf245"
+      "sha256": "fad5ac68b713aa0db204320b14c9f490fb2fdc390657c3e5889e9b7a46d1ebb8"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "switch",
-      "path": "/packages/atom/0.25.1/components/switch.txt",
+      "path": "/packages/atom/0.26.0/components/switch.txt",
       "bytes": 5252,
-      "sha256": "ceec2b8c77cf2e6a090bc1b163db8a915f7814d5d7ef944849d6da6b18c2de0d"
+      "sha256": "15c6dcfd34921ef9e9e083272e603c66a39315ee43c688a245d47e8f2c1280f6"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "table",
-      "path": "/packages/atom/0.25.1/components/table.txt",
+      "path": "/packages/atom/0.26.0/components/table.txt",
       "bytes": 6379,
-      "sha256": "2802af0a8f3b34a7a57afe3cf7720d42ae918282a07dadf29626e9280badb020"
+      "sha256": "bcfaac8a6907c637ad0addc3df745e666297771dac2d507ab14fb46f435b7956"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "tabs",
-      "path": "/packages/atom/0.25.1/components/tabs.txt",
+      "path": "/packages/atom/0.26.0/components/tabs.txt",
       "bytes": 2894,
-      "sha256": "51ef6acc4b585343e086262943b1c4d5485e21b64f0dd85164eb9d14cf4706ff"
+      "sha256": "3eb4a5ba9d73b06c7ff28bdeb092efab22fb83925c9033bd04997186855bde90"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "textarea",
-      "path": "/packages/atom/0.25.1/components/textarea.txt",
+      "path": "/packages/atom/0.26.0/components/textarea.txt",
       "bytes": 2568,
-      "sha256": "54286d085599f481fb40a60f9c3e5568fe6d4f60ef4b3389cbe1fea98a870547"
+      "sha256": "82f21ed16ef1e8acf2dd61610efe883d01ad12391e93618c82fafea4fa96de5c"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "toast",
-      "path": "/packages/atom/0.25.1/components/toast.txt",
+      "path": "/packages/atom/0.26.0/components/toast.txt",
       "bytes": 7349,
-      "sha256": "5128164e1a7d38fd72851e1461fac278a64d7838f10be35472a6dbd7f6dd0203"
+      "sha256": "572157a3c0f0bc3796043109114c4bc3b0de7c789ce4595a78f5e949f836c6bd"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "toggle-group",
-      "path": "/packages/atom/0.25.1/components/toggle-group.txt",
+      "path": "/packages/atom/0.26.0/components/toggle-group.txt",
       "bytes": 5159,
-      "sha256": "292f1ce2254a57d8e7a7584e4ecc6f8a65e6e8644422e7ffc6e4414740ef6cc4"
+      "sha256": "3dca19a7ab450277008240b9efbe503df496fc5121876f639db0626847a2ec8a"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "toggle",
-      "path": "/packages/atom/0.25.1/components/toggle.txt",
+      "path": "/packages/atom/0.26.0/components/toggle.txt",
       "bytes": 4667,
-      "sha256": "64631b809e2f70360f57dfc3785245cf22f1178d50b4189ab5d7e5ae1ffecbd9"
+      "sha256": "4c3546624d4df4f7958e04da8c5eaa96df4d3d72a4708bcd5c82e6c72c16ccd8"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "toolbar",
-      "path": "/packages/atom/0.25.1/components/toolbar.txt",
+      "path": "/packages/atom/0.26.0/components/toolbar.txt",
       "bytes": 2991,
-      "sha256": "1faa8492ac7590a813801955c0a664def2e0ba4fa23601a438c36f59b246a17b"
+      "sha256": "cffb68d5f5e094eddba067fb5d4171d015e8ddb878837f7826f99da960c96f66"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "tooltip",
-      "path": "/packages/atom/0.25.1/components/tooltip.txt",
+      "path": "/packages/atom/0.26.0/components/tooltip.txt",
       "bytes": 6255,
-      "sha256": "ae55fb1ffd130b0b6abb06a2b2a5b875b96eeda16408720990db11ad1c1348d7"
+      "sha256": "ab5ce1c852666930b3da709c6384e90f603668852ef3e1356312e1fd154a2cc6"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "tree-grid",
-      "path": "/packages/atom/0.25.1/components/tree-grid.txt",
+      "path": "/packages/atom/0.26.0/components/tree-grid.txt",
       "bytes": 8436,
-      "sha256": "323a56ee09539d31b2b94c01592799965bf93010aceb97aeb55c612a9ab4184f"
+      "sha256": "66a9b8463dd9762c86cbe5cca0a8589e33e03ba748f0bef28816fff38d0fd3e4"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "tree",
-      "path": "/packages/atom/0.25.1/components/tree.txt",
+      "path": "/packages/atom/0.26.0/components/tree.txt",
       "bytes": 7923,
-      "sha256": "bee749b88a526685a2abdda80641f515467ecabf1d8c24fbfb3f7b731726c187"
+      "sha256": "93f3944064ae3bdbaa150624c98fd077f44d316efa2d66e59d6dec38253e8eca"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "component",
       "id": "visually-hidden",
-      "path": "/packages/atom/0.25.1/components/visually-hidden.txt",
+      "path": "/packages/atom/0.26.0/components/visually-hidden.txt",
       "bytes": 6236,
-      "sha256": "e5643bafe526abd1d5d6c213a7d914aa86b4df2741dc3f1436bbf348cf81fbc0"
+      "sha256": "395f391012387706272e24cb64fd0edf36c9f90d81e0f0a64c5c466e6781d8a8"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "document",
       "id": "guides/agent-knowledge",
-      "path": "/packages/atom/0.25.1/docs/guides/agent-knowledge.txt",
+      "path": "/packages/atom/0.26.0/docs/guides/agent-knowledge.txt",
       "bytes": 2681,
-      "sha256": "ad792aae7d3f595117fe4e6107e7aee15db293209e0dc7a65ce7fe646ad4edac"
+      "sha256": "b016a344bb2c0f39fb8c51579c9b94544eb14281d8eec93660da386cf8d6a4b6"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "document",
       "id": "guides/getting-started",
-      "path": "/packages/atom/0.25.1/docs/guides/getting-started.txt",
+      "path": "/packages/atom/0.26.0/docs/guides/getting-started.txt",
       "bytes": 1519,
-      "sha256": "d185ac90cc3811df6b5bf971ff3691c73051c64a42e2ba414c809b6c4bdde3f6"
+      "sha256": "e2989cf59519e64c81a146a1c6ca194f1f209f0821ae28d67ef56480e781d34b"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "document",
       "id": "guides/imports",
-      "path": "/packages/atom/0.25.1/docs/guides/imports.txt",
+      "path": "/packages/atom/0.26.0/docs/guides/imports.txt",
       "bytes": 810,
-      "sha256": "8b4150e20cb632c6fa4f4fee9f027bc7138ff3ba3140fe723e31abe3614c24ec"
+      "sha256": "86b63f96276269290f5d45f4fe5c6760546fa14e235c18be4648dcf1770a3f92"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "document",
       "id": "guides/public-api",
-      "path": "/packages/atom/0.25.1/docs/guides/public-api.txt",
+      "path": "/packages/atom/0.26.0/docs/guides/public-api.txt",
       "bytes": 3465,
-      "sha256": "23abca3a6c041f7b1c67099601db50dd2ede6e51e2073daa668ab424ae500a6c"
+      "sha256": "f2890baff4d3ac390c5c7a9b4e4e5dc63fb94a53854c5e2f012e7336be448f9d"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "guide",
       "id": "behavior-composition",
-      "path": "/packages/atom/0.25.1/guides/behavior-composition.txt",
+      "path": "/packages/atom/0.26.0/guides/behavior-composition.txt",
       "bytes": 8645,
-      "sha256": "451df2733df55a10294c9ce0a2e1193e5be39647cdabbb924de08739aae38a39"
+      "sha256": "a001b036fbb19b3a5c411a17e441cab02834ed43670458d1868f7ebec48bda11"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "guide",
       "id": "layer-selection",
-      "path": "/packages/atom/0.25.1/guides/layer-selection.txt",
+      "path": "/packages/atom/0.26.0/guides/layer-selection.txt",
       "bytes": 28311,
-      "sha256": "0b4d6569b3c73fb08e47756072a7582c6c76bfef32c3e2cbb965c5a0ad68e36a"
+      "sha256": "01dcc5929a70977447da684d859fa2fa1ec93f5fce51d88f7ade24a860d04d7b"
     },
     {
       "package": "atom",
-      "version": "0.25.1",
+      "version": "0.26.0",
       "kind": "package",
       "id": "atom",
-      "path": "/packages/atom/0.25.1/index.txt",
+      "path": "/packages/atom/0.26.0/index.txt",
       "bytes": 4962,
-      "sha256": "34b111f8d820e9f07e849b596994768a14d4bceff59c2dfb8d613cfe71e478ba"
+      "sha256": "a08584b4005becbb8dd7d8f65019073b31058767cf7040a1e39f65cce72deba8"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "accordion",
-      "path": "/packages/brick/0.1.12/components/accordion.txt",
-      "bytes": 8536,
-      "sha256": "f80cbd7e9dff5810f035d3987bda88dd51bb8fc6cb9ca32a178617c13ef5c396"
+      "path": "/packages/brick/0.2.0/components/accordion.txt",
+      "bytes": 8535,
+      "sha256": "e5bc3e43639efbd69ef52279bd01bfb0602eae74723824b7bbdcd30106f859de"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "alert-dialog",
-      "path": "/packages/brick/0.1.12/components/alert-dialog.txt",
-      "bytes": 10483,
-      "sha256": "fb7ada553bf1cab8e00b32b109c405eb7ed0b5417cf7a172d8d82b6a2afb6a0c"
+      "path": "/packages/brick/0.2.0/components/alert-dialog.txt",
+      "bytes": 10482,
+      "sha256": "f774e9e0c2b540c463398c403b8e9d5e653a462f3774d5bc8c2da4c8d3627a35"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "app-bar",
-      "path": "/packages/brick/0.1.12/components/app-bar.txt",
-      "bytes": 6706,
-      "sha256": "6b8b05b010d2e8712adcbd1d88432d470a0816b6c2cd1e0c753c151924c3da5e"
+      "path": "/packages/brick/0.2.0/components/app-bar.txt",
+      "bytes": 6705,
+      "sha256": "aa0d235dbf3c5ae3134f936b8a3ec7dd4a3c417320c166b10780437d0a17cebb"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "appearance",
-      "path": "/packages/brick/0.1.12/components/appearance.txt",
-      "bytes": 6921,
-      "sha256": "deb2df979fc3823504bf663efbed6a0d8c708a21c046094eaf0858f484fa7521"
+      "path": "/packages/brick/0.2.0/components/appearance.txt",
+      "bytes": 6920,
+      "sha256": "c8b5cf2adc52fa5c2813045c55f1c609324cd39084c57a0f71347905ccdc8df9"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "aspect-ratio",
-      "path": "/packages/brick/0.1.12/components/aspect-ratio.txt",
-      "bytes": 7910,
-      "sha256": "18c3249cfba08c560b0ccb5adcd4fdc68afc1f4fcf57be2b0ccdf6258a1637ae"
+      "path": "/packages/brick/0.2.0/components/aspect-ratio.txt",
+      "bytes": 7909,
+      "sha256": "be2a0480be766dfdfdeb78111870ecd5709dfbe455bfe8e4720ac88e0987f8d0"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "avatar",
-      "path": "/packages/brick/0.1.12/components/avatar.txt",
-      "bytes": 7054,
-      "sha256": "812200e209fd0ebd1c8b4dcf5d6c0593ea6ad367cf8fdd9b71a5fb736df6f65c"
+      "path": "/packages/brick/0.2.0/components/avatar.txt",
+      "bytes": 7053,
+      "sha256": "bf216bb30a50e488483726402dbe9cad7f62484254c75b40ccaa6e0a10ef51b6"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "badge",
-      "path": "/packages/brick/0.1.12/components/badge.txt",
-      "bytes": 6414,
-      "sha256": "67876b84fd28048799ca0e8c711d1f4fa1bfcdc9d7a7816fcc82b66447ac8692"
+      "path": "/packages/brick/0.2.0/components/badge.txt",
+      "bytes": 6413,
+      "sha256": "cc8d412fbda69d3aafe873c6ce2d523754d5e832f1e930933ea95050131c6764"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "bleed",
-      "path": "/packages/brick/0.1.12/components/bleed.txt",
-      "bytes": 2853,
-      "sha256": "1cf2eca4b2a15d1a410a9bf5b06e5f13d96a8738d32ab7f3947a373b98f30b40"
+      "path": "/packages/brick/0.2.0/components/bleed.txt",
+      "bytes": 2852,
+      "sha256": "9bc7a5b4af196d3d34faa3169a6d1c82b5019d329737ab59f81921ad0ad100dd"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "blockquote",
-      "path": "/packages/brick/0.1.12/components/blockquote.txt",
-      "bytes": 4562,
-      "sha256": "03f251058f2f093240cbf0dceb7703005e7618c2a3c003b6e1b5a2324de0a4de"
+      "path": "/packages/brick/0.2.0/components/blockquote.txt",
+      "bytes": 4561,
+      "sha256": "2186931498a996295a8cf048427226ce4cd420b73f931ce5a0b2b87aab5fff83"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "bottom-navigation",
-      "path": "/packages/brick/0.1.12/components/bottom-navigation.txt",
-      "bytes": 3331,
-      "sha256": "099a57e44b1f47dbf25ecf9a114bcf9513cc654026eb954faa127b3d9a0806bf"
+      "path": "/packages/brick/0.2.0/components/bottom-navigation.txt",
+      "bytes": 3330,
+      "sha256": "d5bbe4440d7afdb05679a185376763776bdcfd03f10a707d85ffec7302ac325f"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "breadcrumb",
-      "path": "/packages/brick/0.1.12/components/breadcrumb.txt",
-      "bytes": 2862,
-      "sha256": "c44c1db9678e06a216e8daa8f00b2361bc4fe0168f78041ef61c109b28e029a3"
+      "path": "/packages/brick/0.2.0/components/breadcrumb.txt",
+      "bytes": 2861,
+      "sha256": "ff46dd9fa625546df1a7b445bcd1ebed472dc69a63ae52bf1f8902b2d14a795a"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "button",
-      "path": "/packages/brick/0.1.12/components/button.txt",
-      "bytes": 3389,
-      "sha256": "9854ece22697d5d177b8ae9f707c297e15e04719f9a8593c75f43a4fcf119861"
+      "path": "/packages/brick/0.2.0/components/button.txt",
+      "bytes": 3388,
+      "sha256": "23c39d6d3ff9e9e78752bb2a3317f32a9b75c61a27ca9923a8c923242755c12c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "card",
-      "path": "/packages/brick/0.1.12/components/card.txt",
-      "bytes": 5687,
-      "sha256": "10b8e4513ee12221b36d403a4448d6bec4326d509d5039d1447a3ce884a1f46c"
+      "path": "/packages/brick/0.2.0/components/card.txt",
+      "bytes": 5686,
+      "sha256": "194b9ec27939c48ea881a941c07e23815bb7ef5b556dbc2d2fa4d2669233f762"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "carousel",
-      "path": "/packages/brick/0.1.12/components/carousel.txt",
-      "bytes": 12462,
-      "sha256": "6e9aa446d5cac1de1a4461a3efefc2f9526bd3c7391888aba0dd5244fe01eb5d"
+      "path": "/packages/brick/0.2.0/components/carousel.txt",
+      "bytes": 12461,
+      "sha256": "745753d45a734bfeab2ec690767c67467a78d5e6c000c2534dbe6e0f1d4425e1"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "checkbox-group",
-      "path": "/packages/brick/0.1.12/components/checkbox-group.txt",
-      "bytes": 8938,
-      "sha256": "66041031b0768bbbb605d5da5a7b3909cfb7a5332dae86c5f980ae1912dafd6e"
+      "path": "/packages/brick/0.2.0/components/checkbox-group.txt",
+      "bytes": 8937,
+      "sha256": "9a6ee1aa214a5a0bec32ee586b1a72c81e25f474da6539574b7afddd5b7650ef"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "checkbox",
-      "path": "/packages/brick/0.1.12/components/checkbox.txt",
-      "bytes": 2895,
-      "sha256": "504ecbbdb249ed41bc1e20a2f2b49bac71328ae41373dd331bc60e1c5cd48f70"
+      "path": "/packages/brick/0.2.0/components/checkbox.txt",
+      "bytes": 2894,
+      "sha256": "c0d2a422941114f84d52d4b8e881d0017bf4445e34afe00a19fed5aed64cfcd8"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "chip",
-      "path": "/packages/brick/0.1.12/components/chip.txt",
-      "bytes": 5304,
-      "sha256": "b2e9d5a23492b13571045284f3b68a5fd302830d3073cabd2343ee018375232e"
+      "path": "/packages/brick/0.2.0/components/chip.txt",
+      "bytes": 5303,
+      "sha256": "54c5a1ef5394cbb41db977f4bcb82a825cb3b6c175be41144574c41dbdadbb5a"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "code-block",
-      "path": "/packages/brick/0.1.12/components/code-block.txt",
-      "bytes": 8937,
-      "sha256": "ef6e780a22c1c2998dde976a4e27234cb2acea84d3aae390ea783ef6137a6920"
+      "path": "/packages/brick/0.2.0/components/code-block.txt",
+      "bytes": 8936,
+      "sha256": "bd9563b93290b7157575cf2df25e3043a8ad8ccd397c4c028ecd75846d15f9ce"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "code",
-      "path": "/packages/brick/0.1.12/components/code.txt",
-      "bytes": 5300,
-      "sha256": "83bcd15e87c68591006af64ca818a172ed4c74e43818e829ed04a67dad03c8a5"
+      "path": "/packages/brick/0.2.0/components/code.txt",
+      "bytes": 5299,
+      "sha256": "b17a16b9f0c990af0167f4128c933a57cb12f160bd5972271fc851108e736207"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "collapsible",
-      "path": "/packages/brick/0.1.12/components/collapsible.txt",
-      "bytes": 9541,
-      "sha256": "52dd6fa2b3d5005c676c3530afb46a74b0abd6718fbab390f77c8a8be5a2c119"
+      "path": "/packages/brick/0.2.0/components/collapsible.txt",
+      "bytes": 9540,
+      "sha256": "3107e1768d95063eebebc01c5015adb27abc05894618ed33941464921aed0741"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "color-picker",
-      "path": "/packages/brick/0.1.12/components/color-picker.txt",
-      "bytes": 5585,
-      "sha256": "b502323b5d7f8b434413f67f3a1d1afde7295942e20b6fcab2f7307fc2b49f96"
+      "path": "/packages/brick/0.2.0/components/color-picker.txt",
+      "bytes": 7274,
+      "sha256": "d988ed543edb018ea1463e5c99461ace622807641da0b3db7c042196b3b707f5"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "color-swatch",
-      "path": "/packages/brick/0.1.12/components/color-swatch.txt",
-      "bytes": 2947,
-      "sha256": "28590394fc6c95e21104dcdf3a71079bce5de5eb3b93baeced8cdabbe14bc827"
+      "path": "/packages/brick/0.2.0/components/color-swatch.txt",
+      "bytes": 3895,
+      "sha256": "18d62ac59d7be3fca78c2c74fff1d0a359cc1b905e64eb70a5238fb536f708b1"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "combobox",
-      "path": "/packages/brick/0.1.12/components/combobox.txt",
-      "bytes": 8969,
-      "sha256": "b2cbb452f9359e3e529b2d9eaf0a7b7a18ebdd3399f73aaf7c1c1dddf9b4bbbb"
+      "path": "/packages/brick/0.2.0/components/combobox.txt",
+      "bytes": 8968,
+      "sha256": "b40da961e4845e56f66049df42e6d289c8eee2c5b5be6fbf967eed6ea82075cd"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "container",
-      "path": "/packages/brick/0.1.12/components/container.txt",
-      "bytes": 4015,
-      "sha256": "338f70ae19dc7cb67924e9dec3bdb0fa4cef048dbbafd09ca6c5d96387dfe75d"
+      "path": "/packages/brick/0.2.0/components/container.txt",
+      "bytes": 4014,
+      "sha256": "c6187bc827e217e6fb84b26da7cf2845b454db35a17bd0a493d50007ec746e19"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "context-menu",
-      "path": "/packages/brick/0.1.12/components/context-menu.txt",
-      "bytes": 10644,
-      "sha256": "b3de11e1269018a47146c4d0b4b3074c8e474d7923a9878d38134d811eea1d5e"
+      "path": "/packages/brick/0.2.0/components/context-menu.txt",
+      "bytes": 10643,
+      "sha256": "2ba29f77aca95ebac2db9f07efd402eb1fb9efd49635b8d862c1f97d22975764"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "data-grid",
-      "path": "/packages/brick/0.1.12/components/data-grid.txt",
-      "bytes": 11950,
-      "sha256": "9955bd3a65737fe970f5745971107eef9e760819944a996b2d2f268357443c4a"
+      "path": "/packages/brick/0.2.0/components/data-grid.txt",
+      "bytes": 11949,
+      "sha256": "23bba6b09d9f262e95f74bb8d805a7067444536ca39d615c00ce599f1d2d8ead"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "data-list",
-      "path": "/packages/brick/0.1.12/components/data-list.txt",
-      "bytes": 4018,
-      "sha256": "5ef97aa304fb2847dc3fd4c8da630e7b693627b62b75c02c86210fa208b4f418"
+      "path": "/packages/brick/0.2.0/components/data-list.txt",
+      "bytes": 4017,
+      "sha256": "efbb224a58f44cfd3f661d29fb6d012eb602bc763129fc33ce623f865807ccbe"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "dialog",
-      "path": "/packages/brick/0.1.12/components/dialog.txt",
-      "bytes": 10011,
-      "sha256": "47bff54ee39a907a0ee8b7865f4f03c401a8d52349ad8f070ea9ccd16d41c7b9"
+      "path": "/packages/brick/0.2.0/components/dialog.txt",
+      "bytes": 10010,
+      "sha256": "3cdbb619a0cda6044a7e6ef520ed0dc3b30f766b58e358c63fa98d9043d7e171"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "divider",
-      "path": "/packages/brick/0.1.12/components/divider.txt",
-      "bytes": 3472,
-      "sha256": "428e12fda3489a583a8a225afc0787a45aa050c7cac43676255c72d3ae3a852a"
+      "path": "/packages/brick/0.2.0/components/divider.txt",
+      "bytes": 3471,
+      "sha256": "de33e911f199fac1af1070a6c1ec68109ccb998d28096fc86a0be2cf0dfb8978"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "drawer",
-      "path": "/packages/brick/0.1.12/components/drawer.txt",
-      "bytes": 7271,
-      "sha256": "4529a14d72b21aa4f912b715016a77bba95ef2b37a9c8f9dd44c3f3aa220835d"
+      "path": "/packages/brick/0.2.0/components/drawer.txt",
+      "bytes": 7270,
+      "sha256": "84c298cc70a2fdea997529cf0345273e8305b6ee28c77dcac941ed9388ce48ef"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "dropdown-menu",
-      "path": "/packages/brick/0.1.12/components/dropdown-menu.txt",
-      "bytes": 10963,
-      "sha256": "5d95745984bd3d39896f11d6aef845856c31ed7bb37e174cc12dfd93731dbf7b"
+      "path": "/packages/brick/0.2.0/components/dropdown-menu.txt",
+      "bytes": 10962,
+      "sha256": "6f932e302ca3a94ce3287460d44b4b6487df94760f193180d780c7f6747c8345"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "em",
-      "path": "/packages/brick/0.1.12/components/em.txt",
-      "bytes": 3598,
-      "sha256": "27b0f0f061fca49845e11cd0fad51b2242e54cff7cff9680f393807dc42507d9"
+      "path": "/packages/brick/0.2.0/components/em.txt",
+      "bytes": 3597,
+      "sha256": "ee5f49859246123e30775ffdb58cd2e1b7c188118cfcfee921c38073cb66a18d"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "feed",
-      "path": "/packages/brick/0.1.12/components/feed.txt",
-      "bytes": 7053,
-      "sha256": "575ac906ead6160a500ba95210bb858db3ff931cc05ed16af757d98c8b16fae1"
+      "path": "/packages/brick/0.2.0/components/feed.txt",
+      "bytes": 7052,
+      "sha256": "b7905830b39449414bb820cbdc63214c524aa5ec5c131a27a0e56ad91e7e1b84"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "field",
-      "path": "/packages/brick/0.1.12/components/field.txt",
-      "bytes": 3322,
-      "sha256": "97348b2ae5811af1cf69ef107186fe24bc60541fcc6bebdc7338c3072e899964"
+      "path": "/packages/brick/0.2.0/components/field.txt",
+      "bytes": 3321,
+      "sha256": "5dfd4164200164c179ec505e073465ac9ca2e89efecf118be5f677a42874d14c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "fieldset",
-      "path": "/packages/brick/0.1.12/components/fieldset.txt",
-      "bytes": 2576,
-      "sha256": "72ded5f612be94542657ffedf455e317fd872ba450f041841ce170d9a34c8506"
+      "path": "/packages/brick/0.2.0/components/fieldset.txt",
+      "bytes": 2575,
+      "sha256": "03564688d72f50227ba214e5dd816a425d6b3c7fa13d4d211a48c75c9c00980a"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "file-upload",
-      "path": "/packages/brick/0.1.12/components/file-upload.txt",
-      "bytes": 10232,
-      "sha256": "cc844a7ad9b5cc5af25dfa8251dbb1b6aaf49579d075314572133318c551717e"
+      "path": "/packages/brick/0.2.0/components/file-upload.txt",
+      "bytes": 10231,
+      "sha256": "d0c8a11bba24536a7954c368fcfc0298844744dd1730f922aa2945f0c92220f7"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "form",
-      "path": "/packages/brick/0.1.12/components/form.txt",
-      "bytes": 3441,
-      "sha256": "281e497094b4f0b2781dadb961143acb8bd4a6523b4ce57d8dbdc0339e5fa628"
+      "path": "/packages/brick/0.2.0/components/form.txt",
+      "bytes": 3440,
+      "sha256": "8e8a0bd71dcc43cad70ea122ec7db5eab783c343553f6dae4b7a41eb4d237e99"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "frame",
-      "path": "/packages/brick/0.1.12/components/frame.txt",
-      "bytes": 4964,
-      "sha256": "8ef03cadae28b45d623a664f3790cda404e8a2b8c4d1624bfcae0dc5d3519f7c"
+      "path": "/packages/brick/0.2.0/components/frame.txt",
+      "bytes": 4963,
+      "sha256": "3a9f104a67de05d09854a04d01a278793e7c8ae248ad4053f4a29a3a84a64ba4"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "grid",
-      "path": "/packages/brick/0.1.12/components/grid.txt",
-      "bytes": 6363,
-      "sha256": "c9a9990fca238145843d00c00d6fbf57df8bd54168c75071d7e82583bb4e2fb2"
+      "path": "/packages/brick/0.2.0/components/grid.txt",
+      "bytes": 6362,
+      "sha256": "838cfac325e681682aa303f99d69f72618ae480d501b1c30f2e20b642a5edbae"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "group",
-      "path": "/packages/brick/0.1.12/components/group.txt",
-      "bytes": 5677,
-      "sha256": "dc3ef82147b73c46c3b2cce306776bdb1c805656edd8743b24f2dba37f452742"
+      "path": "/packages/brick/0.2.0/components/group.txt",
+      "bytes": 5676,
+      "sha256": "0b80df4b9b6985fd7f28176e54c3a8b9c06c8418d7956032d497e3c30cc30017"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "hide",
-      "path": "/packages/brick/0.1.12/components/hide.txt",
-      "bytes": 4480,
-      "sha256": "3a3b46d3c94b6226a49df22470298a496793743dd71b1a905a13dd01a0609939"
+      "path": "/packages/brick/0.2.0/components/hide.txt",
+      "bytes": 4479,
+      "sha256": "e7c762441fee591b2977b51b66c3ea894902c6f2101fbfbe0cfa8918385d1760"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "highlight",
-      "path": "/packages/brick/0.1.12/components/highlight.txt",
-      "bytes": 5137,
-      "sha256": "1b24b5e17c09e3b4e7ab180f91a32fee6ecb4c6d76721212d32dcaca7ce5c07d"
+      "path": "/packages/brick/0.2.0/components/highlight.txt",
+      "bytes": 5136,
+      "sha256": "efc362045a5a213c63eae0cc575ffac4a52569bab713c7650402a2116b34244c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "hover-card",
-      "path": "/packages/brick/0.1.12/components/hover-card.txt",
-      "bytes": 9197,
-      "sha256": "03c87ca3db2ccd067356792b3e075c15aad2c3290a01a4293b6506555d23d71e"
+      "path": "/packages/brick/0.2.0/components/hover-card.txt",
+      "bytes": 9196,
+      "sha256": "7cabd2295d7b78b87c995d103c8941590a8886aa1ebaf4f4e853da2d9a620bde"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "icon-button",
-      "path": "/packages/brick/0.1.12/components/icon-button.txt",
-      "bytes": 5178,
-      "sha256": "3d8f3a614e1e9ea104952707034dd3f89fcdd48ddb7094fc7620fd49e77baf5b"
+      "path": "/packages/brick/0.2.0/components/icon-button.txt",
+      "bytes": 5177,
+      "sha256": "19739edf4850a92d2955d91804c609cc919f7cf46e4f8538ba38c0ef76d5912b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "icon",
-      "path": "/packages/brick/0.1.12/components/icon.txt",
-      "bytes": 7480,
-      "sha256": "558ff9bb05ab26210fa9cf84d21ed25e85e85c61e6e3efd79a476c1cac167875"
+      "path": "/packages/brick/0.2.0/components/icon.txt",
+      "bytes": 7479,
+      "sha256": "f3789c9a9b938ba2140ac47ba69c7db1ad5030ea180bbf20ce00671789177308"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "image",
-      "path": "/packages/brick/0.1.12/components/image.txt",
-      "bytes": 9585,
-      "sha256": "b845a24836f75af74b59caa8a069c34c589baad8b4f35872714cef5d3bd2070c"
+      "path": "/packages/brick/0.2.0/components/image.txt",
+      "bytes": 9584,
+      "sha256": "2cf03bdf6c13838799523f9a8c403e67d9544cadef351f4ab68c5ac6d0ff50ee"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "input",
-      "path": "/packages/brick/0.1.12/components/input.txt",
-      "bytes": 3005,
-      "sha256": "48d1fb4a422cb4714683b051c83a6f2d60ab189a204448a2657982a06c6a9458"
+      "path": "/packages/brick/0.2.0/components/input.txt",
+      "bytes": 3004,
+      "sha256": "fbab7a0329df4c8d19d8ff5f2494d3e2c67e13d01bee0fa3f51a0781c9bfa915"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "kbd",
-      "path": "/packages/brick/0.1.12/components/kbd.txt",
-      "bytes": 3720,
-      "sha256": "7ba770654f8d587feec50e110f3ab7e90f6e242d3db43527086f7ee868c5997c"
+      "path": "/packages/brick/0.2.0/components/kbd.txt",
+      "bytes": 3719,
+      "sha256": "f8505b788ce67ddb23966cc2c32643bc461f7089646173951529dd8f4309db1f"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "link-box",
-      "path": "/packages/brick/0.1.12/components/link-box.txt",
-      "bytes": 7888,
-      "sha256": "9c2951a7c960796dd84e01f7c2f917bea51b165777fe922a50e5ef2043cd6510"
+      "path": "/packages/brick/0.2.0/components/link-box.txt",
+      "bytes": 7887,
+      "sha256": "34bea0d383cc88a1f2cd8277b6e4803851b5218976822efcd414076474c304b4"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "link",
-      "path": "/packages/brick/0.1.12/components/link.txt",
-      "bytes": 7113,
-      "sha256": "50e73a9c5389c074d093c09ea4abab1f7e28c19c896d21f54e74d706bb88c8b0"
+      "path": "/packages/brick/0.2.0/components/link.txt",
+      "bytes": 7112,
+      "sha256": "970944b7a6ba8ef6174213c28a40c6f7d7fff76faadeeb54c3e3443f21b16cd3"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "list",
-      "path": "/packages/brick/0.1.12/components/list.txt",
-      "bytes": 6618,
-      "sha256": "a1f4ff1ab34fcb50015f7152bacc9c635002c8f82fb26e6a000b490803438baa"
+      "path": "/packages/brick/0.2.0/components/list.txt",
+      "bytes": 6617,
+      "sha256": "ee6c9cad07fb8f76cb11169e0833a955d4b8183d19ac3a2ebff3aeb805866d22"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "mark",
-      "path": "/packages/brick/0.1.12/components/mark.txt",
-      "bytes": 2854,
-      "sha256": "0e301a620dae18b492fc7ce4e2e6ddc03dcece0112840adc9388bbb8a8fdb4a7"
+      "path": "/packages/brick/0.2.0/components/mark.txt",
+      "bytes": 2853,
+      "sha256": "b22cb1e7fc84f07352726716be96b28ada79623984cf75ac43802b25f690f380"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "menubar",
-      "path": "/packages/brick/0.1.12/components/menubar.txt",
-      "bytes": 10194,
-      "sha256": "51b164385e1f70addea1d1a69c24076aa2ed357d6d9d2047b44bb12c029eb782"
+      "path": "/packages/brick/0.2.0/components/menubar.txt",
+      "bytes": 10193,
+      "sha256": "5ba2793f48e611cdb10c24ccd34d197c9efab8b20b958c6ea733c1906fb7be17"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "multi-select",
-      "path": "/packages/brick/0.1.12/components/multi-select.txt",
-      "bytes": 9020,
-      "sha256": "7c6926b9743102e5212558a660665aea5d36ad09b6804def2fa838542688b19f"
+      "path": "/packages/brick/0.2.0/components/multi-select.txt",
+      "bytes": 9019,
+      "sha256": "7532d05cb135187c8b13146d9e27d611b3343e29c24fb522d7160924375d6cd5"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "nav-list",
-      "path": "/packages/brick/0.1.12/components/nav-list.txt",
-      "bytes": 6917,
-      "sha256": "2c2b28dc206f6c8edad17d887f5d6b411d0ac13eb892d08b39dd20f858f5443c"
+      "path": "/packages/brick/0.2.0/components/nav-list.txt",
+      "bytes": 6916,
+      "sha256": "a9c1cbcea7fb8be63c6d4184e0206ea605f8b9043b24bd9e1d4cba27ff5c9a03"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "navigation-menu",
-      "path": "/packages/brick/0.1.12/components/navigation-menu.txt",
-      "bytes": 8456,
-      "sha256": "fc6c922640c82c2ac9c337986e937c2b81eb0ecab0ff0bc49163ceff3d73b8f3"
+      "path": "/packages/brick/0.2.0/components/navigation-menu.txt",
+      "bytes": 8455,
+      "sha256": "ee4d9139e2a06502ff6358b1e604419c3f5af28f2a9c69a4fec2b04c114e4f6d"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "notification-badge",
-      "path": "/packages/brick/0.1.12/components/notification-badge.txt",
-      "bytes": 9298,
-      "sha256": "70a219d697a3d27ff893cec3bdb74108e82b43a17f098f778762f5a0fbf4c182"
+      "path": "/packages/brick/0.2.0/components/notification-badge.txt",
+      "bytes": 9297,
+      "sha256": "1a96c25b1cb06ee135a8bea5363a7d424b16c7e97a5ce00a7ef299147314769b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "number-input",
-      "path": "/packages/brick/0.1.12/components/number-input.txt",
-      "bytes": 8896,
-      "sha256": "9a3c7ab1ac7f0a03bc60297af59547448b7e30bdacaed383f17ae333cbeb4339"
+      "path": "/packages/brick/0.2.0/components/number-input.txt",
+      "bytes": 8895,
+      "sha256": "ba11ddbbb552de54c69336c455e21cc26d1102ca287f94566b75975e5f5dafbd"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "otp-field",
-      "path": "/packages/brick/0.1.12/components/otp-field.txt",
-      "bytes": 9132,
-      "sha256": "e9eeefce948b24edf7c168f402e1b97af5e642fc430012789d767419088cea76"
+      "path": "/packages/brick/0.2.0/components/otp-field.txt",
+      "bytes": 9131,
+      "sha256": "be14be0155e0318bb391919847fe8e2fa1a994a5da22a69a0981a46cda67aeb4"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "pagination",
-      "path": "/packages/brick/0.1.12/components/pagination.txt",
-      "bytes": 5710,
-      "sha256": "3014cc88c76bae247c4110ea4c8346fc177102af1388e3f60f2ffc9999c49b07"
+      "path": "/packages/brick/0.2.0/components/pagination.txt",
+      "bytes": 5709,
+      "sha256": "e70628ca818d1a0830692945b5860b47452507f9636c11e10c609262f5fa446c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "password-toggle-field",
-      "path": "/packages/brick/0.1.12/components/password-toggle-field.txt",
-      "bytes": 8496,
-      "sha256": "910aa90373d743954bde4aa2ed9b419d7c451ec76b0b35d64ba0e050994aa4ec"
+      "path": "/packages/brick/0.2.0/components/password-toggle-field.txt",
+      "bytes": 8495,
+      "sha256": "7d635b3c30038637a35cef4b3ed2dd97fc2988fd5c1fe33f3e8f1e3f3b0c8eea"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "popover",
-      "path": "/packages/brick/0.1.12/components/popover.txt",
-      "bytes": 11049,
-      "sha256": "cd895c2bd7a1c454539dca965082754e90d34fd3e711d9fbaa56252bc5a25a05"
+      "path": "/packages/brick/0.2.0/components/popover.txt",
+      "bytes": 11048,
+      "sha256": "66fd7c5355df51193e53ee21bd4a61843bc79b49f12005200f9f68c4c6fa09ab"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "progress-circle",
-      "path": "/packages/brick/0.1.12/components/progress-circle.txt",
-      "bytes": 8463,
-      "sha256": "fee6139f4d1a30c5e19aba401c72ba22e110191d74d7ede13777a68c0b1cd2b4"
+      "path": "/packages/brick/0.2.0/components/progress-circle.txt",
+      "bytes": 8462,
+      "sha256": "669adc84351650165143ad6b84a54eaf269b518b957f99bbd3780cbf0ce2bc1b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "progress",
-      "path": "/packages/brick/0.1.12/components/progress.txt",
-      "bytes": 9003,
-      "sha256": "787595ca7c8a066fce4b490aaba325f3853e007128aa13eb0115b4c873ac951e"
+      "path": "/packages/brick/0.2.0/components/progress.txt",
+      "bytes": 9002,
+      "sha256": "3d2553ff9767a642dde97c6c9475d5e96ec73d40e30150ec9274b4cb63b54f6c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "prose",
-      "path": "/packages/brick/0.1.12/components/prose.txt",
-      "bytes": 5598,
-      "sha256": "623d3287ba22118b80bac691c64bc35cbbf3257418c72b0e9e29a3076e17b4e3"
+      "path": "/packages/brick/0.2.0/components/prose.txt",
+      "bytes": 5597,
+      "sha256": "76c452843402257b9d7daaff1294a679f3e6687aa59094a8f037dd14a3754430"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "radio-group",
-      "path": "/packages/brick/0.1.12/components/radio-group.txt",
-      "bytes": 8737,
-      "sha256": "abc4771cc54de053f3eee3d18b0fab11cfdc08e3ace54ab0671d128a51eeaeb1"
+      "path": "/packages/brick/0.2.0/components/radio-group.txt",
+      "bytes": 8736,
+      "sha256": "a6c48d85f3508db937bc17877149a119167beefdba1dba8da01ff1a4b64537e2"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "rating",
-      "path": "/packages/brick/0.1.12/components/rating.txt",
-      "bytes": 7592,
-      "sha256": "81e0838198c8a0d87442cf2d205da34ea51276bc366fc78303f489b2b111688e"
+      "path": "/packages/brick/0.2.0/components/rating.txt",
+      "bytes": 7591,
+      "sha256": "4f5536ce556c3c368bd4ba320936a6575f3464434e3c52f1db13cb5888594ae1"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "reorderable-list",
-      "path": "/packages/brick/0.1.12/components/reorderable-list.txt",
-      "bytes": 6147,
-      "sha256": "7ac0b9aee90e2783f12f22e2b990c9c9fe2c558c3824e9fa2398aad8a33f93f4"
+      "path": "/packages/brick/0.2.0/components/reorderable-list.txt",
+      "bytes": 6146,
+      "sha256": "8b863befa6e88a033b3f847705fd9947cc9071ddc63dcdf3655955ff69153b94"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "scroll-area",
-      "path": "/packages/brick/0.1.12/components/scroll-area.txt",
-      "bytes": 3891,
-      "sha256": "31b4fbf6d282d2ee7cc61aea63f3d5b301800cc467c68ce5fb9e0622c7dd648b"
+      "path": "/packages/brick/0.2.0/components/scroll-area.txt",
+      "bytes": 3890,
+      "sha256": "9417dcf5136e87fab2740c3cad341d6f22787f588c8802485bdafb4143faa83b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "section",
-      "path": "/packages/brick/0.1.12/components/section.txt",
-      "bytes": 4719,
-      "sha256": "8079fbf417240ae2eafd00269a0bdfb4a9bc259e32183b88644221161794ae01"
+      "path": "/packages/brick/0.2.0/components/section.txt",
+      "bytes": 4718,
+      "sha256": "ef91f6d3168ddbe642aac8c7ba2ba0dbf9f9d3059933ff53f5285bb0dc5fdf9d"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "segment-group",
-      "path": "/packages/brick/0.1.12/components/segment-group.txt",
-      "bytes": 4655,
-      "sha256": "0df0c64fbdc6e086569d41e5410991963a640d97c5e9d3cbde260acdf8ca666e"
+      "path": "/packages/brick/0.2.0/components/segment-group.txt",
+      "bytes": 4654,
+      "sha256": "6b6fb35e8005a12b05d7f2bca056b2e96440e5c33eff1cffd0738eae731a8322"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "select",
-      "path": "/packages/brick/0.1.12/components/select.txt",
-      "bytes": 9093,
-      "sha256": "8f1c1477c940a1c611a056119c591f68260cbe1ea8769a6e3eaeaa54830b0da4"
+      "path": "/packages/brick/0.2.0/components/select.txt",
+      "bytes": 9092,
+      "sha256": "93c27aa76fd11f6487a3aefe8865bed9c65466a263e73c1da65a7573ff2f045a"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "show",
-      "path": "/packages/brick/0.1.12/components/show.txt",
-      "bytes": 4435,
-      "sha256": "9d97baf28be7e24618845a6bd7cc68c77bb4e5389b56dfe15dd3546bc04a1557"
+      "path": "/packages/brick/0.2.0/components/show.txt",
+      "bytes": 4434,
+      "sha256": "f064b2d0defa549349034c56887b614284f5f3bab1d948fac0cae8c0fada3709"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "sidebar",
-      "path": "/packages/brick/0.1.12/components/sidebar.txt",
-      "bytes": 5402,
-      "sha256": "754315473ee6c8246a618fb13b13874378110fddb6350a535d7167893a8f0ed6"
+      "path": "/packages/brick/0.2.0/components/sidebar.txt",
+      "bytes": 5401,
+      "sha256": "5b8376329be5b3336be700d28897fc4fda1c863e631f4c643e4be36e45dbbca9"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "skeleton",
-      "path": "/packages/brick/0.1.12/components/skeleton.txt",
-      "bytes": 5724,
-      "sha256": "2bacfa8b36dfdf938c63c9f9a1fd78a2c28bc86ca93ccaf38e08db7e534ca8b0"
+      "path": "/packages/brick/0.2.0/components/skeleton.txt",
+      "bytes": 5723,
+      "sha256": "f125bf4aa8989fcd6da84fc4f36b4de7092eefe1a5b20994aa82ab2dfea3dddd"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "skip-link",
-      "path": "/packages/brick/0.1.12/components/skip-link.txt",
-      "bytes": 2961,
-      "sha256": "57955f8ba4fd5af6b448ee8884f57a46935a48a1258b492e55984a5937d30bc8"
+      "path": "/packages/brick/0.2.0/components/skip-link.txt",
+      "bytes": 2960,
+      "sha256": "8c19fc54a86958c4b073a97f40b987ee5fc55328fd8918e50a78d0b4d52f5019"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "slider",
-      "path": "/packages/brick/0.1.12/components/slider.txt",
-      "bytes": 6647,
-      "sha256": "48d986f941049a1f74eeca3dc6ce13cdd5262c36d6a713739e92f3779c61a2e3"
+      "path": "/packages/brick/0.2.0/components/slider.txt",
+      "bytes": 6646,
+      "sha256": "b0af2227fac920b74689ae82071544911a5b033d8bd4ea05b74f6ee03de00a6b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "stack",
-      "path": "/packages/brick/0.1.12/components/stack.txt",
-      "bytes": 7357,
-      "sha256": "f340a53a81a4884ef7b82ee0e6077a2e3bc59bc4c25b02d3b5b6b65a54e643db"
+      "path": "/packages/brick/0.2.0/components/stack.txt",
+      "bytes": 7356,
+      "sha256": "f8ed3095975ae4afa965d37a3ada7a377cabc9e3c887a55e1d24c0926d13b1c8"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "status",
-      "path": "/packages/brick/0.1.12/components/status.txt",
-      "bytes": 4431,
-      "sha256": "69812680ea6bbe7d98d7ee4d351fab7db9be03b1402a556e59ea3304dad7de4f"
+      "path": "/packages/brick/0.2.0/components/status.txt",
+      "bytes": 4430,
+      "sha256": "92a71704f0561955e7fb1e8f73e50cbdd6cf5a68a57cf2b47c23d00ce9119238"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "surface",
-      "path": "/packages/brick/0.1.12/components/surface.txt",
-      "bytes": 10438,
-      "sha256": "860abe1b2147fc1044445cf56a6ea527ee53eb59998503a27b4308726288efa3"
+      "path": "/packages/brick/0.2.0/components/surface.txt",
+      "bytes": 10437,
+      "sha256": "2fc3c635da1390cd84cdd63627793e3e47e6d871f35efea9871647b10235b985"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "swipeable-item",
-      "path": "/packages/brick/0.1.12/components/swipeable-item.txt",
-      "bytes": 9381,
-      "sha256": "959134afd51b273c0613b0549eebc82f776b80c40fb5e47044ce19ca2bd82f7b"
+      "path": "/packages/brick/0.2.0/components/swipeable-item.txt",
+      "bytes": 9380,
+      "sha256": "4b66144b454b7d341dab3a13d0d6cb05e03b36d658a185b20b79f1f72a6f5997"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "switch",
-      "path": "/packages/brick/0.1.12/components/switch.txt",
-      "bytes": 8442,
-      "sha256": "131142235e24c7143962f3cc958f93ca0b3d4229e936f38b143efb2feb9982f3"
+      "path": "/packages/brick/0.2.0/components/switch.txt",
+      "bytes": 8441,
+      "sha256": "37144bf8a9f2ae2b32b1286d0785d01180ee7ddfe829f2a84c44318eea782b3f"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "table",
-      "path": "/packages/brick/0.1.12/components/table.txt",
-      "bytes": 11373,
-      "sha256": "771e3db0055b8c8b91f776b713dd32f33631072c6ed0bfbc73142862d7b6e76a"
+      "path": "/packages/brick/0.2.0/components/table.txt",
+      "bytes": 11372,
+      "sha256": "04603e49febf2af6516a6d2335156dc7327348ec0cf08c96b4f9c6cb38557ca4"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "tabs",
-      "path": "/packages/brick/0.1.12/components/tabs.txt",
-      "bytes": 7382,
-      "sha256": "177fbffe8cfd343e35a27efaac344aec62cf0618f26fbe34730a80078e88b7e0"
+      "path": "/packages/brick/0.2.0/components/tabs.txt",
+      "bytes": 7381,
+      "sha256": "a1209fe0ae4a0ce4a889c788c86834d8b898ee0b3d492c97c98bd83992b22a0c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "text",
-      "path": "/packages/brick/0.1.12/components/text.txt",
-      "bytes": 8966,
-      "sha256": "f89b1d6a64598f29e5682d7d378f9787bf1c855ac89e41dac37d6334f17c3c01"
+      "path": "/packages/brick/0.2.0/components/text.txt",
+      "bytes": 8965,
+      "sha256": "17d25cbf61b5b378e07b4e499971cefeef699fc28522452ce36fc3d72aaa837c"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "textarea",
-      "path": "/packages/brick/0.1.12/components/textarea.txt",
-      "bytes": 2664,
-      "sha256": "42b8b9b75298f90babeee4c0171c3c2f7a509783a6fce17fbe272acc53b46998"
+      "path": "/packages/brick/0.2.0/components/textarea.txt",
+      "bytes": 2663,
+      "sha256": "e6f56957ee6a7403ee78f807812cdce30a59f83c52260e22548b28cf256e18c5"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "toast",
-      "path": "/packages/brick/0.1.12/components/toast.txt",
-      "bytes": 9549,
-      "sha256": "c7245d73c2e86dce01f201b704ea8805afbed3e7a93f489837874edaf60f8f9f"
+      "path": "/packages/brick/0.2.0/components/toast.txt",
+      "bytes": 9548,
+      "sha256": "e9c52d7671b99461e15904c7bbf97a62d6d5b37ec7c68b1d1b58d6de0d0c57db"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "toggle-group",
-      "path": "/packages/brick/0.1.12/components/toggle-group.txt",
-      "bytes": 6453,
-      "sha256": "99f345788bb096223afccb21a85a155293624715676cbb607c0aa3b34e028619"
+      "path": "/packages/brick/0.2.0/components/toggle-group.txt",
+      "bytes": 6452,
+      "sha256": "d60692374ab8db3f45e5004c89fa5b31fe0b832169c2b9fa6d8eeea9decb533b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "toggle",
-      "path": "/packages/brick/0.1.12/components/toggle.txt",
-      "bytes": 5410,
-      "sha256": "684f5fbaf781f1c1337057c7e7c506e2783552f7db69fc24832bf45d2e80f746"
+      "path": "/packages/brick/0.2.0/components/toggle.txt",
+      "bytes": 5409,
+      "sha256": "8ce608a30814e71e051b85e391d7f912612618f1ac70bca1e93e7f6117f12a94"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "toolbar",
-      "path": "/packages/brick/0.1.12/components/toolbar.txt",
-      "bytes": 4468,
-      "sha256": "b7d1fe74eb0175cc3f6f76bd77a32058c66f450233800c3eff4ce7c835c02f4a"
+      "path": "/packages/brick/0.2.0/components/toolbar.txt",
+      "bytes": 4467,
+      "sha256": "61b95b0fa20559aaebc74af707955db460a046ab91202f4af3cd304f2c51a80d"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "tooltip",
-      "path": "/packages/brick/0.1.12/components/tooltip.txt",
-      "bytes": 9751,
-      "sha256": "2b323e5d2b1e45d8cfb0083295d83974278128590ee6fe9bbe6452d557124c54"
+      "path": "/packages/brick/0.2.0/components/tooltip.txt",
+      "bytes": 9750,
+      "sha256": "86181b2bacd52731cd5d49708d92fad4ea5e2dc7880e5fd313d892a8d2690c82"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "tree-grid",
-      "path": "/packages/brick/0.1.12/components/tree-grid.txt",
-      "bytes": 10876,
-      "sha256": "be550736bde871f4d07d0ebe2a1e2cc046af2801afb58ee2db6d1a21850c4637"
+      "path": "/packages/brick/0.2.0/components/tree-grid.txt",
+      "bytes": 10875,
+      "sha256": "bef173f25a87f56ee7518c9bdac50a4da5e9e90fcab2a1f25cad6b5f0adc6e34"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "tree",
-      "path": "/packages/brick/0.1.12/components/tree.txt",
-      "bytes": 9816,
-      "sha256": "54dcf48b2886843aec59b17479983aa2565d97818104604acb18cbc0eb594c7e"
+      "path": "/packages/brick/0.2.0/components/tree.txt",
+      "bytes": 9815,
+      "sha256": "adf0436a2e3a80818542aae7043a10092863f062418bf3a271e972db176359de"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "visually-hidden",
-      "path": "/packages/brick/0.1.12/components/visually-hidden.txt",
-      "bytes": 5501,
-      "sha256": "6cf63a300c7b3539dac81109cd2207010aaa93e0ef39200313c1dc96da9cad8b"
+      "path": "/packages/brick/0.2.0/components/visually-hidden.txt",
+      "bytes": 5500,
+      "sha256": "46622f23bb64e00d5126ea92b39caf104063fb19d6435949bc4be47ebebdbf34"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "component",
       "id": "z-stack",
-      "path": "/packages/brick/0.1.12/components/z-stack.txt",
-      "bytes": 5611,
-      "sha256": "15c2e21e6d5f2d5e223a03aaa75ff336e577966c865facbbe83b368be3f1e108"
+      "path": "/packages/brick/0.2.0/components/z-stack.txt",
+      "bytes": 5610,
+      "sha256": "8f057f25d89a7d662f58592fbb5379686fd34e33b9d8547f41b47b368b46c366"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "document",
       "id": "guides/agent-knowledge",
-      "path": "/packages/brick/0.1.12/docs/guides/agent-knowledge.txt",
-      "bytes": 3488,
-      "sha256": "24ec336cdce271f0846a3df183826586d4bc75b21e5af0fcc522a71b836091fc"
+      "path": "/packages/brick/0.2.0/docs/guides/agent-knowledge.txt",
+      "bytes": 3487,
+      "sha256": "3b386242fe0288d0db816b28924b2ae3e2136d38219ec0f52f3697b1141ddf12"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "document",
       "id": "guides/appearance-and-tokens",
-      "path": "/packages/brick/0.1.12/docs/guides/appearance-and-tokens.txt",
-      "bytes": 6123,
-      "sha256": "d1defbfde7229f20386c4c3cdc78ce01da149eb3d8243186d291afd138e9e278"
+      "path": "/packages/brick/0.2.0/docs/guides/appearance-and-tokens.txt",
+      "bytes": 6122,
+      "sha256": "fe61cc22ee2b7b137cfb11fea3d0c71a3c0d0fd6e9d969fd428615875dc747d5"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "document",
       "id": "guides/browser-support",
-      "path": "/packages/brick/0.1.12/docs/guides/browser-support.txt",
-      "bytes": 1106,
-      "sha256": "1dfca7082e706d32e277f76ea96ff8dfe366944c1a6bae6c80d01ac4e82e24c0"
+      "path": "/packages/brick/0.2.0/docs/guides/browser-support.txt",
+      "bytes": 1105,
+      "sha256": "0d00346193200b922f8c34e2d7bbaefb48fe27a1d499a37169bc89ffba72c30d"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "document",
       "id": "guides/control-sizing",
-      "path": "/packages/brick/0.1.12/docs/guides/control-sizing.txt",
-      "bytes": 2585,
-      "sha256": "50c3f50581bfbcbfe2fe1a1bfe5e9ee77a538fc9059c97ab2cf87f830f39da48"
+      "path": "/packages/brick/0.2.0/docs/guides/control-sizing.txt",
+      "bytes": 2584,
+      "sha256": "c2b6e1c6a8f5e3267781bcc41eed147f9df749696473be744c95d5e2ff8deb01"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "document",
       "id": "guides/installation",
-      "path": "/packages/brick/0.1.12/docs/guides/installation.txt",
-      "bytes": 2940,
-      "sha256": "2c8eb938f20f364a14e4b7bb1d1f939c60e1556339958bbb4dfc7b022d32e350"
+      "path": "/packages/brick/0.2.0/docs/guides/installation.txt",
+      "bytes": 2939,
+      "sha256": "264c69ae7526a75e15d135b83f1f6933f84e3944c193c466fea0e8af81aff49b"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "document",
       "id": "guides/theme-contract",
-      "path": "/packages/brick/0.1.12/docs/guides/theme-contract.txt",
-      "bytes": 4471,
-      "sha256": "8c524d6abd4199d06283a3b1b583c0a10dda2a34622785303e87f6656111d01c"
+      "path": "/packages/brick/0.2.0/docs/guides/theme-contract.txt",
+      "bytes": 4470,
+      "sha256": "1c3259412af02d81ae37da02f0886ad4c1ce5bae6986690c28cde5c1d58aefa1"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "guide",
       "id": "interface-composition",
-      "path": "/packages/brick/0.1.12/guides/interface-composition.txt",
-      "bytes": 38362,
-      "sha256": "812483498a31667dd3b81ebfedf897d66108fd32bf0e469c0f5d651fa784d920"
+      "path": "/packages/brick/0.2.0/guides/interface-composition.txt",
+      "bytes": 38361,
+      "sha256": "517ef702951753963d54d6a03e6796edaeeea52b8eb8164e59d360a151df890d"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "guide",
       "id": "layer-selection",
-      "path": "/packages/brick/0.1.12/guides/layer-selection.txt",
-      "bytes": 54481,
-      "sha256": "ee2c197e899b3e51ac650e4583e07b83a45fdfe6c74914bb8cb0f6ee53fffe1f"
+      "path": "/packages/brick/0.2.0/guides/layer-selection.txt",
+      "bytes": 54480,
+      "sha256": "92cbcb75e22b0fbf7a2b19b44b6ae9010fa84866b597e9e99f6047bb7241ba86"
     },
     {
       "package": "brick",
-      "version": "0.1.12",
+      "version": "0.2.0",
       "kind": "package",
       "id": "brick",
-      "path": "/packages/brick/0.1.12/index.txt",
-      "bytes": 6672,
-      "sha256": "d3b6d822286c7b6e02fc60ed13e8039a17ff617c59fec3ea165fae9f8093be69"
+      "path": "/packages/brick/0.2.0/index.txt",
+      "bytes": 6568,
+      "sha256": "0f971525cb0619536c57331d900479418dfe102ec0b5c1add4d62c1af2855770"
     },
     {
       "package": "colors",
@@ -2084,8 +2084,8 @@
       "kind": "task",
       "id": "data",
       "path": "/tasks/data.txt",
-      "bytes": 2320,
-      "sha256": "5672e5937b56a529f514d716e4dbe828a9656e55c1f3a048389c8c525e249e6e"
+      "bytes": 2307,
+      "sha256": "b92b770a0935716d3b0cc21f3ecbb022041f95bd96d3d5b439657c6760bb95fd"
     },
     {
       "package": null,
@@ -2093,8 +2093,8 @@
       "kind": "task",
       "id": "forms",
       "path": "/tasks/forms.txt",
-      "bytes": 4377,
-      "sha256": "0b3696422591923443c5de9da8388cbdfddd1ef3b1075ecb91a370ad646b7b3c"
+      "bytes": 4352,
+      "sha256": "aa9f4df372f2692a6b87c3c746fbfb4df2c94f7f8e9cc211f3635ed32f520024"
     },
     {
       "package": null,
@@ -2102,8 +2102,8 @@
       "kind": "task",
       "id": "layout",
       "path": "/tasks/layout.txt",
-      "bytes": 2165,
-      "sha256": "919c012acb5635929c12f45077b08b0ca7924defca2348ce8efdcff6942be29c"
+      "bytes": 2149,
+      "sha256": "589547bb30b2f3fa495ad53f28f2cded21a0eb46bb851ba4727ed183332d32eb"
     },
     {
       "package": null,
@@ -2111,8 +2111,8 @@
       "kind": "task",
       "id": "navigation",
       "path": "/tasks/navigation.txt",
-      "bytes": 3318,
-      "sha256": "9dfac650783712f95fe3171712105292a723ccb587721f896c089a5bc2123bdf"
+      "bytes": 3300,
+      "sha256": "89ccc46277f696e5d58d109d7db8f384726e615bf0b5170fdd315caab85fb2c6"
     },
     {
       "package": null,
@@ -2120,8 +2120,8 @@
       "kind": "task",
       "id": "overlays",
       "path": "/tasks/overlays.txt",
-      "bytes": 2341,
-      "sha256": "02f1c1dac68d04689b7e15cc6683b3bbd33fac4a55df70e23c7052d207787a8c"
+      "bytes": 2330,
+      "sha256": "a6397c7c459745842ad50d7651d3df83a2ca486ccc6312df56bc54c51bd88ce1"
     },
     {
       "package": null,
@@ -2129,8 +2129,8 @@
       "kind": "task",
       "id": "theming",
       "path": "/tasks/theming.txt",
-      "bytes": 2212,
-      "sha256": "7f27d905eef5e9538f6a1a38d2f6c94d1cc7be49a269adc7fb63f2549716b125"
+      "bytes": 2210,
+      "sha256": "b7b8cc292b9a26cb0ab9baae158446fc4911d9cc76b5555735160dfe1d3c586e"
     }
   ]
 }
