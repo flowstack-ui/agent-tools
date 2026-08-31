@@ -8,8 +8,8 @@ Load only the routes required for the current job and preserve their exact packa
 
 Use Brick Color Picker and Color Swatch for finished interface selection and display; use Colors and Theme for authoring system values.
 
-- [brick/component/color-picker](/packages/brick/0.1.12/components/color-picker.txt)
-- [brick/component/color-swatch](/packages/brick/0.1.12/components/color-swatch.txt)
+- [brick/component/color-picker](/packages/brick/0.2.0/components/color-picker.txt)
+- [brick/component/color-swatch](/packages/brick/0.2.0/components/color-swatch.txt)
 
 ## Step 1: Colors candidate
 

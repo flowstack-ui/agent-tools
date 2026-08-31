@@ -1,0 +1,86 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "color-picker",
+  "name": "Color Picker",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Provide complete headless color selection with one shared color model, accessible area and channel interaction, alpha, format conversion, presets, optional positioned content, form submission, and progressive screen sampling.",
+  "useWhen": [
+    "A form, editor, or settings surface needs one selectable and editable color."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The interface only previews a color.",
+      "useInstead": "Brick Color Swatch"
+    },
+    {
+      "condition": "The product needs saved palettes, automatic names, contrast analysis, gradients, or persistence.",
+      "useInstead": "application or dedicated higher-layer state composed around Color Picker"
+    }
+  ],
+  "composition": [
+    "Place Label and the editable controls inside Root; include HiddenInput when a named value must submit.",
+    "For an inline picker set inline and compose Area plus channel controls directly; for a popup compose Trigger, Positioner, and Content.",
+    "Build each ChannelSlider from Track and Thumb; optional Label and ValueText inherit the parent channel.",
+    "Build presets from SwatchGroup, SwatchTrigger, Swatch, and optional SwatchIndicator; Brick owns the visible checkmark."
+  ],
+  "rules": [
+    {
+      "id": "color-picker-one-model",
+      "level": "must",
+      "statement": "Keep color value, format, area, channels, alpha, and presets on the same ColorPicker.Root model."
+    },
+    {
+      "id": "color-picker-accessible-names",
+      "level": "must",
+      "statement": "Give the picker, channel controls, and presets meaningful accessible names and never communicate selection by color alone."
+    },
+    {
+      "id": "color-picker-completion",
+      "level": "must",
+      "statement": "Use onValueChangeEnd for expensive work that should wait for a pointer drag, committed channel input, or eyedropper completion; area and slider keyboard steps use the ordinary value-change event."
+    },
+    {
+      "id": "color-picker-style-merge",
+      "level": "must",
+      "statement": "Merge Atom-provided inline styles and CSS variables instead of replacing area, slider, thumb, positioning, or color-math styles."
+    },
+    {
+      "id": "color-picker-platform-progressive",
+      "level": "must",
+      "statement": "Treat EyeDropper and NativeInput as progressive platform features; NativeInput is opaque-only and unsupported or cancelled EyeDropper use is a no-op."
+    },
+    {
+      "id": "color-picker-swatch-shape",
+      "level": "should",
+      "statement": "Use visual swatch shapes through Brick Color Swatch styling rather than adding shape behavior to Atom Root."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Reimplementing color conversion or pointer math in Brick or an application.",
+      "correction": "Compose the Atom area, channel, and format parts."
+    },
+    {
+      "mistake": "Storing saved colors inside Color Picker.",
+      "correction": "Store the palette in application state and render it through SwatchTrigger."
+    },
+    {
+      "mistake": "Presenting NativeInput as the full picker.",
+      "correction": "Label it as the browser-owned opaque chooser or use the complete area/channel anatomy."
+    }
+  ],
+  "validation": [
+    "Test pointer, touch, arrow/Page/Home/End keys, pointer-drag completion, LTR/RTL, alpha, all formats, controlled/uncontrolled state, popup dismissal, swatch selection, disabled/read-only behavior, external form association, and reset.",
+    "Verify EyeDropper support, success, cancellation, and unsupported behavior in a secure browser context without claiming unavailable engines.",
+    "Verify the styled layer in narrow, zoomed, light/dark, and forced-color modes."
+  ],
+  "related": [
+    "field",
+    "form",
+    "input",
+    "popover",
+    "slider"
+  ]
+}

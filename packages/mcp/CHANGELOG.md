@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.6
+
+- Refresh locked exact-version resolution to Atom `0.26.0` and Brick `0.2.0`
+  while retaining Colors and Theme `0.1.1`.
+- Serve the expanded Color Picker and Color Swatch guidance through the
+  existing eleven read-only tools with unchanged private and commercial
+  boundaries.
+
 ## 0.1.5
 
 - Return exact closed-coverage evidence with `list_components` so hosted-only

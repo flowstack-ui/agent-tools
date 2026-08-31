@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.6
+
+- Refresh the atomic public source lock to Atom `0.26.0`, Brick `0.2.0`,
+  Colors `0.1.1`, and Theme `0.1.1` from exact release archives.
+- Deliver the complete Atom and Brick Color Picker anatomy, formats, channels,
+  alpha, presets, form behavior, and Color Swatch shape guidance through the
+  existing deterministic LLM, skill-resolver, and MCP routes.
+- Keep color wheels, automatic naming, contrast analysis, gradients, saved
+  palette persistence, private Blocks source, and commercial metadata outside
+  the public delivery corpus.
+
 ## 0.1.5
 
 - Include the exact package coverage profile, summary, and zero-failure list

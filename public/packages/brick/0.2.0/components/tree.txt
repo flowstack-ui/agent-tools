@@ -1,0 +1,156 @@
+# Tree
+
+Source: @flowstack-ui/brick@0.2.0
+Kind: component
+ID: tree
+
+# Tree agent guide
+
+## Purpose
+
+Present a finished one-column hierarchy while Atom owns tree semantics, active-descendant focus, selection, expansion, typeahead, direction, Field state, and form submission.
+
+## Use when
+
+- People browse or optionally select expandable parent-child items with one primary content column, such as nested files, categories, or component groups.
+
+## Choose something else when
+
+- Hierarchical rows have several navigable columns, sections contain arbitrary disclosure content, data is flat and tabular, or the hierarchy is static reading content. Use TreeGrid, Accordion or Collapsible, DataGrid, or List.
+
+## Required composition
+
+- Give Tree.Root a stable accessible name and deliberate selection, expansion, direction, and form state. Compose uniquely valued Items containing required Brick ItemContent with decorative Indicator and reliable ItemText; place each nested Group as a sibling of ItemContent inside its actual parent Item.
+- Choose plain, soft, or outline plus sm or md and optional showGuide on Root. Keep links, commands, loading, filtering, routing, rename, drag and drop, virtualization, and persistence outside Tree.
+
+## Rules
+
+- **MUST:** Name Root and preserve tree, treeitem, and group relationships, automatic levels, ItemText labeling, and parent-child nesting; use Brick ItemContent as the one finished row paint owner.
+- **MUST:** Give every Item a durable unique value, align scalar or array selection with multiple, and keep selection and expandedValue controlled or uncontrolled without mixing ownership.
+- **MUST:** Keep Root as the sole Tab stop and preserve active-descendant focus, visible-item Up/Down, Home/End, direction-aware expand/collapse and parent movement, typeahead, disabled skipping, bounded or looped policy, and scroll reveal.
+- **MUST:** Mark only actual parent Items expandable, hide collapsed descendants from navigation, and allow Atom to relocate active state to a visible ancestor or reset when controlled expansion hides it.
+- **MUST:** Preserve Field naming and descriptions, disabled, read-only, required, invalid, and named submission; read-only may navigate but must not mutate selection or expansion through selection keys.
+- **MUST:** Keep Indicator decorative, ItemText reliable for naming and typeahead, active focus distinct from selected fill, and interactive descendants outside Tree; use application-owned adjacent controls instead of turning Item rows into mixed widgets.
+- **MUST:** If an application windows a large tree, it must retain complete logical parent and level metadata and keep the active descendant and expansion target mounted; geometry utilities do not reconstruct tree semantics.
+- **MUST:** Load styles.css or core.css plus tree.css and every stylesheet for adjacent composed controls.
+
+## Common mistakes
+
+- **Avoid:** Using Tree for arbitrary disclosures, marking leaves expandable for an icon, placing Group outside its parent, or giving every Item a Tab stop. **Instead:** Choose Accordion or Collapsible for content, mark only real parents, keep nested Group inside its Item, and preserve Root-owned composite focus.
+- **Avoid:** Omitting ItemText for complex rows, using duplicate or visual-index values, or inserting buttons and links into ItemContent. **Instead:** Register complete searchable text, use durable identities, and keep row actions in separately owned application UI.
+
+## Validation checklist
+
+- Verify Root naming; tree/treeitem/group relationships; automatic levels; ItemText names; unique values; parent nesting; collapsed visibility; controlled and uncontrolled single/multiple selection and expansion; read-only; Field state; form submission; and collapse of the active branch.
+- Exercise initial focus, LTR/RTL expand and parent keys, Up/Down, Home/End, loop boundaries, typeahead cycling and prefixes, pointer selection, disabled Items, scroll reveal, force-mounted hidden Groups, native props, refs, and composition.
+- Verify all recipes and sizes, showGuide, long wrapping labels, deep indentation, narrow width, zoom, RTL, active versus selected paint, touch density, light/dark appearance, forced colors, reduced motion, and any windowed active target.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/tree`
+- `tree-grid`
+- `accordion`
+- `collapsible`
+- `data-grid`
+- `list`
+- `field`
+- `form`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "tree",
+  "name": "Tree",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a finished one-column hierarchy while Atom owns tree semantics, active-descendant focus, selection, expansion, typeahead, direction, Field state, and form submission.",
+  "useWhen": [
+    "People browse or optionally select expandable parent-child items with one primary content column, such as nested files, categories, or component groups."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Hierarchical rows have several navigable columns, sections contain arbitrary disclosure content, data is flat and tabular, or the hierarchy is static reading content.",
+      "useInstead": "TreeGrid, Accordion or Collapsible, DataGrid, or List"
+    }
+  ],
+  "composition": [
+    "Give Tree.Root a stable accessible name and deliberate selection, expansion, direction, and form state. Compose uniquely valued Items containing required Brick ItemContent with decorative Indicator and reliable ItemText; place each nested Group as a sibling of ItemContent inside its actual parent Item.",
+    "Choose plain, soft, or outline plus sm or md and optional showGuide on Root. Keep links, commands, loading, filtering, routing, rename, drag and drop, virtualization, and persistence outside Tree."
+  ],
+  "rules": [
+    {
+      "id": "tree-name-anatomy",
+      "level": "must",
+      "statement": "Name Root and preserve tree, treeitem, and group relationships, automatic levels, ItemText labeling, and parent-child nesting; use Brick ItemContent as the one finished row paint owner."
+    },
+    {
+      "id": "tree-identity-state",
+      "level": "must",
+      "statement": "Give every Item a durable unique value, align scalar or array selection with multiple, and keep selection and expandedValue controlled or uncontrolled without mixing ownership."
+    },
+    {
+      "id": "tree-focus-keyboard",
+      "level": "must",
+      "statement": "Keep Root as the sole Tab stop and preserve active-descendant focus, visible-item Up/Down, Home/End, direction-aware expand/collapse and parent movement, typeahead, disabled skipping, bounded or looped policy, and scroll reveal."
+    },
+    {
+      "id": "tree-visible-state",
+      "level": "must",
+      "statement": "Mark only actual parent Items expandable, hide collapsed descendants from navigation, and allow Atom to relocate active state to a visible ancestor or reset when controlled expansion hides it."
+    },
+    {
+      "id": "tree-form-state",
+      "level": "must",
+      "statement": "Preserve Field naming and descriptions, disabled, read-only, required, invalid, and named submission; read-only may navigate but must not mutate selection or expansion through selection keys."
+    },
+    {
+      "id": "tree-content-boundary",
+      "level": "must",
+      "statement": "Keep Indicator decorative, ItemText reliable for naming and typeahead, active focus distinct from selected fill, and interactive descendants outside Tree; use application-owned adjacent controls instead of turning Item rows into mixed widgets."
+    },
+    {
+      "id": "tree-virtualization",
+      "level": "must",
+      "statement": "If an application windows a large tree, it must retain complete logical parent and level metadata and keep the active descendant and expansion target mounted; geometry utilities do not reconstruct tree semantics."
+    },
+    {
+      "id": "tree-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus tree.css and every stylesheet for adjacent composed controls."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Tree for arbitrary disclosures, marking leaves expandable for an icon, placing Group outside its parent, or giving every Item a Tab stop.",
+      "correction": "Choose Accordion or Collapsible for content, mark only real parents, keep nested Group inside its Item, and preserve Root-owned composite focus."
+    },
+    {
+      "mistake": "Omitting ItemText for complex rows, using duplicate or visual-index values, or inserting buttons and links into ItemContent.",
+      "correction": "Register complete searchable text, use durable identities, and keep row actions in separately owned application UI."
+    }
+  ],
+  "validation": [
+    "Verify Root naming; tree/treeitem/group relationships; automatic levels; ItemText names; unique values; parent nesting; collapsed visibility; controlled and uncontrolled single/multiple selection and expansion; read-only; Field state; form submission; and collapse of the active branch.",
+    "Exercise initial focus, LTR/RTL expand and parent keys, Up/Down, Home/End, loop boundaries, typeahead cycling and prefixes, pointer selection, disabled Items, scroll reveal, force-mounted hidden Groups, native props, refs, and composition.",
+    "Verify all recipes and sizes, showGuide, long wrapping labels, deep indentation, narrow width, zoom, RTL, active versus selected paint, touch density, light/dark appearance, forced colors, reduced motion, and any windowed active target."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "tree",
+      "versionPolicy": "installed-exact"
+    },
+    "tree-grid",
+    "accordion",
+    "collapsible",
+    "data-grid",
+    "list",
+    "field",
+    "form"
+  ]
+}
+```

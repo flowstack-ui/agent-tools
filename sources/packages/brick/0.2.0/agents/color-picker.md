@@ -1,0 +1,51 @@
+# Color Picker agent guide
+
+## Purpose
+
+Edit, inspect, choose, and submit one color through a finished popup or inline editor with area, channel, format, preset, native chooser, and EyeDropper paths.
+
+## Use when
+
+- A form, editor, or settings surface needs one color value with a finished visual editor.
+- Users need alpha, RGB, HSL, HSB, channel sliders, named presets, or a progressive platform color-picking path.
+
+## Choose something else when
+
+- The interface only previews a color. Use Color Swatch.
+- The task requires gradients, automatic color naming, contrast scoring, palette persistence, or a color wheel. Use application-owned specialist behavior composed around Color Picker.
+
+## Required composition
+
+- Place Label and Control inside Root; include HiddenInput when the value participates in native form submission.
+- For a popup, compose Trigger, Positioner, and Content. For an always-visible editor, set Root inline and render Content directly.
+- Build the visual editor from Area, ChannelSlider, format controls, channel inputs, and SwatchGroup; ValueSwatch and ValueText expose the current value.
+- Place SwatchIndicator inside Swatch or ValueSwatch whenever selection needs a visible non-color cue.
+
+## Rules
+
+- **MUST:** Use Brick parts for the finished interface and keep parsing, format conversion, selection, focus, dismissal, and form state in the exact Atom-backed machine.
+- **MUST:** Give the primary editable or native input an accessible name through Label or an explicit aria-label.
+- **MUST:** Provide name to Root and render exactly one HiddenInput when the color must submit.
+- **MUST:** Wrap popup Content in Positioner; do not recreate positioning, focus restoration, or outside dismissal.
+- **MUST:** Name every SwatchTrigger and render SwatchIndicator or an equivalent visible non-color selected cue.
+- **MUST:** Load styles.css, or core.css plus color-picker.css for modular delivery.
+- **SHOULD:** Treat NativeInput and EyeDropperTrigger as optional platform enhancements, not the only way to edit the color.
+
+## Common mistakes
+
+- **Avoid:** Reimplementing color conversion, pointer math, keyboard state, or popup behavior in Brick or application code. **Instead:** Compose the released ColorPicker anatomy and controlled callbacks.
+- **Avoid:** Putting popup Content beside Root without Positioner. **Instead:** Use Trigger, Positioner, and Content as the released popup composition.
+- **Avoid:** Naming both visible inputs and HiddenInput for submission. **Instead:** Put name on Root and render one HiddenInput.
+- **Avoid:** Using raw color alone to show the selected preset. **Instead:** Render SwatchIndicator and an accessible preset name.
+
+## Validation checklist
+
+- Test area and channel synchronization, alpha, RGB/HSL/HSB format changes, presets, text/native/EyeDropper paths, controlled state, popup focus and dismissal, disabled/read-only/invalid, form submit/reset, light/dark, forced colors, reduced motion, narrow/zoom, RTL, and non-color selection cues.
+
+## Related guidance
+
+- `color-swatch`
+- `field`
+- `form`
+- `input`
+- `popover`
