@@ -204,9 +204,19 @@ export class FlowstackTools {
   async listComponents({ package: packageId, version, source = "auto", query }) {
     const handle = await this.repository.resolvePackage(packageId, version, source);
     const value = await manifest(handle);
+    const report = await coverage(handle);
     let entries = manifestEntries(value);
     if (query) entries = entries.filter((entry) => JSON.stringify(entry).toLowerCase().includes(query.toLowerCase()));
-    return envelope(handle, entries.map(({ id, name, ownerKind }) => ({ package: handle.name, layer: handle.layer, version: handle.version, provenance: handle.provenance, id, name, kind: ownerKind })));
+    return envelope(handle, entries.map(({ id, name, ownerKind }) => ({ package: handle.name, layer: handle.layer, version: handle.version, provenance: handle.provenance, id, name, kind: ownerKind })), {
+      coverage: {
+        schema: report.schema,
+        package: report.package,
+        packageVersion: report.packageVersion,
+        profile: report.profile,
+        summary: report.summary,
+        failures: report.failures
+      }
+    });
   }
 
   async resolveInterfaceJob({ workflow, job, versions, source = "auto" }) {

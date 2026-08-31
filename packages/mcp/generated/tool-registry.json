@@ -1,7 +1,7 @@
 {
   "schema": "flowstack.mcp-tool-registry.v1",
   "package": "@flowstack-ui/mcp",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "transport": "stdio",
   "tools": [
     {
@@ -34,6 +34,40 @@
             },
             "additionalProperties": {}
           },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
+          },
           "data": {}
         },
         "required": [
@@ -49,7 +83,7 @@
     {
       "name": "list_components",
       "method": "listComponents",
-      "description": "List canonical component or operation owners for one exact FLOWSTACK package version.",
+      "description": "List canonical component or operation owners plus closed coverage evidence for one exact FLOWSTACK package version.",
       "inputSchema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -107,6 +141,40 @@
               "type": "string"
             },
             "additionalProperties": {}
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
           },
           "data": {}
         },
@@ -204,6 +272,40 @@
             },
             "additionalProperties": {}
           },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
+          },
           "data": {}
         },
         "required": [
@@ -278,6 +380,40 @@
               "type": "string"
             },
             "additionalProperties": {}
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
           },
           "data": {}
         },
@@ -354,6 +490,40 @@
             },
             "additionalProperties": {}
           },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
+          },
           "data": {}
         },
         "required": [
@@ -428,6 +598,40 @@
               "type": "string"
             },
             "additionalProperties": {}
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
           },
           "data": {}
         },
@@ -511,6 +715,40 @@
             },
             "additionalProperties": {}
           },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
+          },
           "data": {}
         },
         "required": [
@@ -570,6 +808,40 @@
               "type": "string"
             },
             "additionalProperties": {}
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
           },
           "data": {}
         },
@@ -653,6 +925,40 @@
               "type": "string"
             },
             "additionalProperties": {}
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
           },
           "data": {}
         },
@@ -842,6 +1148,40 @@
             },
             "additionalProperties": {}
           },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
+          },
           "data": {}
         },
         "required": [
@@ -1028,6 +1368,40 @@
               "type": "string"
             },
             "additionalProperties": {}
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "schema": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "packageVersion": {
+                "type": "string"
+              },
+              "profile": {},
+              "summary": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "failures": {
+                "type": "array",
+                "items": {}
+              }
+            },
+            "required": [
+              "schema",
+              "package",
+              "packageVersion",
+              "summary",
+              "failures"
+            ],
+            "additionalProperties": false
           },
           "data": {}
         },

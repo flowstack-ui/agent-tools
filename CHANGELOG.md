@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5
+
+- Include the exact package coverage profile, summary, and zero-failure list
+  in `list_components` responses so hosted-only skill clients can establish
+  the same closed-coverage gate required by the local resolver.
+
 ## 0.1.4
 
 - Refresh the atomic public source lock to Atom `0.25.1`, Brick `0.1.12`,

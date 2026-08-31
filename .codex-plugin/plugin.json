@@ -1,6 +1,6 @@
 {
   "name": "flowstack-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Exact-version workflows for building, composing, reviewing, and maintaining FLOWSTACK UI.",
   "author": {
     "name": "FLOWSTACK UI",
