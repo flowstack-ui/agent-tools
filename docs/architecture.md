@@ -29,6 +29,11 @@ exact routes instead of duplicating their rules. Finished-interface task
 sections load Brick layer-selection and interface-composition first. A separate
 explicit-headless section loads Atom layer-selection and behavior-composition;
 route membership is exact and curated rather than inferred from substrings.
+For an explicit owner migration, a curated ID may declare
+`{ "oneOf": ["otp-field", "pin-input"] }`. Exactly one ID must exist in the
+selected package's locked catalog. Missing or ambiguous matches fail the build;
+the output retains the actual archive owner and never creates an alias.
+This supports candidate qualification without replacing the published source lock.
 
 The package does not generate `public/llms-full.txt`. The former complete
 concatenation repeated indexes, prose, and machine records without proving that

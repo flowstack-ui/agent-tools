@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join, posix, relative, resolve } from "node:path";
 import { assertPublicContent } from "./lib/public-boundary.mjs";
+import { selectCuratedRoutes } from "./lib/curated-routes.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const sourceRoot = join(root, "sources");
@@ -166,13 +167,10 @@ for (const task of config.tasks) {
       const kinds = selector.kinds ?? [selector.kind];
       assert.ok(selector.package && kinds.every(Boolean), `${task.id}/${section.id} has an incomplete route selector`);
       const available = routeRecords.filter((route) => route.package === selector.package
-        && kinds.includes(route.kind)
-        && (selector.all === true || selector.ids?.includes(route.id)));
+        && kinds.includes(route.kind));
       let matches;
       if (selector.all !== true) {
-        assert.ok(Array.isArray(selector.ids) && selector.ids.length > 0, `${task.id}/${section.id} must list exact route IDs`);
-        assert.deepEqual(available.map(({ id }) => id).sort(), [...selector.ids].sort(), `${task.id}/${section.id} has a missing or extra curated route`);
-        matches = selector.ids.map((id) => available.find((route) => route.id === id));
+        matches = selectCuratedRoutes(available, selector.ids, `${task.id}/${section.id}`);
       } else {
         matches = available.sort((a, b) => a.path.localeCompare(b.path));
       }

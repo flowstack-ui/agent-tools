@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Allow explicitly declared, mutually exclusive owner migrations in curated task
+  routes. Forms resolve the exact archive's `otp-field` or `pin-input` owner;
+  missing and ambiguous catalogs still fail. The published source lock is unchanged.
+
 ## 0.1.6
 
 - Refresh the atomic public source lock to Atom `0.26.0`, Brick `0.2.0`,

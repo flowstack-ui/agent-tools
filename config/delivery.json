@@ -46,7 +46,7 @@
           "description": "Use Brick for an ordinary finished form. Do not import Atom directly.",
           "routes": [
             { "package": "brick", "kind": "guide", "ids": ["layer-selection", "interface-composition"] },
-            { "package": "brick", "kind": "component", "ids": ["button", "checkbox", "checkbox-group", "color-picker", "combobox", "field", "fieldset", "file-upload", "form", "icon-button", "input", "multi-select", "number-input", "otp-field", "password-toggle-field", "radio-group", "rating", "select", "slider", "switch", "textarea", "toggle", "toggle-group"] }
+            { "package": "brick", "kind": "component", "ids": ["button", "checkbox", "checkbox-group", "color-picker", "combobox", "field", "fieldset", "file-upload", "form", "icon-button", "input", "multi-select", "number-input", {"oneOf": ["otp-field", "pin-input"]}, "password-toggle-field", "radio-group", "rating", "select", "slider", "switch", "textarea", "toggle", "toggle-group"] }
           ]
         },
         {
@@ -55,7 +55,7 @@
           "description": "Use Atom only when the task explicitly requires reusable headless form behavior without Brick's finished visual contract.",
           "routes": [
             { "package": "atom", "kind": "guide", "ids": ["layer-selection", "behavior-composition"] },
-            { "package": "atom", "kind": "component", "ids": ["button", "checkbox", "checkbox-group", "color-picker", "combobox", "field", "fieldset", "file-upload", "form", "input", "label", "multi-select", "number-input", "otp-field", "password-toggle-field", "radio-group", "rating", "select", "slider", "switch", "textarea", "toggle", "toggle-group"] }
+            { "package": "atom", "kind": "component", "ids": ["button", "checkbox", "checkbox-group", "color-picker", "combobox", "field", "fieldset", "file-upload", "form", "input", "label", "multi-select", "number-input", {"oneOf": ["otp-field", "pin-input"]}, "password-toggle-field", "radio-group", "rating", "select", "slider", "switch", "textarea", "toggle", "toggle-group"] }
           ]
         }
       ]
