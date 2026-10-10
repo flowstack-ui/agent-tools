@@ -1,0 +1,10 @@
+# Theme CLI
+
+Source: @flowstack-ui/theme@0.2.0
+Kind: operation
+ID: theme-cli
+Guide: [theme-system](/packages/theme/0.2.0/guides/theme-system.txt)
+
+## Covered public surfaces
+
+- `bin:flowstack-theme`

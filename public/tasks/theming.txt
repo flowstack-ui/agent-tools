@@ -8,8 +8,8 @@ Load only the routes required for the current job and preserve their exact packa
 
 Use Brick Color Picker and Color Swatch for finished interface selection and display; use Colors and Theme for authoring system values.
 
-- [brick/component/color-picker](/packages/brick/0.2.0/components/color-picker.txt)
-- [brick/component/color-swatch](/packages/brick/0.2.0/components/color-swatch.txt)
+- [brick/component/color-picker](/packages/brick/0.3.0/components/color-picker.txt)
+- [brick/component/color-swatch](/packages/brick/0.3.0/components/color-swatch.txt)
 
 ## Step 1: Colors candidate
 
@@ -27,11 +27,11 @@ Use Colors for deterministic raw color work and explicit candidate review before
 
 Pass only reviewed Colors artifacts to Theme, then validate against the exact Brick contract.
 
-- [theme/guide/theme-system](/packages/theme/0.1.1/guides/theme-system.txt)
-- [theme/operation/brick-contract-compatibility](/packages/theme/0.1.1/operations/brick-contract-compatibility.txt)
-- [theme/operation/colors-interchange](/packages/theme/0.1.1/operations/colors-interchange.txt)
-- [theme/operation/theme-artifacts](/packages/theme/0.1.1/operations/theme-artifacts.txt)
-- [theme/operation/theme-cli](/packages/theme/0.1.1/operations/theme-cli.txt)
-- [theme/operation/theme-compilation](/packages/theme/0.1.1/operations/theme-compilation.txt)
-- [theme/operation/theme-definition](/packages/theme/0.1.1/operations/theme-definition.txt)
-- [theme/operation/theme-validation](/packages/theme/0.1.1/operations/theme-validation.txt)
+- [theme/guide/theme-system](/packages/theme/0.2.0/guides/theme-system.txt)
+- [theme/operation/brick-contract-compatibility](/packages/theme/0.2.0/operations/brick-contract-compatibility.txt)
+- [theme/operation/colors-interchange](/packages/theme/0.2.0/operations/colors-interchange.txt)
+- [theme/operation/theme-artifacts](/packages/theme/0.2.0/operations/theme-artifacts.txt)
+- [theme/operation/theme-cli](/packages/theme/0.2.0/operations/theme-cli.txt)
+- [theme/operation/theme-compilation](/packages/theme/0.2.0/operations/theme-compilation.txt)
+- [theme/operation/theme-definition](/packages/theme/0.2.0/operations/theme-definition.txt)
+- [theme/operation/theme-validation](/packages/theme/0.2.0/operations/theme-validation.txt)

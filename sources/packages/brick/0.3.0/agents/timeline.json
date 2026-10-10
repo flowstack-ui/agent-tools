@@ -1,0 +1,79 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "timeline",
+  "name": "Timeline",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a static ordered chronology with connected event markers.",
+  "useWhen": [
+    "Authored events need a chronological visual connection."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Users navigate progress or workflow stages.",
+      "useInstead": "Steps"
+    },
+    {
+      "condition": "Content is a live activity stream.",
+      "useInstead": "Feed"
+    }
+  ],
+  "composition": [
+    "Compose direct Root > Item > Connector and Content; Connector contains Indicator and Separator.",
+    "Use For for data collections and authored time elements for localized timestamps."
+  ],
+  "rules": [
+    {
+      "id": "timeline-semantics",
+      "level": "must",
+      "statement": "Preserve native ol/li order. Decorative Connector and Indicator cannot contain interactive controls; repeat status in Content."
+    },
+    {
+      "id": "timeline-layout",
+      "level": "must",
+      "statement": "Use Content side before or after for logical placement; do not add empty content wrappers or page-colored connector masks."
+    },
+    {
+      "id": "timeline-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus timeline.css and styles for composed owners."
+    },
+    {
+      "id": "timeline-recipes",
+      "level": "must",
+      "statement": "Use sparse responsive size/variant/layout maps, PropsProvider for shared visual defaults and compact layout for leading date metadata. Responsive maps replace whole; explicit root props win."
+    },
+    {
+      "id": "timeline-customization",
+      "level": "must",
+      "statement": "Keep semantic event tones meaningful. For category paint use paired --brick-timeline-fill/ink/border hooks, not fake status tones. Inherited geometry overrides belong on Root or its ancestor; nested roots intentionally inherit public overrides."
+    },
+    {
+      "id": "timeline-unstyled",
+      "level": "must",
+      "statement": "Unstyled removes recipe classes but preserves semantic hosts and decorative attributes. Root choice applies to parts, not nested Roots. asChild uses public Atom composition; preserve list grammar and ref cleanup."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Timeline as an interactive stepper.",
+      "correction": "Use Steps for current-step state and navigation."
+    },
+    {
+      "mistake": "Adding custom CSS to stretch markers or draw connector lines.",
+      "correction": "Use the component's Indicator geometry and Separator anatomy."
+    }
+  ],
+  "validation": [
+    "Check marker squares, stretched separators, final-line policy, rich content, reading order, narrow width, RTL, forced colors and nested surfaces."
+  ],
+  "related": [
+    "steps",
+    "feed",
+    "list",
+    "avatar",
+    "icon",
+    "for"
+  ]
+}

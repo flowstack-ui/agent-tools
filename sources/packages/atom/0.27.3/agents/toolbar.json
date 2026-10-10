@@ -1,0 +1,54 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "toolbar",
+  "name": "Toolbar",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Group related commands in one ARIA toolbar with orientation-aware roving keyboard focus.",
+  "useWhen": [
+    "A compact row or column of related application controls should behave as one keyboard group."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The items navigate among pages or are unrelated standalone actions.",
+      "useInstead": "NavigationMenu, NavList, or separate Buttons"
+    }
+  ],
+  "composition": [
+    "Compose Button, Link, Separator, and ToggleGroup/ToggleItem parts inside a named Root; keep all toolbar items in logical DOM order."
+  ],
+  "rules": [
+    {
+      "id": "toolbar-group-input",
+      "level": "must",
+      "statement": "Use Group for named subgroups without a second roving scope. Input participates in the same toolbar; keep one input last in horizontal toolbars so native editing arrows remain available and Tab exits. Root disabled overrides descendants; focusableWhenDisabled on Button preserves discovery without activation."
+    },
+    {
+      "id": "toolbar-name",
+      "level": "must",
+      "statement": "Give the toolbar and icon-only controls useful accessible names."
+    },
+    {
+      "id": "toolbar-roving-focus",
+      "level": "must",
+      "statement": "Let Toolbar own item registration and arrow-key focus rather than adding competing tabIndex or key handlers."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using AppBar.Toolbar as an ARIA toolbar or nesting a second roving-focus implementation.",
+      "correction": "Compose Toolbar.Root inside AppBar when grouped controls need toolbar behavior."
+    }
+  ],
+  "validation": [
+    "Test orientation, arrows, Home/End, root disabled, focusableWhenDisabled buttons, toggle state, links, native input editing, Tab entry/exit, cancellation, iframe ownership and RTL.",
+    "Confirm Group naming and separator orientation/decorative semantics and forwarded refs."
+  ],
+  "related": [
+    "app-bar",
+    "button",
+    "link",
+    "toggle-group"
+  ]
+}

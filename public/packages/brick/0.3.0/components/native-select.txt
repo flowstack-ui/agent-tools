@@ -1,0 +1,135 @@
+# NativeSelect
+
+Source: @flowstack-ui/brick@0.3.0
+Kind: component
+ID: native-select
+
+# NativeSelect agent guide
+
+## Purpose
+
+Present a finished native select while the browser owns the picker and Atom owns Field/Form integration.
+
+## Use when
+
+- A predefined choice should use the platform picker rather than a custom popup.
+
+## Choose something else when
+
+- Options need rich content or searchable filtering. Use Select or Combobox.
+
+## Required composition
+
+- Place NativeSelect.Field and optional decorative Indicator in Root, with native option/optgroup children and Field.Label or a standalone accessible name.
+
+## Rules
+
+- **MUST:** Disabled presentation preserves the selected recipe and fades once to 50%, with a not-allowed cursor on the disabled hit target. Keep read-only separate; do not add an opacity wrapper around an already disabled control. Forced colors uses system disabled colors.
+- **MUST:** Keep Field native. Root asChild composes only the visual host. Use multiple/rows for native list selection; Indicator hides in list mode. Seven responsive sizes share the control family; subtle is neutral fill.
+- **MUST:** Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers.
+- **MUST:** Keep native options, selection, form value and reset; do not add a second popup or hidden named value.
+- **MUST:** Use Root size for shared control geometry and rows for native list height; configure multiple at Root.
+- **MUST:** Load styles.css or core.css plus native-select.css and the CSS of composed components.
+- **MUST:** Use shared responsive sizes and variants: outline, surface, soft, subtle, ghost, plain, underline. Defaults are lg and outline. Underline has zero start inset and bottom-only focus; responsive variants exclude explicit shape/radius so corners can recover at later breakpoints. Invalid and forced-color focus must remain visible.
+
+## Common mistakes
+
+- **Avoid:** Expecting identical native popup visuals on every OS or simulating readonly with disabled. **Instead:** Use custom Select for authored popup visuals; native select has no readonly mode.
+
+## Validation checklist
+
+- Verify Field labels, state precedence, native change/reset/multiple submission and external form.
+- Verify all sizes, variants, shapes, indicator containment, RTL, narrow, light/dark and forced colors, with physical mobile picker checks separately.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/native-select`
+- `field`
+- `form`
+- `select`
+- `combobox`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "native-select",
+  "name": "NativeSelect",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a finished native select while the browser owns the picker and Atom owns Field/Form integration.",
+  "useWhen": [
+    "A predefined choice should use the platform picker rather than a custom popup."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Options need rich content or searchable filtering.",
+      "useInstead": "Select or Combobox"
+    }
+  ],
+  "composition": [
+    "Place NativeSelect.Field and optional decorative Indicator in Root, with native option/optgroup children and Field.Label or a standalone accessible name."
+  ],
+  "rules": [
+    {
+      "id": "native-select-disabled-presentation",
+      "level": "must",
+      "statement": "Disabled presentation preserves the selected recipe and fades once to 50%, with a not-allowed cursor on the disabled hit target. Keep read-only separate; do not add an opacity wrapper around an already disabled control. Forced colors uses system disabled colors."
+    },
+    {
+      "id": "native-select-current-anatomy",
+      "level": "must",
+      "statement": "Keep Field native. Root asChild composes only the visual host. Use multiple/rows for native list selection; Indicator hides in list mode. Seven responsive sizes share the control family; subtle is neutral fill."
+    },
+    {
+      "id": "native-select-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers."
+    },
+    {
+      "id": "native-select-native",
+      "level": "must",
+      "statement": "Keep native options, selection, form value and reset; do not add a second popup or hidden named value."
+    },
+    {
+      "id": "native-select-size",
+      "level": "must",
+      "statement": "Use Root size for shared control geometry and rows for native list height; configure multiple at Root."
+    },
+    {
+      "id": "native-select-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus native-select.css and the CSS of composed components."
+    },
+    {
+      "id": "native-select-responsive-field-recipes",
+      "level": "must",
+      "statement": "Use shared responsive sizes and variants: outline, surface, soft, subtle, ghost, plain, underline. Defaults are lg and outline. Underline has zero start inset and bottom-only focus; responsive variants exclude explicit shape/radius so corners can recover at later breakpoints. Invalid and forced-color focus must remain visible."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Expecting identical native popup visuals on every OS or simulating readonly with disabled.",
+      "correction": "Use custom Select for authored popup visuals; native select has no readonly mode."
+    }
+  ],
+  "validation": [
+    "Verify Field labels, state precedence, native change/reset/multiple submission and external form.",
+    "Verify all sizes, variants, shapes, indicator containment, RTL, narrow, light/dark and forced colors, with physical mobile picker checks separately."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "native-select",
+      "versionPolicy": "installed-exact"
+    },
+    "field",
+    "form",
+    "select",
+    "combobox"
+  ]
+}
+```

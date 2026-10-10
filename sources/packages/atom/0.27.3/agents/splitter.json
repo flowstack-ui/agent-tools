@@ -1,0 +1,60 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "splitter",
+  "name": "Splitter",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Resize adjacent panels with constraints, pointer and keyboard input, controlled state and optional collapse.",
+  "useWhen": [
+    "Neighboring application regions share a resizable area."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The user edits a numeric value rather than panel geometry.",
+      "useInstead": "Slider"
+    },
+    {
+      "condition": "The boundary is decorative only.",
+      "useInstead": "Divider"
+    }
+  ],
+  "composition": [
+    "Declare ordered unique panel IDs on Root. Compose matching Panel and ResizeTrigger siblings in that order. Name every trigger; before and after identify adjacent panels. Provide a definite outer dimension for vertical layouts.",
+    "Use useSplitter with one mounted RootProvider for external commands, or useSplitterContext within Root. Keep stable descriptors and boundaries synchronized; one panel is valid, none is not."
+  ],
+  "rules": [
+    {
+      "id": "splitter-size",
+      "level": "must",
+      "statement": "Numbers mean percentages; px/em/rem/vw/vh require measurement. Keep minima feasible or provide application overflow/reflow; do not treat Splitter as a ScrollArea."
+    },
+    {
+      "id": "splitter-state",
+      "level": "must",
+      "statement": "Controlled sizes remain authoritative. Persist on settled resize events in the application; provide non-drag size or collapse controls."
+    },
+    {
+      "id": "splitter-owner",
+      "level": "must",
+      "statement": "Use Brick for finished paint and handles. Do not reuse this multi-panel primitive by inventing empty panels for single-element resizing."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using array indexes as identity or putting buttons inside the separator.",
+      "correction": "Use stable IDs and keep actions outside the separator."
+    }
+  ],
+  "validation": [
+    "Test both orientations, RTL, constraints, cancellation, collapse focus, controlled rejection, nested roots and disabled handles.",
+    "Test SSR, dynamic panel IDs, pixel host resize and focusable separator names/ranges.",
+    "Verify shared registry intersection cancellation, single-panel focus recovery and keyboard transitions across collapsed intervals. Applications own layout redistribution and persistence."
+  ],
+  "related": [
+    "slider",
+    "divider",
+    "direction",
+    "scroll-area"
+  ]
+}

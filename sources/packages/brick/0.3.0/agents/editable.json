@@ -1,0 +1,77 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "editable",
+  "name": "Editable",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present inline text editing with Atom-owned draft, commit, cancel and focus behavior.",
+  "useWhen": [
+    "An existing text value should become an input or textarea on demand."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The field should always be editable.",
+      "useInstead": "Input or Textarea"
+    }
+  ],
+  "composition": [
+    "Use Root or RootProvider, Area, Preview and exactly one Input or Textarea. Provide Label or an accessible name, with optional Control and triggers."
+  ],
+  "rules": [
+    {
+      "id": "editable-disabled-presentation",
+      "level": "must",
+      "statement": "Disabled presentation preserves the selected recipe and fades once to 50%, with a not-allowed cursor on the disabled hit target. Keep read-only separate; do not add an opacity wrapper around an already disabled control. Forced colors uses system disabled colors."
+    },
+    {
+      "id": "editable-typography",
+      "level": "must",
+      "statement": "Use Root textStyle with shared Text recipes (responsive supported), weight, tone and align for synchronized preview/editor typography. Use textStyle=inherit inside an existing text context. Size controls density, not a typography limit. Do not style only the preview or duplicate a title value."
+    },
+    {
+      "id": "editable-composition",
+      "level": "must",
+      "statement": "Use Root/Area/Control/Preview asChild for one structural host. Keep native Input, Textarea and Label. Custom Preview children must read Context.valueText. Use Trigger unstyled asChild for Button/IconButton so one recipe owns visuals. Preview highlight=none removes hover fill while keeping focus."
+    },
+    {
+      "id": "editable-save",
+      "level": "must",
+      "statement": "Separate draft changes from commit requests; saving, errors and retries belong to the application."
+    },
+    {
+      "id": "editable-state",
+      "level": "must",
+      "statement": "Update controlled value and edit in their callbacks. Create an external controller inside the Field scope when it must inherit Field state."
+    },
+    {
+      "id": "editable-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus editable.css and the styles of composed components."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Rendering both Input and Textarea or saving every draft as a completed edit.",
+      "correction": "Use one named native editor and save on the explicit commit boundary."
+    }
+  ],
+  "validation": [
+    "Verify empty and defaultEdit rollback, controlled refusal, keyboard, outside events and IME.",
+    "Verify Field/form reset, textarea autoresize, nested Dialog focus, preview/editor geometry, RTL, appearances and forced colors."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "editable",
+      "versionPolicy": "installed-exact"
+    },
+    "field",
+    "form",
+    "input",
+    "textarea",
+    "button",
+    "dialog"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "download-trigger",
+  "name": "DownloadTrigger",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Initiate a generated-file download after explicit user activation with lazy preparation and cleanup.",
+  "useWhen": [
+    "The application supplies downloadable string, Blob or File data."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A file already has a server URL.",
+      "useInstead": "Link with native download"
+    }
+  ],
+  "composition": [
+    "Render DownloadTrigger.Root with data, fileName and a visible name. Supply mimeType for strings. Lazy producers receive AbortSignal. Use render only with an action host that forwards all props/ref.",
+    "useDownload shares the lifecycle and returns state, loading, download(ownerDocument?) and cancel. Call download from user activation, pass the owner document for iframes, bind loading to the action, and handle errors."
+  ],
+  "rules": [
+    {
+      "id": "download-boundary",
+      "level": "must",
+      "statement": "Keep fetching, serialization, authentication and user messages in the application; data strings are literal contents, not URLs."
+    },
+    {
+      "id": "download-result",
+      "level": "must",
+      "statement": "onDownloadInitiated reports browser handoff, never saved-file completion. Handle onDownloadError; browser policy can still prevent saving."
+    },
+    {
+      "id": "download-memory",
+      "level": "must",
+      "statement": "Use a server link for large streamed exports. Do not invent forced navigation or automatic retry."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Starting asynchronous work at render or passing an eager Promise.",
+      "correction": "Pass a lazy data producer and respect its cancellation signal."
+    }
+  ],
+  "validation": [
+    "Verify bytes, filename, synchronous and delayed data, cancellation, duplicate activation, errors, cleanup, form safety and iframe ownership."
+  ],
+  "related": [
+    "button",
+    "link",
+    "file-upload"
+  ]
+}

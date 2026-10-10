@@ -1,0 +1,47 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "input-addon",
+  "name": "InputAddon",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a noninteractive external segment attached to a native input.",
+  "useWhen": [
+    "A prefix or suffix belongs in a separate segment outside the input boundary."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Content belongs inside the input boundary.",
+      "useInstead": "Input startAdornment/endAdornment"
+    }
+  ],
+  "composition": [
+    "Compose Group attached with InputAddon and Input. Set matching size and variant explicitly on both; Group does not propagate Input recipes."
+  ],
+  "rules": [
+    {
+      "id": "input-addon-presentation",
+      "level": "must",
+      "statement": "Keep InputAddon noninteractive. Use Button or IconButton for actions and Field for labels; meaningful units must be present in accessible descriptions."
+    },
+    {
+      "id": "input-addon-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css with input-addon.css, input.css and group.css when composing."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using an addon as the only label or as a button.",
+      "correction": "Use Field.Label and a real named Button for actions."
+    }
+  ],
+  "validation": [
+    "Check attached edges, matching heights, RTL, narrow widths and responsive recipes."
+  ],
+  "related": [
+    "input",
+    "group",
+    "field"
+  ]
+}

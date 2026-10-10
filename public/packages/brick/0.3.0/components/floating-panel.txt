@@ -1,0 +1,126 @@
+# FloatingPanel
+
+Source: @flowstack-ui/brick@0.3.0
+Kind: component
+ID: floating-panel
+
+# FloatingPanel agent guide
+
+## Purpose
+
+Compose a finished movable and resizable nonmodal application tool using Atom-owned geometry and lifecycle.
+
+## Use when
+
+- An inspector or tool needs independent position, size and minimize/maximize/restore controls.
+
+## Choose something else when
+
+- Content is anchored to a trigger. Use popover.
+- The task blocks other work. Use dialog.
+- Regions share a resizable layout. Use splitter.
+
+## Required composition
+
+- Use Root or the Brick useFloatingPanel hook with RootProvider, then Trigger, Portal, Positioner, Content, Header, DragTrigger, Title, Control, Body and ResizeTriggers. Wrap IconButton and CloseButton with the relevant trigger using asChild.
+
+## Rules
+
+- **MUST:** Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers.
+- **MUST:** Size and position are numeric CSS-pixel geometry, not visual size recipes. Use Brick useFloatingPanel for the same 240 by 100 minimum as Root.
+- **MUST:** Provide non-drag controls with NumberInput and Button using controller setters. Keep header actions outside DragTrigger.
+- **MUST:** Load styles.css or core.css plus floating-panel.css and the styles of authored children. Keep theme scope on portalled visual roots or portal inside the scope.
+
+## Common mistakes
+
+- **Avoid:** Replacing Atom geometry with Block CSS or application pointer listeners. **Instead:** Use the public controller, options and parts.
+
+## Validation checklist
+
+- Verify header/control containment, typography, border and radius, all handles, scrolling, narrow hosts, RTL, dark appearance, reduced motion and nested overlays.
+- DragTrigger aligns grip and Title; keep Control outside it. Use ghost 2xs actions for compact panels and larger existing sizes when needed. ResizeTriggers forwards shared handle props but has no shared ref. Content remains a keyboard target; pointer handles are named groups outside the default tab sequence. Staged controls show restore only.
+
+## Related guidance
+
+- `overlay-manager`
+- `dialog`
+- `popover`
+- `splitter`
+- `icon-button`
+- `close-button`
+- `number-input`
+
+## Machine record
+
+```json
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "floating-panel",
+  "name": "FloatingPanel",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Compose a finished movable and resizable nonmodal application tool using Atom-owned geometry and lifecycle.",
+  "useWhen": [
+    "An inspector or tool needs independent position, size and minimize/maximize/restore controls."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Content is anchored to a trigger.",
+      "useInstead": "popover"
+    },
+    {
+      "condition": "The task blocks other work.",
+      "useInstead": "dialog"
+    },
+    {
+      "condition": "Regions share a resizable layout.",
+      "useInstead": "splitter"
+    }
+  ],
+  "composition": [
+    "Use Root or the Brick useFloatingPanel hook with RootProvider, then Trigger, Portal, Positioner, Content, Header, DragTrigger, Title, Control, Body and ResizeTriggers. Wrap IconButton and CloseButton with the relevant trigger using asChild."
+  ],
+  "rules": [
+    {
+      "id": "floating-panel-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers."
+    },
+    {
+      "id": "floating-panel-geometry",
+      "level": "must",
+      "statement": "Size and position are numeric CSS-pixel geometry, not visual size recipes. Use Brick useFloatingPanel for the same 240 by 100 minimum as Root."
+    },
+    {
+      "id": "floating-panel-alternative",
+      "level": "must",
+      "statement": "Provide non-drag controls with NumberInput and Button using controller setters. Keep header actions outside DragTrigger."
+    },
+    {
+      "id": "floating-panel-style",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus floating-panel.css and the styles of authored children. Keep theme scope on portalled visual roots or portal inside the scope."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Replacing Atom geometry with Block CSS or application pointer listeners.",
+      "correction": "Use the public controller, options and parts."
+    }
+  ],
+  "validation": [
+    "Verify header/control containment, typography, border and radius, all handles, scrolling, narrow hosts, RTL, dark appearance, reduced motion and nested overlays.",
+    "DragTrigger aligns grip and Title; keep Control outside it. Use ghost 2xs actions for compact panels and larger existing sizes when needed. ResizeTriggers forwards shared handle props but has no shared ref. Content remains a keyboard target; pointer handles are named groups outside the default tab sequence. Staged controls show restore only."
+  ],
+  "related": [
+    "overlay-manager",
+    "dialog",
+    "popover",
+    "splitter",
+    "icon-button",
+    "close-button",
+    "number-input"
+  ]
+}
+```

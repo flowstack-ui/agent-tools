@@ -1,0 +1,69 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "action-bar",
+  "name": "ActionBar",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Floating contextual actions with theme-owned surface, spacing and motion.",
+  "useWhen": [
+    "Selection exposes temporary actions at the viewport bottom."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A panel needs a trigger anchor.",
+      "useInstead": "popover"
+    },
+    {
+      "condition": "Persistent keyboard action grouping is needed.",
+      "useInstead": "toolbar"
+    }
+  ],
+  "composition": [
+    "Compose Root, Portal, Positioner and named Content. Add SelectionTrigger, Separator, Buttons and CloseTrigger asChild with CloseButton."
+  ],
+  "rules": [
+    {
+      "id": "action-bar-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers."
+    },
+    {
+      "id": "action-bar-state",
+      "level": "must",
+      "statement": "Keep selection, counts, translations and business operations application-owned. Closing is not clearing selection."
+    },
+    {
+      "id": "action-bar-layout",
+      "level": "must",
+      "statement": "Set placement on Positioner. Use child Button sizes instead of inventing ActionBar sizes. Load aggregate styles or core plus action-bar and child component styles."
+    },
+    {
+      "id": "action-bar-focus",
+      "level": "must",
+      "statement": "Name Content. Opening preserves focus by default; retain collection interaction through closeOnInteractOutside=false or persistentElements."
+    },
+    {
+      "id": "action-bar-controller",
+      "level": "must",
+      "statement": "Use useActionBar with RootProvider value for external control; pass the unchanged controller. Positioner supports asChild/render. Content uses compact md corners by default. Root presence options include present, immediate, skipAnimationOnMount and hideMode. Keep examples focused and retain exhaustive matrices in qualification."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Applying CSS overrides to Popover coordinates.",
+      "correction": "Use ActionBar for detached actions."
+    }
+  ],
+  "validation": [
+    "Check light/dark, safe-area placement, RTL, narrow wrapping, nested Dialog and loading alignment."
+  ],
+  "related": [
+    "popover",
+    "toolbar",
+    "button",
+    "close-button",
+    "divider",
+    "format-number"
+  ]
+}

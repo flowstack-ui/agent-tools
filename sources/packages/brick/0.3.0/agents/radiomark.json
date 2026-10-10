@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "radiomark",
+  "name": "Radiomark",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Show passive selected or unselected circular state without creating radio behavior.",
+  "useWhen": [
+    "A choice card or read-only summary already owns selection behavior and needs a theme-aware radio visual."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The visual must provide radio focus, keyboard behavior, or form participation.",
+      "useInstead": "Radio Group or Radio Card"
+    }
+  ],
+  "composition": [
+    "Place Radiomark inside an existing choice owner and let that owner expose selected state and its accessible name.",
+    "Choose solid, soft, subtle (soft alias), outline or inverted, with responsive size and variant. Sizes xs/sm/md/lg are 12/16/20/24px. Neutral and contrast share the current palette; filled retains canvas beneath transparent states."
+  ],
+  "rules": [
+    {
+      "id": "radiomark-passive",
+      "level": "must",
+      "statement": "Keep Radiomark passive and aria-hidden; the parent control owns semantics."
+    },
+    {
+      "id": "radiomark-state",
+      "level": "must",
+      "statement": "Use checked only to mirror state owned elsewhere."
+    },
+    {
+      "id": "radiomark-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus radiomark.css."
+    },
+    {
+      "id": "radiomark-artwork",
+      "level": "must",
+      "statement": "Children replace the decorative checked dot; never put interactive or accessible content in an aria-hidden mark."
+    },
+    {
+      "id": "radiomark-recipes",
+      "level": "must",
+      "statement": "Use responsive sizes and variants. Outline uses a 0.6 dot; other recipes use 0.4. Inverted uses solid palette foreground. invalid is visual only; disabled adds one fade and a disabled cursor. Preserve passive custom artwork."
+    },
+    {
+      "id": "radiomark-palette",
+      "level": "should",
+      "statement": "Keep semantic tone props; for a qualified category palette use the documented --brick-radiomark-solid, --brick-radiomark-on-solid, --brick-radiomark-soft and --brick-radiomark-text tokens together and verify both appearances. Do not attach interaction to the mark."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Building a radio control from a clickable Radiomark.",
+      "correction": "Use Radio Group or Radio Card and reserve Radiomark for passive presentation."
+    }
+  ],
+  "validation": [
+    "Verify circular geometry, checked and unchecked states, sizes, tones, variants, dark mode, forced colors, and absence of focus or role."
+  ],
+  "related": [
+    "radio-group",
+    "radio-card",
+    "icon"
+  ]
+}

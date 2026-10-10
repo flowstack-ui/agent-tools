@@ -5,6 +5,17 @@ description: Build or change FLOWSTACK interfaces by selecting the correct publi
 
 # FLOWSTACK UI Builder
 
+## Component construction decisions
+
+Read the exact package composition guide for defaults, parent layout, token
+ownership and same-host composition before adding wrappers or styling props.
+Do not infer that another library's shared styling API exists in FLOWSTACK.
+Distinguish shared foundation tokens, component recipes, public local hooks and
+private variables. Prefer a documented existing capability; escalate repeated
+gaps with evidence rather than inventing props or compensating with CSS.
+For documentation work, follow the repository's docs-versus-qualification
+contract: simplifying the visible page must not delete behavioral evidence.
+
 Build from package-owned guidance, not remembered component rules.
 
 ## Resolve authority

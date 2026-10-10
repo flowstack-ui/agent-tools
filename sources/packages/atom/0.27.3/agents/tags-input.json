@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "tags-input",
+  "name": "TagsInput",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Own collection and draft transactions, token navigation, acceptance, announcements and form serialization for authored tags.",
+  "useWhen": [
+    "Users create and edit multiple short string values in one logical field."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Users choose only from predefined options.",
+      "useInstead": "MultiSelect"
+    },
+    {
+      "condition": "Values are display-only labels.",
+      "useInstead": "Brick Chip"
+    }
+  ],
+  "composition": [
+    "Use Root or RootProvider, Label, Control, indexed Item parts, Input and one HiddenInput. ItemPreview contains ItemText and ItemDeleteTrigger; ItemInput is a sibling editor."
+  ],
+  "rules": [
+    {
+      "id": "tags-input-composition",
+      "level": "must",
+      "statement": "Use ItemContext for item state and ids.item, ids.itemInput and ids.itemDeleteTrigger callbacks for indexed IDs. asChild/render must preserve native input/label/button hosts and forward owner props and refs. Composed interactive descendants retain their own activation; do not duplicate value or focus owners."
+    },
+    {
+      "id": "tags-input-values",
+      "level": "must",
+      "statement": "Update controlled collection and draft independently. Preserve Item index/value order, including duplicate occurrences."
+    },
+    {
+      "id": "tags-input-form",
+      "level": "must",
+      "statement": "Use one HiddenInput for the JSON-serialized committed collection; never name the visible draft or add a duplicate named proxy."
+    },
+    {
+      "id": "tags-input-combobox",
+      "level": "must",
+      "statement": "Use useTagsInputCombobox bindings for nested Combobox suggestions, with TagsInput Control/Input and standard Combobox popup parts."
+    },
+    {
+      "id": "tags-input-validation",
+      "level": "must",
+      "statement": "Keep asynchronous lookup and domain policy in the application. Synchronous sanitize/validate and limits apply uniformly to every accepted mutation."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Dropping empty array positions as item identity or submitting comma-joined strings.",
+      "correction": "Use index/value anatomy and the JSON form value; retain rejected paste drafts."
+    }
+  ],
+  "validation": [
+    "Test duplicates, edits, atomic paste, max/overflow, IME, disabled item navigation, controlled replacement and cancellation.",
+    "Test labels, required collection validity, reset/external forms, native refs, live strings and nested portalled suggestions."
+  ],
+  "related": [
+    "input",
+    "field",
+    "form",
+    "combobox"
+  ]
+}

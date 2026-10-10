@@ -1,0 +1,57 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "format-byte",
+  "name": "Format Byte",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render or return locale-aware bit and byte quantities with explicit scaling and unit presentation.",
+  "useWhen": [
+    "Storage, transfer, attachment, or payload sizes need localized units."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The value is another measurement or a rate needing authored per-time wording.",
+      "useInstead": "Format Number plus application-owned context"
+    }
+  ],
+  "composition": [
+    "Place FormatByte in Text, Paragraph or another semantic typography owner; keep source data numeric until rendering."
+  ],
+  "rules": [
+    {
+      "id": "format-byte-unit",
+      "level": "must",
+      "statement": "Choose bit or byte and decimal or binary scaling explicitly when the domain requires it."
+    },
+    {
+      "id": "format-byte-locale",
+      "level": "must",
+      "statement": "Prefer LocaleProvider inheritance and use unitDisplay long when abbreviations would be ambiguous."
+    },
+    {
+      "id": "format-byte-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus format-byte.css."
+    },
+    {
+      "id": "byte-precision",
+      "level": "must",
+      "statement": "precision is an integer from 1 through 100 and pre-rounds before Intl display rounding. unit=bit expects bits. Binary uses 1024 scaling with Intl SI labels, not IEC names."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Embedding a preformatted size string in Block content.",
+      "correction": "Store the numeric quantity and format it at the application rendering boundary."
+    }
+  ],
+  "validation": [
+    "Verify bit and byte modes, decimal and binary scaling, precision, localized long and short units, and SSR output."
+  ],
+  "related": [
+    "locale-provider",
+    "format-number",
+    "text"
+  ]
+}

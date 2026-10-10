@@ -1,0 +1,71 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "field",
+  "name": "Field",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Arrange a labelled control or a targeted compound value with description, error and Atom-owned relationships.",
+  "useWhen": [
+    "One finished control needs a visible label and may need help or error text."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Several independent questions need a shared group legend.",
+      "useInstead": "Fieldset, with Field inside when individual controls also need labels"
+    }
+  ],
+  "composition": [
+    "Compose Field.Root -> Field.Label -> one control -> optional Field.Description -> optional Field.Error.",
+    "For a compound value, give each Item a unique value, set Root.target to the primary Item, and name secondary controls independently. Set authored IDs through Root.ids, not only on the control. Compatible Brick controls consume Item context; raw native controls require explicit ID and ARIA wiring.",
+    "Use responsive size/orientation and labelWidth for horizontal composition. Context/useFieldContext read relationships and state. ErrorIcon is optional decorative artwork and follows Icon props.",
+    "Use size=xs or sm with tone=secondary for dense property rows; keep the default md/primary hierarchy for ordinary forms."
+  ],
+  "rules": [
+    {
+      "id": "field-disabled-presentation",
+      "level": "must",
+      "statement": "Disabled labels and legends fade to 50%; the structural container does not fade. Descendant controls own their disabled treatment so Fieldset inheritance never compounds opacity."
+    },
+    {
+      "id": "field-one-control",
+      "level": "must",
+      "statement": "Use one control, or uniquely named Item controls with an intentional target and secondary accessible names."
+    },
+    {
+      "id": "field-marker",
+      "level": "must",
+      "statement": "Field.Label already renders the default required marker; never add a second asterisk or RequiredIndicator unless the default is disabled."
+    },
+    {
+      "id": "field-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus field.css and the owned control stylesheet."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Adding a manual required asterisk beside a required Field.Label.",
+      "correction": "Set required on Field.Root and use the built-in Label marker, or explicitly replace it once."
+    }
+  ],
+  "validation": [
+    "Confirm label, description, and error relationships.",
+    "Confirm exactly one required marker.",
+    "Check xs, sm, and md label density plus primary and secondary hierarchy.",
+    "Check vertical and horizontal layouts at narrow widths."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "field",
+      "versionPolicy": "installed-exact"
+    },
+    "form",
+    "fieldset",
+    "input",
+    "textarea",
+    "checkbox"
+  ]
+}

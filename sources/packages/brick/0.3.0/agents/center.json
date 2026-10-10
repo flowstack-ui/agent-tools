@@ -1,0 +1,83 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "center",
+  "name": "Center",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Center authored content or guarantee a centered square or circle without taking over paint, icon semantics, or positioned overlay layout.",
+  "useWhen": [
+    "Content needs two-axis centering, or one fixed-size centered region must remain exactly square or circular under flex pressure."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Children follow a row or column relationship, only general constraints are needed, the region needs paint, or layers overlap.",
+      "useInstead": "Stack, Frame, Surface, or ZStack"
+    }
+  ],
+  "composition": [
+    "Use Center for arbitrary two-axis alignment. Use Square or Circle with a required size when equal geometry and fixed flex participation are part of the contract.",
+    "Compose Surface asChild around Square or Circle for background, boundary, elevation, or tone, and keep authored SVG sizing and accessibility on Icon."
+  ],
+  "rules": [
+    {
+      "id": "center-inline-alignment",
+      "level": "must",
+      "statement": "Center inline changes display only and preserves normal surrounding-text baseline alignment. Square and Circle retain middle alignment as fixed inline ornaments. Internal two-axis centering is independent of vertical-align."
+    },
+    {
+      "id": "center-intent",
+      "level": "must",
+      "statement": "Choose Center for arbitrary centering, Square for a guaranteed equal-size centered region, and Circle only when genuinely circular geometry is intended."
+    },
+    {
+      "id": "center-size",
+      "level": "must",
+      "statement": "Give Square and Circle one explicit scalar or responsive size; do not recreate equal inline and block dimensions with separate Frame constraints."
+    },
+    {
+      "id": "center-paint",
+      "level": "must",
+      "statement": "Compose Surface or the purposeful finished owner for paint, padding, boundary, and elevation; Center, Square, and Circle own none of those jobs."
+    },
+    {
+      "id": "center-icon",
+      "level": "must",
+      "statement": "Keep SVG size, tone, direction, and accessibility on Icon; the centered container does not turn the graphic into an action or supply its meaning."
+    },
+    {
+      "id": "center-overlay",
+      "level": "must",
+      "statement": "Use ZStack for positioned overlay centering; do not recreate AbsoluteCenter with application positioning or transforms."
+    },
+    {
+      "id": "center-responsive",
+      "level": "must",
+      "statement": "Author responsive size mobile first; omit initial to keep automatic baseline geometry, or supply it to replace that baseline, and include only the Brick breakpoint overrides that change."
+    },
+    {
+      "id": "center-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus center.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a shrinkable Frame/HStack icon well, adding background and radius to Icon, or using Circle for every decorative icon.",
+      "correction": "Use Square or Circle for invariant geometry, compose Surface for paint, and reserve Circle for deliberately circular presentation."
+    }
+  ],
+  "validation": [
+    "Check computed centering, equal inline and block dimensions, fixed flex participation, responsive carry-forward, inline flow, RTL, and zoom.",
+    "Confirm Surface and Icon composition preserves paint, radius, glyph containment, and accessibility without custom layout CSS."
+  ],
+  "related": [
+    "stack",
+    "frame",
+    "surface",
+    "icon",
+    "z-stack",
+    "aspect-ratio",
+    "badge"
+  ]
+}

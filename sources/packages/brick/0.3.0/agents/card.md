@@ -1,0 +1,56 @@
+# Card agent guide
+
+## Purpose
+
+Group content about one subject in a finished compound surface with header, content, and footer anatomy.
+
+## Use when
+
+- A bounded subject needs a title, supporting content, and optional actions as one visual unit.
+
+## Choose something else when
+
+- Only generic background, border, radius, or elevation is needed. Use Surface.
+
+## Required composition
+
+- Compose Card.Root with only the Header, Title, Description, Action, Content, and Footer parts the subject needs.
+- Use the default outline recipe for base-surface grouping with a structural boundary and no elevation.
+- Use variant="elevated" for a borderless raised panel with layered medium elevation; do not reproduce that treatment with consumer shadow CSS.
+- Card.Action reserves a trailing Header column across the title and description rows; when compact metadata belongs beside only the title, compose that title row with HStack and omit Card.Action so the description retains the full measure.
+- Record selection uses the public selection utility; optional ActionDelegate points to a visible descendant link, button or checkbox. The host owns no keyboard navigation.
+- Content owns complete padding and flex growth. Use Root overflow=visible for protruding content, retaining clip by default. Root asChild merges onto one semantic host; never nest interactive controls inside an interactive root.
+- Use responsive size and variant for Card-owned density/paint; Grid, Stack and Frame still own layout and measure. Regions support responsive gap and Footer supports logical justify.
+- Every part supports asChild on one non-Fragment host forwarding props/refs. Do not combine Title or Root as with asChild. Content is a growing column; use Paragraph for inline prose.
+
+## Rules
+
+- **MUST:** Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers.
+- **MUST:** Do not turn the whole Card into an unnamed clickable div; place explicit Link or Button controls inside or use a valid link composition.
+- **MUST:** Load styles.css or core.css plus card.css and styles for nested components.
+- **SHOULD:** Use bordered={false} when edge-to-edge authored media should meet Card's clipped outer boundary without retaining the selected recipe's border; do not remove that geometry with application CSS.
+- **SHOULD:** Use Card.Action only when every Header text row should reserve its trailing column; otherwise compose title-only metadata in a Brick HStack.
+- **SHOULD:** For edge media, place authored Image directly under Card.Root, then use Card.Header for topic, title, and description so the root clips outer corners and the complete text region receives Card inset.
+- **MUST:** Use selected only as presentation alongside a named Checkbox. Compose useSelection and ActionDelegate for record selection and primary activation; retain native semantics, actual controls and independent secondary actions. Never add row role=button or a tab stop. See docs/guides/record-selection.md.
+- **MUST:** Use documented background, foreground and description-foreground hooks together for intentional local paint. Primary Card text inherits foreground; independent controls retain their own recipes. Do not treat instance hooks as global Theme inputs or add arbitrary variant names.
+- **MUST:** Use nonempty sparse ResponsiveValue for size/variant and region gap; omitted initial inherits md/outline or region defaults. Footer justify is start/center/end/between/around/evenly. Never emulate Card density with viewport-dependent render branches.
+
+## Common mistakes
+
+- **Avoid:** Using Card for every spacing group. **Instead:** Use Stack or Surface when there is no bounded card subject.
+- **Avoid:** Using Card.Action for a title-only Badge and unintentionally narrowing the description below it. **Instead:** Place the title and Badge in a Brick HStack, then render Card.Description as the next full-width Header child.
+- **Avoid:** Adding a nested layout wrapper solely to change a Card region's gap or footer alignment. **Instead:** Use the region gap prop and Footer justify. Use asChild when a meaningful existing host should own the region.
+
+## Validation checklist
+
+- Check heading order and explicit action names.
+- Check whether trailing Header content should constrain both title and description or the title row only.
+- Check content flow, focus visibility, narrow widths, and appearance contrast.
+
+## Related guidance
+
+- `surface`
+- `stack`
+- `grid`
+- `button`
+- `link`

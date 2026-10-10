@@ -1,0 +1,123 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "image",
+  "name": "Image",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Provide styled resilient media with Atom loading/fallback behavior, sizing recipes, and accessible image semantics.",
+  "useWhen": [
+    "A product image, brand asset, illustration, content image, or larger editorial/profile portrait needs Brick sizing, authored aspect ratio, fit, focal position, radius, loading, or fallback presentation."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A person or entity needs a compact fixed-square identity token with explicit fallback content.",
+      "useInstead": "Avatar"
+    },
+    {
+      "condition": "A framework optimizer provides a required measured optimization Brick does not expose.",
+      "useInstead": "a documented Image adapter that preserves semantics and reports the capability gap"
+    }
+  ],
+  "composition": [
+    "Content stays in server HTML and during loading; Atom observes the native image. Fallback defaults to idle/error. Loading covers are opt-in and may delay visible content; never add a detached preload to compensate.",
+    "Compose Image.Content and optional Image.Fallback inside Image.Root; use Brick Stack or layout components around it rather than wrapper spans for alignment.",
+    "In a React Server Component, import ImageRoot, ImageContent, and ImageFallback directly; the compound Image namespace is intended for client module composition.",
+    "Keep source state on Image.Root, then pass intrinsic width and height plus native responsive delivery props such as sizes, loading, decoding, and fetchPriority to Image.Content.",
+    "Put canonical src/srcSet on Root for SSR-known loading state. Content srcSet overrides Root for compatibility but cannot inform Root during SSR. One Content per Root; meaningful authored fallback replaces hidden error content, otherwise the result is empty."
+  ],
+  "rules": [
+    {
+      "id": "image-shared-radius",
+      "level": "must",
+      "statement": "Use shared Radius with default none. Core sm/md/lg replace historical semantic mappings; use subtle/control/surface to preserve old intent. Radius does not change media fit, loading or aspect ratio."
+    },
+    {
+      "id": "image-brick-first",
+      "level": "must",
+      "statement": "Use Brick Image for ordinary interface media; document any native or framework image fallback and the missing capability."
+    },
+    {
+      "id": "image-alt",
+      "level": "must",
+      "statement": "Provide meaningful alt text, or alt=\"\" for a decorative image."
+    },
+    {
+      "id": "image-portrait-alt",
+      "level": "must",
+      "statement": "For a profile portrait, preserve the person's name as alt when the portrait communicates identity; use alt=\"\" only when that specific portrait is intentionally decorative."
+    },
+    {
+      "id": "image-layout",
+      "level": "must",
+      "statement": "Reserve intrinsic width and height or an authored parent aspect ratio so image arrival does not create layout shift."
+    },
+    {
+      "id": "image-responsive-delivery",
+      "level": "must",
+      "statement": "When a rendered slot changes materially by viewport or container, provide source candidates and an accurate sizes contract so the browser does not receive one oversized raster by default."
+    },
+    {
+      "id": "image-lcp-delivery",
+      "level": "must",
+      "statement": "Do not lazy-load a measured or strongly expected LCP image; keep it directly discoverable, load it eagerly, and use high fetch priority only for the small number of truly critical images."
+    },
+    {
+      "id": "image-deferred-delivery",
+      "level": "must",
+      "statement": "Use native lazy loading for ordinary deferred images; when an exact application proximity or intent boundary is required, let the application decide when to attach the source because loading=lazy remains a browser scheduling hint."
+    },
+    {
+      "id": "image-parent-fill",
+      "level": "must",
+      "statement": "Use explicit fill when Image must consume a parent-established block size, such as Surface.Media; retain fit and position for the intended crop."
+    },
+    {
+      "id": "image-parent-owner",
+      "level": "must",
+      "statement": "Name and preserve the parent sizing box when fill is used; Image propagates into available geometry but does not create that geometry."
+    },
+    {
+      "id": "image-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus image.css."
+    },
+    {
+      "id": "image-rsc-parts",
+      "level": "must",
+      "statement": "Use direct named Image parts across a React Server Component boundary instead of wrapping the complete consumer in use client."
+    },
+    {
+      "id": "image-responsive-crop",
+      "level": "must",
+      "statement": "Use responsive fit/position/numeric ratio with initial/sm/md/lg/xl; sparse defaults are cover, center and 16/9 for supplied ratio. Omitted ratio stays intrinsic. Logical start/end follow effective direction; authored physical focal coordinates do not mirror."
+    },
+    {
+      "id": "image-picture",
+      "level": "must",
+      "statement": "Compose Root as picture with source children before one direct Content and phrasing span fallback. Nested picture wrappers do not support ratio/fill; preserve actual img refs and native handlers in framework composition."
+    },
+    {
+      "id": "image-optimization",
+      "level": "must",
+      "statement": "Keep Next/CDN optimization and caching application-owned. Map getImageProps src/srcSet to Root and remaining native props to Content; do not use helper blur placeholders. Never add framework imports to Brick runtime."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using next/image automatically, forcing a larger authored profile portrait into Avatar's compact square recipe, wrapping Image in spans for ordinary alignment, applying one blanket alt decision to all portraits, sending one desktop raster to every slot, or lazy-loading the likely LCP image.",
+      "correction": "Start with Brick Image for larger authored media, use Avatar for compact identity, decide alt from each image's context, reserve geometry, provide responsive candidates and accurate sizes, keep critical media discoverable, and adapt only for a measured missing optimizer capability."
+    }
+  ],
+  "validation": [
+    "Check loaded, loading, error, cached, narrow and wide source selection, transferred bytes, priority, parent-fill geometry, crop, layout shift, contextual alt text—including identity-bearing and intentionally decorative portraits—contrast of fallback content, and RTL where relevant.",
+    "For delivery-sensitive media, verify cold, warm, constrained-network, blocked-image, first-viewport, and post-proximity behavior; keep localhost timing separate from production or field evidence.",
+    "Confirm CSS and any adapter report are complete."
+  ],
+  "related": [
+    "aspect-ratio",
+    "stack",
+    "avatar",
+    "surface"
+  ]
+}

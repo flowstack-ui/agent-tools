@@ -1,0 +1,51 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "spinner",
+  "name": "Spinner",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present visual loading without owning request state or announcements.",
+  "useWhen": [
+    "A task needs a compact indeterminate visual indicator."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A named progress task exposes completion or a range.",
+      "useInstead": "ProgressCircle"
+    }
+  ],
+  "composition": [
+    "Use responsive size for breakpoint-specific diameters; inherit follows typography.",
+    "Use asChild for one passive SVG/artwork element, never a control or focusable subtree. Artwork owns its stroke; Spinner supplies size, color and motion without ring paint.",
+    "Pair a decorative Spinner with visible status text; keep Button loading and Toast announcements on their existing owners."
+  ],
+  "rules": [
+    {
+      "id": "spinner-semantics",
+      "level": "must",
+      "statement": "Keep Spinner decorative unless a standalone graphic needs an authored label; do not add a duplicate live region."
+    },
+    {
+      "id": "spinner-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus spinner.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Replacing ProgressCircle or a button's busy semantics with Spinner.",
+      "correction": "Keep the semantic owner and use Spinner only for visual feedback."
+    }
+  ],
+  "validation": [
+    "Check square geometry, normal/reduced motion, forced colors, RTL, light/dark and one accessible name."
+  ],
+  "related": [
+    "button",
+    "icon-button",
+    "toast",
+    "progress-circle",
+    "icon"
+  ]
+}

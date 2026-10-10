@@ -1,0 +1,60 @@
+# List agent guide
+
+## Purpose
+
+Render finished ordered or unordered content with native list semantics, optional structured rows, markers, density, and boundaries.
+
+## Use when
+
+- Content is naturally a set of peer items or a sequence and needs Brick's finished list presentation.
+
+## Choose something else when
+
+- Rows are persistent route destinations or need current-route state. Use NavList.
+- Rows form a keyboard-operated choice, action collection, data table, or two-dimensional grid. Use Listbox, Menu, Table, or DataGrid according to the interaction.
+- Content only needs visual spacing and has no list relationship. Use Stack or Grid.
+
+## Required composition
+
+- For simple typography use density=none and inset=none with gap. Use size=inherit to inherit a surrounding Text div's complete font recipe; md remains the default. Do not merge Text and List.Root on one host because both own data-variant.
+- Set markerTone on Root or Item for native marker color, and nestedInset on the nested Root for responsive indentation. Use Icon tone and size for authored glyphs; Leading aligns them with the first line.
+- All five presentation parts support asChild with one element. Keep normal Item for structured rows. List does not expose an Indicator alias or Chakra's generic style-prop engine.
+- Compose Root > Item; for structured rows use Leading, Content with Title and Description, then Trailing in that order.
+- Use ordered only when sequence changes meaning and preserve native list hosts when composing with asChild or render.
+- Keep Trailing for compact metadata or controls; when a long action would narrow supporting copy, place the action with the title inside Content using Brick layout instead.
+- Use Root align="center" when a compact leading visual and one-line content should share a visual center; keep the default start for multi-line rows whose leading and trailing parts belong with the first line.
+- Use Root inset="none" when an ordinary List's leading content must share a logical start with adjacent sibling content; keep the default inset for standalone List rhythm.
+- Record selection uses the public selection utility; optional ActionDelegate points to a visible descendant link, button or checkbox. The host owns no keyboard navigation.
+- Use Root gap for responsive peer spacing, density=none for zero block inset, and inset=none for zero inline inset. asChild li retains typography; use normal Item for structured Leading/Content/Trailing.
+
+## Rules
+
+- **MUST:** Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers.
+- **MUST:** Use List only for a real item or sequence relationship and preserve native list semantics.
+- **MUST:** Keep structured row parts in Leading, Content, Trailing order and use one Content and one Trailing maximum per Item.
+- **MUST:** Keep Trailing compact; move long actions into a Content-owned layout when a fixed trailing column would damage narrow-screen reading.
+- **MUST:** List retains native semantics and adds no focus movement. Use the public selection utility and ActionDelegate with real controls for record interactions, not custom List event emulation.
+- **MUST:** Load styles.css or core.css plus list.css.
+- **MUST:** Use the closed Root align recipe before overriding --brick-list-part-align or adding consumer CSS for structured row alignment.
+- **MUST:** Use the closed Root inset recipe before overriding --brick-list-row-padding-inline or adding consumer CSS for ordinary row inset.
+- **MUST:** Use selected only as presentation alongside a named Checkbox. Compose useSelection and ActionDelegate for record selection and primary activation; retain native semantics, actual controls and independent secondary actions. Never add row role=button or a tab stop. See docs/guides/record-selection.md.
+
+## Common mistakes
+
+- **Avoid:** Using List as a generic row layout, making an Item itself clickable, or placing a long action in Trailing until supporting text becomes a narrow column. **Instead:** Use Stack or Grid for non-list layout, NavList for route destinations, or ActionDelegate with a real descendant control for record activation. Move long actions into Content's own layout.
+- **Avoid:** Assuming an Item's disabled presentation disables controls inside it. **Instead:** Apply the proper disabled contract to every interactive descendant; List's disabled state is descriptive and visual only.
+- **Avoid:** Overriding item padding merely to align a feature list with a sibling heading. **Instead:** Use Root inset="none" for the flush relationship.
+
+## Validation checklist
+
+- Inspect ul or ol and li output, ordered meaning, marker behavior, structured-part order, nesting, roles, and CSS delivery.
+- Test long titles and descriptions, compact and comfortable density, both inset recipes, all variants, markers, and structured alignments, first-line marker alignment in bordered simple and structured rows, 320 CSS px, 200 and 400 percent zoom, RTL, and forced colors.
+- Confirm Trailing content does not squeeze Content, controls have names and touch targets, disabled descendants are handled explicitly, and List adds no keyboard model.
+
+## Related guidance
+
+- `nav-list`
+- `stack`
+- `grid`
+- `text`
+- `divider`

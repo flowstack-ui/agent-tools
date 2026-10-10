@@ -4,10 +4,10 @@ Version-aware public Agent Knowledge. Start with a task or exact package; then l
 
 ## Packages
 
-- [@flowstack-ui/atom@0.26.0](/packages/atom/0.26.0/index.txt) — 71 components, 0 operations
-- [@flowstack-ui/brick@0.2.0](/packages/brick/0.2.0/index.txt) — 95 components, 0 operations
+- [@flowstack-ui/atom@0.27.3](/packages/atom/0.27.3/index.txt) — 89 components, 0 operations
+- [@flowstack-ui/brick@0.3.0](/packages/brick/0.3.0/index.txt) — 129 components, 0 operations
 - [@flowstack-ui/colors@0.1.1](/packages/colors/0.1.1/index.txt) — 0 components, 6 operations
-- [@flowstack-ui/theme@0.1.1](/packages/theme/0.1.1/index.txt) — 0 components, 7 operations
+- [@flowstack-ui/theme@0.2.0](/packages/theme/0.2.0/index.txt) — 0 components, 7 operations
 
 ## Tasks
 

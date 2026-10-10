@@ -1,0 +1,54 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "native-select",
+  "name": "NativeSelect",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Preserve browser-native option selection with coordinated Field and Form semantics.",
+  "useWhen": [
+    "The browser or operating system should present predefined options."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Rich option content or editable filtering is needed.",
+      "useInstead": "Select or Combobox"
+    }
+  ],
+  "composition": [
+    "Render NativeSelect.Root with native option and optgroup children, usually inside a labelled Field."
+  ],
+  "rules": [
+    {
+      "id": "native-select-native",
+      "level": "must",
+      "statement": "Keep selection, keyboard and uncontrolled reset native; do not add a popup or hidden duplicate value."
+    },
+    {
+      "id": "native-select-label",
+      "level": "must",
+      "statement": "Supply an accessible name through Field.Label or native label/ARIA and preserve native name, required and form."
+    },
+    {
+      "id": "native-select-readonly",
+      "level": "must",
+      "statement": "Do not emulate readonly by disabling the select; native select has no readonly state."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Confusing the custom Select form proxy with a native picker.",
+      "correction": "Use NativeSelect.Root as the visible native control."
+    }
+  ],
+  "validation": [
+    "Verify native selection, multiple values, grouping, disabled options, form reset and external association.",
+    "Verify Field labels/descriptions and state precedence, native validation, SSR, refs, keyboard and physical mobile picker."
+  ],
+  "related": [
+    "field",
+    "form",
+    "select",
+    "combobox"
+  ]
+}

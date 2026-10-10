@@ -1,0 +1,122 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "accordion",
+  "name": "Accordion",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a finished group of related disclosure sections while Atom owns expanded state, headings, linked panels, and keyboard navigation.",
+  "useWhen": [
+    "Several related sections belong to one scannable group and readers should reveal only the details they need."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Only one independent in-flow region needs disclosure.",
+      "useInstead": "Collapsible"
+    },
+    {
+      "condition": "Peer controls switch one shared content view.",
+      "useInstead": "Tabs"
+    },
+    {
+      "condition": "Content must layer, dismiss outside, contain focus, or lock document scrolling.",
+      "useInstead": "Dialog, Drawer, or another matching overlay component"
+    }
+  ],
+  "composition": [
+    "Compose Root > Item > Header > Trigger with Indicator inside Trigger, then place Content > ContentInner as Header's sibling inside the same Item.",
+    "Put visible panel padding and ordinary Brick layout in ContentInner so Content remains Atom's measured motion boundary.",
+    "Choose Header levels from the host document and use Content landmark=false when many regions would make landmark navigation noisy.",
+    "Use the default decorative Indicator when the standard down-when-closed and up-when-open state cue fits; authored Indicator children may replace only the artwork.",
+    "Use size=xl for spacious marketing disclosures that need a 60px trigger and 18px label.",
+    "Use variant=ghost with indicatorPlacement=start for disclosure sections that should blend into an owning inspector surface."
+  ],
+  "rules": [
+    {
+      "id": "accordion-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers."
+    },
+    {
+      "id": "accordion-controller-lifecycle",
+      "level": "must",
+      "statement": "Use useAccordion with RootProvider for an external controller. Root single values remain strings and multiple values arrays; controller setValue accepts an array. Root lazyMount and unmountOnExit default true. Set unmountOnExit=false to retain state after first opening. Activity pauses hidden effects on supported React, with display-none fallback otherwise. Closed retained panels are inert and aria-hidden; keep essential actions outside Content."
+    },
+    {
+      "id": "accordion-responsive-recipes",
+      "level": "should",
+      "statement": "Use sparse responsive size and variant objects at shared breakpoints. Preserve plain, ghost, soft and outline meanings; subtle paints the open item and enclosed adds a grouped boundary with open-item paint. Use component CSS variables for color customization, not semantic status tones. Nested roots and indicators follow their nearest owner."
+    },
+    {
+      "id": "accordion-complete-anatomy",
+      "level": "must",
+      "statement": "Use Root, Item, Header, Trigger, Content, and ContentInner rather than rebuilding disclosure state, relationships, measurement, or animation lifecycle."
+    },
+    {
+      "id": "accordion-single-trigger-owner",
+      "level": "must",
+      "statement": "Let Trigger own its recipe, or use Trigger unstyled asChild with Button or IconButton as the sole visual owner. Root unstyled delegates trigger visuals and ContentInner spacing throughout that root; nested roots own their own recipes. Keep extra actions beside Header, not inside Trigger."
+    },
+    {
+      "id": "accordion-content-inner",
+      "level": "must",
+      "statement": "Keep visible padding and panel layout in ContentInner rather than Content so Atom can measure and animate the panel accurately."
+    },
+    {
+      "id": "accordion-heading-landmarks",
+      "level": "must",
+      "statement": "Choose Header level from the page outline and opt out of optional Content landmarks when the resulting region count would be noisy."
+    },
+    {
+      "id": "accordion-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus accordion.css."
+    },
+    {
+      "id": "accordion-grouped-focus-geometry",
+      "level": "must",
+      "statement": "Keep grouped trigger corners continuous with the enclosing Root and verify that the complete focus ring remains visible at the first and last group edges."
+    },
+    {
+      "id": "accordion-indicator-direction",
+      "level": "must",
+      "statement": "Keep the default Indicator pointing down while closed and up while open in both LTR and RTL. Use custom decorative artwork only for a deliberate alternate state language."
+    },
+    {
+      "id": "accordion-plain-recipe",
+      "level": "should",
+      "statement": "Use the divided plain recipe when the open Item must remain transparent while every row, including the last, retains a visible structural edge and full-row hover feedback with logically inset content."
+    },
+    {
+      "id": "accordion-inspector-recipe",
+      "level": "should",
+      "statement": "Use the ghost recipe and logical start indicator when an inspector panel needs disclosure semantics without a second nested surface."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Accordion for one disclosure, nesting a finished Button in Trigger, or placing padding directly on Content.",
+      "correction": "Use Collapsible for one region. Use Trigger unstyled asChild when delegating to Button, never nest buttons. Put panel spacing in ContentInner."
+    },
+    {
+      "mistake": "Accepting the default heading level or region landmark count without checking the host page.",
+      "correction": "Set Header to the correct document level and use landmark=false when many open panels would create excessive landmarks."
+    },
+    {
+      "mistake": "Rounding every Trigger in one outlined group or clipping Root paint so the first and last Trigger focus rings are cut off.",
+      "correction": "Treat Root as the group silhouette, keep interior Trigger edges square, round only exposed group corners, and preserve visible focus outside the group boundary."
+    }
+  ],
+  "validation": [
+    "Check complete anatomy, unique values, heading order, Trigger names, linked panel relationships, landmark usefulness, and CSS delivery.",
+    "Test Enter, Space, Home, End, orientation-aware arrows, RTL, disabled and locked-open state, single and multiple modes, and controlled and uncontrolled state.",
+    "Test initial open, open and close motion, down/up Indicator state, dynamic panel measurement, reduced motion, complete first and last Trigger focus geometry, continuous grouped corners, long labels, narrow widths, zoom, and forced colors."
+  ],
+  "related": [
+    "collapsible",
+    "tabs",
+    "drawer",
+    "stack",
+    "text"
+  ]
+}

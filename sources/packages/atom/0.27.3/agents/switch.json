@@ -1,0 +1,81 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "switch",
+  "name": "Switch",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Represent an immediately applied boolean setting through the compatible standalone button Root or the compound Field anatomy, with one state owner and one native form input.",
+  "useWhen": [
+    "A setting becomes active or inactive immediately when the user operates it.",
+    "A styled layer needs associated visible labels, explicit native-input integration, decorative state artwork, or an external controller."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The choice is a form answer applied later or a command whose pressed state remains active.",
+      "useInstead": "Checkbox or Toggle"
+    }
+  ],
+  "composition": [
+    "Keep existing standalone usage as Root with an explicit Thumb; Root retains its automatic form proxy when name or required needs one.",
+    "For compound usage, compose one Field or RootProvider with exactly one Control and one HiddenInput. Add Label for visible associated text, Thumb for the movable visual, and Indicator or ThumbIndicator only for decorative checked/fallback artwork."
+  ],
+  "rules": [
+    {
+      "id": "switch-part-ids",
+      "level": "must",
+      "statement": "Use owner ids for custom control/label/input associations in SSR. Local part id overrides register after mounting; explicit aria-labelledby and htmlFor remain caller-owned."
+    },
+    {
+      "id": "switch-name",
+      "level": "must",
+      "statement": "Give the switch a stable accessible name with compound Label, aria-label, aria-labelledby, or outer Field labeling; decorative parts remain aria-hidden and never contain actions."
+    },
+    {
+      "id": "switch-one-state-owner",
+      "level": "must",
+      "statement": "Use one checked-state owner: Field props, or one controller passed to RootProvider. Do not add checked state to Control or synchronize a second local switch."
+    },
+    {
+      "id": "switch-one-input",
+      "level": "must",
+      "statement": "Author exactly one HiddenInput in compound mode. Do not add HiddenInput under standalone Root, which already owns its automatic proxy policy."
+    },
+    {
+      "id": "switch-form-contract",
+      "level": "must",
+      "statement": "Preserve the boolean onCheckedChange callback, Control focus target, native checked-only submission, required validation focus, uncontrolled reset, disabled omission, and controlled reset ownership."
+    },
+    {
+      "id": "switch-safe-composition",
+      "level": "must",
+      "statement": "Keep links and other actions outside Control. A link may appear inside Label because native label activation keeps an interactive descendant independent."
+    },
+    {
+      "id": "switch-immediate-setting",
+      "level": "must",
+      "statement": "Use Switch only for an immediately applied on/off setting; do not substitute it for a deferred checkbox answer or pressed command."
+    },
+    {
+      "id": "switch-readonly",
+      "level": "must",
+      "statement": "Keep read-only Switch focusable while preventing pointer, Enter, Space, label, and custom-host activation from changing state."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Root as a compound wrapper, rendering an automatic and explicit input together, placing a link inside Control, changing the accessible name with state artwork, or treating inputValue as controller state.",
+      "correction": "Keep Root button-compatible, use Field or RootProvider for compound anatomy, author one HiddenInput, keep actions in Label, and reserve RootProvider.value for the controller."
+    }
+  ],
+  "validation": [
+    "Verify Root compatibility, Field/Control/Label/Input associations, one input and tab stop, boolean controlled/uncontrolled updates, label/pointer/Enter/Space activation, read-only and disabled behavior, event cancellation, refs, SSR, and custom hosts across documents.",
+    "Verify named and unnamed reset, checked-only and repeated-name FormData, required validation focus, external form ownership, disabled fieldsets, input handler/ref composition, provider reset policy, and stable decorative indicator naming."
+  ],
+  "related": [
+    "checkbox",
+    "toggle",
+    "field",
+    "form"
+  ]
+}

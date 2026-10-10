@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "fieldset",
+  "name": "Fieldset",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render a finished native group for related controls with a legend, group messaging, and inherited Atom state.",
+  "useWhen": [
+    "Multiple related controls answer one group question."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Only one control needs a label.",
+      "useInstead": "Field"
+    }
+  ],
+  "composition": [
+    "Compose Fieldset.Root -> Fieldset.Legend -> optional Description -> Content containing Fields or grouped choices -> optional Error. Content accepts responsive gap; Root accepts responsive size. Context/useFieldsetContext expose the existing group state."
+  ],
+  "rules": [
+    {
+      "id": "fieldset-header-rhythm",
+      "level": "must",
+      "statement": "Keep Legend directly under the native Root. Description stays 8px from Legend; size controls the separate 8/16/24px header-to-content gap. Content owns field spacing and its gap prop changes only that inner spacing. Hidden native validation inputs inserted by grouped controls do not require compensating wrappers or margins."
+    },
+    {
+      "id": "fieldset-disabled-presentation",
+      "level": "must",
+      "statement": "Disabled labels and legends fade to 50%; the structural container does not fade. Descendant controls own their disabled treatment so Fieldset inheritance never compounds opacity."
+    },
+    {
+      "id": "fieldset-legend",
+      "level": "must",
+      "statement": "Give the related group a meaningful legend."
+    },
+    {
+      "id": "fieldset-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus fieldset.css and child component styles."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using visual heading and div wrappers for a related choice group.",
+      "correction": "Use Fieldset so the group label and state remain semantic."
+    },
+    {
+      "mistake": "Expecting a group error to invalidate every independent Field.",
+      "correction": "Set invalid on the failing Field; Fieldset.Error summarizes the group without feeding aggregate invalidity back into siblings."
+    }
+  ],
+  "validation": [
+    "Inspect fieldset and legend semantics.",
+    "Check group messaging, state propagation, spacing, and responsive layout."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "fieldset",
+      "versionPolicy": "installed-exact"
+    },
+    "form",
+    "field",
+    "checkbox"
+  ]
+}
