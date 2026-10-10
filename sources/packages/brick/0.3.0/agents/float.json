@@ -1,0 +1,74 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "float",
+  "name": "Float",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Attach authored content across a local edge without allocating layout space.",
+  "useWhen": [
+    "A badge, status or independent action must straddle a local content edge."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Content contributes to layered layout size, crosses padding, represents notification counts or needs popup behavior.",
+      "useInstead": "ZStack, Bleed, NotificationBadge, or Popover"
+    }
+  ],
+  "composition": [
+    "Use Float.Anchor around in-flow content followed by Float.Root. Use Anchor inline for intrinsic sizing; parent alignment still controls stretch.",
+    "Keep Float.Root beside clipped Avatar/Card content, not inside it. Paint and size remain on Badge, Surface, Frame, Circle or Icon."
+  ],
+  "rules": [
+    {
+      "id": "float-parent",
+      "level": "must",
+      "statement": "Supply a deliberate positioned containing block; Anchor adds no size without in-flow content or Frame constraints."
+    },
+    {
+      "id": "float-offsets",
+      "level": "must",
+      "statement": "Use signed offset, offsetInline and offsetBlock; axis overrides include zero. Numbers are base factors; numeric strings preserve spacing tokens. Centered axes ignore offsets."
+    },
+    {
+      "id": "float-accessibility",
+      "level": "must",
+      "statement": "Float adds no accessible meaning, hiding, announcements or interaction. Name meaningful content and keep independent interactive controls siblings."
+    },
+    {
+      "id": "float-responsive",
+      "level": "must",
+      "statement": "Use sparse CSS-only responsive placement and offsets without reordering the DOM; start/end mirror in RTL."
+    },
+    {
+      "id": "float-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus float.css and child CSS. Never remove child clipping or use Float as a portal/collision engine."
+    },
+    {
+      "id": "float-composition",
+      "level": "must",
+      "statement": "Keep the wrapper when a child owns transform, position or display. Use asChild only on compatible hosts."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Replacing NotificationBadge with Float or floating inside a clipped Avatar.",
+      "correction": "Keep notification policy on NotificationBadge; wrap Avatar and Float as siblings in Anchor."
+    }
+  ],
+  "validation": [
+    "Measure all nine placements, signed offsets, responsive carry-forward, RTL, nested roots and parent size.",
+    "Verify focus/pointer access, clipping boundaries, narrow width, appearance and packed CSS."
+  ],
+  "related": [
+    "z-stack",
+    "bleed",
+    "notification-badge",
+    "frame",
+    "surface",
+    "avatar",
+    "badge",
+    "icon-button"
+  ]
+}

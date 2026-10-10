@@ -1,0 +1,71 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "pagination",
+  "name": "Pagination",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present polished movement through ordered result pages with current, boundary, and ellipsis states.",
+  "useWhen": [
+    "A result set or collection is divided into multiple ordered pages."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The controls move between guide articles, ancestors, or local panels.",
+      "useInstead": "Link composition, Breadcrumb, or Tabs"
+    }
+  ],
+  "composition": [
+    "Choose exactly one state model: count with pageSize, or totalPages. Use Root for internal state or usePagination with RootProvider for an external controller.",
+    "Compose optional List with Previous, Items and Next. Omit List inside an attached ButtonGroup so the real controls are adjacent.",
+    "Use Items render for custom hosts; use PageText for summaries. Keep fetching, routing and result replacement focus application-owned.",
+    "For URL-backed results, provide Root getPageHref and derive controlled page from the current route."
+  ],
+  "rules": [
+    {
+      "id": "pagination-url-mode",
+      "level": "must",
+      "statement": "Use Root getPageHref for URL-backed pages so controls are real anchors and native reload, sharing, history, and modified clicks continue to work."
+    },
+    {
+      "id": "pagination-responsive",
+      "level": "must",
+      "statement": "Keep generated pages in a bounded inline row with List, or compose a compact summary and controls without hiding current-page meaning."
+    },
+    {
+      "id": "pagination-boundary-treatment",
+      "level": "must",
+      "statement": "Use variant, selectedVariant, tone, size and radius for shared Button presentation; use Surface for container paint. Individual part overrides win over Root defaults."
+    },
+    {
+      "id": "pagination-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus pagination.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Rendering URL-backed pages as buttons, composing anchors while Root remains in button mode, or using Pagination for previous/next documentation guides.",
+      "correction": "Select link mode with Root getPageHref; use ordinary guide navigation links when page numbers do not carry meaning."
+    },
+    {
+      "mistake": "Allowing controls to wrap into an unreadable grid or leaving boundary anchors live.",
+      "correction": "Keep the list in its owned inline overflow and verify boundary links have no href and leave sequential focus."
+    },
+    {
+      "mistake": "Styling only the current-page background or using retired pagination container tokens.",
+      "correction": "Use selectedVariant and tone for complete interaction colors; compose Surface when a surrounding surface is required."
+    }
+  ],
+  "validation": [
+    "Check first, middle, last, current, disabled, ellipsis, long labels, narrow widths, focus, touch targets, and RTL.",
+    "For URL mode, confirm real href values, reload, share, Back/Forward, Cmd/Ctrl-click, and inert boundary links.",
+    "Confirm CSS is loaded.",
+    "Check count/page-size transitions, controller isolation, custom render hosts, attached seams, responsive sizes, localized numbers and PageText formats."
+  ],
+  "related": [
+    "breadcrumb",
+    "link",
+    "button"
+  ]
+}

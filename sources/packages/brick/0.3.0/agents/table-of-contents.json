@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "table-of-contents",
+  "name": "TableOfContents",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Finished same-document navigation with current-section feedback and optional logical line indicator.",
+  "useWhen": [
+    "A long document needs a live, explicitly authored section outline."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Destinations navigate routes.",
+      "useInstead": "NavList"
+    },
+    {
+      "condition": "Items switch content panels.",
+      "useInstead": "Tabs"
+    }
+  ],
+  "composition": [
+    "Compose Root > Nav > Title and List > Item > Link. Indicator is a sibling of List inside Nav. RootProvider shares a useTableOfContents controller without adding a DOM host."
+  ],
+  "rules": [
+    {
+      "id": "toc-state",
+      "level": "must",
+      "statement": "Let Atom's controller own tracking, activation, focus and history; never add consumer scroll listeners to repair current state."
+    },
+    {
+      "id": "toc-content",
+      "level": "must",
+      "statement": "Supply stable unique IDs and heading depths; author localized labels as children. Keep parsing, page layout, sticky offsets and responsive visibility application-owned."
+    },
+    {
+      "id": "toc-anatomy",
+      "level": "must",
+      "statement": "Give Nav a Title or explicit accessible name. Keep nested Lists inside Item and Indicator outside List. Keep native anchors and one aria-current location per Nav."
+    },
+    {
+      "id": "toc-style",
+      "level": "must",
+      "statement": "Use responsive sm/md size and plain/line variant with scalar neutral/accent tone. Sparse breakpoint objects inherit sm/plain defaults. Load styles.css or core.css plus table-of-contents.css. Do not add focus gutters or override component geometry in playground CSS."
+    },
+    {
+      "id": "toc-roots",
+      "level": "must",
+      "statement": "Distinguish the article scroll element from Nav's optional bounded rail viewport. Use managed navigation for scoped scrolling, refresh after external layout changes, and preserve controlled activeId authority."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using Tabs, multiple current links, a second observer or a sticky page-specific component recipe.",
+      "correction": "Use TableOfContents behavior and compose page layout outside it."
+    }
+  ],
+  "validation": [
+    "Check current state after clicks and scrolling, final sections, history, keyboard focus, independent rail scrolling, light/dark, RTL, long labels and reduced motion."
+  ],
+  "related": [
+    "nav-list",
+    "link",
+    "list",
+    "scroll-area",
+    "collapsible"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "qr-code",
+  "name": "QrCode",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Encode text locally into a named SVG QR graphic with controlled state and explicit image export.",
+  "useWhen": [
+    "Text or a link needs a locally generated scannable graphic."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Scanning, session expiry or authentication is required.",
+      "useInstead": "Application services and camera/scanner integration"
+    }
+  ],
+  "composition": [
+    "Compose Root, named Frame and Pattern; optional Overlay and DownloadTrigger remain under the same controller. RootProvider accepts useQrCode. Provide an ordinary link or text alternative."
+  ],
+  "rules": [
+    {
+      "id": "qr-composition",
+      "level": "must",
+      "statement": "Preserve compatible asChild hosts, scoped id/ids and React ref cleanup. Frame resolves to svg and Pattern to path. useQrCodeDownload supplies the QR producer to the existing download owner, not a second file-delivery lifecycle."
+    },
+    {
+      "id": "qr-payload",
+      "level": "must",
+      "statement": "Preserve the accepted string; encoding does not validate, fetch or encrypt it. Do not expose secrets through generated labels or logging."
+    },
+    {
+      "id": "qr-scan",
+      "level": "must",
+      "statement": "Keep the four-module quiet zone and verify actual decoding after changing size, colors, inversion or logos. ECC percentages do not guarantee safe logo coverage."
+    },
+    {
+      "id": "qr-export",
+      "level": "must",
+      "statement": "Use the QR DownloadTrigger for lazy snapshot export. Unsupported overlays require exportSrc or explicit includeOverlay=false. Handle onDownloadError; initiated is not saved."
+    },
+    {
+      "id": "qr-state",
+      "level": "must",
+      "statement": "Use result/error from the public controller; do not retain a stale code when encoding fails. Loading, expired and scanned status are application-owned."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using the QR as the only way to access content or assuming arbitrary HTML logos export.",
+      "correction": "Supply an accessible alternative and a supported image/SVG or explicit exportSrc."
+    }
+  ],
+  "validation": [
+    "Verify exact decoding, SSR, controlled refusal, errors, refs, all encoding options, independent exports, CORS and cancellation."
+  ],
+  "related": [
+    "download-trigger",
+    "clipboard",
+    "image"
+  ]
+}

@@ -1,0 +1,66 @@
+# Data Grid agent guide
+
+## Purpose
+
+Present flat interactive tabular data with Atom-owned active-cell navigation and optional row selection while applications own data, sorting, filtering, and pagination.
+
+## Use when
+
+- People must navigate tabular cells with arrow keys, select rows, or activate sortable column headers.
+
+## Choose something else when
+
+- People only need to read and compare static row-and-column data. Use Table.
+- The content is a visual card collection or ordinary two-dimensional page layout. Use Grid, List, or Card composition.
+- The application needs a built-in schema, persistence, aggregation or enterprise processing engine. Use An application-owned engine composed with DataGrid or a dedicated enterprise grid.
+
+## Required composition
+
+- Compose explicit Container when wide content needs horizontal overflow, then Root with optional ColumnGroup and Column sizing hints before Caption or another stable accessible name, Header, Body, optional Footer, indexed Rows, indexed ColumnHeaders, and Cells.
+- Keep all row and column indexes one-based and provide truthful logical rowCount and columnCount, including when only one page or window is rendered.
+- Place external Toolbar, filtering controls, result count, and Pagination around the grid; Data Grid never creates or executes those systems.
+- For application-controlled sorting, give the ColumnHeader onAction, update the data and sortDirection outside Data Grid, and keep SortIndicator decorative.
+- Choose surface, border tone, optional column borders, layout, striping, sticky header, and cell alignment independently; state paint must remain stronger than stripe paint.
+
+## Rules
+
+- **MUST:** Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers.
+- **MUST:** Choose Data Grid only when composite keyboard navigation, row selection, or sortable-header activation has real value; use Table for static comparison.
+- **MUST:** Provide one stable accessible name, one-based row and column indexes, and truthful logical counts for the complete represented data set.
+- **MUST:** Keep data transformation, filtering, sorting direction changes, fetching, caching, URL state, pagination, stale-request cancellation, and persistence in the application.
+- **MUST:** Compose surrounding filters and Pagination outside Root. Use Cell interactive for named child controls: Enter/F2 enters; child arrows remain native; Escape returns. Validation, save/cancel and persistence remain application-owned. Set disabled/readOnly on authored controls as needed; grid state does not rewrite their business state.
+- **MUST:** Author DataGrid.Container explicitly when honest columns need horizontal overflow; Root never inserts containment and narrow layouts must preserve the tabular relationships.
+- **MUST:** Let the outline Root own its border, radius, and exposed cell corners; do not add a second framed or clipping wrapper to repair the outline recipe.
+- **MUST:** Use stable row IDs as selection values, keep active cell and row selection as independent states, and do not derive identity from the current visual index.
+- **MUST:** Give an actionable sortable ColumnHeader pointer and Enter parity, expose sortDirection only on the active sorted header, and treat SortIndicator as decorative.
+- **MUST:** If an application windows rows, preserve full logical one-based indexes and totals and keep the active cell mounted or move active state before it leaves the DOM; geometry utilities do not own grid semantics or focus.
+- **MUST:** Load styles.css or core.css plus data-grid.css.
+- **MUST:** Keep selected paint above hover, hover above stripes, and sticky headers opaque; do not use stripe or transparent surface choices to obscure interactive state.
+- **MUST:** Treat Column.htmlWidth as a native CSS-pixel number or percentage sizing hint only; do not pass CSS-unit values, and never use it to define logical indexes, columnCount, navigation, measurement, or resizing behavior.
+- **MUST:** Use responsive size/density/variant, neutral/accent selection tone, RowHeader for row names, and logical sticky cells with explicit offsets. ColumnResizeHandle owns bounded pointer/keyboard width interaction; apply its value to Column.htmlWidth. Virtualization, sorting/filtering and pagination remain optional application/engine compositions, not Brick runtime dependencies.
+
+## Common mistakes
+
+- **Avoid:** Using Data Grid because a static table has many rows. **Instead:** Use Table until arrow-key cell navigation, row selection, or sortable-header activation is a genuine task requirement.
+- **Avoid:** Putting search, filters, pagination, fetches, and data mutation inside Data Grid. **Instead:** Compose those application-owned systems around the public Data Grid anatomy.
+- **Avoid:** Adding independent page Tab stops to every grid cell. **Instead:** Use interactive Cell for managed entry/exit; author interactive ColumnHeader controls with tabIndex=-1. Use Table when every control should be in the normal Tab sequence.
+- **Avoid:** Using zero-based or page-local indexes while claiming a larger logical set. **Instead:** Pass one-based logical indexes and truthful counts so active-descendant announcements remain coherent.
+- **Avoid:** Wrapping an outline Data Grid in another bordered or rounded clipping surface to hide sharp cell corners. **Instead:** Keep Container responsible only for overflow and let the outline Root own one complete rounded boundary.
+
+## Validation checklist
+
+- Inspect the accessible name, roles, one-based indexes, logical counts, active descendant, selection metadata, disabled/read-only states, and sort direction.
+- Test one Tab entry, arrows, Home and End, PageUp and PageDown, Ctrl or Meta plus Home and End, RTL mapping, disabled skipping, and pointer or Enter sortable-header parity.
+- Verify stable selection IDs and focus after application sorting, filtering, page changes, or reordered data.
+- Check explicit Container overflow, complete outline corners with and without Header or Footer, 320 CSS pixels, 200% text, 400% zoom, long content, dark appearance, forced colors, and no page-level horizontal overflow.
+- Verify interactive cell entry/exit, range/select-all mounted scope, resize bounds/cancel/RTL, responsive recipes and active-descendant mounting in windowed compositions.
+
+## Related guidance
+
+- `@flowstack-ui/atom/agents/data-grid`
+- `table`
+- `tree-grid`
+- `toolbar`
+- `pagination`
+- `badge`
+- `scroll-area`

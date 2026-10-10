@@ -1,0 +1,74 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "qr-code",
+  "name": "QrCode",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present a locally generated QR graphic with safe scanning defaults, logo composition and consistent download actions.",
+  "useWhen": [
+    "Sharing text or a destination with another device through a QR graphic."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The application needs camera scanning, expiry or authentication.",
+      "useInstead": "Application services; QrCode only presents the accepted value"
+    }
+  ],
+  "composition": [
+    "Use Root and named Frame, optionally Pattern, Overlay and DownloadTrigger. Compose a normal Link or Clipboard alternative. Use RootProvider with useQrCode for external controls."
+  ],
+  "rules": [
+    {
+      "id": "qr-code-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract on QrCode.DownloadTrigger only; it does not change QR matrix or logo geometry."
+    },
+    {
+      "id": "qr-geometry",
+      "level": "must",
+      "statement": "Keep the code square and retain its four-module quiet zone. Frame/layout owns parent constraints; Root size controls the QR, DownloadTrigger size controls the Button and exportSize controls image output."
+    },
+    {
+      "id": "qr-paint",
+      "level": "must",
+      "statement": "Preserve the light scanning backing in dark mode. Custom fill, background, inversion, small sizes and logos require independent decoding and physical scan checks."
+    },
+    {
+      "id": "qr-export",
+      "level": "must",
+      "statement": "Handle export errors. Supply exportSrc for arbitrary overlay content or explicitly omit its export. Never assume CORS assets or browser saving will succeed."
+    },
+    {
+      "id": "qr-ownership",
+      "level": "must",
+      "statement": "Keep application session states and translations outside QrCode. Do not replace Atom encoding or DownloadTrigger lifecycle with application handlers."
+    },
+    {
+      "id": "qr-responsive-composition",
+      "level": "must",
+      "statement": "Use Root responsive size and PropsProvider for graphic defaults. asChild must retain compatible SVG/path hosts and forwarded refs. unstyled affects graphic recipes, not the independently styled DownloadTrigger."
+    },
+    {
+      "id": "qr-actions",
+      "level": "must",
+      "statement": "Use DownloadTrigger shared Button recipes or iconOnly with aria-label. ButtonGroup defaults apply; action size and exportSize are independent. Author overlay size/padding/radius variables on Root or Overlay, within the one-third containment limit."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using inherited accent/appearance paint or rounding the QR pattern itself.",
+      "correction": "Keep the scanning media pair independent; apply theme radius only to logo backing or surrounding Surface."
+    }
+  ],
+  "validation": [
+    "Verify named square graphics, all sizes, narrow and RTL geometry, light/dark paint, one-third-width square logo containment, inherited text contrast, exact independent decoding and downloaded bytes."
+  ],
+  "related": [
+    "download-trigger",
+    "frame",
+    "image",
+    "link",
+    "spinner"
+  ]
+}

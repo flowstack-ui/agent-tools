@@ -1,0 +1,39 @@
+# Brick contract compatibility
+
+Source: @flowstack-ui/theme@0.2.0
+Kind: operation
+ID: brick-contract-compatibility
+Guide: [theme-system](/packages/theme/0.2.0/guides/theme-system.txt)
+
+## Covered public surfaces
+
+- `.#BRICK_THEME_CONTRACT_SCHEMA`
+- `.#BRICK_THEME_CONTRACT_SCHEMA_V2`
+- `.#BrickAtomicColorFamily`
+- `.#BrickComponentThemeAssignment`
+- `.#BrickComponentThemeInput`
+- `.#BrickContractToken`
+- `.#BrickContrastCondition`
+- `.#BrickContrastContract`
+- `.#BrickContrastKind`
+- `.#BrickContrastPair`
+- `.#BrickThemeContract`
+- `.#BrickTokenClassification`
+- `.#BrickTokenDeprecation`
+- `.#BrickValueConstraints`
+- `.#assertBrickThemeContract`
+- `.#loadBrickThemeContract`
+- `./schema#BRICK_THEME_CONTRACT_SCHEMA`
+- `./schema#BRICK_THEME_CONTRACT_SCHEMA_V2`
+- `./schema#BrickAtomicColorFamily`
+- `./schema#BrickComponentThemeAssignment`
+- `./schema#BrickComponentThemeInput`
+- `./schema#BrickContractToken`
+- `./schema#BrickContrastCondition`
+- `./schema#BrickContrastContract`
+- `./schema#BrickContrastKind`
+- `./schema#BrickContrastPair`
+- `./schema#BrickThemeContract`
+- `./schema#BrickTokenClassification`
+- `./schema#BrickTokenDeprecation`
+- `./schema#BrickValueConstraints`

@@ -1,0 +1,64 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "download-trigger",
+  "name": "DownloadTrigger",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present an Atom-backed generated-file download as a finished Button.",
+  "useWhen": [
+    "A user downloads application-generated text or binary data."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A downloadable resource already has a URL.",
+      "useInstead": "Link with native download"
+    }
+  ],
+  "composition": [
+    "Supply data, fileName, mimeType for string data and visible children. Lazy producers receive AbortSignal. Use normal Button size, tone, variant and startIcon/endIcon props. FormatByte can describe a known file size separately.",
+    "DownloadTrigger renders the real Button or, with iconOnly and required aria-label, IconButton. Shared loading presentation uses automatic preparation state. ButtonGroup defaults apply; explicit props win. Do not nest interactive controls.",
+    "useDownload returns state, loading, download(ownerDocument?) and cancel for custom actions. Call only from activation; pass the activated control's ownerDocument for iframes and bind loading to the action."
+  ],
+  "rules": [
+    {
+      "id": "download-trigger-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers."
+    },
+    {
+      "id": "download-owner",
+      "level": "must",
+      "statement": "Keep transport, serializers, authentication and translated error messages in the application. A data string is literal file content, never a URL."
+    },
+    {
+      "id": "download-status",
+      "level": "must",
+      "statement": "Handle onDownloadError. onDownloadInitiated means browser handoff, not a completed save."
+    },
+    {
+      "id": "download-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus download-trigger.css, which includes Button styles. Do not duplicate Button geometry."
+    },
+    {
+      "id": "download-trigger-focus-presentation",
+      "level": "must",
+      "statement": "Support scalar focusRing=\"outside\" | \"inside\"; omission stays outside. Inside uses paired foreground and canonical negative-width offset without changing Atom behavior."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Replacing every existing download link with generated-file JavaScript.",
+      "correction": "Use this owner only for generated data; keep native links and server streaming for existing/large files."
+    }
+  ],
+  "validation": [
+    "Verify exact bytes and filename, asynchronous pending/error recovery, cancellation, labels, icon/size parity, loading, keyboard and browser restrictions."
+  ],
+  "related": [
+    "button",
+    "link",
+    "format-byte"
+  ]
+}

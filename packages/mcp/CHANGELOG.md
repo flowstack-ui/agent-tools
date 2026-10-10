@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.7
+
+- Resolve the exact Atom `0.27.3`, Brick `0.3.0`, Colors `0.1.1` and Theme
+  `0.2.0` archive corpus through the existing read-only tools.
+- Preserve zero-failure owner coverage and the public-only source boundary.
+
 ## 0.1.6
 
 - Refresh locked exact-version resolution to Atom `0.26.0` and Brick `0.2.0`

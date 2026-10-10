@@ -1,0 +1,57 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "format-number",
+  "name": "Format Number",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Render or return locale-aware numeric text through one cached platform formatter path.",
+  "useWhen": [
+    "A number, price, percentage, compact count, or measurement must follow an inherited or explicit locale."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The value is a date, product message, or pluralized sentence.",
+      "useInstead": "The application's date or message formatter"
+    }
+  ],
+  "composition": [
+    "Place FormatNumber inside Text or a semantic content owner when typography or surrounding meaning is required."
+  ],
+  "rules": [
+    {
+      "id": "format-number-locale",
+      "level": "must",
+      "statement": "Prefer LocaleProvider inheritance and pass locale only for an intentional local override."
+    },
+    {
+      "id": "format-number-options",
+      "level": "must",
+      "statement": "Use formatOptions rather than manually concatenating symbols or suffixes."
+    },
+    {
+      "id": "format-number-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus format-number.css."
+    },
+    {
+      "id": "number-native-values",
+      "level": "must",
+      "statement": "Native Intl handles NaN, infinities and option errors. The shared formatter cache is bounded at 100 entries. The pure helper defaults to en-US rather than reading React context."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Formatting module-level strings before the user's locale is known.",
+      "correction": "Keep numeric data numeric and format at the rendering boundary."
+    }
+  ],
+  "validation": [
+    "Verify currency, percent, unit, compact notation, locale override, provider inheritance, native props, and SSR output."
+  ],
+  "related": [
+    "locale-provider",
+    "format-byte",
+    "text"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "overlay-manager",
+  "name": "OverlayManager",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Host authored Brick overlays by stable ID and await typed results separately from completed exits.",
+  "useWhen": [
+    "Multiple application locations need to open, update or await an overlay instance."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A single local disclosure is sufficient.",
+      "useInstead": "dialog"
+    }
+  ],
+  "composition": [
+    "Create one manager with createOverlay and mount its Viewport below application providers. Forward manager-owned open, onOpenChange and onExitComplete to the authored overlay Root."
+  ],
+  "rules": [
+    {
+      "id": "overlay-manager-owned-lifecycle",
+      "level": "must",
+      "statement": "Keep lifecycle fields out of authored props. Await open for a result and close or waitForExit for completed exit."
+    },
+    {
+      "id": "overlay-manager-host",
+      "level": "must",
+      "statement": "Mount exactly one Viewport before opening; use request-scoped managers in SSR applications."
+    },
+    {
+      "id": "overlay-manager-css",
+      "level": "must",
+      "statement": "The manager is CSS-free. Load the styles required by the actual Dialog, Drawer, ActionBar or FloatingPanel composition."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a timer in the manager to guess animation completion.",
+      "correction": "Forward onExitComplete to the overlay behavior owner."
+    },
+    {
+      "mistake": "Treating get/getSnapshot as reactive hooks.",
+      "correction": "Use application state for reactive displays. A never-committed overlay closes without visual exit; committed overlays still report exit completion."
+    }
+  ],
+  "validation": [
+    "Verify result/exit ordering, removal, host disposal, updates, same-ID reopening, focus restoration and provider inheritance."
+  ],
+  "related": [
+    "dialog",
+    "drawer",
+    "action-bar",
+    "floating-panel"
+  ]
+}

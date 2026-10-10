@@ -1,0 +1,31 @@
+# @flowstack-ui/theme@0.2.0
+
+Archive SHA-256: `fc59e4fbc660c0761d1b1d0738e953503978ab00a263d28b1834ad56e2ef4d17`
+Coverage: 125/125 public surfaces; zero failures.
+
+## document
+
+- [agent-knowledge](/packages/theme/0.2.0/docs/agent-knowledge.txt)
+- [appearances-and-portals](/packages/theme/0.2.0/docs/appearances-and-portals.txt)
+- [architecture](/packages/theme/0.2.0/docs/architecture.txt)
+- [authoring](/packages/theme/0.2.0/docs/authoring.txt)
+- [colors-interchange](/packages/theme/0.2.0/docs/colors-interchange.txt)
+- [fonts](/packages/theme/0.2.0/docs/fonts.txt)
+- [installation](/packages/theme/0.2.0/docs/installation.txt)
+- [migration](/packages/theme/0.2.0/docs/migration.txt)
+- [testing](/packages/theme/0.2.0/docs/testing.txt)
+- [troubleshooting](/packages/theme/0.2.0/docs/troubleshooting.txt)
+
+## guide
+
+- [FLOWSTACK Theme system](/packages/theme/0.2.0/guides/theme-system.txt)
+
+## operation
+
+- [Brick contract compatibility](/packages/theme/0.2.0/operations/brick-contract-compatibility.txt)
+- [Colors interchange](/packages/theme/0.2.0/operations/colors-interchange.txt)
+- [Theme artifacts](/packages/theme/0.2.0/operations/theme-artifacts.txt)
+- [Theme CLI](/packages/theme/0.2.0/operations/theme-cli.txt)
+- [Theme compilation](/packages/theme/0.2.0/operations/theme-compilation.txt)
+- [Theme definition](/packages/theme/0.2.0/operations/theme-definition.txt)
+- [Theme validation](/packages/theme/0.2.0/operations/theme-validation.txt)

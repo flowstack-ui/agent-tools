@@ -1,0 +1,63 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "checkmark",
+  "name": "Checkmark",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Show passive checked, unchecked, or indeterminate visual state without creating selection behavior.",
+  "useWhen": [
+    "A card, plan, summary, or existing interaction owner needs a theme-aware visual check mark."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The mark itself must be focusable, toggleable, or submit a form value.",
+      "useInstead": "Checkbox or Checkbox Group"
+    }
+  ],
+  "composition": [
+    "Pair Checkmark with visible text or place it inside a parent that already exposes the state accessibly.",
+    "Choose solid, outline, subtle, soft, plain or inverted with responsive size and variant. Subtle and soft use muted paint in all states; inverted is transparent unless filled. Plain stays unboxed. Sizes xs/sm/md/lg are 12/16/20/24px."
+  ],
+  "rules": [
+    {
+      "id": "checkmark-passive",
+      "level": "must",
+      "statement": "Keep Checkmark passive and aria-hidden; the parent control or text owns semantics."
+    },
+    {
+      "id": "checkmark-state",
+      "level": "must",
+      "statement": "Use checked or indeterminate only to mirror state owned elsewhere."
+    },
+    {
+      "id": "checkmark-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus checkmark.css."
+    },
+    {
+      "id": "checkmark-recipes",
+      "level": "must",
+      "statement": "Use responsive sizes and variants. Subtle and soft paint a muted box in every state; plain is unboxed, inverted is transparent unless filled, and boxed md/lg use 2px inset. invalid is visual only; disabled adds one fade and a disabled cursor."
+    },
+    {
+      "id": "checkmark-palette",
+      "level": "should",
+      "statement": "Keep semantic tone props; for a qualified category palette use the documented --brick-checkmark-solid, --brick-checkmark-on-solid, --brick-checkmark-soft and --brick-checkmark-text tokens together and verify both appearances. Do not attach interaction to the mark."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Attaching click behavior to Checkmark.",
+      "correction": "Use Checkbox or an existing parent control and render Checkmark only as its visual."
+    }
+  ],
+  "validation": [
+    "Verify square geometry, all states, sizes, tones, variants, dark mode, forced colors, and absence of focus or role."
+  ],
+  "related": [
+    "checkbox",
+    "checkbox-group",
+    "icon"
+  ]
+}

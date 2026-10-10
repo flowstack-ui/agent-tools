@@ -1,0 +1,68 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "locale-provider",
+  "name": "Locale Provider",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Supply an inherited locale, logical direction, and overridable Brick-authored interface text without becoming the application translation runtime.",
+  "useWhen": [
+    "A Brick subtree needs shared number formatting, logical direction, or localized component-owned labels."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Product copy, pluralization, routing, or message loading needs translation.",
+      "useInstead": "The application's i18n system"
+    }
+  ],
+  "composition": [
+    "Mount once near the application or route root and keep translated Block content in application-owned data."
+  ],
+  "rules": [
+    {
+      "id": "locale-date-labels",
+      "level": "must",
+      "statement": "Translate showPassword, hidePassword, chooseDate, clearDate, invalidDate, startDate and endDate through localeText when needed; setting locale alone does not translate generic accessibility copy. Explicit component label props take precedence."
+    },
+    {
+      "id": "locale-root",
+      "level": "must",
+      "statement": "Mount LocaleProvider at an application boundary rather than inside each Block."
+    },
+    {
+      "id": "locale-copy",
+      "level": "must",
+      "statement": "Use localeText only for generic Brick-authored accessibility labels; keep product copy in the application message catalog."
+    },
+    {
+      "id": "locale-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus locale-provider.css."
+    },
+    {
+      "id": "locale-filter",
+      "level": "must",
+      "statement": "useFilter inherits locale unless explicitly overridden and forwards Intl.CollatorOptions to Atom. It returns contains, startsWith and endsWith, not application ranking or translation. Set native lang/dir on an existing host; the provider renders no DOM."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Shipping translations inside a reusable Block.",
+      "correction": "Expose replaceable content and let the application select translated messages."
+    }
+  ],
+  "validation": [
+    "Verify locale inheritance, RTL direction, explicit component-label precedence, nested providers, and deterministic server output."
+  ],
+  "related": [
+    "format-number",
+    "format-byte",
+    "text",
+    "progress",
+    "toast",
+    "calendar",
+    "date-input",
+    "date-picker",
+    "password-toggle-field"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "alert",
+  "name": "Alert",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Present persistent inline feedback with status indicators and semantic visual recipes.",
+  "useWhen": [
+    "A page needs durable informative, success, warning or error feedback."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A blocking decision needs focus management.",
+      "useInstead": "AlertDialog"
+    },
+    {
+      "condition": "A transient notification needs managed lifetime.",
+      "useInstead": "Toast"
+    }
+  ],
+  "composition": [
+    "Compose Root, optional Indicator, Content, Title and Description; use CloseButton with application state for dismissal."
+  ],
+  "rules": [
+    {
+      "id": "alert-priority",
+      "level": "must",
+      "statement": "Choose role=status or role=alert explicitly for dynamic announcements; status and tone never select announcement priority."
+    },
+    {
+      "id": "alert-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus alert.css; load additional composed component CSS separately."
+    },
+    {
+      "id": "alert-responsive",
+      "level": "must",
+      "statement": "Use responsive size, variant, inline and align for visual changes; status and tone remain scalar. Sparse recipes retain md, soft, false and start defaults."
+    },
+    {
+      "id": "alert-artwork",
+      "level": "must",
+      "statement": "Use Icon or Spinner size=inherit for slot-sized artwork. Use shared radius and accentStart before custom CSS; Content tone=primary is for suitable soft backgrounds, not a substitute for solid contrast pairs."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using error status as an automatic assertive announcement.",
+      "correction": "Select the live role from urgency and avoid duplicate announcements."
+    }
+  ],
+  "validation": [
+    "Check all status/variant pairs, sizes, long content, indicator containment, light/dark, RTL and accessible actions.",
+    "Verify compact line heights, invariant variant geometry, responsive resets, inherited artwork dimensions, logical accent stripe, shared radius and all five part refs."
+  ],
+  "related": [
+    "toast",
+    "alert-dialog",
+    "spinner",
+    "close-button",
+    "field"
+  ]
+}

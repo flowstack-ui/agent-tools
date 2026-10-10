@@ -1,10 +1,15 @@
 # Changelog
 
-## Unreleased
+## 0.1.7
+
+- Refresh the atomic archive corpus to Atom `0.27.3`, Brick `0.3.0`, Colors
+  `0.1.1`, and Theme `0.2.0`, preserving exact digests and closed coverage.
+- Clarify component construction, token ownership, composition and evidence
+  boundaries in the four workflow skills.
 
 - Allow explicitly declared, mutually exclusive owner migrations in curated task
   routes. Forms resolve the exact archive's `otp-field` or `pin-input` owner;
-  missing and ambiguous catalogs still fail. The published source lock is unchanged.
+  missing and ambiguous catalogs still fail without inventing owner aliases.
 
 ## 0.1.6
 

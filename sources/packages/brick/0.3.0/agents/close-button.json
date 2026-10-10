@@ -1,0 +1,69 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "close-button",
+  "name": "CloseButton",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Provide a consistently sized and named X action through IconButton.",
+  "useWhen": [
+    "The user dismisses an overlay, banner or other visible region."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "The action clears input, deletes data or toggles navigation.",
+      "useInstead": "The specific component action or IconButton"
+    }
+  ],
+  "composition": [
+    "Compose inside Dialog.Close, Drawer.Close or Popover.Close using the owner's asChild path. Keep size and contextual accessible name explicit when needed. The default name uses LocaleProvider close text."
+  ],
+  "rules": [
+    {
+      "id": "close-button-disabled-presentation",
+      "level": "must",
+      "statement": "Disabled presentation preserves the selected recipe and fades once to 50%, with a not-allowed cursor on the disabled hit target. Keep read-only separate; do not add an opacity wrapper around an already disabled control. Forced colors uses system disabled colors."
+    },
+    {
+      "id": "close-button-radius",
+      "level": "must",
+      "statement": "Use the shared token-only radius contract only on the public parts listed in docs/guides/radius.md. Omit it to retain the owner default; do not combine it with legacy corner shape or forward it to native elements. Core names and semantic roles are distinct; popup boundaries are independent of their triggers."
+    },
+    {
+      "id": "close-owner",
+      "level": "must",
+      "statement": "Keep dismissal, placement and focus restoration with the existing owner; CloseButton does not close automatically."
+    },
+    {
+      "id": "close-css",
+      "level": "must",
+      "statement": "Load styles.css or core.css plus close-button.css, which includes the IconButton recipe."
+    },
+    {
+      "id": "close-button-focus-presentation",
+      "level": "must",
+      "statement": "Support scalar focusRing=\"outside\" | \"inside\"; omission stays outside. Inside uses paired foreground and canonical negative-width offset without changing Atom behavior."
+    },
+    {
+      "id": "close-button-shared-action-family",
+      "level": "must",
+      "statement": "Button owns shared action recipes; IconButton and CloseButton specialize icon-only presentation. Preserve accessible names, square geometry, group defaults and centered loading; do not add independent paint recipes."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Replacing an overlay's Close behavior with a standalone X.",
+      "correction": "Keep the compound Close owner and compose CloseButton as its visual action."
+    }
+  ],
+  "validation": [
+    "Verify naming, form non-submission, custom icon, size/hover/focus parity, disabled/loading and overlay focus return."
+  ],
+  "related": [
+    "icon-button",
+    "dialog",
+    "drawer",
+    "popover",
+    "locale-provider"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "image",
+  "name": "Image",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Coordinate image loading, fallback visibility, and accessible native image semantics.",
+  "useWhen": [
+    "Media needs a fallback or loading-state composition that stays synchronized with the image."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "A native image is sufficient or a framework optimizer owns a required measured capability.",
+      "useInstead": "a native img or a documented framework adapter"
+    }
+  ],
+  "composition": [
+    "Compose Image.Content and Image.Fallback inside Image.Root; provide meaningful alt text or alt=\"\" for decorative content.",
+    "Keep the native img present in SSR and during loading. Delivery props belong on Content; do not add a detached preload. Fallback defaults to idle/error; loading covers are explicit opt-in. Custom hosts must forward their real img ref.",
+    "Put canonical src and srcSet on Root for SSR-known loading state. Content srcSet overrides Root for compatibility, but Content-only/custom-host metadata cannot inform Root during SSR. Observe exactly one Content host per Root."
+  ],
+  "rules": [
+    {
+      "id": "image-alt",
+      "level": "must",
+      "statement": "Give every Content a correct alt value based on the image's purpose."
+    },
+    {
+      "id": "image-fallback-name",
+      "level": "must",
+      "statement": "Do not let a visual fallback create a duplicate or misleading accessible name."
+    },
+    {
+      "id": "image-error-fallback",
+      "level": "must",
+      "statement": "Author meaningful fallback for informative media: Content is hidden on error, and without fallback the result is empty. Multiple state-specific fallbacks are allowed; loading overlays are opt-in."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using CSS background images for meaningful content or omitting alt because a fallback exists.",
+      "correction": "Use Content with intentional alt text and treat Fallback as loading or error presentation."
+    }
+  ],
+  "validation": [
+    "Verify loaded, loading, error, cached, and source-change states.",
+    "Confirm the accessible name remains correct in every state.",
+    "Verify source removal returns idle, cached broken hosts with empty currentSrc, detached hosts, custom native source mutations and SSR srcSet-only discovery."
+  ],
+  "related": [
+    "avatar",
+    "aspect-ratio"
+  ]
+}

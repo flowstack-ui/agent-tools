@@ -1,0 +1,58 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "radio-card",
+  "name": "RadioCard",
+  "package": "@flowstack-ui/atom",
+  "layer": "atom",
+  "kind": "component",
+  "purpose": "Mutually exclusive rich option selection through native radio inputs and label items.",
+  "useWhen": [
+    "A single-choice group needs rich passive option content."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Options select independently.",
+      "useInstead": "CheckboxCard"
+    }
+  ],
+  "composition": [
+    "Compose a named Root with uniquely valued Items, each containing exactly one HiddenInput, Title and optional Description/Indicator."
+  ],
+  "rules": [
+    {
+      "id": "radio-card-native",
+      "level": "must",
+      "statement": "HiddenInput is the sole input and focus owner. Item is a label. Preserve native label activation and do not add a second selection click handler."
+    },
+    {
+      "id": "radio-card-content",
+      "level": "must",
+      "statement": "Keep Item descendants passive; no nested actions, labels or extra controls. Item ref targets label; HiddenInput ref targets input."
+    },
+    {
+      "id": "radio-card-state",
+      "level": "must",
+      "statement": "Use controlled value/onValueChange or defaultValue. RootProvider accepts useRadioCard controller; controlled owners handle reset."
+    },
+    {
+      "id": "radio-card-keyboard",
+      "level": "must",
+      "statement": "Match scalar orientation to group navigation and preserve RTL, disabled skipping and read-only focus without selection changes."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Using a button as the rich item.",
+      "correction": "Use Item and one accessible native HiddenInput."
+    }
+  ],
+  "validation": [
+    "Verify naming, one notification, forms/reset, keyboard/RTL, disabled/readOnly and refs."
+  ],
+  "related": [
+    "radio-group",
+    "checkbox-card",
+    "fieldset",
+    "form"
+  ]
+}

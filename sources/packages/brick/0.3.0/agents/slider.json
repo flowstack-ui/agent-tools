@@ -1,0 +1,118 @@
+{
+  "schema": "flowstack.agent-component.v1",
+  "id": "slider",
+  "name": "Slider",
+  "package": "@flowstack-ui/brick",
+  "layer": "brick",
+  "kind": "component",
+  "purpose": "Provide a styled approximate numeric single-value or range input while Atom owns state, pointer and keyboard interaction, geometry, focus, accessibility and forms.",
+  "useWhen": [
+    "Direct manipulation of an approximate value or bounded range is more useful than exact text entry."
+  ],
+  "avoidWhen": [
+    {
+      "condition": "Exact entry, a small named choice set, or read-only completion is the real job.",
+      "useInstead": "NumberInput, Select or RadioGroup, or Progress"
+    }
+  ],
+  "composition": [
+    "Prefer Root > Label + Control > Track > Range + Thumb. Control is the single pointer-coordinate owner; legacy Track-owned composition remains compatible.",
+    "Render one indexed Thumb per value or use Thumbs, and give range thumbs distinct explicit names.",
+    "Use MarkerGroup with MarkerIndicator and MarkerLabel, or the Marks shortcut, for decorative scale context."
+  ],
+  "rules": [
+    {
+      "id": "slider-disabled-presentation",
+      "level": "must",
+      "statement": "Disabled controls preserve their recipe and use one 50% fade with a not-allowed cursor. Forced colors restores full opacity and uses system disabled colors."
+    },
+    {
+      "id": "slider-state-owner",
+      "level": "must",
+      "statement": "Use Root or useSlider plus RootProvider as one state owner, never both."
+    },
+    {
+      "id": "slider-approximate-choice",
+      "level": "must",
+      "statement": "Use Slider for approximate direct manipulation and NumberInput for exact entry."
+    },
+    {
+      "id": "slider-change-commit",
+      "level": "must",
+      "statement": "Use onValueChange for live changes and onValueCommit for completion; cancellation restores without commit and lost capture commits once."
+    },
+    {
+      "id": "slider-accessible-name",
+      "level": "must",
+      "statement": "Preserve explicit per-thumb naming; otherwise use Root naming, Slider.Label, or Field fallback in that order."
+    },
+    {
+      "id": "slider-form-owner",
+      "level": "must",
+      "statement": "Choose automatic or explicit hidden-input ownership and submit every thumb exactly once in index order."
+    },
+    {
+      "id": "slider-direction",
+      "level": "must",
+      "statement": "Preserve resolved local LTR/RTL and horizontal/vertical geometry, focus identity, one active pointer, and cross-axis scrolling."
+    },
+    {
+      "id": "slider-origin",
+      "level": "should",
+      "statement": "Use origin for scalar fill origin only; ranges fill between their selected extremes."
+    },
+    {
+      "id": "slider-alignment",
+      "level": "should",
+      "statement": "Contain keeps the visible thumb within the rail; its expanded 44px pointer area and focus ring still need unclipped clearance. Center alignment also permits visible overhang. Do not compensate with track padding or a 44px thumbSize."
+    },
+    {
+      "id": "slider-visible-output",
+      "level": "should",
+      "statement": "Use ValueText for dense or long output, ValueLabel for persistent thumb output, and DraggingIndicator only for drag feedback."
+    },
+    {
+      "id": "slider-markers",
+      "level": "should",
+      "statement": "Treat markers as decorative and keep their indicator and label anatomy distinct."
+    },
+    {
+      "id": "slider-recipes",
+      "level": "should",
+      "statement": "Use responsive size and outline/solid/soft variant; tone selects neutral/accent/contrast while invalid remains state."
+    },
+    {
+      "id": "slider-css",
+      "level": "must",
+      "statement": "Load styles.css, or core.css plus slider.css."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Creating another value state inside a controller integration or rendering automatic and explicit inputs together.",
+      "correction": "Keep one controller and one form-proxy ownership mode."
+    },
+    {
+      "mistake": "Using marker labels or a shared range name when each thumb needs a meaningful identity.",
+      "correction": "Name each thumb explicitly and keep markers decorative."
+    }
+  ],
+  "validation": [
+    "Verify mouse, pen and touch geometry, track click, collision modes, Shift/Page/Home/End, cancellation/lost capture, focus, controlled/reset and disabled/read-only changes.",
+    "Verify accessible names/value text, automatic and explicit forms, external forms, range order, light/dark, nested direction, vertical, responsive, narrow, hidden reveal, endpoints, reduced motion and forced colors."
+  ],
+  "related": [
+    {
+      "kind": "package",
+      "package": "@flowstack-ui/atom",
+      "id": "slider",
+      "versionPolicy": "installed-exact"
+    },
+    "field",
+    "number-input",
+    "select",
+    "progress",
+    "rating",
+    "form"
+  ]
+}
