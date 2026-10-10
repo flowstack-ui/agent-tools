@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.8
+
+- Resolve operation owners through their uniquely declared package guide,
+  preserving exact operation identity and exposing its canonical `guideId`.
+- Fix the privacy filter's false positive on slash-separated Home/End keyboard
+  guidance without removing rooted-path rejection or redaction.
+- Exercise every locked public owner and operation through guidance retrieval
+  and enforce the same complete-owner verification on the hosted endpoint.
+
 ## 0.1.7
 
 - Resolve the exact Atom `0.27.3`, Brick `0.3.0`, Colors `0.1.1` and Theme

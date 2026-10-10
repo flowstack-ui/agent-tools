@@ -105,6 +105,51 @@ test("every hash-locked package guide remains readable as admitted public author
   assert.equal(guideCount, 6);
 });
 
+test("every locked component and operation resolves its canonical guidance and searchable docs", async () => {
+  const repository = await new FlowstackRepository({ sourceLock }).initialize();
+  const tools = new FlowstackTools(repository);
+  let owners = 0;
+  let operations = 0;
+  for (const [packageId, version] of Object.entries({ atom: "0.27.3", brick: "0.3.0", colors: "0.1.1", theme: "0.2.0" })) {
+    const handle = await repository.resolvePackage(packageId, version, "locked");
+    const manifest = await handle.readJson(`${handle.agentRoot}/manifest.json`);
+    for (const owner of [...(manifest.components ?? []), ...(manifest.operations ?? [])]) {
+      const result = await tools.invoke("getComponentGuidance", { package: packageId, version, source: "locked", id: owner.id });
+      assert.notEqual(result.isError, true, `${packageId}/${owner.id}: ${result.content?.[0]?.text}`);
+      const value = structured(result);
+      assert.equal(value.data.id, owner.id);
+      assert.equal(value.provenance.source, "locked-source");
+      assert.ok(value.data.markdown.length > 100);
+      if (owner.guide) {
+        const guide = manifest.guides.find(({ json }) => json === owner.guide);
+        assert.equal(value.data.kind, "operation");
+        assert.equal(value.data.guideId, guide.id);
+        assert.deepEqual(value.data.structured, await handle.readJson(`${handle.agentRoot}/${guide.json.replace(/^\.\//u, "")}`));
+        operations += 1;
+      }
+      owners += 1;
+    }
+    const search = await tools.invoke("searchDocs", { package: packageId, version, source: "locked", query: "FLOWSTACK", limit: 3 });
+    assert.notEqual(search.isError, true, `${packageId} public markdown must resolve operation guide references`);
+    assert.ok(structured(search).data.length > 0);
+  }
+  assert.equal(owners, 231);
+  assert.equal(operations, 13);
+});
+
+test("operation guidance rejects missing and ambiguous declared guide references", async () => {
+  for (const guides of [[], [{ id: "a", json: "./shared.json" }, { id: "b", json: "./shared.json" }]]) {
+    const handle = { name: "@flowstack-ui/theme", version: "0.2.0", agentRoot: "agents",
+      readJson: async (path) => {
+        assert.equal(path, "agents/manifest.json", "invalid references must fail before reading artifacts");
+        return { package: "@flowstack-ui/theme", packageVersion: "0.2.0", guides,
+          operations: [{ id: "theme-compilation", guide: "./shared.json" }] };
+      } };
+    const tools = new FlowstackTools({ resolvePackage: async () => handle });
+    await assert.rejects(tools.getComponentGuidance({ package: "theme", version: "0.2.0", id: "theme-compilation" }), /exactly one declared package guide/u);
+  }
+});
+
 test("structured composition validation never passes absent anatomy and exposes checkable and manual rules", async () => {
   const tools = new FlowstackTools(await new FlowstackRepository({ sourceLock }).initialize());
   const absent = structured(await tools.invoke("validateComposition", { package: "brick", version: "0.3.0", source: "locked", owner: "button", composition: { parts: [], relationships: [], imports: [], styles: ["styles.css", "button.css"] } }));
@@ -151,6 +196,8 @@ test("privacy checks reject and redact machine paths across request, artifact, r
   const paths = [
     "/Users/Alice/Flowstack/private.txt",
     "/HOME/Alice/Flowstack/private.txt",
+    "file:///home/Alice/Flowstack/private.txt",
+    "file:///Users/Alice/Flowstack/private.txt",
     "/private/var/folders/source.json",
     "/var/folders/zz/cache/source.json",
     "/tmp/flowstack/source.json",
@@ -166,6 +213,10 @@ test("privacy checks reject and redact machine paths across request, artifact, r
   assert.doesNotMatch(message, /Alice|\/private\/|\/var\/folders\/|\/tmp\/|[A-Za-z]:\\Users\\/iu);
   assert.match(message, /<local-path>/u);
   assert.doesNotThrow(() => assertPublicRequest({ guidance: "Keep implementation details private." }));
+  const keyboard = { guidance: "Test arrow/Page/Home/End keys and Home/End navigation." };
+  assert.doesNotThrow(() => assertPublicRequest(keyboard));
+  assert.doesNotThrow(() => assertPublicResponse(keyboard));
+  assert.equal(publicErrorMessage(new Error(keyboard.guidance)), keyboard.guidance);
 });
 
 test("exact project-installed fixtures expose declarations without version substitution", async () => {

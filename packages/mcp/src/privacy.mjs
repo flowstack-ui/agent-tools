@@ -2,7 +2,9 @@ import { PRIVATE_MARKERS } from "./constants.mjs";
 
 const PRIVATE_PATH = /(?:^|\/)(?:private|research-memory|creative-intelligence|blueprints?|customer|analytics|prompts?|ranking)(?:\/|$)/iu;
 const PATH_CHARACTERS = `[^\\s"'<>)}\\],;]`;
-const MACHINE_PATH_PATTERN = `(?:/(?:Users|home)/${PATH_CHARACTERS}+(?:/${PATH_CHARACTERS}*)?|/(?:private|tmp)(?:/${PATH_CHARACTERS}*)?|/var/folders(?:/${PATH_CHARACTERS}*)?|[A-Za-z]:(?:\\\\)+Users(?:\\\\)+${PATH_CHARACTERS}+(?:(?:\\\\)+${PATH_CHARACTERS}*)?)`;
+// A rooted path starts at a token boundary, not inside keyboard prose such as
+// "arrow/Page/Home/End". URI punctuation still admits file:///Users/... roots.
+const MACHINE_PATH_PATTERN = `(?<![A-Za-z0-9_])(?:/(?:Users|home)/${PATH_CHARACTERS}+(?:/${PATH_CHARACTERS}*)?|/(?:private|tmp)(?:/${PATH_CHARACTERS}*)?|/var/folders(?:/${PATH_CHARACTERS}*)?|[A-Za-z]:(?:\\\\)+Users(?:\\\\)+${PATH_CHARACTERS}+(?:(?:\\\\)+${PATH_CHARACTERS}*)?)`;
 const SECRET_PATH = /(?:^|\/)(?:\.env(?:\.[^/]*)?|secrets?|private[-_.]?key|api[-_.]?key|access[-_.]?token|client[-_.]?secret)(?:\/|$)/iu;
 const SECRET = /(?:api[_-]?key|access[_-]?token|client[_-]?secret|private[_-]?key)\s*[:=]\s*["']?[A-Za-z0-9_./+-]{12,}/iu;
 

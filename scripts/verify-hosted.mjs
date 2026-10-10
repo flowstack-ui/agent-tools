@@ -102,6 +102,7 @@ const transport = new StreamableHTTPClientTransport(new URL("/mcp", origin), { f
   return response;
 } });
 const client = new Client({ name: "flowstack-host-verifier", version: "1.0.0" }, { versionNegotiation: { mode: "auto", probe: { timeoutMs: 5000 } } });
+let guidanceOwners = 0;
 try {
   await client.connect(transport);
   assert.equal(client.getNegotiatedProtocolVersion(), "2026-07-28", "hosted MCP did not negotiate the current protocol");
@@ -115,9 +116,31 @@ try {
   assert.equal(value.data.length, index.packages.length, "hosted MCP package count differs from the delivery index");
   assert.ok(value.data.every(({ source, provenance }) => source === "locked-source" && provenance.source === "locked-source"), "hosted MCP escaped locked-only source policy");
   assert.deepEqual(value.data.map(({ name, version }) => ({ name, version })).sort((a, b) => a.name.localeCompare(b.name)), index.packages.map(({ name, version }) => ({ name, version })).sort((a, b) => a.name.localeCompare(b.name)), "hosted MCP package identities differ from the delivery index");
+  for (const pkg of value.data) {
+    const inventoryResult = await client.callTool({ name: "list_components", arguments: { package: pkg.id, version: pkg.version, source: "locked" } });
+    assert.notEqual(inventoryResult.isError, true, `${pkg.id} owner inventory failed`);
+    const inventory = inventoryResult.structuredContent ?? JSON.parse(inventoryResult.content.find(({ type }) => type === "text").text);
+    assert.deepEqual(inventory.coverage.failures, [], `${pkg.id} coverage failed`);
+    assert.equal(inventory.data.length, inventory.coverage.summary.componentOwners + (inventory.coverage.summary.operationOwners ?? 0), `${pkg.id} owner inventory is incomplete`);
+    for (let offset = 0; offset < inventory.data.length; offset += 8) {
+      await Promise.all(inventory.data.slice(offset, offset + 8).map(async (owner) => {
+        const result = await client.callTool({ name: "get_component_guidance", arguments: { package: pkg.id, version: pkg.version, source: "locked", id: owner.id } });
+        assert.notEqual(result.isError, true, `${pkg.id}/${owner.id} hosted guidance failed`);
+        const guidance = result.structuredContent ?? JSON.parse(result.content.find(({ type }) => type === "text").text);
+        assert.equal(guidance.package, pkg.name);
+        assert.equal(guidance.version, pkg.version);
+        assert.equal(guidance.provenance.source, "locked-source");
+        assert.equal(guidance.data.id, owner.id);
+        assert.equal(guidance.data.kind, owner.kind);
+        assert.ok(guidance.data.markdown.length > 0);
+        if (owner.kind === "operation") assert.equal(typeof guidance.data.guideId, "string");
+        guidanceOwners += 1;
+      }));
+    }
+  }
   assert.ok(checkedResponses.every((response) => response.headers.get("cache-control") === "no-store" && !response.headers.has("set-cookie") && !response.headers.has("mcp-session-id")), "official MCP exchange violated stateless no-store policy");
 } finally {
   await client.close();
 }
 
-console.log(`Verified ${expected.length} hosted Agent Knowledge routes and locked-only 11-tool MCP at ${origin.origin}.`);
+console.log(`Verified ${expected.length} hosted Agent Knowledge routes, ${guidanceOwners} owner guides and locked-only 11-tool MCP at ${origin.origin}.`);

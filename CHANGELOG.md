@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.8
+
+- Qualify guidance for every one of the 231 public component and operation
+  owners through MCP, including Colors and Theme shared package-guide bindings.
+- Preserve keyboard Home/End guidance without misclassifying it as a rooted
+  machine path; actual machine paths remain rejected and redacted.
+- Retain the exact Atom `0.27.3`, Brick `0.3.0`, Colors `0.1.1` and Theme
+  `0.2.0` archive corpus and the four workflow skills.
+
 ## 0.1.7
 
 - Refresh the atomic archive corpus to Atom `0.27.3`, Brick `0.3.0`, Colors
