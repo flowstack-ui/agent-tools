@@ -16,7 +16,12 @@ function envelope(handle, data, extra = {}) {
 function manifestEntries(manifest) {
   return [
     ...(manifest.components ?? []).map((entry) => ({ ...entry, ownerKind: "component" })),
-    ...(manifest.operations ?? []).map((entry) => ({ ...entry, ownerKind: "operation" }))
+    ...(manifest.operations ?? []).map((entry) => {
+      const guides = (manifest.guides ?? []).filter(({ json }) => json === entry.guide);
+      assert.equal(guides.length, 1, `${entry.id} must reference exactly one declared package guide`);
+      const guide = guides[0];
+      return { ...entry, json: guide.json, markdown: guide.markdown, guideId: guide.id, ownerKind: "operation" };
+    })
   ];
 }
 
@@ -282,7 +287,7 @@ export class FlowstackTools {
     const handle = await this.repository.resolvePackage(packageId, version, source);
     const entry = manifestEntries(await manifest(handle)).find(({ id: ownerId }) => ownerId === id);
     assert.ok(entry, `${handle.name}@${version} has no public component, operation, or Block owner ${id}`);
-    return envelope(handle, { id: entry.id, kind: entry.ownerKind, structured: await handle.readJson(artifactPath(handle, entry, "json")), markdown: await handle.readArtifact(artifactPath(handle, entry, "markdown")) });
+    return envelope(handle, { id: entry.id, kind: entry.ownerKind, ...(entry.guideId ? { guideId: entry.guideId } : {}), structured: await handle.readJson(artifactPath(handle, entry, "json")), markdown: await handle.readArtifact(artifactPath(handle, entry, "markdown")) });
   }
 
   async getComponentProps({ package: packageId, version, source = "auto", component }) {
