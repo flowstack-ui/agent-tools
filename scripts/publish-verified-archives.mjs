@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { readFile, readdir } from "node:fs/promises";
 import { basename, join } from "node:path";
+import { waitForRegistryIntegrity } from "./registry-integrity.mjs";
 
 const releaseDirectory = process.env.RELEASE_DIR;
 if (!releaseDirectory) throw new Error("RELEASE_DIR is required");
@@ -19,7 +20,7 @@ for (const release of releases) {
   const archive = join(releaseDirectory, filename);
   const expectedIntegrity = `sha512-${createHash("sha512").update(await readFile(archive)).digest("base64")}`;
   const spec = `${release.name}@${release.version}`;
-  const existing = run("npm", ["view", spec, "dist.integrity", "--json"], { allowFailure: true });
+  const existing = run("npm", ["view", spec, "dist.integrity", "--json", "--prefer-online"], { allowFailure: true });
   if (existing.status === 0) {
     const registryIntegrity = JSON.parse(existing.stdout);
     if (registryIntegrity !== expectedIntegrity) {
@@ -29,16 +30,19 @@ for (const release of releases) {
     continue;
   }
   run("npm", ["publish", archive, "--access", "public", "--provenance"]);
-  let verified = false;
-  for (let attempt = 0; attempt < 6; attempt += 1) {
-    const result = run("npm", ["view", spec, "dist.integrity", "--json"], { allowFailure: true });
-    if (result.status === 0 && JSON.parse(result.stdout) === expectedIntegrity) {
-      verified = true;
-      break;
-    }
-    await new Promise((resolve) => setTimeout(resolve, 5_000));
-  }
-  if (!verified) throw new Error(`${spec} registry integrity did not converge`);
+  await waitForRegistryIntegrity({
+    spec,
+    expectedIntegrity,
+    readIntegrity: () => {
+      const result = run("npm", ["view", spec, "dist.integrity", "--json", "--prefer-online"], { allowFailure: true });
+      return result.status === 0 ? JSON.parse(result.stdout) : null;
+    },
+    onPending: (attempt) => {
+      if (attempt === 1 || attempt % 6 === 0) {
+        console.log(`${spec} publication accepted; waiting for registry integrity (check ${attempt}/60).`);
+      }
+    },
+  });
   console.log(`Published and verified ${spec} from ${basename(archive)}.`);
 }
 
