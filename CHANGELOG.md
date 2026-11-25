@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9
+
+- Update the MCP SDK and validation dependencies and refresh development dependencies and CI actions.
+
 ## 0.1.8
 
 - Qualify guidance for every one of the 231 public component and operation

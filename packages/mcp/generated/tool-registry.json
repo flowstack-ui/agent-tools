@@ -1,7 +1,7 @@
 {
   "schema": "flowstack.mcp-tool-registry.v1",
   "package": "@flowstack-ui/mcp",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "transport": "stdio",
   "tools": [
     {
@@ -1032,19 +1032,11 @@
                         "type": "string"
                       },
                       "additionalProperties": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "boolean"
-                          },
-                          {
-                            "type": "null"
-                          }
+                        "type": [
+                          "string",
+                          "number",
+                          "boolean",
+                          "null"
                         ]
                       }
                     }
