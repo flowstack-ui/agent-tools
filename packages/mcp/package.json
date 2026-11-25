@@ -1,6 +1,6 @@
 {
   "name": "@flowstack-ui/mcp",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Local, exact-version MCP delivery for public FLOWSTACK Agent Knowledge.",
   "type": "module",
   "license": "MIT",
@@ -50,10 +50,10 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "@modelcontextprotocol/server": "2.0.0",
-    "zod": "4.4.3"
+    "@modelcontextprotocol/server": "2.4.0",
+    "zod": "4.6.7"
   },
   "devDependencies": {
-    "@modelcontextprotocol/client": "2.0.0"
+    "@modelcontextprotocol/client": "2.4.0"
   }
 }

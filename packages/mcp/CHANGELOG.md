@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9
+
+- Update the MCP client and server SDK to 2.4.0 and Zod to 4.6.7. Regenerate the tool schemas with the updated validator.
+
 ## 0.1.8
 
 - Resolve operation owners through their uniquely declared package guide,
